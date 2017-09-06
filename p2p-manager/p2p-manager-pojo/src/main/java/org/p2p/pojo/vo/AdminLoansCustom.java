@@ -24,6 +24,8 @@ public class AdminLoansCustom {
 
     private String gettime;
 
+    private Double money;
+
     private Double residue;
 
     private Integer state;
@@ -194,5 +196,13 @@ public class AdminLoansCustom {
 
     public void setRelation(String relation) {
         this.relation = relation;
+    }
+
+    public Double getMoney() {
+        return money;
+    }
+
+    public void setMoney(Double money) {
+        this.money = money;
     }
 }

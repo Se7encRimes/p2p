@@ -42,7 +42,7 @@
 </div>
 <div data-options="region:'center'" style="background:#eee;">
     <div id="tab" class="easyui-tabs" data-options="fit:true">
-        <div title="欢迎页面" style="padding:20px;">千锋欢迎你</div>
+        <div title="欢迎页面" style="padding:20px;">P2P-网贷后台管理系统欢迎你</div>
     </div>
 </div>
 <!-- jquery -->

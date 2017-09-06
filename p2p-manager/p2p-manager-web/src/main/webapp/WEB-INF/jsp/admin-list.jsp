@@ -27,11 +27,11 @@
     pageSize: 20,
     multiSort:true,
     columns: [[
-      {field: 'ck', checkbox:true },
-      {field: 'num', title: '用户ID',sortable:true},
-      {field: 'username', title: '姓名',sortable:true},
+//      {field: 'ck', checkbox:true },
+      {field: 'num', title: '用户ID'},
+      {field: 'username', title: '姓名'},
       {field: 'money', title: '申请金额'},
-      {field: 'state', title: '申请状态',formatter:function(value,row,index){
+      {field: 'state', title: '申请状态',sortable:true,formatter:function(value,row,index){
           switch (value){
             case 0:
               return '未审核';
@@ -50,7 +50,7 @@
               break;
           }
       }},
-      {field: 'applydate', title: '申请日期',formatter:function(value,row,index){
+      {field: 'applydate', title: '申请日期',sortable:true,formatter:function(value,row,index){
         return moment(value).format("dddd, MMMM Do YYYY,h:mm:ss a")
       }}
 
