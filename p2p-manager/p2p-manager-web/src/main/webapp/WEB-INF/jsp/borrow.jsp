@@ -196,6 +196,7 @@
               <p><span id="right_today_earn"></span>元</p>
               <span>今日赚取</span>
             </li>
+
             <li style="border-top-right-radius:10px;border-bottom-right-radius:10px;">
               <p><span id="right_total_reward_normal_interest"></span>元</p>
               <span>累计收益</span>
