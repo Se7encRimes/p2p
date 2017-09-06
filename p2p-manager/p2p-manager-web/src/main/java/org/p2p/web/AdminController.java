@@ -21,7 +21,7 @@ public class AdminController {
     @Autowired
     private AdminLoansService service;
 
-    @RequestMapping
+    @RequestMapping("/borrows")
     @ResponseBody
     public Result<AdminLoansCustom> listBorrows(Page page,Order order){
 

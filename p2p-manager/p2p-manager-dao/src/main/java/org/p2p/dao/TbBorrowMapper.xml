@@ -3,6 +3,7 @@
 <mapper namespace="org.p2p.dao.TbBorrowMapper" >
   <resultMap id="BaseResultMap" type="org.p2p.pojo.po.TbBorrow" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="DOUBLE" />
     <result column="carimg" property="carimg" jdbcType="VARCHAR" />
     <result column="carnumber" property="carnumber" jdbcType="VARCHAR" />
     <result column="gettime" property="gettime" jdbcType="VARCHAR" />
@@ -80,8 +81,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, carimg, carnumber, gettime, residue, loansid, state, purpose, returnway, pledgeimg, 
-    applydate, house, bank, social, relation, extends1, extends2, extends3
+    id, money, carimg, carnumber, gettime, residue, loansid, state, purpose, returnway, 
+    pledgeimg, applydate, house, bank, social, relation, extends1, extends2, extends3
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.p2p.pojo.po.TbBorrowExample" >
     select
@@ -114,26 +115,29 @@
     </if>
   </delete>
   <insert id="insert" parameterType="org.p2p.pojo.po.TbBorrow" >
-    insert into tb_borrow (id, carimg, carnumber, 
-      gettime, residue, loansid, 
-      state, purpose, returnway, 
-      pledgeimg, applydate, house, 
-      bank, social, relation, 
-      extends1, extends2, extends3
-      )
-    values (#{id,jdbcType=INTEGER}, #{carimg,jdbcType=VARCHAR}, #{carnumber,jdbcType=VARCHAR}, 
-      #{gettime,jdbcType=VARCHAR}, #{residue,jdbcType=DOUBLE}, #{loansid,jdbcType=INTEGER}, 
-      #{state,jdbcType=INTEGER}, #{purpose,jdbcType=VARCHAR}, #{returnway,jdbcType=VARCHAR}, 
-      #{pledgeimg,jdbcType=VARCHAR}, #{applydate,jdbcType=TIMESTAMP}, #{house,jdbcType=VARCHAR}, 
-      #{bank,jdbcType=VARCHAR}, #{social,jdbcType=VARCHAR}, #{relation,jdbcType=VARCHAR}, 
-      #{extends1,jdbcType=VARCHAR}, #{extends2,jdbcType=VARCHAR}, #{extends3,jdbcType=VARCHAR}
-      )
+    insert into tb_borrow (id, money, carimg, 
+      carnumber, gettime, residue, 
+      loansid, state, purpose, 
+      returnway, pledgeimg, applydate, 
+      house, bank, social, 
+      relation, extends1, extends2, 
+      extends3)
+    values (#{id,jdbcType=INTEGER}, #{money,jdbcType=DOUBLE}, #{carimg,jdbcType=VARCHAR}, 
+      #{carnumber,jdbcType=VARCHAR}, #{gettime,jdbcType=VARCHAR}, #{residue,jdbcType=DOUBLE}, 
+      #{loansid,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{purpose,jdbcType=VARCHAR}, 
+      #{returnway,jdbcType=VARCHAR}, #{pledgeimg,jdbcType=VARCHAR}, #{applydate,jdbcType=TIMESTAMP}, 
+      #{house,jdbcType=VARCHAR}, #{bank,jdbcType=VARCHAR}, #{social,jdbcType=VARCHAR}, 
+      #{relation,jdbcType=VARCHAR}, #{extends1,jdbcType=VARCHAR}, #{extends2,jdbcType=VARCHAR}, 
+      #{extends3,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.p2p.pojo.po.TbBorrow" >
     insert into tb_borrow
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="money != null" >
+        money,
       </if>
       <if test="carimg != null" >
         carimg,
@@ -190,6 +194,9 @@
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DOUBLE},
       </if>
       <if test="carimg != null" >
         #{carimg,jdbcType=VARCHAR},
@@ -256,6 +263,9 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.money != null" >
+        money = #{record.money,jdbcType=DOUBLE},
+      </if>
       <if test="record.carimg != null" >
         carimg = #{record.carimg,jdbcType=VARCHAR},
       </if>
@@ -315,6 +325,7 @@
   <update id="updateByExample" parameterType="map" >
     update tb_borrow
     set id = #{record.id,jdbcType=INTEGER},
+      money = #{record.money,jdbcType=DOUBLE},
       carimg = #{record.carimg,jdbcType=VARCHAR},
       carnumber = #{record.carnumber,jdbcType=VARCHAR},
       gettime = #{record.gettime,jdbcType=VARCHAR},
@@ -339,6 +350,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="org.p2p.pojo.po.TbBorrow" >
     update tb_borrow
     <set >
+      <if test="money != null" >
+        money = #{money,jdbcType=DOUBLE},
+      </if>
       <if test="carimg != null" >
         carimg = #{carimg,jdbcType=VARCHAR},
       </if>
@@ -395,7 +409,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="org.p2p.pojo.po.TbBorrow" >
     update tb_borrow
-    set carimg = #{carimg,jdbcType=VARCHAR},
+    set money = #{money,jdbcType=DOUBLE},
+      carimg = #{carimg,jdbcType=VARCHAR},
       carnumber = #{carnumber,jdbcType=VARCHAR},
       gettime = #{gettime,jdbcType=VARCHAR},
       residue = #{residue,jdbcType=DOUBLE},

@@ -5,6 +5,8 @@ import java.util.Date;
 public class TbBorrow {
     private Integer id;
 
+    private Double money;
+
     private String carimg;
 
     private String carnumber;
@@ -45,6 +47,14 @@ public class TbBorrow {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Double getMoney() {
+        return money;
+    }
+
+    public void setMoney(Double money) {
+        this.money = money;
     }
 
     public String getCarimg() {

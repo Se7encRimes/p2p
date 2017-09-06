@@ -9,6 +9,8 @@ import org.p2p.utlis.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by 吴春杰 on 2017/9/6.
  */
@@ -20,6 +22,11 @@ public class AdminLoansServiceImpl implements AdminLoansService {
 
     @Override
     public Result<AdminLoansCustom> listBorrows(Page page, Order order) {
-        return mapper.listBorrows(page,order);
+        Result<AdminLoansCustom> result = new Result<>();
+        List<AdminLoansCustom> rows = mapper.listBorrows(page,order);
+        long total = mapper.countItems();
+        result.setRows(rows);
+        result.setTotal(total);
+        return result;
     }
 }

@@ -7,7 +7,7 @@
       state,purpose,returnway,pledgeimg,applydate,house,bank,social,relation
     </sql>
 
-    <select id="listItemsByPage" resultType="org.p2p.pojo.vo.AdminLoansCustom" >
+    <select id="listBorrows" resultType="org.p2p.pojo.vo.AdminLoansCustom" >
         select
         <include refid="Base_Column_List" />
         from tb_user u
