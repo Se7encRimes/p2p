@@ -5,35 +5,35 @@ import java.util.Date;
 public class TbBorrow {
     private Integer id;
 
-    private Double money;
+    private Double money;//借款金额？页面提示出利率
 
-    private String carimg;
+    private String carimg;//汽车照片
 
-    private String carnumber;
+    private String carnumber;//车牌号
 
-    private String gettime;
+    private String gettime;//借款时间
 
-    private Double residue;
+    private Double residue;//剩余还款金额  金额*月份*0.2/万分之
 
-    private Integer loansid;
+    private Integer loansid;//借款人的主键 需通过session去查借款人的id
 
-    private Integer state;
+    private Integer state;//0申请时直接将数据库改为0
 
-    private String purpose;
+    private String purpose;//借款用途
 
-    private String returnway;
+    private String returnway;//还款方式  总金额*
 
-    private String pledgeimg;
+    private String pledgeimg;//车子抵押照片
 
-    private Date applydate;
+    private Date applydate;//申请时间
 
-    private String house;
+    private String house;//房产证照片
 
-    private String bank;
+    private String bank;//银行流水照片
 
-    private String social;
+    private String social;//社保照片
 
-    private String relation;
+    private String relation;//家属身份证照片
 
     private String extends1;
 

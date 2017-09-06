@@ -20,7 +20,7 @@
     url: 'borrows',
     //默认是post类型的请求
     method:"get",
-    //toolbar:toolbar,
+    toolbar:toolbar,
     pagination: true,
     rownumbers: true,
     fit: true,
@@ -28,7 +28,7 @@
     multiSort:true,
     columns: [[
       {field: 'ck', checkbox:true },
-      {field: 'num', title: '用户ID',sortable:true},
+      {field: 'id', title: '用户ID',sortable:true},
       {field: 'username', title: '姓名',sortable:true},
       {field: 'money', title: '申请金额'},
       {field: 'state', title: '申请状态',formatter:function(value,row,index){
@@ -50,7 +50,7 @@
               break;
           }
       }},
-      {field: 'applydate', title: '申请日期',formatter:function(value,row,index){
+      {field: 'createdate', title: '申请日期',formatter:function(value,row,index){
         return moment(value).format("dddd, MMMM Do YYYY,h:mm:ss a")
       }}
 
