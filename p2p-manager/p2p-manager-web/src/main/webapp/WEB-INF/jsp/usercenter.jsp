@@ -182,16 +182,16 @@
       <a href="index.html"><img src="statics/newcommon/images/m2-logo.png" title="爱钱帮官网" alt="爱钱帮_logo"></a>
     </div>
     <div class="m2-commonNav">
-      <ul class="m2-commonNavul-fir" data_page='threepage'>
-        <!--  <li class="m2-commonNav-fir"><a href="http://huifu.iqianbang.com" target="_blank" >汇付版本</a></li>-->
-        <li class="m2-commonNav-fir"><a href="index.html" id="onepage">首页</a></li>
-        <li class="m2-commonNav-fir"><a href="touzi_licai_chanpin.html" id="twopage">我要投资</a></li>
-        <li class="m2-commonNav-fir"><a href="membermall.html" id="sevenpage">会员商城</a></li>
-        <li class="m2-commonNav-fir"><a href="usercenter.html" id="threepage">我的账户</a></li>
-        <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>
-        <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang.html" id="fivepage">关于我们</a></li>
-        <!-- <li class="m2-commonNav-fir"><a href="guide.html">新手引导</a></li> -->
-        <li class="m2-commonNav-fir"><a href="licaiwang_zhuantihuodong.html" id="sixpage">活动专区</a></li>
+      <ul class="m2-commonNavul-fir" data_page='onepage'>
+        <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
+        <li class="m2-commonNav-fir"><a href="borrow" id="jieqian">我要借钱</a></li>
+        <li class="m2-commonNav-fir"><a href="touzi" id="twopage">我要投资</a></li>
+        <li class="m2-commonNav-fir"><a href="membermall" id="sevenpage">会员商城</a></li>
+        <li class="m2-commonNav-fir"><a href="usercenter" id="threepage">我的账户</a></li>
+        <!--                <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>-->
+        <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang" id="fivepage">关于我们</a></li>
+        <li class="m2-commonNav-fir"><a href="admin" id="houtai">后台管理</a></li>
+        <!--                <li class="m2-commonNav-fir"><a href="licaiwang_zhuantihuodong.html" id="sixpage">活动专区</a></li>-->
       </ul>
     </div>
   </div>
