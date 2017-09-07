@@ -46,6 +46,76 @@ public class AdminLoansCustom {
 
     private String relation;
 
+    private int borrowid;
+
+    private String identityimg;
+
+    private String address;
+
+    private String addressimg;
+
+    private String othername;
+
+    private String otherphone;
+
+    private String otheraddress;
+
+    public String getIdentityimg() {
+        return identityimg;
+    }
+
+    public void setIdentityimg(String identityimg) {
+        this.identityimg = identityimg;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAddressimg() {
+        return addressimg;
+    }
+
+    public void setAddressimg(String addressimg) {
+        this.addressimg = addressimg;
+    }
+
+    public String getOthername() {
+        return othername;
+    }
+
+    public void setOthername(String othername) {
+        this.othername = othername;
+    }
+
+    public String getOtherphone() {
+        return otherphone;
+    }
+
+    public void setOtherphone(String otherphone) {
+        this.otherphone = otherphone;
+    }
+
+    public String getOtheraddress() {
+        return otheraddress;
+    }
+
+    public void setOtheraddress(String otheraddress) {
+        this.otheraddress = otheraddress;
+    }
+
+    public int getBorrowid() {
+        return borrowid;
+    }
+
+    public void setBorrowid(int borrowid) {
+        this.borrowid = borrowid;
+    }
+
     public Integer getNum() {
         return num;
     }
