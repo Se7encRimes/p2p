@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Scope("prototype")
 public class IndexController {
 
+    @RequestMapping("/")
+    public String index(){
+        return "index";
+    }
     @RequestMapping("/{page}")
     public String page(@PathVariable String page){
         System.err.println("访问:"+page);

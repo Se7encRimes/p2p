@@ -28,10 +28,10 @@
     multiSort:true,
     columns: [[
 //      {field: 'ck', checkbox:true },
-      {field: 'borrowid', title: '申请编号'},
+      {field: 'num', title: '用户ID'},
       {field: 'username', title: '姓名'},
       {field: 'money', title: '申请金额'},
-      {field: 'state', title: '订单状态',sortable:true,formatter:function(value,row,index){
+      {field: 'state', title: '申请状态',sortable:true,formatter:function(value,row,index){
           switch (value){
             case 0:
               return '未审核';
@@ -45,22 +45,16 @@
             case 3:
               return '还款中';
               break;
-              case 4:
+            default :
               return '还款完成';
               break;
           }
       }},
       {field: 'applydate', title: '申请日期',sortable:true,formatter:function(value,row,index){
+        return moment(value).format("dddd, MMMM Do YYYY,h:mm:ss a")
+      }}
 
-          return moment(value).format("dddd, MMMM Do YYYY,h:mm:ss a");
-
-      }},
-        {field: 'returnway', title: '还款方式'},
-
-    ]],
-      onClickRow : function(index, row){
-          p2p.add_Tab("申请详情","admin-item",row.borrowid);
-      }
+    ]]
   });
 </script>
 </body>

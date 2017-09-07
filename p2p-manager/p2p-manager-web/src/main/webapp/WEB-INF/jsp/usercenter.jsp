@@ -182,16 +182,16 @@
       <a href="index.html"><img src="statics/newcommon/images/m2-logo.png" title="爱钱帮官网" alt="爱钱帮_logo"></a>
     </div>
     <div class="m2-commonNav">
-      <ul class="m2-commonNavul-fir" data_page='threepage'>
-        <!--  <li class="m2-commonNav-fir"><a href="http://huifu.iqianbang.com" target="_blank" >汇付版本</a></li>-->
-        <li class="m2-commonNav-fir"><a href="index.html" id="onepage">首页</a></li>
-        <li class="m2-commonNav-fir"><a href="touzi_licai_chanpin.html" id="twopage">我要投资</a></li>
-        <li class="m2-commonNav-fir"><a href="membermall.html" id="sevenpage">会员商城</a></li>
-        <li class="m2-commonNav-fir"><a href="usercenter.html" id="threepage">我的账户</a></li>
-        <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>
-        <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang.html" id="fivepage">关于我们</a></li>
-        <!-- <li class="m2-commonNav-fir"><a href="guide.html">新手引导</a></li> -->
-        <li class="m2-commonNav-fir"><a href="licaiwang_zhuantihuodong.html" id="sixpage">活动专区</a></li>
+      <ul class="m2-commonNavul-fir" data_page='onepage'>
+        <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
+        <li class="m2-commonNav-fir"><a href="borrow" id="jieqian">我要借钱</a></li>
+        <li class="m2-commonNav-fir"><a href="touzi" id="twopage">我要投资</a></li>
+        <li class="m2-commonNav-fir"><a href="membermall" id="sevenpage">会员商城</a></li>
+        <li class="m2-commonNav-fir"><a href="usercenter" id="threepage">我的账户</a></li>
+        <!--                <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>-->
+        <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang" id="fivepage">关于我们</a></li>
+        <li class="m2-commonNav-fir"><a href="admin" id="houtai">后台管理</a></li>
+        <!--                <li class="m2-commonNav-fir"><a href="licaiwang_zhuantihuodong.html" id="sixpage">活动专区</a></li>-->
       </ul>
     </div>
   </div>
@@ -254,10 +254,10 @@
   <div class="m2-userCentermain-aside">
     <ul>
       <li class="m2-asideListitem">
-        <a class="m2-aside-item" href="usercenter.html"><i class="m2-asideIcon1"></i>我的账户</a>
+        <a class="m2-aside-item" href="usercenter"><i class="m2-asideIcon1"></i>我的账户</a>
       </li>
       <li class="m2-asideListitem">
-        <a class="m2-aside-item" href="usercenter-growth-index.html"><i class="m2-asideIcon-vip"></i>成长值中心</a>
+        <a class="m2-aside-item" href="usercenter-growth-index"><i class="m2-asideIcon-vip"></i>成长值中心</a>
       </li>
       <li class="m2-asideListitem">
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon2"></i>投资管理<b class="m2-asideIcon-new"></b></a>
@@ -268,13 +268,10 @@
           <!--                    </li>-->
 
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord.html">投资记录</a>
+            <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord">投资记录</a>
           </li>
           <li>
             <a class="m2-aside-secLink-item" href="usercenter-investcontrol-monthrepayment.html">回款计划</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-investcontrol-transfer.html">债权转让</a>
           </li>
           <li>
             <a class="m2-aside-secLink-item" href="touzi_licai_chanpin.html" target="_blank">立即投资</a>
@@ -407,7 +404,7 @@
       <div class="m2-wel-lef">
         <!--            <span style="position:absolute;top:85px;right:10px;font-size:15px;line-height:15px;">邀请码：<i style="font-style:normal;">xrejfr</i></span>-->
         <div class="left">
-          <img src="statics/usercenter/images/growth/vip.png" alt="爱钱帮" style="margin:20px;"><br>
+          <img src="images/growth/vip.png" alt="爱钱帮" style="margin:20px;"><br>
           <button style="background-color:#b7b6b6;outline:none;" >已签到</button>                <p>您已连续签到<span id='day'>1</span>天，</p>
           <p><span id='today'>明天</span>再签到可获得<span id='growth'>2</span>个成长值</p>
         </div>
@@ -416,7 +413,7 @@
             <a href="usercenter-growth-index.html" class="m2-iconLevel-normal"><i></i><span>帮主</span></a>
           </div>
 
-          <div>成长值：<span id="mydetail_num" data="4000">1</span><a href="/usercenter-growth-index#mao" style="color:#69b1d7;float:right;">如何加速？</a></div>
+          <div>成长值：<span id="mydetail_num" data="4000">1</span><a href="usercenter-growth-index" style="color:#69b1d7;float:right;">如何加速？</a></div>
           <div id="desc" style="margin:10px 0;font-size:12px;">距离 <span id='vipname'>铁帮主</span> 还需要 <span id='integral'>3999</span> 成长值</div>	            <div id="growth_scale"><div class='bg'></div></div>
           <ul style="margin:16px 0 10px 0;">
             <li class="m2-userMsg-icon" style="margin-left:-8px;"><a href="#" id='verify_id' class="m2-iconUser-fal" title='实名认证'></a></li>
@@ -822,18 +819,18 @@
           $(dom).css('color','#fff');
           $(dom).css('background-color',color2);
           if(data[2]>0||data[4]>0){
-            $(dom).append('<i class=advIcon><img src="statics/usercenter/images/advIcon.png" alt=""></i>');
+            $(dom).append('<i class=advIcon><img src="images/advIcon.png" alt=""></i>');
           }
         }
         if(data[3]>0&&data[6]!=0.00){
           $(dom).css('color','#fff');
           $(dom).css('background-color',color1);
           if(data[2]>0||data[4]>0){
-            $(dom).append('<i class=advIcon><img src="statics/usercenter/images/advIcon.png" alt=""></i>');
+            $(dom).append('<i class=advIcon><img src="images/advIcon.png" alt=""></i>');
           }
         }
         if(data[2]>0||data[4]>0){
-          $(dom).append('<i class=advIcon><img src="statics/usercenter/images/advIcon.png" alt=""></i>');
+          $(dom).append('<i class=advIcon><img src="images/advIcon.png" alt=""></i>');
         }
 //		}
 
@@ -1012,7 +1009,7 @@
           margin-left: 4px;
           width: 50px;
           height: 25px;
-          background: url(statics/usercenter/images/iconAdv.png) no-repeat 0 5px;
+          background: url(images/iconAdv.png) no-repeat 0 5px;
         }
         .b0-botDet{
           display: inline-block;
@@ -1029,7 +1026,7 @@
           width: 16px;
           height: 16px;
           margin: 6px 0 0 12px;
-          background: url(statics/usercenter/images/b-question.png) no-repeat;
+          background: url(images/b-question.png) no-repeat;
           cursor: pointer;
         }
         .b0-backMore:hover span{
@@ -1377,7 +1374,7 @@
       }
     }
   </script>
-  <script type="text/javascript" src="statics/usercenter/js/m2-userCenter.js?20160520"></script>
+  <script type="text/javascript" src="js/m2-userCenter.js?20160520"></script>
 </div>
 </div>
 </body>

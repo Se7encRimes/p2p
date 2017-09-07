@@ -1,8 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2017/9/5/005
-  Time: 20:38
+  User: Administrator  Time: 20:38
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -21,14 +19,14 @@
   <link rel="stylesheet" href="js/jquery-easyui-1.5/themes/bootstrap/easyui.css">
   <link rel="stylesheet" href="js/jquery-easyui-1.5/themes/icon.css">
   <!--[if lt IE 9]>
-  <script src="statics/newcommon/js/html5shiv.js"></script>
+  <script src="js/html5shiv.js"></script>
   <![endif]-->
-  <link  rel="Shortcut  Icon"  href="statics/home/images/minilogo.png">
-  <link rel="stylesheet" href="statics/newcommon/css/m2-commonNew.css?20160520">
-  <link rel="stylesheet" href="statics/home2/css/m2-main.css?20160520">
-  <link rel="stylesheet" href="statics/newcommon/css/m2-common.css?20160520">
-  <script type="text/javascript" src="statics/home/js/jquery.min.js"></script>
-  <script type="text/javascript" src="statics/newcommon/js/common.js?20160520"></script>
+  <link  rel="Shortcut  Icon"  href="images/minilogo.png">
+  <link rel="stylesheet" href="css/m2-commonNew.css?20160520">
+  <link rel="stylesheet" href="m2-main.css?20160520">
+  <link rel="stylesheet" href="css/m2-common.css?20160520">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/common.js?20160520"></script>
 
   <!-- 右侧边栏start -->
   <!-- 右侧登录窗口 -->
@@ -132,32 +130,32 @@
       <ul class="m2-comRiglist myclick">
         <li class="m2-comRigli m2-comRigli-ewm m2-comRigli_new" style="border-top:1px solid #fff;" data="#fixnavbar_one">
           <div></div>
-          <img src="statics/home2/images/fixed-r1.png" alt="我的账户">
+          <img src="images/fixed-r1.png" alt="我的账户">
           <div class="toAbs">
-            <div><img src="statics/home2/images/fixedl-1_v2.png" alt="我的账户"></div>
+            <div><img src="images/fixedl-1_v2.png" alt="我的账户"></div>
             <div></div>
           </div>
         </li>
         <li class="m2-comRigli m2-comRigli-tel m2-comRigli_new" data="#fixnavbar_two">
-          <img src="statics/home2/images/fixed-r2.png" alt="我的红包">
+          <img src="images/fixed-r2.png" alt="我的红包">
           <div class="num num1">
             3                </div>
           <div class="toAbs">
-            <div><img src="statics/home2/images/fixedl-2_v2.png" alt="我的红包"></div>
+            <div><img src="images/fixedl-2_v2.png" alt="我的红包"></div>
             <div></div>
           </div>
         </li>
         <li class="m2-comRigli m2-comRigli-qq m2-comRigli_new" data="#fixnavbar_three">
-          <img src="statics/home2/images/fixed-r3.png" alt="我的加息券">
+          <img src="images/fixed-r3.png" alt="我的加息券">
           <div></div>            	<div class="toAbs">
-          <div><img src="statics/home2/images/fixedl-3_v2.png" alt="我的加息券"></div>
+          <div><img src="images/fixedl-3_v2.png" alt="我的加息券"></div>
           <div></div>
         </div>
         </li>
         <li class="m2-comRigli m2-comRigli-sug m2-comRigli_new" data="#fixnavbar_four">
-          <img src="statics/home2/images/fixed-r4.png" alt="站内信息">
+          <img src="images/fixed-r4.png" alt="站内信息">
           <div></div>            	<div class="toAbs">
-          <div><img src="statics/home2/images/fixedl-4_v2.png" alt="站内信息"></div>
+          <div><img src="images/fixedl-4_v2.png" alt="站内信息"></div>
           <div></div>
         </div>
         </li>
@@ -169,7 +167,7 @@
         <div class="sumtop">
           <div class="top" style="margin: 18px;text-align: center;font-size: 20px;position: relative;"><span style="position: absolute;top: 0;left:-18px">>></span>我的账户</div>
           <div class="bottom">
-            <img src="statics/home2/images/user-head.png" alt="我的账户">
+            <img src="images/user-head.png" alt="我的账户">
             <div>
               <p id ="right_name_info"></p>
               <button id="right_recharge">充值</button>
@@ -198,6 +196,7 @@
               <p><span id="right_today_earn"></span>元</p>
               <span>今日赚取</span>
             </li>
+
             <li style="border-top-right-radius:10px;border-bottom-right-radius:10px;">
               <p><span id="right_total_reward_normal_interest"></span>元</p>
               <span>累计收益</span>
@@ -602,347 +601,347 @@
       });
   </script>
   -->
-  </head>
-  <div class="m2-commonNav-con">
-    <div class="m2-commonNav-box">
-      <div class="m2-commonLogo">
-        <a class="m2-comImg-logo" href="index.html">
-          <img src="statics/newcommon/images/m2-logo.png" title="爱钱帮投资理财平台logo" alt="爱钱帮标识">
-        </a>
-        <a class="m2-conImg-slogan" href="">
-          <img src="statics/newcommon/images/m2-sloganHS.png" title="徽商银行投资理财托管" alt="">
-        </a>
-      </div>
-      <div class="m2-commonNav">
-        <ul class="m2-commonNavul-fir" data_page='fivepage'>
-          <li class="m2-commonNav-fir"><a href="index.html" id="onepage">首页</a></li>
-          <li class="m2-commonNav-fir"><a href="aiqianbang_touzilicaigongsi_dashiji.html" id="jieqian">我要借钱</a></li>
-          <li class="m2-commonNav-fir"><a href="touzi_licai_chanpin.html" id="twopage">我要投资</a></li>
-          <li class="m2-commonNav-fir"><a href="membermall.html" id="sevenpage">会员商城</a></li>
-          <li class="m2-commonNav-fir"><a href="usercenter.html" id="threepage">我的账户</a></li>
-          <!--                <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>-->
-          <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang.html" id="fivepage">关于我们</a></li>
-          <li class="m2-commonNav-fir"><a href="houtai.html" id="houtai">后台管理</a></li>
-        </ul>
-      </div>
+</head>
+<div class="m2-commonNav-con">
+  <div class="m2-commonNav-box">
+    <div class="m2-commonLogo">
+      <a class="m2-comImg-logo" href="index.html">
+        <img src="images/m2-logo.png" title="爱钱帮投资理财平台logo" alt="爱钱帮标识">
+      </a>
+      <a class="m2-conImg-slogan" href="">
+        <img src="images/m2-sloganHS.png" title="徽商银行投资理财托管" alt="">
+      </a>
+    </div>
+    <div class="m2-commonNav">
+      <ul class="m2-commonNavul-fir" data_page='fivepage'>
+        <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
+        <li class="m2-commonNav-fir"><a href="borrow" id="jieqian">我要借钱</a></li>
+        <li class="m2-commonNav-fir"><a href="touzi" id="twopage">我要投资</a></li>
+        <li class="m2-commonNav-fir"><a href="membermall" id="sevenpage">会员商城</a></li>
+        <li class="m2-commonNav-fir"><a href="usercenter" id="threepage">我的账户</a></li>
+        <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang" id="fivepage">关于我们</a></li>
+        <li class="m2-commonNav-fir"><a href="admin" id="houtai">后台管理</a></li>
+      </ul>
     </div>
   </div>
-  </header>
+</div>
+</header>
 
-  <style>
-    .vIVR{display:none}
-  </style>
-  <script>
+<style>
+  .vIVR{display:none}
+</style>
+<script>
 
-    var page=$(".m2-commonNavul-fir").attr("data_page");
-    $("#"+page).parent().css("borderBottom","2px solid #ff6666");
-    var queuename = '30017180006';
-    function callback() {
-      $('#tel').val($('#phonenumber').val());
-      call();
+  var page=$(".m2-commonNavul-fir").attr("data_page");
+  $("#"+page).parent().css("borderBottom","2px solid #ff6666");
+  var queuename = '30017180006';
+  function callback() {
+    $('#tel').val($('#phonenumber').val());
+    call();
+  }
+  setCallResponse = function (json) {
+    var obj = eval('(' + json + ')');
+    if (obj['description']) {
+      $('#callBack-codeErr').css('display', 'block');
+      $('#ivrSecurityCode').val('');
+      getCode();
+      setTimeout(function () {
+        $('#callBack-codeErr').css('display', 'none');
+      }, 3000);
     }
-    setCallResponse = function (json) {
-      var obj = eval('(' + json + ')');
-      if (obj['description']) {
-        $('#callBack-codeErr').css('display', 'block');
-        $('#ivrSecurityCode').val('');
-        getCode();
-        setTimeout(function () {
-          $('#callBack-codeErr').css('display', 'none');
-        }, 3000);
-      }
+  }
+</script>
+<!-- headerEnd -->
+<!--头部end-->
+<div  data-options="region:'north',title:'North Title',split:true" style="height:100px;background:  bisque"><h1><font color="black">申请借钱页面</font></h1></div>
+<div data-options="region:'center',title:'center title'" style="padding:100px;background:#A9A9A9" align="center">
+  <form action="borrow1" method="post" enctype="multipart/form-data " style="height: 100%;width: 100%">
+  <table width="100%">
+    <h1>借钱申请表单</h1>
+    车牌号:<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="carnumber"/><br></table>
+    申请金额:<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="money"/>
+    <font color="blue" style="width:300px" name="returnway">返款方式:先息后本！！！</font><br>
+    申请时长:<select id="cc" class="easyui-combobox" name="dept" style="width:300px;" name="gettime">
+    <option value="aa"></option>
+    <option>3个月</option>
+    <option>6个月</option>
+    <option>9个月</option>
+    <option>12个月</option>
+  </select><br>
+    剩余需还款金额:<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="residue"/><br>
+    借款用途:<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="purpose"/><br>
+
+    车辆抵押证明(照片):<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="carPicth"/><br>
+    申请时间:<input  id="dd"  type= "text" class= "easyui-datebox" required ="required" style="width: 300px"name="firstTime" ><br>
+    <tr align="left">
+    <h2 style="color:#0000FF">请上传您的汽车照片<img id="ylimg" width="80px" height="80px" src="images/b.png" /></h2><br>
+     <input type="file" name="carimg" onchange="yulan(this,'ylimg');"/><br>
+    </tr>
+    <h2 style="color:#0000FF">附加资料(房产证)(照片)(可选):<img id="ylimg1" width="80px" height="80px" src="images/b.png"/></h2><br>
+      <input type="file" name="f1" onchange="yulan(this,'ylimg1');"/><br>
+
+    <h2 style="color:#0000FF">附加资料(银行流水)(照片)(可选):<img id="ylimg2" width="80px" height="80px" src="images/b.png"/></h2><br>
+      <input type="file" name="f2" onchange="yulan(this,'ylimg2');"/><br>
+
+    <h2 style="color:#0000FF">附加资料(社保)(照片)(可选):<img id="ylimg3" width="80px" height="80px" src="images/b.png"/></h2><br>
+      <input type="file" name="f3" onchange="yulan(this,'ylimg3');"/><br>
+
+    <h2 style="color:#0000FF">附加资料(家属身份证)(照片)(可选):<img id="ylimg4" width="80px" height="80px" src="images/b.png"/></h2><br>
+      <input type="file" name="f4" onchange="yulan(this,'ylimg4');"/><br>
+
+        <input type="submit" value="提交申请"  style=height:30px;width:150px;background:#ff2340>
+
+        <div id = "div1"></div>
+  </table>
+  </form>
+</div>
+<script src="js/jquery-easyui-1.5/jquery.min.js"></script>
+<!-- jquery easyui -->
+<script src="js/jquery-easyui-1.5/jquery.easyui.min.js"></script>
+<script src="js/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+
+  function checkIdCard(){
+    if($("#a1").val().length<18){
+      document.getElementById("a").innerHTML="请输入正确的18位身份证号";
+    }else{
+      document.getElementById("a").innerHTML="";
     }
-  </script>
-  <!-- headerEnd -->
-  <!--头部end-->
-  <div  data-options="region:'north',title:'North Title',split:true" style="height:100px;background:  bisque"><h1><font color="black">申请借钱页面</font></h1></div>
-  <div data-options="region:'center',title:'center title'" style="padding:100px;background:#A9A9A9" align="center">
-    <form action="money" method="post" enctype="multipart/form-data " style="height: 100%;width: 100%">
-      <tr>
-      <tr> <h2 style="color:#0000FF">请上传您的车牌照片<img id="ylimg" width="320px" height="200px" src="images/b.png"/></h2><br></tr>
+  }
+  function checkIdCard1(){
+    if($("#a2").val().length<11){
+      document.getElementById("a3").innerHTML="请输入正确的11手机号";
+    }else{
+      document.getElementById("a3").innerHTML="";
+    }
+  }
 
 
-      <tr>是<input type="file" name="f1" onchange="yulan(this,'ylimg');"/><br></tr>
-      <tr>车牌号:<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="cardNo"/><br></tr>
-      <!--           <tr>车主姓名：<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="name"/><br></tr>
-                 <tr>身份证号：<input   data-options="iconCls:'icon-search'" style="width:300px" type="text" name="cardIo" id="a1"  onchange="checkIdCard()"/><a id="a" style="color: red"></a><br></tr>
-                 <tr>手机号码：<input  data-options="iconCls:'icon-search'" style="width:300px" name="tel" id="a2"  onchange="checkIdCard1()"/><a id="a3" style="color: red"></a><br></tr>
-                 <tr>家庭住址：<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="adress"/><br></tr>-->
+  $('#dd').datebox({
+    required:true
+  });
+  function yulan(obj,id){
 
-      <tr>申请金额:<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="money"/><br></tr>
+    if(window.FileReader){
+      var reader = new FileReader();
+      var file = obj.files[0];
+      var regexImage=/^image\//;   //js正则表达式，匹配是否拥有image
 
-      <tr>申请时长:<select id="cc" class="easyui-combobox" name="dept" style="width:300px;">
-        <option value="aa"></option>
-        <option>3个月</option>
-        <option>6个月</option>
-        <option>9个月</option>
-        <option>12个月</option>
-      </select><br></tr>
-      <tr>剩余需还款金额:<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="cardNo"/><br></tr>
-      <tr>借款用途:<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="cardNo"/><br></tr>
-      <tr>还款方式:<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="cardNo"/><br></tr>
+      if(regexImage.test(file.type)){
+        reader.onload = function name(data) {
+          var img =document.getElementById(id);
+          img.src=data.target.result;//将结果数据显示到img标签上
+        };
+        //开始读取上传的文件内容
+        reader.readAsDataURL(file);
 
-      <tr>车辆抵押证明(照片):<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="cardNo"/><br></tr>
-      <tr>申请时间:<input  id="dd"  type= "text" class= "easyui-datebox" required ="required" style="width: 300px;"><br></tr>
-
-      <tr>附加资料(房产证)(照片)(可选):<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="cardNo"/><br></tr>
-
-      <tr>附加资料(银行流水)(照片)(可选):<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="cardNo"/><br></tr>
-      <tr>附加资料(社保)(照片)(可选):<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="cardNo"/><br></tr>
-      <tr>附加资料(家属身份证)(照片)(可选):<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="cardNo"/><br></tr>
-
-      <tr><input type="submit" value="提交申请"  style=height:30px;width:150px;background:#2e24ff/></tr>
-      <tr><div id = "div1"></div></tr>
-      </table>
-    </form>
-  </div>
-  <script src="js/jquery-easyui-1.5/jquery.min.js"></script>
-  <!-- jquery easyui -->
-  <script src="js/jquery-easyui-1.5/jquery.easyui.min.js"></script>
-  <script src="js/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
-  <script type="text/javascript">
-
-    function checkIdCard(){
-      if($("#a1").val().length<18){
-        document.getElementById("a").innerHTML="请输入正确的18位身份证号";
       }else{
-        document.getElementById("a").innerHTML="";
-      }
-    }
-    function checkIdCard1(){
-      if($("#a2").val().length<11){
-        document.getElementById("a3").innerHTML="请输入正确的11手机号";
-      }else{
-        document.getElementById("a3").innerHTML="";
-      }
-    }
-
-
-    $('#dd').datebox({
-      required:true
-    });
-    function yulan(obj,id){
-
-      if(window.FileReader){
-        var reader = new FileReader();
-        var file = obj.files[0];
-        var regexImage=/^image\//;   //js正则表达式，匹配是否拥有image
-
-        if(regexImage.test(file.type)){
-          reader.onload = function name(data) {
-            var img =document.getElementById(id);
-            img.src=data.target.result;//将结果数据显示到img标签上
-          };
-          //开始读取上传的文件内容
-          reader.readAsDataURL(file);
-
-        }else{
-          alert("所传图片格式不正确，请重新选择");
-          return;
-        }
-      }else{
-        alert("抱歉，该服务器不支持图片预览，请更新");
+        alert("所传图片格式不正确，请重新选择");
         return;
       }
+    }else{
+      alert("抱歉，该服务器不支持图片预览，请更新");
+      return;
     }
+  }
 
-  </script>
-  <link rel="stylesheet" href="statics/home2/css/front.css?20160520">
-  <script type="text/javascript" src="statics/home2/js/m2-front.js"></script>
-  <script>
-    var href = window.location.href;
-    var search = window.location.search;
-    $('#aboutusul a').each(function () {
-      if ($(this).prop('href') + search == href) {
-        $(this).children('span').css('color', '#09ABE9');
+</script>
+<link rel="stylesheet" href="css/front.css?20160520">
+<script type="text/javascript" src="js/m2-front.js"></script>
+<script>
+  var href = window.location.href;
+  var search = window.location.search;
+  $('#aboutusul a').each(function () {
+    if ($(this).prop('href') + search == href) {
+      $(this).children('span').css('color', '#09ABE9');
+    }
+  });
+  $(function(){
+    $('body').css('background-color','#F0F0F0');
+  });
+</script>
+<!--头部导航end-->
+<link rel="stylesheet" href="css/m2-main.css?20160520">
+
+<script>
+  var index = 0;
+  var year = '';
+  var month = '';
+  var asynctag = false;
+  $('#loadmore').click(function () {
+    $.ajax({
+      url: 'aboutus-getDashijiAjax',
+      type: 'POST',
+      data: {
+        index: index
+      },
+      async: asynctag,
+      success: function (data) {
+        var obj = eval('(' + data + ')');
+        for (var i in obj['list']) {
+          var li = '';
+          if (year == '') {
+            year = obj['list'][i]['year'];
+            li = '<li class="m2-evtYear"><span>' + obj['list'][i]['year'] + '<i></i></span></li>';
+          } else if (obj['list'][i]['year'] != year) {
+            li = '<li class="m2-evtYear"><span>' + obj['list'][i]['year'] + '<i></i></span></li>';
+            year = obj['list'][i]['year'];
+            month = '';
+          }
+          li += '<li class="m2-evtItem"><i class="m2-evtItem-circle"></i>';
+          if (month == '') {
+            month = obj['list'][i]['month'];
+            li += '<span class="m2-evtMonth">' + obj['list'][i]['month'] + '月</span>';
+          } else if (obj['list'][i]['month'] != month) {
+            month = obj['list'][i]['month'];
+            li += '<span class="m2-evtMonth">' + obj['list'][i]['month'] + '月</span>';
+          }
+          var article = $($('<div>' + obj['list'][i]['content'] + '</div>').text());
+          var content = article.text();
+          content = content.substr(0, 160);
+          content = content.replace(/\s/g, '');
+          content += '...';
+          li += '<div class="m2-evtBox"><div class="m2-evtItemtime">';
+          li += getImgComponentStr(article);
+          li += '<span class="m2-evtItemtime-lef"><em></em>' + obj['list'][i]['timestr'] + '<i></i></span>';
+          li += '<span class="m2-evtItemtime-rig"><i></i>记录</span></div>';
+          li += '<div class="m2-evtBox-con"><a href="/aiqianbang_touzilicaigongsi_dashiji-' + obj['list'][i]['id'] + '.html" target="_blank"><em class="m2-evtBox-arr"></em>';
+          li += '<em class="m2-evtBox-arrbg"></em>';
+          li += '<p class="m2-evtBox-tit">' + obj['list'][i]['title'] + '</p>';
+          li += '<p class="m2-evtBox-det">' + content + '</p>';
+          li += '</a></div></div></li>';
+
+          $('#dashijiul').append(li);
+        }
+        index = obj['index'];
+        if (obj['pages'] == obj['index']) {
+          $('#loadmore').unbind('click');
+          $('#loadmoretext').text('敬请期待');
+        }
       }
     });
-    $(function(){
-      $('body').css('background-color','#F0F0F0');
-    });
-  </script>
-  <!--头部导航end-->
-  <link rel="stylesheet" href="statics/home2/css/m2-main.css?20160520">
+  });
+  function getImgComponentStr(jqdom) {
 
-  <script>
-    var index = 0;
-    var year = '';
-    var month = '';
-    var asynctag = false;
-    $('#loadmore').click(function () {
-      $.ajax({
-        url: 'aboutus-getDashijiAjax',
-        type: 'POST',
-        data: {
-          index: index
-        },
-        async: asynctag,
-        success: function (data) {
-          var obj = eval('(' + data + ')');
-          for (var i in obj['list']) {
-            var li = '';
-            if (year == '') {
-              year = obj['list'][i]['year'];
-              li = '<li class="m2-evtYear"><span>' + obj['list'][i]['year'] + '<i></i></span></li>';
-            } else if (obj['list'][i]['year'] != year) {
-              li = '<li class="m2-evtYear"><span>' + obj['list'][i]['year'] + '<i></i></span></li>';
-              year = obj['list'][i]['year'];
-              month = '';
-            }
-            li += '<li class="m2-evtItem"><i class="m2-evtItem-circle"></i>';
-            if (month == '') {
-              month = obj['list'][i]['month'];
-              li += '<span class="m2-evtMonth">' + obj['list'][i]['month'] + '月</span>';
-            } else if (obj['list'][i]['month'] != month) {
-              month = obj['list'][i]['month'];
-              li += '<span class="m2-evtMonth">' + obj['list'][i]['month'] + '月</span>';
-            }
-            var article = $($('<div>' + obj['list'][i]['content'] + '</div>').text());
-            var content = article.text();
-            content = content.substr(0, 160);
-            content = content.replace(/\s/g, '');
-            content += '...';
-            li += '<div class="m2-evtBox"><div class="m2-evtItemtime">';
-            li += getImgComponentStr(article);
-            li += '<span class="m2-evtItemtime-lef"><em></em>' + obj['list'][i]['timestr'] + '<i></i></span>';
-            li += '<span class="m2-evtItemtime-rig"><i></i>记录</span></div>';
-            li += '<div class="m2-evtBox-con"><a href="/aiqianbang_touzilicaigongsi_dashiji-' + obj['list'][i]['id'] + '.html" target="_blank"><em class="m2-evtBox-arr"></em>';
-            li += '<em class="m2-evtBox-arrbg"></em>';
-            li += '<p class="m2-evtBox-tit">' + obj['list'][i]['title'] + '</p>';
-            li += '<p class="m2-evtBox-det">' + content + '</p>';
-            li += '</a></div></div></li>';
-
-            $('#dashijiul').append(li);
-          }
-          index = obj['index'];
-          if (obj['pages'] == obj['index']) {
-            $('#loadmore').unbind('click');
-            $('#loadmoretext').text('敬请期待');
-          }
-        }
-      });
-    });
-    function getImgComponentStr(jqdom) {
-
-      if (jqdom.find('img').size() > 0) {
-        var icstr = '<div class="m2-evtImg-box"><span class="m2-evtImg-tit m2-evtImg-titUnsel"><i></i>图片</span>';
-        icstr += '<div class="m2-evtImghide"><div class="m2-evtImghide-head"></div>';
-        icstr += '<span class="m2-evtImghide-lef"></span><span class="m2-evtImghide-rig"></span>';
-        icstr += '<div class="m2-evtImghide-box"><ul class="m2-evtImghide-list">';
-        jqdom.find('img').each(function () {
-          icstr += '<li><span><img src="' + $(this).prop('src') + '"></span></li>';
+    if (jqdom.find('img').size() > 0) {
+      var icstr = '<div class="m2-evtImg-box"><span class="m2-evtImg-tit m2-evtImg-titUnsel"><i></i>图片</span>';
+      icstr += '<div class="m2-evtImghide"><div class="m2-evtImghide-head"></div>';
+      icstr += '<span class="m2-evtImghide-lef"></span><span class="m2-evtImghide-rig"></span>';
+      icstr += '<div class="m2-evtImghide-box"><ul class="m2-evtImghide-list">';
+      jqdom.find('img').each(function () {
+        icstr += '<li><span><img src="' + $(this).prop('src') + '"></span></li>';
 // 			icstr += '<li><span><img src="statics/home2/images/m2-step-nav.png"></span></li>';
 // 			icstr += '<li><span><img src="statics/home2/images/m2-step-nav02.png"></span></li>';
 // 			icstr += '<li><span><img src="statics/home2/images/m2-suggest-bg.png"></span></li>';
 // 			icstr += '<li><span><img src="statics/home2/images/xiaoai.png"></span></li>';
-        });
-        icstr += '</ul></div></div></div>';
-      } else {
-        var icstr = '';
-      }
-      return icstr;
+      });
+      icstr += '</ul></div></div></div>';
+    } else {
+      var icstr = '';
     }
+    return icstr;
+  }
 
-    $(document).on('click', '.m2-evtImg-tit', function (e) {
-      $(this).siblings('.m2-evtImghide').toggle();
-      $(this).toggleClass('m2-evtImg-titUnsel m2-evtImg-titSel');
-      var listLen = $(this).siblings('.m2-evtImghide').children('.m2-evtImghide-box').children('.m2-evtImghide-list').children('li').length;
-      $(this).siblings('.m2-evtImghide').children('.m2-evtImghide-box').children('.m2-evtImghide-list').css("width", 355 * listLen);
-      imgActfunc(listLen);
-    });
+  $(document).on('click', '.m2-evtImg-tit', function (e) {
+    $(this).siblings('.m2-evtImghide').toggle();
+    $(this).toggleClass('m2-evtImg-titUnsel m2-evtImg-titSel');
+    var listLen = $(this).siblings('.m2-evtImghide').children('.m2-evtImghide-box').children('.m2-evtImghide-list').children('li').length;
+    $(this).siblings('.m2-evtImghide').children('.m2-evtImghide-box').children('.m2-evtImghide-list').css("width", 355 * listLen);
+    imgActfunc(listLen);
+  });
 
-    function imgActfunc(imgNum) {
-      if (imgNum <= 1) {
-        $('.m2-evtImghide-lef').hide();
-        $('.m2-evtImghide-rig').hide();
-      } else if (imgNum > 1) {
-        $('.m2-evtImghide-lef').show();
-        $('.m2-evtImghide-rig').show();
-        var listLeft = 0; //ul的left值
-        $('.m2-evtImghide-lef').click(function () {
-          $(this).parent().find('.m2-evtImghide-list').prepend($(this).parent().find('.m2-evtImghide-list li').last());
-          $(this).siblings('.m2-evtImghide-box').children('.m2-evtImghide-list').css('left', listLeft - 355);
-          $(this).siblings('.m2-evtImghide-box').children('.m2-evtImghide-list').stop().animate({left: listLeft}, 300);
+  function imgActfunc(imgNum) {
+    if (imgNum <= 1) {
+      $('.m2-evtImghide-lef').hide();
+      $('.m2-evtImghide-rig').hide();
+    } else if (imgNum > 1) {
+      $('.m2-evtImghide-lef').show();
+      $('.m2-evtImghide-rig').show();
+      var listLeft = 0; //ul的left值
+      $('.m2-evtImghide-lef').click(function () {
+        $(this).parent().find('.m2-evtImghide-list').prepend($(this).parent().find('.m2-evtImghide-list li').last());
+        $(this).siblings('.m2-evtImghide-box').children('.m2-evtImghide-list').css('left', listLeft - 355);
+        $(this).siblings('.m2-evtImghide-box').children('.m2-evtImghide-list').stop().animate({left: listLeft}, 300);
+      });
+      $('.m2-evtImghide-rig').click(function () {
+        $(this).siblings('.m2-evtImghide-box').children('.m2-evtImghide-list').css('left', listLeft);
+        _this = this;
+        $(this).siblings('.m2-evtImghide-box').children('.m2-evtImghide-list').stop(false, true).animate({left: listLeft - 355}, 300, function () {
+          $(_this).parent().find('.m2-evtImghide-list').append($(this).parent().find('.m2-evtImghide-list li').get(0));
+          $(_this).siblings('.m2-evtImghide-box').children('.m2-evtImghide-list').css('left', listLeft);
         });
-        $('.m2-evtImghide-rig').click(function () {
-          $(this).siblings('.m2-evtImghide-box').children('.m2-evtImghide-list').css('left', listLeft);
-          _this = this;
-          $(this).siblings('.m2-evtImghide-box').children('.m2-evtImghide-list').stop(false, true).animate({left: listLeft - 355}, 300, function () {
-            $(_this).parent().find('.m2-evtImghide-list').append($(this).parent().find('.m2-evtImghide-list li').get(0));
-            $(_this).siblings('.m2-evtImghide-box').children('.m2-evtImghide-list').css('left', listLeft);
-          });
-        });
-      }
+      });
     }
-    $(document).ready(function () {
-      $('#loadmore').click();
-      asynctag = true;
-    });
-  </script>
-  <link rel="stylesheet" href="statics/home/css/newPage.css?20160520" />
-  <div id="mainNewfoot">
-    <div class="mainNewfocus" style ="width:740px;">
-      <div class="mainNewblog">
+  }
+  $(document).ready(function () {
+    $('#loadmore').click();
+    asynctag = true;
+  });
+</script>
+<link rel="stylesheet" href="css/newPage.css?20160520" />
+<div id="mainNewfoot">
+  <div class="mainNewfocus" style ="width:740px;">
+    <div class="mainNewblog">
+      <ul>
+        <li class="joinWb"><span></span><p>官方微博</p></li>
+        <li class="joinWx"><span></span><p>官方微信</p></li>
+      </ul>
+    </div>
+    <div class="mainNewcopy">
+      <div class="mainNewserve">
+        <h3>客服电话:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:12px;">投资有风险，请谨慎投资</span></h3>
+        <h3>4006-777-518&nbsp;&nbsp;&nbsp;http://www.iqianbang.com</h3>
         <ul>
-          <li class="joinWb"><span></span><p>官方微博</p></li>
-          <li class="joinWx"><span></span><p>官方微信</p></li>
+          <li><a href="touzi_licai_chanpin.html">我要投资</a></li>
+          <li><a href="guide.html">帮助中心</a></li>
+          <li><a href="guanyu_aiqianbang.html">关于我们</a></li>
+          <li><a href="licai_gonggao.html">新闻公告</a></li>
         </ul>
       </div>
-      <div class="mainNewcopy">
-        <div class="mainNewserve">
-          <h3>客服电话:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:12px;">投资有风险，请谨慎投资</span></h3>
-          <h3>4006-777-518&nbsp;&nbsp;&nbsp;http://www.iqianbang.com</h3>
-          <ul>
-            <li><a href="touzi_licai_chanpin.html">我要投资</a></li>
-            <li><a href="guide.html">帮助中心</a></li>
-            <li><a href="guanyu_aiqianbang.html">关于我们</a></li>
-            <li><a href="licai_gonggao.html">新闻公告</a></li>
-          </ul>
-        </div>
-        <div class="mainNewown">
-          <p>页面版权所有：北京爱钱帮财富科技有限公司&nbsp;&nbsp;京ICP证150216号</p>
-          <!--                <p>推荐使用IE7以上版本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;法律顾问：<a href="http://www.iqianbang.com/ihzhb-527.shtml" target="_blank" style="color:#a4a3a3">国浩律师事务所</a></p>-->
-          <p>推荐使用IE7以上版本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;法律顾问：国浩律师事务所（grandall.com.cn）</p>
-        </div>
-        <div class="mainNewsafe">
-          <ul>
-            <li class="icon-norton"><a rel="nofollow"  href="https://sealinfo.verisign.com/splash?form_file=fdf/splash.fdf&amp;dn=www.iqianbang.com&amp;lang=zh_cn" target='_blank'></a></li>
-            <!--                    <li class="icon-cx"><a rel="nofollow"  href="https://credit.szfw.org/CX20150715010327080139.html" target="_blank"></a></li>-->
-            <li class="icon-kx"><a rel="nofollow"  href="https://ss.knet.cn/verifyseal.dll?sn=e14032111010847492vg0o000000&amp;ct=df&amp;a=1&amp;pa=0.8090716653969139" target="_blank"></a></li>
-            <!--                    <li class="icon-360"><a rel="nofollow"  href="http://webscan.360.cn/index/checkwebsite/url/www.iqianbang.com" target="_blank"></a></li>-->
-            <li class="icon-zhx"><a rel="nofollow"  href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1076572005" target="_blank"></a></li>
-            <li class="icon-icp"><a rel="nofollow"  href="/anquanlicai_icp.html" target="_blank"></a></li>
-          </ul>
-        </div>
+      <div class="mainNewown">
+        <p>页面版权所有：北京爱钱帮财富科技有限公司&nbsp;&nbsp;京ICP证150216号</p>
+        <!--                <p>推荐使用IE7以上版本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;法律顾问：<a href="http://www.iqianbang.com/ihzhb-527.shtml" target="_blank" style="color:#a4a3a3">国浩律师事务所</a></p>-->
+        <p>推荐使用IE7以上版本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;法律顾问：国浩律师事务所（grandall.com.cn）</p>
       </div>
-
+      <div class="mainNewsafe">
+        <ul>
+          <li class="icon-norton"><a rel="nofollow"  href="https://sealinfo.verisign.com/splash?form_file=fdf/splash.fdf&amp;dn=www.iqianbang.com&amp;lang=zh_cn" target='_blank'></a></li>
+          <!--                    <li class="icon-cx"><a rel="nofollow"  href="https://credit.szfw.org/CX20150715010327080139.html" target="_blank"></a></li>-->
+          <li class="icon-kx"><a rel="nofollow"  href="https://ss.knet.cn/verifyseal.dll?sn=e14032111010847492vg0o000000&amp;ct=df&amp;a=1&amp;pa=0.8090716653969139" target="_blank"></a></li>
+          <!--                    <li class="icon-360"><a rel="nofollow"  href="http://webscan.360.cn/index/checkwebsite/url/www.iqianbang.com" target="_blank"></a></li>-->
+          <li class="icon-zhx"><a rel="nofollow"  href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1076572005" target="_blank"></a></li>
+          <li class="icon-icp"><a rel="nofollow"  href="/anquanlicai_icp.html" target="_blank"></a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <!--底部[end]-->
-  <script type="text/javascript">
-    //全局变量
-    var GV = {
-      DIMAUB: "",
-      JS_ROOT: "statics/home/js/",
-      TOKEN: "bc9e304659c9d00b4828dadf43265207_4e13c3cfcceddc40b41e5c6624a9b3cc",
-      THIS_URL: "Aboutus-",
-      TINVEST_URL: "/invest-shownewinvest.shtml"
-    };
-  </script>
 
-  <script src="statics/common/js/common.js?20160520"></script>
-  <link type="text/css" rel="stylesheet" href="statics/common/tipBox/colorbox-master/css/colorbox.css?20160520">
-  <script src="statics/common/tipBox/layer-v1.5.1/layer/layer.js?20160520"></script>
-  <script src="statics/common/tipBox/common.js?20160520"></script>
-  <!--tipBOx-->
-  <script language=JavaScript type="text/javascript" src="statics/home/js/tab.js?20160520"></script>
-  <script type="text/javascript">$(function () {
-    if ($.browser && $.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
-      $('#fixed-services').css('display', 'none');
-    }
-  })
-  </script>
-  </body>
+  </div>
+</div>
+<!--底部[end]-->
+<script type="text/javascript">
+  //全局变量
+  var GV = {
+    DIMAUB: "",
+    JS_ROOT: "js/",
+    TOKEN: "bc9e304659c9d00b4828dadf43265207_4e13c3cfcceddc40b41e5c6624a9b3cc",
+    THIS_URL: "Aboutus-",
+    TINVEST_URL: "/invest-shownewinvest.shtml"
+  };
+</script>
+
+<script src="js/common.js?20160520"></script>
+<link type="text/css" rel="stylesheet" href="statics/common/tipBox/colorbox-master/css/colorbox.css?20160520">
+<script src="statics/common/tipBox/layer-v1.5.1/layer/layer.js?20160520"></script>
+<script src="statics/common/tipBox/common.js?20160520"></script>
+<!--tipBOx-->
+<script language=JavaScript type="text/javascript" src="js/tab.js?20160520"></script>
+<script type="text/javascript">$(function () {
+  if ($.browser && $.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
+    $('#fixed-services').css('display', 'none');
+  }
+})
+</script>
+</body>
 </html>
 </body>
 </html>
