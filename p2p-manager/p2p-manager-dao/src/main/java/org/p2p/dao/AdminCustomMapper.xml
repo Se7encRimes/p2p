@@ -4,7 +4,8 @@
 
     <sql id="Base_Column_List" >
       u.id as num,username,card,phone,balance,u.createdate,carimg,carnumber,gettime,residue,
-      state,purpose,returnway,pledgeimg,applydate,house,bank,social,relation,money
+      state,purpose,returnway,pledgeimg,applydate,house,bank,social,relation,money,b.id as borrowid,address,addressimg,
+      othername,otherphone,otheraddress,identityimg
     </sql>
 
     <select id="listBorrows" resultType="org.p2p.pojo.vo.AdminLoansCustom" >
@@ -12,6 +13,7 @@
         <include refid="Base_Column_List" />
         from tb_user u
         LEFT JOIN tb_loans l ON u.id = l.uid LEFT JOIN tb_borrow b ON l.id = b.loansid
+        WHERE loans = 1
         <choose>
         <when test="order != null and order.sort != null and order.order != null">
             <foreach collection="order.orderParams" item="it" open="order by" separator="," close="" >
@@ -29,6 +31,14 @@
     <select id="countItems" resultType="_long">
         select count(1)
         from tb_borrow
+    </select>
+
+    <select id="getBorrwoById" resultType="org.p2p.pojo.vo.AdminLoansCustom">
+        select
+        <include refid="Base_Column_List" />
+        from tb_user u
+        LEFT JOIN tb_loans l ON u.id = l.uid LEFT JOIN tb_borrow b ON l.id = b.loansid
+        WHERE b.id = #{id}
     </select>
 
 </mapper>

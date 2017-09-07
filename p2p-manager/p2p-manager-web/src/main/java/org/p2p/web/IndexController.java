@@ -18,6 +18,7 @@ public class IndexController {
     }
     @RequestMapping("/{page}")
     public String page(@PathVariable String page){
+        System.err.println("访问:"+page);
         return page;
     }
 }

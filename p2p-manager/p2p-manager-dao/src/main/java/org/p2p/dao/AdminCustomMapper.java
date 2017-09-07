@@ -15,4 +15,6 @@ public interface AdminCustomMapper {
     List<AdminLoansCustom> listBorrows(@Param("page")Page page,@Param("order")Order order);
 
     long countItems();
+
+    AdminLoansCustom getBorrwoById(@Param("id")int id);
 }
