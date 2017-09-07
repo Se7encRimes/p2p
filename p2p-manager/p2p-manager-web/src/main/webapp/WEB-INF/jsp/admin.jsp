@@ -51,22 +51,11 @@
 <script src="js/jquery-easyui-1.5/jquery.easyui.min.js"></script>
 <script src="js/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
 <!-- 自定义脚本 -->
-<%--<script src="../../js/common.js"></script>--%>
+<script src="js/common1.js"></script>
 <script src="js/moment/moment-with-locales.js"></script>
 <!-- 自定义js -->
 <script>
-    //ttshop.registerMenuEvent();
-    $(function () {
-       $("#menu .easyui-tree").tree({
-           onClick: function (node) {
-               $('#tab').tabs('add', {
-                   title: node.text,
-                   href: node.attributes.href,
-                   closable: true
-               });
-           }
-       });
-    });
+    p2p.registerMenuEvent();
 </script>
 
 </body>

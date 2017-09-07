@@ -29,4 +29,9 @@ public class AdminLoansServiceImpl implements AdminLoansService {
         result.setTotal(total);
         return result;
     }
+
+    @Override
+    public AdminLoansCustom getBorrwoById(int id) {
+        return mapper.getBorrwoById(id);
+    }
 }
