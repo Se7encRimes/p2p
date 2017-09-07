@@ -513,7 +513,6 @@
         return false;
       });
     });
-
     function visTop(high) {
 
       if ($(document).scrollTop() > high + 100) {
@@ -524,8 +523,6 @@
     }
   </script>
   <!-- 右侧边栏end -->
-
-
   <!-- headerStart -->
   <div class="m2-commonTop-con">
     <div class="m2-commonTop">
@@ -571,37 +568,7 @@
       </div>
     </div>
   </div>
-  <!--  用户登陆后，（部分用户）导航栏显示论坛选项、现在全部关闭
-  <script type="text/javascript">
-      $(function () {
-         $('#bbslogin').click(function(){
-             var w = window.open();
-              $.ajax({
-                  type:"GET",
-                  url :"/api-bbslogin",
-                  success:function(msg){
-                      var obj = eval('('+msg+')');
-                      var obj = eval(obj);
-                      if (obj.status == 1){
-                          w.location = obj.message;
-                      }
-                  }
-              });
-         });
-         var _uid = Number(305497);
-         var _all_uid = Array(5277,320,25893,77960,70760,4762,36256,59960,126250,75980,4039,68689,133118,185);
-         function in_array(uid,array){
-              for(var i in array){
-                  if(array[i] == uid){
-                      $("#bbs").attr("style","display:block");
-                  }
-              }
-         }
-         in_array(_uid,_all_uid);
-      });
-  </script>
-  -->
-</head>
+
 <div class="m2-commonNav-con">
   <div class="m2-commonNav-box">
     <div class="m2-commonLogo">
@@ -625,7 +592,9 @@
     </div>
   </div>
 </div>
-</header>
+
+
+</head>
 
 <style>
   .vIVR{display:none}
@@ -653,48 +622,7 @@
 </script>
 <!-- headerEnd -->
 <!--头部end-->
-<div  data-options="region:'north',title:'North Title',split:true" style="height:100px;background:  bisque"><h1><font color="black">申请借钱页面</font></h1></div>
-<div data-options="region:'center',title:'center title'" style="padding:100px;background:#A9A9A9" align="center">
-  <form action="borrow1" method="post" enctype="multipart/form-data " style="height: 100%;width: 100%">
-  <table width="100%">
-    <h1>借钱申请表单</h1>
-    车牌号:<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="carnumber"/><br></table>
-    申请金额:<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="money"/>
-    <font color="blue" style="width:300px" name="returnway">返款方式:先息后本！！！</font><br>
-    申请时长:<select id="cc" class="easyui-combobox" name="dept" style="width:300px;" name="gettime">
-    <option value="aa"></option>
-    <option>3个月</option>
-    <option>6个月</option>
-    <option>9个月</option>
-    <option>12个月</option>
-  </select><br>
-    剩余需还款金额:<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="residue"/><br>
-    借款用途:<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="purpose"/><br>
 
-    车辆抵押证明(照片):<input class="easyui-textbox" data-options="iconCls:'icon-search'" style="width:300px" name="carPicth"/><br>
-    申请时间:<input  id="dd"  type= "text" class= "easyui-datebox" required ="required" style="width: 300px"name="firstTime" ><br>
-    <tr align="left">
-    <h2 style="color:#0000FF">请上传您的汽车照片<img id="ylimg" width="80px" height="80px" src="images/b.png" /></h2><br>
-     <input type="file" name="carimg" onchange="yulan(this,'ylimg');"/><br>
-    </tr>
-    <h2 style="color:#0000FF">附加资料(房产证)(照片)(可选):<img id="ylimg1" width="80px" height="80px" src="images/b.png"/></h2><br>
-      <input type="file" name="f1" onchange="yulan(this,'ylimg1');"/><br>
-
-    <h2 style="color:#0000FF">附加资料(银行流水)(照片)(可选):<img id="ylimg2" width="80px" height="80px" src="images/b.png"/></h2><br>
-      <input type="file" name="f2" onchange="yulan(this,'ylimg2');"/><br>
-
-    <h2 style="color:#0000FF">附加资料(社保)(照片)(可选):<img id="ylimg3" width="80px" height="80px" src="images/b.png"/></h2><br>
-      <input type="file" name="f3" onchange="yulan(this,'ylimg3');"/><br>
-
-    <h2 style="color:#0000FF">附加资料(家属身份证)(照片)(可选):<img id="ylimg4" width="80px" height="80px" src="images/b.png"/></h2><br>
-      <input type="file" name="f4" onchange="yulan(this,'ylimg4');"/><br>
-
-        <input type="submit" value="提交申请"  style=height:30px;width:150px;background:#ff2340>
-
-        <div id = "div1"></div>
-  </table>
-  </form>
-</div>
 <script src="js/jquery-easyui-1.5/jquery.min.js"></script>
 <!-- jquery easyui -->
 <script src="js/jquery-easyui-1.5/jquery.easyui.min.js"></script>
@@ -708,6 +636,8 @@
       document.getElementById("a").innerHTML="";
     }
   }
+
+
   function checkIdCard1(){
     if($("#a2").val().length<11){
       document.getElementById("a3").innerHTML="请输入正确的11手机号";
@@ -716,33 +646,66 @@
     }
   }
 
+/*  function submitForm(){
+    if($("#file").val()==""){
+      $.messager.alert("提示","请选择文件夹");
+      return false;
+    }
+    $("#itemAddForm").ajaxSubmit({
+      type:"post",  //提交方式
+      url:"borrow1", //请求url
+      success:function(data){ //提交成功的回调函数
+        $.messager.alert("提示",data);
+      }
+    });
+  }*/
+  function submitForm() {
+    $('#itemAddForm').form('submit', {
 
-  $('#dd').datebox({
-    required:true
-  });
-  function yulan(obj,id){
+      //提交表单动作的URL地址
+      url: 'borrow1',
+      //在提交之前触发，返回false可以终止提交
+      onSubmit: function () {
 
-    if(window.FileReader){
-      var reader = new FileReader();
-      var file = obj.files[0];
-      var regexImage=/^image\//;   //js正则表达式，匹配是否拥有image
+        return $(this).form('validate');
+      },
+      //在表单提交成功以后触发
+      success: function (data) {
 
-      if(regexImage.test(file.type)){
-        reader.onload = function name(data) {
-          var img =document.getElementById(id);
-          img.src=data.target.result;//将结果数据显示到img标签上
-        };
-        //开始读取上传的文件内容
-        reader.readAsDataURL(file);
+        window.location.href="index";
 
-      }else{
-        alert("所传图片格式不正确，请重新选择");
+      }
+    });
+
+  }
+/*    $('#dd').datebox({
+      required: true
+    });*/
+
+
+    function yulan(obj, id) {
+      if (window.FileReader) {
+        var reader = new FileReader();
+        var file = obj.files[0];
+        var regexImage = /^image\//;   //js正则表达式，匹配是否拥有image
+
+        if (regexImage.test(file.type)) {
+          reader.onload = function name(data) {
+            var img = document.getElementById(id);
+            img.src = data.target.result;//将结果数据显示到img标签上
+          };
+          //开始读取上传的文件内容
+          reader.readAsDataURL(file);
+
+        } else {
+          alert("所传图片格式不正确，请重新选择");
+          return;
+        }
+      } else {
+        alert("抱歉，该服务器不支持图片预览，请更新");
         return;
       }
-    }else{
-      alert("抱歉，该服务器不支持图片预览，请更新");
-      return;
-    }
+
   }
 
 </script>
@@ -878,45 +841,7 @@
     asynctag = true;
   });
 </script>
-<link rel="stylesheet" href="css/newPage.css?20160520" />
-<div id="mainNewfoot">
-  <div class="mainNewfocus" style ="width:740px;">
-    <div class="mainNewblog">
-      <ul>
-        <li class="joinWb"><span></span><p>官方微博</p></li>
-        <li class="joinWx"><span></span><p>官方微信</p></li>
-      </ul>
-    </div>
-    <div class="mainNewcopy">
-      <div class="mainNewserve">
-        <h3>客服电话:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:12px;">投资有风险，请谨慎投资</span></h3>
-        <h3>4006-777-518&nbsp;&nbsp;&nbsp;http://www.iqianbang.com</h3>
-        <ul>
-          <li><a href="touzi_licai_chanpin.html">我要投资</a></li>
-          <li><a href="guide.html">帮助中心</a></li>
-          <li><a href="guanyu_aiqianbang.html">关于我们</a></li>
-          <li><a href="licai_gonggao.html">新闻公告</a></li>
-        </ul>
-      </div>
-      <div class="mainNewown">
-        <p>页面版权所有：北京爱钱帮财富科技有限公司&nbsp;&nbsp;京ICP证150216号</p>
-        <!--                <p>推荐使用IE7以上版本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;法律顾问：<a href="http://www.iqianbang.com/ihzhb-527.shtml" target="_blank" style="color:#a4a3a3">国浩律师事务所</a></p>-->
-        <p>推荐使用IE7以上版本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;法律顾问：国浩律师事务所（grandall.com.cn）</p>
-      </div>
-      <div class="mainNewsafe">
-        <ul>
-          <li class="icon-norton"><a rel="nofollow"  href="https://sealinfo.verisign.com/splash?form_file=fdf/splash.fdf&amp;dn=www.iqianbang.com&amp;lang=zh_cn" target='_blank'></a></li>
-          <!--                    <li class="icon-cx"><a rel="nofollow"  href="https://credit.szfw.org/CX20150715010327080139.html" target="_blank"></a></li>-->
-          <li class="icon-kx"><a rel="nofollow"  href="https://ss.knet.cn/verifyseal.dll?sn=e14032111010847492vg0o000000&amp;ct=df&amp;a=1&amp;pa=0.8090716653969139" target="_blank"></a></li>
-          <!--                    <li class="icon-360"><a rel="nofollow"  href="http://webscan.360.cn/index/checkwebsite/url/www.iqianbang.com" target="_blank"></a></li>-->
-          <li class="icon-zhx"><a rel="nofollow"  href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1076572005" target="_blank"></a></li>
-          <li class="icon-icp"><a rel="nofollow"  href="/anquanlicai_icp.html" target="_blank"></a></li>
-        </ul>
-      </div>
-    </div>
 
-  </div>
-</div>
 <!--底部[end]-->
 <script type="text/javascript">
   //全局变量
@@ -926,6 +851,7 @@
     TOKEN: "bc9e304659c9d00b4828dadf43265207_4e13c3cfcceddc40b41e5c6624a9b3cc",
     THIS_URL: "Aboutus-",
     TINVEST_URL: "/invest-shownewinvest.shtml"
+
   };
 </script>
 
@@ -941,7 +867,171 @@
   }
 })
 </script>
-</body>
-</html>
+<body>
+
+  <div  data-options="region:'north',title:'North Title',split:true" style="height:100px;background:  bisque"><h1><font color="black">申请借钱页面</font></h1></div>
+  <div data-options="region:'center',title:'center title'" style="padding:100px;background:#A9A9A9" align="center">
+
+
+    <form class="itemForm" id="itemAddForm" name="itemAddForm" method="post" enctype="multipart/form-data">
+
+      <table style="width:100%;">
+        <tr>
+          <td class="label"> <h1 style="color:black">借钱申请表单:</h1></td>
+        </tr>
+
+        <tr>
+
+          <td class="label"><h2 style="color:#0000FF">车牌号:</h2></td>
+          <td>
+            <input  id="carnumber" name="carnumber" style="width:300px"  class="easyui-textbox" data-options="required:true" />
+          </td>
+        </tr>
+
+
+        <tr>
+          <td class="label"><h2 style="color:#0000FF">申请金额:</h2></td>
+          <td>
+            <input  id="money" name="money" style="width:300px" class="easyui-textbox" data-options="required:true"/>
+            <font color="blue" style="width:300px" name="returnway">返款方式:先息后本！！！</font>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td class="label"><h2 style="color:#0000FF">申请时长:</h2></td>
+          <td>
+            <select id="gettime"  name="gettime" style="width:300px;" >
+              <option value=""></option>
+              <option>3个月</option>
+              <option>6个月</option>
+              <option>9个月</option>
+              <option>12个月</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label"><h2 style="color:#0000FF"> 剩余需还款金额:</h2></td>
+          <td>
+
+            <input  id="residue" name="residue" style="width:300px" class="easyui-textbox" data-options="required:true"/>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label"><h2 style="color:#0000FF">借款用途:</h2></td>
+          <td>
+
+            <input  id="purpose" name="purpose" style="width:300px" class="easyui-textbox" data-options="required:true" />
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label"><h2 style="color:#0000FF">申请时间:</h2></td>
+          <td>
+            <input  id="firstTime"  type= "text" class= "easyui-datebox" required ="required" style="width: 300px" name="firstTime" >
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label"><h2 style="color:#0000FF">请上传您的汽车照片:</h2></td>
+          <td>
+            <img id="ylimg" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg');"/>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label"><h2 style="color:#0000FF">车辆抵押证明(照片):</h2></td>
+          <td>
+            <img id="ylimg1" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg1');"/>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label"><h2 style="color:#0000FF">附加资料(房产证)(照片)(可选):</h2></td>
+          <td>
+            <img id="ylimg2" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg2');"/>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label"><h2 style="color:#0000FF">附加资料(银行流水)(照片)(可选):</h2></td>
+          <td>
+            <img id="ylimg3" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg3');"/>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label"><h2 style="color:#0000FF">附加资料(社保)(照片)(可选):</h2></td>
+          <td>
+            <img id="ylimg4" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg4');"/>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label"><h2 style="color:#0000FF">附加资料(家属身份证)(照片)(可选):</h2></td>
+          <td>
+            <img id="ylimg5" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg5');"/>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <button onclick="submitForm()" class="easyui-linkbutton" type="button" data-options="iconCls:'icon-ok'">提交申请</button>
+          </td>
+        </tr>
+
+      </table>
+    </form>
+  </div>
+
+
+  <link rel="stylesheet" href="css/newPage.css?20160520" />
+  <div id="mainNewfoot">
+    <div class="mainNewfocus" style ="width:740px;">
+      <div class="mainNewblog">
+        <ul>
+          <li class="joinWb"><span></span><p>官方微博</p></li>
+          <li class="joinWx"><span></span><p>官方微信</p></li>
+        </ul>
+      </div>
+      <div class="mainNewcopy">
+        <div class="mainNewserve">
+          <h3>客服电话:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:12px;">投资有风险，请谨慎投资</span></h3>
+          <h3>4006-777-518&nbsp;&nbsp;&nbsp;http://www.iqianbang.com</h3>
+          <ul>
+            <li><a href="touzi_licai_chanpin.html">我要投资</a></li>
+            <li><a href="guide.html">帮助中心</a></li>
+            <li><a href="guanyu_aiqianbang.html">关于我们</a></li>
+            <li><a href="licai_gonggao.html">新闻公告</a></li>
+          </ul>
+        </div>
+        <div class="mainNewown">
+          <p>页面版权所有：北京爱钱帮财富科技有限公司&nbsp;&nbsp;京ICP证150216号</p>
+          <!--                <p>推荐使用IE7以上版本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;法律顾问：<a href="http://www.iqianbang.com/ihzhb-527.shtml" target="_blank" style="color:#a4a3a3">国浩律师事务所</a></p>-->
+          <p>推荐使用IE7以上版本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;法律顾问：国浩律师事务所（grandall.com.cn）</p>
+        </div>
+        <div class="mainNewsafe">
+          <ul>
+            <li class="icon-norton"><a rel="nofollow"  href="https://sealinfo.verisign.com/splash?form_file=fdf/splash.fdf&amp;dn=www.iqianbang.com&amp;lang=zh_cn" target='_blank'></a></li>
+            <!--                    <li class="icon-cx"><a rel="nofollow"  href="https://credit.szfw.org/CX20150715010327080139.html" target="_blank"></a></li>-->
+            <li class="icon-kx"><a rel="nofollow"  href="https://ss.knet.cn/verifyseal.dll?sn=e14032111010847492vg0o000000&amp;ct=df&amp;a=1&amp;pa=0.8090716653969139" target="_blank"></a></li>
+            <!--                    <li class="icon-360"><a rel="nofollow"  href="http://webscan.360.cn/index/checkwebsite/url/www.iqianbang.com" target="_blank"></a></li>-->
+            <li class="icon-zhx"><a rel="nofollow"  href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1076572005" target="_blank"></a></li>
+            <li class="icon-icp"><a rel="nofollow"  href="/anquanlicai_icp.html" target="_blank"></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </body>
 </html>

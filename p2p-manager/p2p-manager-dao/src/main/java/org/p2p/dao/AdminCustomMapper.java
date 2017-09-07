@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface AdminCustomMapper {
 
-    List<AdminLoansCustom> listBorrows(@Param("page")Page page,@Param("order")Order order);
+    List<AdminLoansCustom> listBorrows(@Param("page") Page page, @Param("order") Order order);
 
     long countItems();
 }
