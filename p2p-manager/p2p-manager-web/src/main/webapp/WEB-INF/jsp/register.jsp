@@ -466,7 +466,7 @@
           p['phone']=$('#phone').val();
           p['code']=$('#vcode').val();
           $('#vcode').val();
-          postData("/Home-Register-sendphone",p,function(d){
+          postData("Home-Register-sendphone",p,function(d){
             if(d.status==1){
               if ($('.m2-regTeltips').hasClass('m2-regTel-step1')) {
                 $('.m2-regTeltips').addClass('m2-regTel-step2').removeClass('m2-regTel-step1');
