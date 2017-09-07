@@ -786,8 +786,8 @@
         <ul>
           <!-- 论坛导航栏全部关闭 -->
           <!--<li class="m2-commonTop-btn" style="display: none" id="bbs"><a id="bbslogin" target="_blank">论坛</a></li>-->
-          <li class="m2-commonTop-btn"><a href="register.html" target="_blank">注册</a></li>
-          <li class="m2-commonTop-btn"><a href="login.html#login_callback=/index" target="_blank" style="border-right:none;">登录</a></li>
+          <li class="m2-commonTop-btn"><a href="register" target="_blank">注册</a></li>
+          <li class="m2-commonTop-btn"><a href="login" target="_blank" style="border-right:none;">登录</a></li>
           <li class="m2-commonTop-btn"><a href="company_finance.html" id="cfpage" style="border-right:none;width: 50px;">企业理财</a></li>                </ul>
       </div>
       <div class="m2-commonTop-app" onclick='window.open("appdownload.html")' style="cursor:pointer;">
@@ -802,7 +802,7 @@
 <script type="text/javascript">
     $(function () {
        $('#bbslogin').click(function(){
-    	   var w = window.open(); 
+    	   var w = window.open();
 			$.ajax({
 				type:"GET",
 				url :"/api-bbslogin",
@@ -1089,7 +1089,7 @@
 <!-- bannerEnd -->
 <!-- 猴子图片下线  -->
 <!--<div class="monkey">
-	
+
     	<div class="monkey-bac"></div>
     </div>-->
 <div class="m2-indexMain" style="width: 1000px;margin: 0 auto;position:relative;">
@@ -2587,7 +2587,7 @@
                 <li style="width:290px;">
                     <span>产生<b id="statistics-inum"></b>元收益</span>
                 </li>
-                 
+
             </ul>
         </div>-->
   </div>
