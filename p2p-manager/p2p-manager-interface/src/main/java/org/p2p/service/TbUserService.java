@@ -16,4 +16,10 @@ public interface TbUserService {
 
     //登录
     Map<String,Object> userlogin(TbUser user);
+
+    //修改
+    TbUser update(TbUser tbUser);
+
+    //查询
+    TbUser query(String phone);
 }

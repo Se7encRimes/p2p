@@ -62,12 +62,12 @@
   </div>
   <style type="text/css">
     .myloginmask {position:fixed;top: 0;left: 0;right: 0;bottom: 0;background-color: black;display: none;opacity: 0.7;z-index: 800;filter:alpha(opacity=70)}
-    .mylogin {position:   fixed;top: 50%;left: 50%;margin-top: -346px;margin-left: -260px;width: 520px;height: 496px;background-image: url("statics/home2/images/login/login_info.png");background-repeat: no-repeat;z-index: 1000;display: none;}
+    .mylogin {position:   fixed;top: 50%;left: 50%;margin-top: -346px;margin-left: -260px;width: 520px;height: 496px;background-image: url("images/login/login_info.png");background-repeat: no-repeat;z-index: 1000;display: none;}
     .mylogin .topcontent {font-weight:bold;text-align: center;color: #666666;font-size: 18px;padding-top: 284px;line-height: 36px;}
     .mylogin .topcontent span {color: #883535;}
     .mylogin .bottomcontent {font-weight:bold;font-size:20px;line-height: 30px;width:384px;margin: 50px auto;}
     .mylogin .bottomcontent a{color: #333333;text-decoration: none;}
-    .mylogin .closeimg {position: absolute;top: 220px;right: 14px;width: 43px;height: 43px;background-image: url("statics/home2/images/login/cha.png");}
+    .mylogin .closeimg {position: absolute;top: 220px;right: 14px;width: 43px;height: 43px;background-image: url("images/login/cha.png");}
   </style>
   <div class="myloginmask"></div>
   <div class="mylogin">
@@ -166,11 +166,6 @@
         <a href='/'><img src="images/new-logo.png"></a>
       </div>
       <div class="m2-regist-left">
-        <ul>
-          <li><i class="m2-regist-step"></i>注册</li>
-          <li><i></i>存管</li>
-          <li><i></i>注册成功</li>
-        </ul>
         <div class="m2-regist-inputarea">
           <h4><b>会员注册</b>已有爱钱帮账号？<a href="login">登录</a></h4>
           <table cellpadding="0" cellspacing="0" border="0">
@@ -180,7 +175,7 @@
             </tr>
             <tr>
               <td><i class="m2-regist-passicon"></i>密码</td>
-              <td class="m2-regist-tdInput"><input type="password" class="m2-regist-username" maxlength="15" placeholder="6-15位常用英文字母或数字" id="pass_word" /><span class="m2-regist-errMsg"></span></td>
+              <td class="m2-regist-tdInput"><input type="password" class="m2-regist-username" maxlength="15" placeholder="6-15位常用英文字母或数字" id="password" /><span class="m2-regist-errMsg"></span></td>
             </tr>
             <tr  class="verify_code_tr">
               <td><i class="m2-regist-passicon"></i>验证码</td>
@@ -296,75 +291,39 @@
     });
   </script>
   <script type="text/javascript">
-    var next_url="/home-register-openbankid.shtml";
-    function checkuser(){
-      var p=makevar(['user_name']);
-      if($('#user_name').val()==''){
-        $('#user_name').next('.m2-regist-errMsg').html('用户名不能为空!');
-        return false;
-      }
-      else{
-        if(!isLegal($('#user_name').val())){
-          $('#user_name').next('.m2-regist-errMsg').html('您输入了非法字符!');
-          return false;
-        }
-        if($('#user_name').val().length<6){
-          $('#user_name').next('.m2-regist-errMsg').html('用户名少于6个字符!');
-          return false;
-        }
-        if($('#user_name').val().length>15){
-          $('#user_name').next('.m2-regist-errMsg').html('用户名超过15个字符!');
-          return false;
-        }
-        var reg = /^([a-z]|[A-Z])([0-9]|[a-z]|[A-Z]|_){5,14}$/;
-        if(!reg.test($('#user_name').val())){
-          $('#user_name').next('.m2-regist-errMsg').html('用户名格式错误');
-          return false;
-        }
-        $('#user_name').next('.m2-regist-errMsg').html('');
-      }
-      postData("/Home-Register-ckuser_new",p,function(d){
-        if(d.message!=' '){
-          $('#user_name').next('.m2-regist-errMsg').html(d.message);
-          if(d.verify_nums>3){
-            $('.verify_code_tr').css('display','');
-          }
-        }else{
-          $('#user_name').next('.m2-regist-errMsg').html('');
-        }
-      });
-    }
+    var next_url="home-register-openbankid";
+
     function checkpsw(){
-      if($('#pass_word').val()==''){
-        $('#pass_word').next('.m2-regist-errMsg').html('密码不能为空！');
+      if($('#password').val()==''){
+        $('#password').next('.m2-regist-errMsg').html('密码不能为空！');
         return false;
       }
 
-      if($('#pass_word').val().length<6){
-        $('#pass_word').next('.m2-regist-errMsg').html('密码不能少于6个字符！');
+      if($('#password').val().length<6){
+        $('#password').next('.m2-regist-errMsg').html('密码不能少于6个字符！');
         return false;
       }
-      if($('#pass_word').val().length>15){
-        $('#pass_word').next('.m2-regist-errMsg').html('密码不能超过15个字符！');
+      if($('#password').val().length>15){
+        $('#password').next('.m2-regist-errMsg').html('密码不能超过15个字符！');
         return false;
       }
       var reg = /^[a-zA-Z0-9]*$/g;
-      if(!reg.test($('#pass_word').val())){
-        $('#pass_word').next('.m2-regist-errMsg').html('密码格式错误');
+      if(!reg.test($('#password').val())){
+        $('#password').next('.m2-regist-errMsg').html('密码格式错误');
         return false;
       }
-      $('#pass_word').next('.m2-regist-errMsg').html('');
+      $('#password').next('.m2-regist-errMsg').html('');
     }
     function recheckpsw(){
-      if($('#re_pass_word').val()==''){
-        $('#re_pass_word').next('.m2-regist-errMsg').html('确认密码不能为空！');
+      if($('#re_password').val()==''){
+        $('#re_password').next('.m2-regist-errMsg').html('确认密码不能为空！');
         return false;
       }
-      if($('#pass_word').val()!=$('#re_pass_word').val()){
-        $('#re_pass_word').next('.m2-regist-errMsg').html('两次输入的密码不一致！');
+      if($('#password').val()!=$('#re_password').val()){
+        $('#re_password').next('.m2-regist-errMsg').html('两次输入的密码不一致！');
         return false;
       }
-      $('#re_pass_word').next('.m2-regist-errMsg').html('');
+      $('#re_password').next('.m2-regist-errMsg').html('');
     }
     function checkphone(){
       if($('#phone').val()==''){
@@ -376,29 +335,18 @@
         if(!reg.test($('#phone').val())){
           $('#phone').next('.m2-regist-errMsg').html('手机号格式错误！');
           return false;
+        }else{
+          $('#phone').next('.m2-regist-errMsg').html('');
         }
-        var p=makevar(['phone','user_name']);
-        postData("/Home-Register-ckphone_new",p,function(d){
-          if(d.message!=' '){
-            if(d.verify_nums>3){
-              $('.verify_code_tr').css('display','');
-            }
-            $('#phone').next('.m2-regist-errMsg').html(d.message);
-          }else{
-            $('#phone').next('.m2-regist-errMsg').html('');
-          }
-        });
       }
     }
     function register(){
-      //checkuser();
       checkpsw();
-      recheckpsw();
       checkphone();
       var canSubmit = true;
-      var p = makevar(['user_name','pass_word','phonecode','vcode','phone','regvalue']);
+      var p = makevar(['password','phone']);
       p['from']=$("#from").val();
-      if(($('#phonecode').val()=='')||($('#pass_word').val()=='')||($('#phone').val()=='')){
+      if(($('#password').val()=='')||($('#phone').val()=='')){
         canSubmit = false;
       }
       $(".m2-regist-errMsg").each(function(){
@@ -411,16 +359,15 @@
         canSubmit = false;
       }
       if(canSubmit!==true) return false;
-      postData("/Home-Register-register_active",p,function(d){
+      postData("URegister",p,function(d){
         if(d.status==1){
           $('#newregister').show();   	 //去除了跳转提示(体验金活动)
-          //showInfoDialog("注册成功!请等待跳转！",1);
+          showInfoDialog("注册成功!请等待跳转！",1);
           setTimeout(function(){
-            window.location.href=next_url;
+            window.location.href="tiaozhuan?phone="+ d.phone;
           },6000);//增加了跳转等待时间3000毫秒
         }else if(d.status==5){
           showInfoDialog(d.message,0);
-
           $("#reverifyCode").click();
         }
         else {
@@ -435,83 +382,13 @@
       }
     });
     $(function(){
-      $('#user_name').blur(function(){
-        checkuser();
-      });
-      $('#pass_word').blur(function(){
+      $('#password').blur(function(){
         checkpsw();
-      });
-      $('#re_pass_word').blur(function(){
-        recheckpsw();
       });
       $('#phone').blur(function(){
         checkphone();
       });
-      // 点击获取手机验证码
-      $('.m2-regTeltips').click(function(){
-        if ($('.m2-regTeltips').hasClass('m2-regTel-step1')) {
-          var p = makevar(['phone']);
-          if($('#phone').val()==''){
-            $('#phone').next('.m2-regist-errMsg').html('手机号不能为空！');
-            return false;
-          }
-          if($('#vcode').val()==''){
-            $('#vcode').next('.m2-regist-errMsg').html('验证码不能为空！');
-            return false;
-          }
-          if($('#vcode').val().length<5){
-            $('#vcode').next('.m2-regist-errMsg').html('验证码长度不正确！');
-            return false;
-          }
-          p['phone']=$('#phone').val();
-          p['code']=$('#vcode').val();
-          $('#vcode').val();
-          postData("Home-Register-sendphone",p,function(d){
-            if(d.status==1){
-              if ($('.m2-regTeltips').hasClass('m2-regTel-step1')) {
-                $('.m2-regTeltips').addClass('m2-regTel-step2').removeClass('m2-regTel-step1');
-                $('.m2-reg-voice').addClass('m2-reg-voice-unable').removeClass('m2-reg-voice-able');
-                $('.m2-regTel-det').html('秒后重新获取');
-                $('.m2-regTel-sec').show().html('60');
-                $('#vcode').next('.m2-regist-errMsg').html("");
-                $('#phone').next('.m2-regist-errMsg').html("");
-                tim_Down();
-
-              }
-            }else if(d.status==2){
-              $('#vcode').next('.m2-regist-errMsg').html(d.msg);
-              $("#reverifyCode").click();
-            }else{
-              $('#phone').next('.m2-regist-errMsg').html(d.msg);
-              $("#reverifyCode").click();
-            }
-
-          });
-
-        }
-
-
-
-      });
     });
-  </script>
-  <script type="text/javascript">
-    //倒计时
-    var tim =60; //剩余时间
-    function tim_Down(){
-      if (tim>0) {
-        $('.m2-regTel-sec').show().html(tim);
-        tim--;
-        setTimeout("tim_Down()", 1000);
-      }
-      else if (tim<=0) {
-        $('.m2-regTel-sec').hide();
-        $('.m2-regTel-det').html('重新获取');
-        $('.m2-regTeltips').addClass('m2-regTel-step1').removeClass('m2-regTel-step2');
-        $('.m2-reg-voice').addClass('m2-reg-voice-able').removeClass('m2-reg-voice-unable');
-        tim=60;
-      }
-    }
   </script>
   </body>
 </html>

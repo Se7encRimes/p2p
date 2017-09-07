@@ -21,8 +21,6 @@ public interface TbUserMapper {
 
     TbUser selectByPrimaryKey(Integer id);
 
-    TbUser selectByPhone(String phone);
-
     int updateByExampleSelective(@Param("record") TbUser record, @Param("example") TbUserExample example);
 
     int updateByExample(@Param("record") TbUser record, @Param("example") TbUserExample example);
