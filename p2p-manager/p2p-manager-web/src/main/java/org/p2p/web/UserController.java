@@ -2,7 +2,7 @@ package org.p2p.web;
 
 import org.p2p.pojo.po.TbUser;
 import org.p2p.service.TbUserService;
-import org.p2p.utlis.URegister;
+import org.p2p.utlis.uregister;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -41,8 +41,8 @@ public class UserController {
 
     @RequestMapping("openbankactive")
     @ResponseBody
-    public URegister openBankActive(TbUser tbUser,HttpSession session){
-        URegister uRegister = new URegister();
+    public uregister openBankActive(TbUser tbUser,HttpSession session){
+        uregister uRegister = new uregister();
         TbUser tbUser1=userService.update(tbUser);
         if(tbUser1!=null){
             uRegister.setStatus(1);
@@ -55,8 +55,8 @@ public class UserController {
 
     @RequestMapping("/URegister")
     @ResponseBody
-    public  URegister TbUserRegister(TbUser user,Model model){
-        URegister uRegister = new URegister();
+    public  uregister TbUserRegister(TbUser user,Model model){
+        uregister uRegister = new uregister();
        int i = userService.save(user);
         if (i>0){
             uRegister.setStatus(1);
