@@ -28,7 +28,7 @@
     multiSort:true,
     columns: [[
 //      {field: 'ck', checkbox:true },
-      {field: 'num', title: '用户ID'},
+      {field: 'num', title: '申请编号'},
       {field: 'username', title: '姓名'},
       {field: 'money', title: '申请金额'},
       {field: 'state', title: '申请状态',sortable:true,formatter:function(value,row,index){
@@ -58,7 +58,8 @@
   });
   $('#table').datagrid({
       onClickRow: function(index,row){
-          p2p.add_Tab("申请详情","admin-item",row.borrowid);
+          console.log(row.num);
+          p2p.add_Tab("申请详情","admin-item",row.num);
       }
   })
 </script>

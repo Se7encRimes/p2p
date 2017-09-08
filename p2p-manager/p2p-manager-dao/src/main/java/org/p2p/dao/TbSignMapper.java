@@ -1,10 +1,9 @@
 package org.p2p.dao;
 
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.p2p.pojo.po.TbSign;
 import org.p2p.pojo.po.TbSignExample;
-
-import java.util.List;
 
 public interface TbSignMapper {
     int countByExample(TbSignExample example);

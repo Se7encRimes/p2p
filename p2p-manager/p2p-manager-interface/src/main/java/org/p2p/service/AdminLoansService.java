@@ -13,4 +13,6 @@ public interface AdminLoansService {
     Result<AdminLoansCustom> listBorrows(Page page, Order order);
 
     AdminLoansCustom getBorrwoById(int id);
+
+    int anIntItem(int state,int id);
 }

@@ -35,6 +35,20 @@ public class TbBorrow {
 
     private String relation;
 
+    private String identityimg;
+
+    private String identityimgback;
+
+    private String address;
+
+    private String addressimg;
+
+    private String othername;
+
+    private String otherphone;
+
+    private String otheraddress;
+
     private String extends1;
 
     private String extends2;
@@ -167,6 +181,62 @@ public class TbBorrow {
 
     public void setRelation(String relation) {
         this.relation = relation == null ? null : relation.trim();
+    }
+
+    public String getIdentityimg() {
+        return identityimg;
+    }
+
+    public void setIdentityimg(String identityimg) {
+        this.identityimg = identityimg == null ? null : identityimg.trim();
+    }
+
+    public String getIdentityimgback() {
+        return identityimgback;
+    }
+
+    public void setIdentityimgback(String identityimgback) {
+        this.identityimgback = identityimgback == null ? null : identityimgback.trim();
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
+    public String getAddressimg() {
+        return addressimg;
+    }
+
+    public void setAddressimg(String addressimg) {
+        this.addressimg = addressimg == null ? null : addressimg.trim();
+    }
+
+    public String getOthername() {
+        return othername;
+    }
+
+    public void setOthername(String othername) {
+        this.othername = othername == null ? null : othername.trim();
+    }
+
+    public String getOtherphone() {
+        return otherphone;
+    }
+
+    public void setOtherphone(String otherphone) {
+        this.otherphone = otherphone == null ? null : otherphone.trim();
+    }
+
+    public String getOtheraddress() {
+        return otheraddress;
+    }
+
+    public void setOtheraddress(String otheraddress) {
+        this.otheraddress = otheraddress == null ? null : otheraddress.trim();
     }
 
     public String getExtends1() {

@@ -1,10 +1,9 @@
 package org.p2p.dao;
 
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.p2p.pojo.po.TbItem;
 import org.p2p.pojo.po.TbItemExample;
-
-import java.util.List;
 
 public interface TbItemMapper {
     int countByExample(TbItemExample example);

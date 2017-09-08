@@ -34,4 +34,9 @@ public class AdminLoansServiceImpl implements AdminLoansService {
     public AdminLoansCustom getBorrwoById(int id) {
         return mapper.getBorrwoById(id);
     }
+
+    @Override
+    public int anIntItem(int state, int id) {
+        return mapper.anIntItem(state,id);
+    }
 }
