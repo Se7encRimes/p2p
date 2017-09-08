@@ -18,6 +18,13 @@
     <result column="bank" property="bank" jdbcType="VARCHAR" />
     <result column="social" property="social" jdbcType="VARCHAR" />
     <result column="relation" property="relation" jdbcType="VARCHAR" />
+    <result column="identityimg" property="identityimg" jdbcType="VARCHAR" />
+    <result column="identityimgback" property="identityimgback" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="addressimg" property="addressimg" jdbcType="VARCHAR" />
+    <result column="othername" property="othername" jdbcType="VARCHAR" />
+    <result column="otherphone" property="otherphone" jdbcType="VARCHAR" />
+    <result column="otheraddress" property="otheraddress" jdbcType="VARCHAR" />
     <result column="extends1" property="extends1" jdbcType="VARCHAR" />
     <result column="extends2" property="extends2" jdbcType="VARCHAR" />
     <result column="extends3" property="extends3" jdbcType="VARCHAR" />
@@ -82,7 +89,8 @@
   </sql>
   <sql id="Base_Column_List" >
     id, uid, money, carimg, carnumber, gettime, residue, state, purpose, returnway, pledgeimg, 
-    applydate, house, bank, social, relation, extends1, extends2, extends3
+    applydate, house, bank, social, relation, identityimg, identityimgback, address, 
+    addressimg, othername, otherphone, otheraddress, extends1, extends2, extends3
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.p2p.pojo.po.TbBorrowExample" >
     select
@@ -120,15 +128,19 @@
       residue, state, purpose, 
       returnway, pledgeimg, applydate, 
       house, bank, social, 
-      relation, extends1, extends2, 
-      extends3)
+      relation, identityimg, identityimgback, 
+      address, addressimg, othername, 
+      otherphone, otheraddress, extends1, 
+      extends2, extends3)
     values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{money,jdbcType=DOUBLE}, 
       #{carimg,jdbcType=VARCHAR}, #{carnumber,jdbcType=VARCHAR}, #{gettime,jdbcType=VARCHAR}, 
       #{residue,jdbcType=DOUBLE}, #{state,jdbcType=INTEGER}, #{purpose,jdbcType=VARCHAR}, 
       #{returnway,jdbcType=VARCHAR}, #{pledgeimg,jdbcType=VARCHAR}, #{applydate,jdbcType=TIMESTAMP}, 
       #{house,jdbcType=VARCHAR}, #{bank,jdbcType=VARCHAR}, #{social,jdbcType=VARCHAR}, 
-      #{relation,jdbcType=VARCHAR}, #{extends1,jdbcType=VARCHAR}, #{extends2,jdbcType=VARCHAR}, 
-      #{extends3,jdbcType=VARCHAR})
+      #{relation,jdbcType=VARCHAR}, #{identityimg,jdbcType=VARCHAR}, #{identityimgback,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{addressimg,jdbcType=VARCHAR}, #{othername,jdbcType=VARCHAR}, 
+      #{otherphone,jdbcType=VARCHAR}, #{otheraddress,jdbcType=VARCHAR}, #{extends1,jdbcType=VARCHAR}, 
+      #{extends2,jdbcType=VARCHAR}, #{extends3,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.p2p.pojo.po.TbBorrow" >
     insert into tb_borrow
@@ -180,6 +192,27 @@
       </if>
       <if test="relation != null" >
         relation,
+      </if>
+      <if test="identityimg != null" >
+        identityimg,
+      </if>
+      <if test="identityimgback != null" >
+        identityimgback,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="addressimg != null" >
+        addressimg,
+      </if>
+      <if test="othername != null" >
+        othername,
+      </if>
+      <if test="otherphone != null" >
+        otherphone,
+      </if>
+      <if test="otheraddress != null" >
+        otheraddress,
       </if>
       <if test="extends1 != null" >
         extends1,
@@ -239,6 +272,27 @@
       </if>
       <if test="relation != null" >
         #{relation,jdbcType=VARCHAR},
+      </if>
+      <if test="identityimg != null" >
+        #{identityimg,jdbcType=VARCHAR},
+      </if>
+      <if test="identityimgback != null" >
+        #{identityimgback,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="addressimg != null" >
+        #{addressimg,jdbcType=VARCHAR},
+      </if>
+      <if test="othername != null" >
+        #{othername,jdbcType=VARCHAR},
+      </if>
+      <if test="otherphone != null" >
+        #{otherphone,jdbcType=VARCHAR},
+      </if>
+      <if test="otheraddress != null" >
+        #{otheraddress,jdbcType=VARCHAR},
       </if>
       <if test="extends1 != null" >
         #{extends1,jdbcType=VARCHAR},
@@ -308,6 +362,27 @@
       <if test="record.relation != null" >
         relation = #{record.relation,jdbcType=VARCHAR},
       </if>
+      <if test="record.identityimg != null" >
+        identityimg = #{record.identityimg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.identityimgback != null" >
+        identityimgback = #{record.identityimgback,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addressimg != null" >
+        addressimg = #{record.addressimg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.othername != null" >
+        othername = #{record.othername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherphone != null" >
+        otherphone = #{record.otherphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otheraddress != null" >
+        otheraddress = #{record.otheraddress,jdbcType=VARCHAR},
+      </if>
       <if test="record.extends1 != null" >
         extends1 = #{record.extends1,jdbcType=VARCHAR},
       </if>
@@ -340,6 +415,13 @@
       bank = #{record.bank,jdbcType=VARCHAR},
       social = #{record.social,jdbcType=VARCHAR},
       relation = #{record.relation,jdbcType=VARCHAR},
+      identityimg = #{record.identityimg,jdbcType=VARCHAR},
+      identityimgback = #{record.identityimgback,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      addressimg = #{record.addressimg,jdbcType=VARCHAR},
+      othername = #{record.othername,jdbcType=VARCHAR},
+      otherphone = #{record.otherphone,jdbcType=VARCHAR},
+      otheraddress = #{record.otheraddress,jdbcType=VARCHAR},
       extends1 = #{record.extends1,jdbcType=VARCHAR},
       extends2 = #{record.extends2,jdbcType=VARCHAR},
       extends3 = #{record.extends3,jdbcType=VARCHAR}
@@ -395,6 +477,27 @@
       <if test="relation != null" >
         relation = #{relation,jdbcType=VARCHAR},
       </if>
+      <if test="identityimg != null" >
+        identityimg = #{identityimg,jdbcType=VARCHAR},
+      </if>
+      <if test="identityimgback != null" >
+        identityimgback = #{identityimgback,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="addressimg != null" >
+        addressimg = #{addressimg,jdbcType=VARCHAR},
+      </if>
+      <if test="othername != null" >
+        othername = #{othername,jdbcType=VARCHAR},
+      </if>
+      <if test="otherphone != null" >
+        otherphone = #{otherphone,jdbcType=VARCHAR},
+      </if>
+      <if test="otheraddress != null" >
+        otheraddress = #{otheraddress,jdbcType=VARCHAR},
+      </if>
       <if test="extends1 != null" >
         extends1 = #{extends1,jdbcType=VARCHAR},
       </if>
@@ -424,6 +527,13 @@
       bank = #{bank,jdbcType=VARCHAR},
       social = #{social,jdbcType=VARCHAR},
       relation = #{relation,jdbcType=VARCHAR},
+      identityimg = #{identityimg,jdbcType=VARCHAR},
+      identityimgback = #{identityimgback,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      addressimg = #{addressimg,jdbcType=VARCHAR},
+      othername = #{othername,jdbcType=VARCHAR},
+      otherphone = #{otherphone,jdbcType=VARCHAR},
+      otheraddress = #{otheraddress,jdbcType=VARCHAR},
       extends1 = #{extends1,jdbcType=VARCHAR},
       extends2 = #{extends2,jdbcType=VARCHAR},
       extends3 = #{extends3,jdbcType=VARCHAR}

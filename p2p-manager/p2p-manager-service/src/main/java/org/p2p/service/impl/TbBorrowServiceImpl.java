@@ -22,4 +22,9 @@ public class TbBorrowServiceImpl implements TbBorrowService {
         return dao.insert(record);
     }
 
+    @Override
+    public int updateUserStatus(int loans,int id) {
+        return dao.updateUserStatus(loans,id);
+    }
+
 }
