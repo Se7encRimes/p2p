@@ -10,12 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @Author:HuangJianFang
- * @Description:
- * @Date:Created in 16:30 2017/9/7
- * @Modified By:
- */
+
 @Service
 public class TbUserServiceImpl implements TbUserService {
     @Autowired
@@ -23,6 +18,7 @@ public class TbUserServiceImpl implements TbUserService {
     @Autowired
     private TbUserMapper tbUserMapper;
 
+    //注册
     public int save(TbUser user){
        TbUser user1 = tbUserMapperCustom.selectByPhone(user.getPhone());
         if (user1==null) {
@@ -32,6 +28,7 @@ public class TbUserServiceImpl implements TbUserService {
         }
     };
 
+    //登录
     public Map<String, Object> userlogin(TbUser user){
         TbUser user2 = tbUserMapperCustom.selectByPhone(user.getPhone());
         Map<String,Object> map = new HashMap<>();
@@ -50,6 +47,7 @@ public class TbUserServiceImpl implements TbUserService {
 
     }
 
+    //开通存管账户
     @Override
     public TbUser update(TbUser tbUser) {
         int i=tbUserMapperCustom.updateByPhone(tbUser);
@@ -60,6 +58,7 @@ public class TbUserServiceImpl implements TbUserService {
         return tbUser1;
     }
 
+    //根据手机号查用户
     @Override
     public TbUser query(String phone) {
         return tbUserMapperCustom.selectByPhone(phone);

@@ -165,6 +165,66 @@ public class TbBorrowExample {
             return (Criteria) this;
         }
 
+        public Criteria andUidIsNull() {
+            addCriterion("uid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidIsNotNull() {
+            addCriterion("uid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidEqualTo(Integer value) {
+            addCriterion("uid =", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidNotEqualTo(Integer value) {
+            addCriterion("uid <>", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidGreaterThan(Integer value) {
+            addCriterion("uid >", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("uid >=", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidLessThan(Integer value) {
+            addCriterion("uid <", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidLessThanOrEqualTo(Integer value) {
+            addCriterion("uid <=", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidIn(List<Integer> values) {
+            addCriterion("uid in", values, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidNotIn(List<Integer> values) {
+            addCriterion("uid not in", values, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidBetween(Integer value1, Integer value2) {
+            addCriterion("uid between", value1, value2, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidNotBetween(Integer value1, Integer value2) {
+            addCriterion("uid not between", value1, value2, "uid");
+            return (Criteria) this;
+        }
+
         public Criteria andMoneyIsNull() {
             addCriterion("money is null");
             return (Criteria) this;
@@ -492,66 +552,6 @@ public class TbBorrowExample {
 
         public Criteria andResidueNotBetween(Double value1, Double value2) {
             addCriterion("residue not between", value1, value2, "residue");
-            return (Criteria) this;
-        }
-
-        public Criteria andLoansidIsNull() {
-            addCriterion("loansid is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLoansidIsNotNull() {
-            addCriterion("loansid is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLoansidEqualTo(Integer value) {
-            addCriterion("loansid =", value, "loansid");
-            return (Criteria) this;
-        }
-
-        public Criteria andLoansidNotEqualTo(Integer value) {
-            addCriterion("loansid <>", value, "loansid");
-            return (Criteria) this;
-        }
-
-        public Criteria andLoansidGreaterThan(Integer value) {
-            addCriterion("loansid >", value, "loansid");
-            return (Criteria) this;
-        }
-
-        public Criteria andLoansidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("loansid >=", value, "loansid");
-            return (Criteria) this;
-        }
-
-        public Criteria andLoansidLessThan(Integer value) {
-            addCriterion("loansid <", value, "loansid");
-            return (Criteria) this;
-        }
-
-        public Criteria andLoansidLessThanOrEqualTo(Integer value) {
-            addCriterion("loansid <=", value, "loansid");
-            return (Criteria) this;
-        }
-
-        public Criteria andLoansidIn(List<Integer> values) {
-            addCriterion("loansid in", values, "loansid");
-            return (Criteria) this;
-        }
-
-        public Criteria andLoansidNotIn(List<Integer> values) {
-            addCriterion("loansid not in", values, "loansid");
-            return (Criteria) this;
-        }
-
-        public Criteria andLoansidBetween(Integer value1, Integer value2) {
-            addCriterion("loansid between", value1, value2, "loansid");
-            return (Criteria) this;
-        }
-
-        public Criteria andLoansidNotBetween(Integer value1, Integer value2) {
-            addCriterion("loansid not between", value1, value2, "loansid");
             return (Criteria) this;
         }
 

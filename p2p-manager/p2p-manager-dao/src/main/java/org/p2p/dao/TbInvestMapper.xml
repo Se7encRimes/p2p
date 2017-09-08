@@ -4,7 +4,6 @@
   <resultMap id="BaseResultMap" type="org.p2p.pojo.po.TbInvest" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="userid" property="userid" jdbcType="INTEGER" />
-    <result column="bankcard" property="bankcard" jdbcType="VARCHAR" />
     <result column="earnings" property="earnings" jdbcType="DOUBLE" />
     <result column="money" property="money" jdbcType="DOUBLE" />
     <result column="extends1" property="extends1" jdbcType="VARCHAR" />
@@ -70,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, userid, bankcard, earnings, money, extends1, extends2, extends3
+    id, userid, earnings, money, extends1, extends2, extends3
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.p2p.pojo.po.TbInvestExample" >
     select
@@ -103,12 +102,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="org.p2p.pojo.po.TbInvest" >
-    insert into tb_invest (id, userid, bankcard, 
-      earnings, money, extends1, 
-      extends2, extends3)
-    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{bankcard,jdbcType=VARCHAR}, 
-      #{earnings,jdbcType=DOUBLE}, #{money,jdbcType=DOUBLE}, #{extends1,jdbcType=VARCHAR}, 
-      #{extends2,jdbcType=VARCHAR}, #{extends3,jdbcType=VARCHAR})
+    insert into tb_invest (id, userid, earnings, 
+      money, extends1, extends2, 
+      extends3)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{earnings,jdbcType=DOUBLE}, 
+      #{money,jdbcType=DOUBLE}, #{extends1,jdbcType=VARCHAR}, #{extends2,jdbcType=VARCHAR}, 
+      #{extends3,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.p2p.pojo.po.TbInvest" >
     insert into tb_invest
@@ -118,9 +117,6 @@
       </if>
       <if test="userid != null" >
         userid,
-      </if>
-      <if test="bankcard != null" >
-        bankcard,
       </if>
       <if test="earnings != null" >
         earnings,
@@ -144,9 +140,6 @@
       </if>
       <if test="userid != null" >
         #{userid,jdbcType=INTEGER},
-      </if>
-      <if test="bankcard != null" >
-        #{bankcard,jdbcType=VARCHAR},
       </if>
       <if test="earnings != null" >
         #{earnings,jdbcType=DOUBLE},
@@ -180,9 +173,6 @@
       <if test="record.userid != null" >
         userid = #{record.userid,jdbcType=INTEGER},
       </if>
-      <if test="record.bankcard != null" >
-        bankcard = #{record.bankcard,jdbcType=VARCHAR},
-      </if>
       <if test="record.earnings != null" >
         earnings = #{record.earnings,jdbcType=DOUBLE},
       </if>
@@ -207,7 +197,6 @@
     update tb_invest
     set id = #{record.id,jdbcType=INTEGER},
       userid = #{record.userid,jdbcType=INTEGER},
-      bankcard = #{record.bankcard,jdbcType=VARCHAR},
       earnings = #{record.earnings,jdbcType=DOUBLE},
       money = #{record.money,jdbcType=DOUBLE},
       extends1 = #{record.extends1,jdbcType=VARCHAR},
@@ -222,9 +211,6 @@
     <set >
       <if test="userid != null" >
         userid = #{userid,jdbcType=INTEGER},
-      </if>
-      <if test="bankcard != null" >
-        bankcard = #{bankcard,jdbcType=VARCHAR},
       </if>
       <if test="earnings != null" >
         earnings = #{earnings,jdbcType=DOUBLE},
@@ -247,7 +233,6 @@
   <update id="updateByPrimaryKey" parameterType="org.p2p.pojo.po.TbInvest" >
     update tb_invest
     set userid = #{userid,jdbcType=INTEGER},
-      bankcard = #{bankcard,jdbcType=VARCHAR},
       earnings = #{earnings,jdbcType=DOUBLE},
       money = #{money,jdbcType=DOUBLE},
       extends1 = #{extends1,jdbcType=VARCHAR},

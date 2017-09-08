@@ -19,6 +19,8 @@ public class TbProject {
 
     private Date createdate;
 
+    private String gaiyao;
+
     private String extends1;
 
     private String extends2;
@@ -87,6 +89,14 @@ public class TbProject {
 
     public void setCreatedate(Date createdate) {
         this.createdate = createdate;
+    }
+
+    public String getGaiyao() {
+        return gaiyao;
+    }
+
+    public void setGaiyao(String gaiyao) {
+        this.gaiyao = gaiyao == null ? null : gaiyao.trim();
     }
 
     public String getExtends1() {

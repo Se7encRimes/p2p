@@ -685,6 +685,196 @@ public class TbUserExample {
             return (Criteria) this;
         }
 
+        public Criteria andBankcardIsNull() {
+            addCriterion("bankcard is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankcardIsNotNull() {
+            addCriterion("bankcard is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankcardEqualTo(String value) {
+            addCriterion("bankcard =", value, "bankcard");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankcardNotEqualTo(String value) {
+            addCriterion("bankcard <>", value, "bankcard");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankcardGreaterThan(String value) {
+            addCriterion("bankcard >", value, "bankcard");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankcardGreaterThanOrEqualTo(String value) {
+            addCriterion("bankcard >=", value, "bankcard");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankcardLessThan(String value) {
+            addCriterion("bankcard <", value, "bankcard");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankcardLessThanOrEqualTo(String value) {
+            addCriterion("bankcard <=", value, "bankcard");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankcardLike(String value) {
+            addCriterion("bankcard like", value, "bankcard");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankcardNotLike(String value) {
+            addCriterion("bankcard not like", value, "bankcard");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankcardIn(List<String> values) {
+            addCriterion("bankcard in", values, "bankcard");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankcardNotIn(List<String> values) {
+            addCriterion("bankcard not in", values, "bankcard");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankcardBetween(String value1, String value2) {
+            addCriterion("bankcard between", value1, value2, "bankcard");
+            return (Criteria) this;
+        }
+
+        public Criteria andBankcardNotBetween(String value1, String value2) {
+            addCriterion("bankcard not between", value1, value2, "bankcard");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowthIsNull() {
+            addCriterion("growth is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowthIsNotNull() {
+            addCriterion("growth is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowthEqualTo(Integer value) {
+            addCriterion("growth =", value, "growth");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowthNotEqualTo(Integer value) {
+            addCriterion("growth <>", value, "growth");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowthGreaterThan(Integer value) {
+            addCriterion("growth >", value, "growth");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowthGreaterThanOrEqualTo(Integer value) {
+            addCriterion("growth >=", value, "growth");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowthLessThan(Integer value) {
+            addCriterion("growth <", value, "growth");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowthLessThanOrEqualTo(Integer value) {
+            addCriterion("growth <=", value, "growth");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowthIn(List<Integer> values) {
+            addCriterion("growth in", values, "growth");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowthNotIn(List<Integer> values) {
+            addCriterion("growth not in", values, "growth");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowthBetween(Integer value1, Integer value2) {
+            addCriterion("growth between", value1, value2, "growth");
+            return (Criteria) this;
+        }
+
+        public Criteria andGrowthNotBetween(Integer value1, Integer value2) {
+            addCriterion("growth not between", value1, value2, "growth");
+            return (Criteria) this;
+        }
+
+        public Criteria andJifenIsNull() {
+            addCriterion("jifen is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJifenIsNotNull() {
+            addCriterion("jifen is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJifenEqualTo(Integer value) {
+            addCriterion("jifen =", value, "jifen");
+            return (Criteria) this;
+        }
+
+        public Criteria andJifenNotEqualTo(Integer value) {
+            addCriterion("jifen <>", value, "jifen");
+            return (Criteria) this;
+        }
+
+        public Criteria andJifenGreaterThan(Integer value) {
+            addCriterion("jifen >", value, "jifen");
+            return (Criteria) this;
+        }
+
+        public Criteria andJifenGreaterThanOrEqualTo(Integer value) {
+            addCriterion("jifen >=", value, "jifen");
+            return (Criteria) this;
+        }
+
+        public Criteria andJifenLessThan(Integer value) {
+            addCriterion("jifen <", value, "jifen");
+            return (Criteria) this;
+        }
+
+        public Criteria andJifenLessThanOrEqualTo(Integer value) {
+            addCriterion("jifen <=", value, "jifen");
+            return (Criteria) this;
+        }
+
+        public Criteria andJifenIn(List<Integer> values) {
+            addCriterion("jifen in", values, "jifen");
+            return (Criteria) this;
+        }
+
+        public Criteria andJifenNotIn(List<Integer> values) {
+            addCriterion("jifen not in", values, "jifen");
+            return (Criteria) this;
+        }
+
+        public Criteria andJifenBetween(Integer value1, Integer value2) {
+            addCriterion("jifen between", value1, value2, "jifen");
+            return (Criteria) this;
+        }
+
+        public Criteria andJifenNotBetween(Integer value1, Integer value2) {
+            addCriterion("jifen not between", value1, value2, "jifen");
+            return (Criteria) this;
+        }
+
         public Criteria andExtends1IsNull() {
             addCriterion("extends1 is null");
             return (Criteria) this;

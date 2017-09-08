@@ -28,10 +28,4 @@ public interface TbItemMapper {
     int updateByPrimaryKeySelective(TbItem record);
 
     int updateByPrimaryKey(TbItem record);
-
-/*    @Insert("insert into tb_borrow(money,carimg,carnumber,gettime,residue,loansid,state,purpose,returnway,pledgeimg," +
-            "applydate,house,bank,social,relation) values(#{money},#{carimg},#{carnumber},#{gettime},#{residue},#{loansid},#{state}," +
-            "#{purpose},#{returnway},#{pledgeimg},#{applydate},#{house},#{bank},#{social},#{relation})")
-    @Options(keyProperty="id",useGeneratedKeys=true)
-    int insertMy(TbItem record);*/
 }

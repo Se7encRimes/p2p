@@ -1,13 +1,13 @@
 package org.p2p.pojo.po;
 
-public class TbInvest {
+import java.util.Date;
+
+public class TbSign {
     private Integer id;
 
-    private Integer userid;
+    private Integer uid;
 
-    private Double earnings;
-
-    private Double money;
+    private Date signtime;
 
     private String extends1;
 
@@ -23,28 +23,20 @@ public class TbInvest {
         this.id = id;
     }
 
-    public Integer getUserid() {
-        return userid;
+    public Integer getUid() {
+        return uid;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
-    public Double getEarnings() {
-        return earnings;
+    public Date getSigntime() {
+        return signtime;
     }
 
-    public void setEarnings(Double earnings) {
-        this.earnings = earnings;
-    }
-
-    public Double getMoney() {
-        return money;
-    }
-
-    public void setMoney(Double money) {
-        this.money = money;
+    public void setSigntime(Date signtime) {
+        this.signtime = signtime;
     }
 
     public String getExtends1() {

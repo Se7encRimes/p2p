@@ -21,6 +21,12 @@ public class TbUser {
 
     private Date createdate;
 
+    private String bankcard;
+
+    private Integer growth;
+
+    private Integer jifen;
+
     private String extends1;
 
     private String extends2;
@@ -97,6 +103,30 @@ public class TbUser {
 
     public void setCreatedate(Date createdate) {
         this.createdate = createdate;
+    }
+
+    public String getBankcard() {
+        return bankcard;
+    }
+
+    public void setBankcard(String bankcard) {
+        this.bankcard = bankcard == null ? null : bankcard.trim();
+    }
+
+    public Integer getGrowth() {
+        return growth;
+    }
+
+    public void setGrowth(Integer growth) {
+        this.growth = growth;
+    }
+
+    public Integer getJifen() {
+        return jifen;
+    }
+
+    public void setJifen(Integer jifen) {
+        this.jifen = jifen;
     }
 
     public String getExtends1() {

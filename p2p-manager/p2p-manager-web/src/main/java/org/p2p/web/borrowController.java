@@ -31,7 +31,7 @@ public class borrowController {
 
     @ModelAttribute("dir")
     public File pre(HttpServletRequest request){
-        File dir=new File(new File(request.getServletContext().getRealPath("/")).getParent(), "my_files");
+        File dir=new File(new File(request.getServletContext().getRealPath("/")), "my_files");
 
         //验证文件夹是否存在，不存在就新建
         if(!dir.exists()){

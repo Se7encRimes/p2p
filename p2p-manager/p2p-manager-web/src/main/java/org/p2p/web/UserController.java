@@ -28,6 +28,7 @@ public class UserController {
     @Autowired
     private TbUserService userService;
 
+    //普通会员注册后跳转到开通存管账户
     @RequestMapping("tiaozhuan")
     public String goToOpenBank(String phone,Model model,HttpServletRequest request){
         System.out.println("========>"+phone);
@@ -39,6 +40,7 @@ public class UserController {
         return "home-register-openbankid";
     }
 
+    //开通存管账户
     @RequestMapping("openbankactive")
     @ResponseBody
     public uregister openBankActive(TbUser tbUser,HttpSession session){
@@ -53,6 +55,7 @@ public class UserController {
         return uRegister;
     }
 
+    //注册普通会员
     @RequestMapping("/URegister")
     @ResponseBody
     public  uregister TbUserRegister(TbUser user,Model model){
@@ -72,22 +75,11 @@ public class UserController {
         return uRegister;
     }
 
-    @RequestMapping("/ulogin")
-    public  String TbUserLogin(TbUser user,Model model,HttpSession session){
+    //登录
+    @RequestMapping("/ULogin")
+    public  String TbUserLogin(TbUser user,HttpSession session){
         Map<String,Object> map=userService.userlogin(user);
-        for (String s : map.keySet()) {
-            if ("user".equals(s)){
-                TbUser user1 = (TbUser) map.get(s);
-                session.setAttribute("user",user1);
-                return "index";
-            }
-            if("passerro".equals(s)){
-                model.addAttribute("msg","密码错误");
-            }
-            if("nouser".equals(s)){
-                model.addAttribute("msg","用户不存在");
-            }
-        }
+
         return "login";
     }
 }

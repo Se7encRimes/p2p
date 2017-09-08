@@ -595,6 +595,76 @@ public class TbProjectExample {
             return (Criteria) this;
         }
 
+        public Criteria andGaiyaoIsNull() {
+            addCriterion("gaiyao is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGaiyaoIsNotNull() {
+            addCriterion("gaiyao is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGaiyaoEqualTo(String value) {
+            addCriterion("gaiyao =", value, "gaiyao");
+            return (Criteria) this;
+        }
+
+        public Criteria andGaiyaoNotEqualTo(String value) {
+            addCriterion("gaiyao <>", value, "gaiyao");
+            return (Criteria) this;
+        }
+
+        public Criteria andGaiyaoGreaterThan(String value) {
+            addCriterion("gaiyao >", value, "gaiyao");
+            return (Criteria) this;
+        }
+
+        public Criteria andGaiyaoGreaterThanOrEqualTo(String value) {
+            addCriterion("gaiyao >=", value, "gaiyao");
+            return (Criteria) this;
+        }
+
+        public Criteria andGaiyaoLessThan(String value) {
+            addCriterion("gaiyao <", value, "gaiyao");
+            return (Criteria) this;
+        }
+
+        public Criteria andGaiyaoLessThanOrEqualTo(String value) {
+            addCriterion("gaiyao <=", value, "gaiyao");
+            return (Criteria) this;
+        }
+
+        public Criteria andGaiyaoLike(String value) {
+            addCriterion("gaiyao like", value, "gaiyao");
+            return (Criteria) this;
+        }
+
+        public Criteria andGaiyaoNotLike(String value) {
+            addCriterion("gaiyao not like", value, "gaiyao");
+            return (Criteria) this;
+        }
+
+        public Criteria andGaiyaoIn(List<String> values) {
+            addCriterion("gaiyao in", values, "gaiyao");
+            return (Criteria) this;
+        }
+
+        public Criteria andGaiyaoNotIn(List<String> values) {
+            addCriterion("gaiyao not in", values, "gaiyao");
+            return (Criteria) this;
+        }
+
+        public Criteria andGaiyaoBetween(String value1, String value2) {
+            addCriterion("gaiyao between", value1, value2, "gaiyao");
+            return (Criteria) this;
+        }
+
+        public Criteria andGaiyaoNotBetween(String value1, String value2) {
+            addCriterion("gaiyao not between", value1, value2, "gaiyao");
+            return (Criteria) this;
+        }
+
         public Criteria andExtends1IsNull() {
             addCriterion("extends1 is null");
             return (Criteria) this;

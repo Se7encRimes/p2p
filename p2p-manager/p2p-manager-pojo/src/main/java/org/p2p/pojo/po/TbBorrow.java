@@ -5,35 +5,35 @@ import java.util.Date;
 public class TbBorrow {
     private Integer id;
 
-    private Double money;//借款金额？页面提示出利率
+    private Integer uid;
 
-    private String carimg;//汽车照片
+    private Double money;
 
-    private String carnumber;//车牌号
+    private String carimg;
 
-    private String gettime;//借款时间
+    private String carnumber;
 
-    private Double residue;//剩余还款金额  金额*月份*0.2/万分之
+    private String gettime;
 
-    private Integer loansid;//借款人的主键 需通过session去查借款人的id
+    private Double residue;
 
-    private Integer state;//0申请时直接将数据库改为0
+    private Integer state;
 
-    private String purpose;//借款用途
+    private String purpose;
 
-    private String returnway;//还款方式  总金额*
+    private String returnway;
 
-    private String pledgeimg;//车子抵押照片
+    private String pledgeimg;
 
-    private Date applydate;//申请时间
+    private Date applydate;
 
-    private String house;//房产证照片
+    private String house;
 
-    private String bank;//银行流水照片
+    private String bank;
 
-    private String social;//社保照片
+    private String social;
 
-    private String relation;//家属身份证照片
+    private String relation;
 
     private String extends1;
 
@@ -47,6 +47,14 @@ public class TbBorrow {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
     public Double getMoney() {
@@ -87,14 +95,6 @@ public class TbBorrow {
 
     public void setResidue(Double residue) {
         this.residue = residue;
-    }
-
-    public Integer getLoansid() {
-        return loansid;
-    }
-
-    public void setLoansid(Integer loansid) {
-        this.loansid = loansid;
     }
 
     public Integer getState() {

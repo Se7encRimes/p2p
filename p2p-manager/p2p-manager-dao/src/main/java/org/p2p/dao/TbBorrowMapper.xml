@@ -3,12 +3,12 @@
 <mapper namespace="org.p2p.dao.TbBorrowMapper" >
   <resultMap id="BaseResultMap" type="org.p2p.pojo.po.TbBorrow" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
     <result column="money" property="money" jdbcType="DOUBLE" />
     <result column="carimg" property="carimg" jdbcType="VARCHAR" />
     <result column="carnumber" property="carnumber" jdbcType="VARCHAR" />
     <result column="gettime" property="gettime" jdbcType="VARCHAR" />
     <result column="residue" property="residue" jdbcType="DOUBLE" />
-    <result column="loansid" property="loansid" jdbcType="INTEGER" />
     <result column="state" property="state" jdbcType="INTEGER" />
     <result column="purpose" property="purpose" jdbcType="VARCHAR" />
     <result column="returnway" property="returnway" jdbcType="VARCHAR" />
@@ -81,8 +81,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, money, carimg, carnumber, gettime, residue, loansid, state, purpose, returnway, 
-    pledgeimg, applydate, house, bank, social, relation, extends1, extends2, extends3
+    id, uid, money, carimg, carnumber, gettime, residue, state, purpose, returnway, pledgeimg, 
+    applydate, house, bank, social, relation, extends1, extends2, extends3
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.p2p.pojo.po.TbBorrowExample" >
     select
@@ -115,16 +115,16 @@
     </if>
   </delete>
   <insert id="insert" parameterType="org.p2p.pojo.po.TbBorrow" >
-    insert into tb_borrow (id, money, carimg, 
-      carnumber, gettime, residue, 
-      loansid, state, purpose, 
+    insert into tb_borrow (id, uid, money, 
+      carimg, carnumber, gettime, 
+      residue, state, purpose, 
       returnway, pledgeimg, applydate, 
       house, bank, social, 
       relation, extends1, extends2, 
       extends3)
-    values (#{id,jdbcType=INTEGER}, #{money,jdbcType=DOUBLE}, #{carimg,jdbcType=VARCHAR}, 
-      #{carnumber,jdbcType=VARCHAR}, #{gettime,jdbcType=VARCHAR}, #{residue,jdbcType=DOUBLE}, 
-      #{loansid,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{purpose,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{money,jdbcType=DOUBLE}, 
+      #{carimg,jdbcType=VARCHAR}, #{carnumber,jdbcType=VARCHAR}, #{gettime,jdbcType=VARCHAR}, 
+      #{residue,jdbcType=DOUBLE}, #{state,jdbcType=INTEGER}, #{purpose,jdbcType=VARCHAR}, 
       #{returnway,jdbcType=VARCHAR}, #{pledgeimg,jdbcType=VARCHAR}, #{applydate,jdbcType=TIMESTAMP}, 
       #{house,jdbcType=VARCHAR}, #{bank,jdbcType=VARCHAR}, #{social,jdbcType=VARCHAR}, 
       #{relation,jdbcType=VARCHAR}, #{extends1,jdbcType=VARCHAR}, #{extends2,jdbcType=VARCHAR}, 
@@ -135,6 +135,9 @@
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="uid != null" >
+        uid,
       </if>
       <if test="money != null" >
         money,
@@ -150,9 +153,6 @@
       </if>
       <if test="residue != null" >
         residue,
-      </if>
-      <if test="loansid != null" >
-        loansid,
       </if>
       <if test="state != null" >
         state,
@@ -195,6 +195,9 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
       <if test="money != null" >
         #{money,jdbcType=DOUBLE},
       </if>
@@ -209,9 +212,6 @@
       </if>
       <if test="residue != null" >
         #{residue,jdbcType=DOUBLE},
-      </if>
-      <if test="loansid != null" >
-        #{loansid,jdbcType=INTEGER},
       </if>
       <if test="state != null" >
         #{state,jdbcType=INTEGER},
@@ -263,6 +263,9 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.uid != null" >
+        uid = #{record.uid,jdbcType=INTEGER},
+      </if>
       <if test="record.money != null" >
         money = #{record.money,jdbcType=DOUBLE},
       </if>
@@ -277,9 +280,6 @@
       </if>
       <if test="record.residue != null" >
         residue = #{record.residue,jdbcType=DOUBLE},
-      </if>
-      <if test="record.loansid != null" >
-        loansid = #{record.loansid,jdbcType=INTEGER},
       </if>
       <if test="record.state != null" >
         state = #{record.state,jdbcType=INTEGER},
@@ -325,12 +325,12 @@
   <update id="updateByExample" parameterType="map" >
     update tb_borrow
     set id = #{record.id,jdbcType=INTEGER},
+      uid = #{record.uid,jdbcType=INTEGER},
       money = #{record.money,jdbcType=DOUBLE},
       carimg = #{record.carimg,jdbcType=VARCHAR},
       carnumber = #{record.carnumber,jdbcType=VARCHAR},
       gettime = #{record.gettime,jdbcType=VARCHAR},
       residue = #{record.residue,jdbcType=DOUBLE},
-      loansid = #{record.loansid,jdbcType=INTEGER},
       state = #{record.state,jdbcType=INTEGER},
       purpose = #{record.purpose,jdbcType=VARCHAR},
       returnway = #{record.returnway,jdbcType=VARCHAR},
@@ -350,6 +350,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="org.p2p.pojo.po.TbBorrow" >
     update tb_borrow
     <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
       <if test="money != null" >
         money = #{money,jdbcType=DOUBLE},
       </if>
@@ -364,9 +367,6 @@
       </if>
       <if test="residue != null" >
         residue = #{residue,jdbcType=DOUBLE},
-      </if>
-      <if test="loansid != null" >
-        loansid = #{loansid,jdbcType=INTEGER},
       </if>
       <if test="state != null" >
         state = #{state,jdbcType=INTEGER},
@@ -409,12 +409,12 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="org.p2p.pojo.po.TbBorrow" >
     update tb_borrow
-    set money = #{money,jdbcType=DOUBLE},
+    set uid = #{uid,jdbcType=INTEGER},
+      money = #{money,jdbcType=DOUBLE},
       carimg = #{carimg,jdbcType=VARCHAR},
       carnumber = #{carnumber,jdbcType=VARCHAR},
       gettime = #{gettime,jdbcType=VARCHAR},
       residue = #{residue,jdbcType=DOUBLE},
-      loansid = #{loansid,jdbcType=INTEGER},
       state = #{state,jdbcType=INTEGER},
       purpose = #{purpose,jdbcType=VARCHAR},
       returnway = #{returnway,jdbcType=VARCHAR},

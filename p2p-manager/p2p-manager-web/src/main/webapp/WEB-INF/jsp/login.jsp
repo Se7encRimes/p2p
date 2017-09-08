@@ -46,7 +46,7 @@
     .mylogin .topcontent span {color: #883535;}
     .mylogin .bottomcontent {font-weight:bold;font-size:20px;line-height: 30px;width:384px;margin: 50px auto;}
     .mylogin .bottomcontent a{color: #333333;text-decoration: none;}
-    .mylogin .closeimg {position: absolute;top: 220px;right: 14px;width: 43px;height: 43px;background-image: url("statics/home2/images/login/cha.png");}
+    .mylogin .closeimg {position: absolute;top: 220px;right: 14px;width: 43px;height: 43px;background-image: url("images/login/cha.png");}
   </style>
   <div class="myloginmask"></div>
   <div class="mylogin">
@@ -139,96 +139,8 @@
     })
   </script>
   <!--公共提示框end-->
-  <!-- 右侧边栏start -->
-  <!-- 右侧登录窗口 -->
 
-  <!--右侧登录框-->
-  <div class="mo2-indexLoginbox" id="right-fix">
-    <!-- 登录注册start -->
-    <div class="mo2-indLogreg" >				<div class="mo2-indLogtab">
-      <ul>
-        <li class="mo2-logTab-unsel mo2-indTab-reg">
-          <span>注册</span><b></b>
-        </li>
-        <li class="mo2-logTab-sel mo2-indTab-log">
-          <span>登录</span><b></b>
-        </li>
-      </ul>
-    </div>
-      <!-- 注册start -->
-      <div class="mo2-indRegboxRight" style="display:none;">
-        <div class="mo2-indLogitem" style="margin-bottom:6px;">
-          <i class="mo2-indLogicon-tel"></i><input class="mo2-indIpt-all" id="regTelRight" maxlength="11" type="text" placeholder="输入手机号码"><b class="mo2-indLogwarRight"><em class="mo2-indlogWar-arr"></em><u></u></b>
-        </div>
-        <div class="mo2-indLogitem" style="margin-bottom:6px;">
-          <i class="mo2-indLogicon-psw"></i><input class="mo2-indIpt-all m2-ind-banPsw" id="passRight" type="password" placeholder="6-20位数字与字母组合的密码"><b class="mo2-indLogwarRight"><em class="mo2-indlogWar-arr"></em><u></u></b>
-        </div>
-        <div class="mo2-indLogitem-step1">
-          <div class="mo2-indLogreg-step1">
-            <i class="mo2-indLogicon-code"></i><input class="mo2-indIptcod-step1" id="vcodeRight" type="text" placeholder="验证码">
-          </div>
-          <img class="mo2-indRegcode" src="Index-VerifyCode.png" onClick="document.getElementById('reverifyCodeRight').src='Index-VerifyCode.png?time='+Math.random();void(0);" id="reverifyCodeRight"  alt="点击刷新验证码">
-          <span class="mo2-indReg-refresh">看不清？换一张</span>
-          <b class="mo2-indLogwarRight"><em class="mo2-indlogWar-arr"></em><u></u></b>
-        </div>
-        <div class="mo2-indReg-btn" id="verifyregcode" onclick="verifycodeRight();" style="margin-top:8px;">
-          <a class="mo2-indRegbtn-able" href="#">立即注册</a>
-        </div>
-        <div class="mo2-indRegagree">
-          <i class="mo2-indReg-sel"></i><span>我已阅读并同意</span><b>《爱钱帮注册服务协议》</b>
-        </div>
-      </div>
-      <!-- 注册end -->
-      <!-- 注册step2 start -->
-      <div class="mo2-indRegbox2Right"  style="display:none;" >
-        <div class="mo2-indReg2-con">
-          <ul>
-            <li><i class="mo2-indRegicon-step1"></i><span>为了确保您手机可用，请填写您收到的手机动态码。</span></li>
-            <li><i class="mo2-indRegicon-step2"></i><span>如收不到短信验证码，可点击下面的获取语音验证码。</span></li>
-          </ul>
-        </div>
-        <div class="mo2-indLogitem">
-          <i class="mo2-indLogicon-code"></i><input class="mo2-indIpt-half" id="codeRight" type="text" placeholder="验证码">
-          <span class="mo2-indRegtim mo2-regTin-able"><u>60秒后</u><span>获取手机验证码</span></span>
-          <b class="mo2-indLogwarRight" style="width:200px;"><em class="mo2-indlogWar-arr"></em><u>错误提示信息</u></b>
-        </div>
-        <div class="mo2-indRegvoice">
-          <span class="mo2-indRegvoi-btn mo2-indRegvoi-able"><i></i>获取语音验证码</span>
-        </div>
-        <div class="mo2-indReg-btn" onclick="registerRight();" id="verifyregphone"  style="margin-top:8px;">
-          <a class="mo2-indRegbtn-able"  href="#">立即注册</a>
-        </div>
-      </div>
-      <!-- 注册step2 end -->
 
-      <!-- 登录start -->
-      <div class="mo2-indLogboxRight">
-        <div class="mo2-indLogitem mo2-indLogitem-use" style="margin-bottom:9px;">
-          <i class="mo2-indLogicon-use"></i><input class="mo2-indIpt-all" type="text" id="user_nameRight" placeholder="用户名/手机号">
-          <b class="mo2-indLogwar" id="w_username"><em class="mo2-indlogWar-arr"></em><u id="r_usernameRight"></u></b>
-        </div>
-        <div class="mo2-indLogitem mo2-indLogitem-psw" style="margin-bottom:9px;">
-          <i class="mo2-indLogicon-psw"></i><input class="mo2-indIpt-all m2-ind-banPsw" maxlength="20" id="pass_wordRight" type="password" id="pass_wordRight" placeholder="输入登录密码">
-          <b class="mo2-indLogwar" id="w_password"><em class="mo2-indlogWar-arr"></em><u id="r_passwordRight"></u></b>
-        </div>
-        <div class="mo2-indLog-code" style="display:none;margin-bottom:8px;">
-          <div class="mo2-indLogcod-lef">
-            <i class="mo2-indLogicon-psw"></i>
-            <input type="text" id="vcodeRight" placeholder="验证码"></div>
-          <div class="mo2-indLogcod-rig"><img src="Index-VerifyCode.png" onClick="document.getElementById('reverifyCode').src='Index-VerifyCode.png?time='+Math.random();void(0);" alt="点击刷新验证码"></div>
-        </div>
-        <div class="mo2-indLog-forget"><a href="forget.html">忘记密码?</a></div>
-        <div class="mo2-indReg-btn">
-          <a class="mo2-indRegbtn-able" onclick="loginRight();">登录</a>
-        </div>
-      </div>
-      <!-- 登录end -->
-    </div>
-    <!-- 登录注册end -->
-  </div>
-  <!-- 右侧登录窗口 -->
-  <!--add by zml start-->
-  <!--<div id="fixbar" style="width:50px;position:fixed;top:0;right:0px;background:#ff6666;z-index:5;"></div>-->
 
   <!--右侧悬浮条-->
   <div id="fixbar">
@@ -643,16 +555,14 @@
         </a>
       </div>
       <div class="m2-commonNav">
-        <ul class="m2-commonNavul-fir" data_page='threepage'>
-          <!--  <li class="m2-commonNav-fir"><a href="http://huifu.iqianbang.com" target="_blank" >汇付版本</a></li>-->
-          <li class="m2-commonNav-fir"><a href="index.html" id="onepage">首页</a></li>
-          <li class="m2-commonNav-fir"><a href="touzi_licai_chanpin.html" id="twopage">我要投资</a></li>
-          <li class="m2-commonNav-fir"><a href="membermall.html" id="sevenpage">会员商城</a></li>
-          <li class="m2-commonNav-fir"><a href="usercenter.html" id="threepage">我的账户</a></li>
-          <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>
-          <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang.html" id="fivepage">关于我们</a></li>
-          <!-- <li class="m2-commonNav-fir"><a href="guide.html">新手引导</a></li> -->
-          <li class="m2-commonNav-fir"><a href="licaiwang_zhuantihuodong.html" id="sixpage">活动专区</a></li>
+        <ul class="m2-commonNavul-fir" data_page='fivepage'>
+          <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
+          <li class="m2-commonNav-fir"><a href="borrow" id="jieqian">我要借钱</a></li>
+          <li class="m2-commonNav-fir"><a href="touzi" id="twopage">我要投资</a></li>
+          <li class="m2-commonNav-fir"><a href="membermall" id="sevenpage">会员商城</a></li>
+          <li class="m2-commonNav-fir"><a href="usercenter" id="threepage">我的账户</a></li>
+          <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang" id="fivepage">关于我们</a></li>
+          <li class="m2-commonNav-fir"><a href="admin" id="houtai">后台管理</a></li>
         </ul>
       </div>
     </div>
@@ -701,7 +611,7 @@
             <form class="m2-login-form" action="">
               <div class="m2-loginForm-item m2-login-username">
                 <span><i></i></span>
-                <input type="text" id="user_name" placeholder="用户名/手机号/邮箱">
+                <input type="text" id="user_name" placeholder="手机号">
                 <b id="userwarn"></b>
               </div>
               <div class="m2-loginForm-item m2-login-pwd" style="margin:25px 0 0 0;">
@@ -710,12 +620,6 @@
                 <b id="passwarn"></b>
               </div>
               <div class="m2-login-code"  style="display:none;">
-                <div class="m2-loginForm-item" style="display:inline-block;float:left;width:182px;">
-                  <span><i></i></span>
-                  <input type="text" id="vcode" placeholder="验证码">
-
-                  <b></b>
-                </div>
                 <img src="Index-VerifyCode.png" onClick="document.getElementById('reverifyCode').src='Index-VerifyCode.png?time='+Math.random();void(0);" id="reverifyCode" alt="">
               </div>
               <div class="m2-login-forget">
@@ -753,7 +657,7 @@
 </script>
 <script type="text/javascript">
   function login(){
-    var p = makevar(['user_name','pass_word','vcode']);
+    var p = makevar(['user_name','pass_word']);
     var canSubmit = true;
     $(".alarmnew").html("");
     if(typeof p.user_name=="undefined"){
@@ -766,17 +670,10 @@
       $(".alarmnew").html("密码不能为空");
       return false;
     }
-    if(typeof p.vcode=="undefined"){
 
-// 		$(".alarmnew").html('验证码不能为空');
-//    $(".alarmnew").show();
-      // showInfoDialog("验证码不能为空",0);
-//		return false;
-    }
     if(canSubmit!==true) return false;
-    postData("/Home-Login-login_new",p,function(d){
-
-//		  $(".alarmnew").hide();
+    postData("ULogin",p,function(d){
+		  $(".alarmnew").hide();
       d.url = decodeURIComponent(d.url);
       if(d.status==3){
         showInfoDialog(d.message,1);
@@ -788,29 +685,11 @@
         setTimeout(function(){
           window.location.href=d.url;
         },3000);
-      }else if(d.status==6){
-        window.location.reload();
-//			showLoginDialog(d.mycoin,1);
       }else if(d.status==1){
         showLoginInfoDialog(d.comments,1);
         setTimeout(function(){
           window.location.href=d.url;
         },3000);
-      }else if(d.status==5){
-        $(".alarmnew").html(d.message);
-//    $(".alarmnew").show();
-        if(d.verify_nums>3){
-          $("#reverifyCode").click();
-          codeShow();
-        }
-      }
-      else{
-        $(".alarmnew").html(d.message);
-//    $(".alarmnew").show();
-        if(d.verify_nums>3){
-          $("#reverifyCode").click();
-          codeShow();
-        }
       }
     });
   }
