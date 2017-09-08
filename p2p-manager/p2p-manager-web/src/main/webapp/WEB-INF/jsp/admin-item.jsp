@@ -14,12 +14,6 @@
     <title>申请详情</title>
 </head>
 <body>
-<link rel="stylesheet"
-      href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-        src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-<script
-        src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
     img{
         height: 200px;
@@ -27,6 +21,7 @@
     }
 </style>
 <form class="adminItem" id="adminItem" name="adminItem" method="post">
+    <input type="hidden" id="borrowid" value="${custom.num}">
     <table align="center" valign="middle">
         <tr>
             <td>姓名:</td>
@@ -85,6 +80,14 @@
             <td><f:formatDate value="${custom.applydate}" pattern="yyyy年MM月dd日"></f:formatDate></td>
         </tr>
         <tr>
+            <td>身份证正面:</td>
+            <td><img src="${pageContext.request.contextPath}/my_files/${custom.identityimg}"></td>
+            <td>身份证方面:</td>
+            <td><img src="${pageContext.request.contextPath}/my_files/${custom.identityimgback}"></td>
+            <td>家属身份证照片:</td>
+            <td><img src="${pageContext.request.contextPath}/my_files/${custom.relation}"></td>
+        </tr>
+        <tr>
             <td>车辆照片:</td>
             <td><img src="${pageContext.request.contextPath}/my_files/${custom.carimg}"></td>
             <td>车辆抵押证明:</td>
@@ -92,43 +95,66 @@
             <td>房产证:</td>
             <td><img src="${pageContext.request.contextPath}/my_files/${custom.house}"></td>
         </tr>
-
         <tr>
+            <td>住址证明:</td>
+            <td><img src="${pageContext.request.contextPath}/my_files/${custom.addressimg}"></td>
             <td>银行流水:</td>
             <td><img src="${pageContext.request.contextPath}/my_files/${custom.bank}"></td>
             <td>社保:</td>
             <td><img src="${pageContext.request.contextPath}/my_files/${custom.social}"></td>
-            <td>家属照片:</td>
-            <td><img src="${pageContext.request.contextPath}/my_files/${custom.relation}"></td>
         </tr>
+
     </table>
     <br>
     <table align="center" valign="middle" width="50%">
         <tr>
             <td>
-                <input class="btn" type="button" id="pass_" value="审核通过">
+                <input class="easyui-linkbutton" type="button" id="pass_" value="    审核通过    ">
             </td>
             <td>
-                <input class="btn" type="button" id="refuse_" value="拒绝">
+                <input class="easyui-linkbutton" type="button" id="refuse_" value="    拒绝    ">
             </td>
             <td>
-                <input class="btn" type="button" id="back_" value="返回">
+                <input class="easyui-linkbutton" type="button" id="back_" value="    返回    ">
             </td>
         </tr>
     </table>
 </form>
 <script>
         $("#pass_").click(function(){
-            alert("审核通过");
+            var num = $("#borrowid").val();
+            $.messager.confirm('确认','是否确定审核通过？',function(r){
+                if(r){
+                    $("#adminItem").form("submit",{
+                        url:"audit?state=1&id="+num,
+                        success:function(date){
+                            $.messager.alert("消息","审核通过");
+                            p2p.closeTab("申请详情");
+                            $('#table').datagrid('reload');
+                        }
+                    });
+                }
+            });
         });
         $("#refuse_").click(function(){
-            alert("拒绝");
+            var num = $("#borrowid").val();
+            $.messager.confirm('确认','是否确定拒单？',function(r) {
+                if (r) {
+                    $("#adminItem").form("submit", {
+                        url:"audit?state=2&id="+num,
+                        success: function (date) {
+                            $.messager.alert("消息","拒单成功");
+                            p2p.closeTab( "申请详情");
+                            $('#table').datagrid('reload');
+                        }
+                    });
+                }
+            });
         });
         $("#back_").click(function(){
-            alert("返回");
+            p2p.closeTab("申请详情");
+            $('#table').datagrid('reload');
         });
-
-
 
 </script>
 </body>

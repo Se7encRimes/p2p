@@ -41,11 +41,9 @@ public class borrowController {
         return dir;
     }
 
-
     @RequestMapping("/borrow1")
     @ResponseBody
-    public String insert(@RequestParam(name="carimg1",required=false) CommonsMultipartFile[] files,@ModelAttribute(value="dir") File dir,TbBorrow borrow) throws IOException {
-
+    public String insert(@RequestParam(name="carimg1",required=false) CommonsMultipartFile[] files,@ModelAttribute(value="dir") File dir,TbBorrow borrow,HttpServletRequest request) throws IOException {
         if(files.length>0){
         for(int i=0;i<files.length;i++) {
             String fileName =files[i].getOriginalFilename();
@@ -56,34 +54,48 @@ public class borrowController {
             //给图片名加一些内容
             String fName=System.currentTimeMillis()+"_"+ UUID.randomUUID().toString()+"_"+fileName;
             if (i==0){
-                borrow.setCarimg(fName);//汽车照片
+                borrow.setIdentityimg(fName);// 身份证正面照片
             }
             if (i==1){
-                borrow.setPledgeimg(fName);//车子抵押照片
+                borrow.setIdentityimgback(fName);//身份证反面照片
             }
             if (i==2){
-                borrow.setHouse(fName);//房产证照片
+                borrow.setCarimg(fName);//汽车照片
             }
             if (i==3){
-                borrow.setBank(fName);//银行流水照片
+                borrow.setPledgeimg(fName);//车辆抵押证明
             }
             if (i==4){
-                borrow.setSocial(fName);//社保照片
+                borrow.setHouse(fName);//附加资料(房产证)(照片)
             }
             if (i==5){
-                borrow.setRelation(fName);//家属身份证照片
+                borrow.setAddressimg(fName);//家庭住址照片
+            }
+            if (i==6){
+                borrow.setBank(fName);//附加资料(银行流水)(照片)
+            }
+            if (i==7){
+                borrow.setSocial(fName);//附加资料(社保)(照片):
+            }
+            if (i==8){
+                borrow.setRelation(fName);//附加资料(家属身份证)(照片):
             }
             File file=new File(dir,fName);
             files[i].transferTo(file);//将文件内容存储到自定义文件中
         }
         }
+        /*int uid= (int)request.getAttribute("uid");*/
         Date date=new Date();
+       /* borrow.setUid(uid);*/
         borrow.setApplydate(date);
         borrow.setState(0);
-        borrow.setReturnway("返款方式:先息后本！！！");
-        service.insertMy(borrow);
+        borrow.setReturnway("按日计息，到期还本息");
+        String time=borrow.getGettime();
+        borrow.setResidue(borrow.getMoney() * 1.002*Integer.parseInt(time.substring(0,time.length()-2)));
+        if( service.insertMy(borrow)>0){
+            service.updateUserStatus(1,24);
+        }
         return "index";
-
     }
 
 

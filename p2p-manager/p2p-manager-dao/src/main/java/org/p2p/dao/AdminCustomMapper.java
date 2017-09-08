@@ -17,4 +17,6 @@ public interface AdminCustomMapper {
     long countItems();
 
     AdminLoansCustom getBorrwoById(@Param("id")int id);
+
+    int anIntItem(@Param("state")int state,@Param("id")int id);
 }

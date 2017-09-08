@@ -39,4 +39,10 @@ public class AdminController {
         model.addAttribute("custom",custom);
         return "admin-item";
     }
+
+    @RequestMapping("/audit")
+    @ResponseBody
+    public int anIntItem(int state,int id){
+        return service.anIntItem(state,id);
+    }
 }
