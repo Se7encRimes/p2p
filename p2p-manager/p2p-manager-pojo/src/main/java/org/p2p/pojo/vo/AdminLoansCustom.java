@@ -14,17 +14,15 @@ public class AdminLoansCustom {
 
     private String phone;
 
-    private Double balance;
+    private String bankcard;
 
-    private Date applydate;
+    private Double money;
 
     private String carimg;
 
     private String carnumber;
 
     private String gettime;
-
-    private Double money;
 
     private Double residue;
 
@@ -36,7 +34,7 @@ public class AdminLoansCustom {
 
     private String pledgeimg;
 
-    private Date createdate;
+    private Date applydate;
 
     private String house;
 
@@ -46,9 +44,9 @@ public class AdminLoansCustom {
 
     private String relation;
 
-    private int borrowid;
-
     private String identityimg;
+
+    private String identityimgback;
 
     private String address;
 
@@ -59,72 +57,6 @@ public class AdminLoansCustom {
     private String otherphone;
 
     private String otheraddress;
-
-    private String bankcard;
-
-    public String getBankcard() {
-        return bankcard;
-    }
-
-    public void setBankcard(String bankcard) {
-        this.bankcard = bankcard;
-    }
-
-    public String getIdentityimg() {
-        return identityimg;
-    }
-
-    public void setIdentityimg(String identityimg) {
-        this.identityimg = identityimg;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getAddressimg() {
-        return addressimg;
-    }
-
-    public void setAddressimg(String addressimg) {
-        this.addressimg = addressimg;
-    }
-
-    public String getOthername() {
-        return othername;
-    }
-
-    public void setOthername(String othername) {
-        this.othername = othername;
-    }
-
-    public String getOtherphone() {
-        return otherphone;
-    }
-
-    public void setOtherphone(String otherphone) {
-        this.otherphone = otherphone;
-    }
-
-    public String getOtheraddress() {
-        return otheraddress;
-    }
-
-    public void setOtheraddress(String otheraddress) {
-        this.otheraddress = otheraddress;
-    }
-
-    public int getBorrowid() {
-        return borrowid;
-    }
-
-    public void setBorrowid(int borrowid) {
-        this.borrowid = borrowid;
-    }
 
     public Integer getNum() {
         return num;
@@ -158,20 +90,20 @@ public class AdminLoansCustom {
         this.phone = phone;
     }
 
-    public Double getBalance() {
-        return balance;
+    public String getBankcard() {
+        return bankcard;
     }
 
-    public void setBalance(Double balance) {
-        this.balance = balance;
+    public void setBankcard(String bankcard) {
+        this.bankcard = bankcard;
     }
 
-    public Date getApplydate() {
-        return applydate;
+    public Double getMoney() {
+        return money;
     }
 
-    public void setApplydate(Date applydate) {
-        this.applydate = applydate;
+    public void setMoney(Double money) {
+        this.money = money;
     }
 
     public String getCarimg() {
@@ -238,12 +170,12 @@ public class AdminLoansCustom {
         this.pledgeimg = pledgeimg;
     }
 
-    public Date getCreatedate() {
-        return createdate;
+    public Date getApplydate() {
+        return applydate;
     }
 
-    public void setCreatedate(Date createdate) {
-        this.createdate = createdate;
+    public void setApplydate(Date applydate) {
+        this.applydate = applydate;
     }
 
     public String getHouse() {
@@ -278,11 +210,59 @@ public class AdminLoansCustom {
         this.relation = relation;
     }
 
-    public Double getMoney() {
-        return money;
+    public String getIdentityimg() {
+        return identityimg;
     }
 
-    public void setMoney(Double money) {
-        this.money = money;
+    public void setIdentityimg(String identityimg) {
+        this.identityimg = identityimg;
+    }
+
+    public String getIdentityimgback() {
+        return identityimgback;
+    }
+
+    public void setIdentityimgback(String identityimgback) {
+        this.identityimgback = identityimgback;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAddressimg() {
+        return addressimg;
+    }
+
+    public void setAddressimg(String addressimg) {
+        this.addressimg = addressimg;
+    }
+
+    public String getOthername() {
+        return othername;
+    }
+
+    public void setOthername(String othername) {
+        this.othername = othername;
+    }
+
+    public String getOtherphone() {
+        return otherphone;
+    }
+
+    public void setOtherphone(String otherphone) {
+        this.otherphone = otherphone;
+    }
+
+    public String getOtheraddress() {
+        return otheraddress;
+    }
+
+    public void setOtheraddress(String otheraddress) {
+        this.otheraddress = otheraddress;
     }
 }
