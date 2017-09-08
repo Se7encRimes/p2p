@@ -54,8 +54,13 @@
         return moment(value).format("dddd, MMMM Do YYYY,h:mm:ss a")
       }}
 
-    ]]
+    ]],
   });
+  $('#table').datagrid({
+      onClickRow: function(index,row){
+          p2p.add_Tab("申请详情","admin-item",row.borrowid);
+      }
+  })
 </script>
 </body>
 </html>

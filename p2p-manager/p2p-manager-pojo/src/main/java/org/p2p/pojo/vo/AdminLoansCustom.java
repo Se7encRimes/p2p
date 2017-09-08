@@ -60,6 +60,16 @@ public class AdminLoansCustom {
 
     private String otheraddress;
 
+    private String bankcard;
+
+    public String getBankcard() {
+        return bankcard;
+    }
+
+    public void setBankcard(String bankcard) {
+        this.bankcard = bankcard;
+    }
+
     public String getIdentityimg() {
         return identityimg;
     }
