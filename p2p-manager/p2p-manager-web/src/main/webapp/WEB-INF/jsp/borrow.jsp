@@ -805,6 +805,7 @@
     return icstr;
   }
 
+
   $(document).on('click', '.m2-evtImg-tit', function (e) {
     $(this).siblings('.m2-evtImghide').toggle();
     $(this).toggleClass('m2-evtImg-titUnsel m2-evtImg-titSel');
