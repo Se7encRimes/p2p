@@ -671,7 +671,7 @@
       },
       //在表单提交成功以后触发
       success: function (data) {
-
+        $.messager.alert('消息','申请表单提交成功！点击确定跳转到首页');
         window.location.href="index";
 
       }

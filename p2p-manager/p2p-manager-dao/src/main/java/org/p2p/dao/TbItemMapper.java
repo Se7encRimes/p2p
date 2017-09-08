@@ -1,7 +1,5 @@
 package org.p2p.dao;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.p2p.pojo.po.TbItem;
 import org.p2p.pojo.po.TbItemExample;
@@ -31,9 +29,9 @@ public interface TbItemMapper {
 
     int updateByPrimaryKey(TbItem record);
 
-    @Insert("insert into tb_borrow(money,carimg,carnumber,gettime,residue,loansid,state,purpose,returnway,pledgeimg," +
+/*    @Insert("insert into tb_borrow(money,carimg,carnumber,gettime,residue,loansid,state,purpose,returnway,pledgeimg," +
             "applydate,house,bank,social,relation) values(#{money},#{carimg},#{carnumber},#{gettime},#{residue},#{loansid},#{state}," +
             "#{purpose},#{returnway},#{pledgeimg},#{applydate},#{house},#{bank},#{social},#{relation})")
     @Options(keyProperty="id",useGeneratedKeys=true)
-    int insertMy(TbItem record);
+    int insertMy(TbItem record);*/
 }
