@@ -313,47 +313,7 @@
 
   </script>
   <script>
-    //注册方法
-    function verifycodeRight(){
-      var canSubmit=true;
-      $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html('');
-      if($("#vcodeRight").val().length==0){
-        $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html("验证码不能为空");
-        $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").show();
-        canSubmit = false;
-      }
-      if($("#passRight").val().length==0){
-        $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html("密码不能为空");
-        $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").show();
-        canSubmit = false;
-      }
-      if($("#regTelRight").val().length==0){
-        $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html("手机号不能为空");
-        $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").show();
-        canSubmit = false;
-      }
 
-      $(".mo2-indRegbox .mo2-indLogwarRight u").each(function(){
-        if($(this).html().length>0){
-          canSubmit = false;
-        }
-      });
-      if (canSubmit !== true) return false;
-      var p={"vcode":$("#vcodeRight").val()};
-      postData("/Home-Register-ckcode",p,function(d){
-        if(d.message!=" "){
-          $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html(d.message);
-          $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").show();
-          return false;
-        }else{
-          $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html('');
-          $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").hide();
-          $('.mo2-indRegboxRight').css('display','none');
-          $('.mo2-indRegbox2Right').css('display','block');
-        }
-
-      });
-    }
     //登录方法
     function loginRight(){
       var p = makevar(['user_nameRight','pass_wordRight','vcodeRight']);
@@ -390,13 +350,6 @@
       }
     }
 
-    // 注册登录tab切换
-    $('.mo2-indLogtab ul li').click(function(){
-      if ($(this).hasClass('mo2-logTab-unsel')) {
-        $(this).addClass('mo2-logTab-sel').removeClass('mo2-logTab-unsel');
-        $(this).siblings('.mo2-logTab-sel').addClass('mo2-logTab-unsel').removeClass('mo2-logTab-sel');
-      }
-    });
     // 注册登录显示隐藏
     $('.mo2-indTab-reg').click(function(){
       $('.mo2-indRegboxRight').show();
@@ -611,12 +564,12 @@
             <form class="m2-login-form" action="">
               <div class="m2-loginForm-item m2-login-username">
                 <span><i></i></span>
-                <input type="text" id="user_name" placeholder="手机号">
+                <input type="text" id="phone" placeholder="手机号">
                 <b id="userwarn"></b>
               </div>
               <div class="m2-loginForm-item m2-login-pwd" style="margin:25px 0 0 0;">
                 <span><i></i></span>
-                <input type="password" id="pass_word" placeholder="密码">
+                <input type="password" id="password" placeholder="密码">
                 <b id="passwarn"></b>
               </div>
               <div class="m2-login-code"  style="display:none;">
@@ -650,22 +603,22 @@
 <script type="text/javascript">
   $(function(){
     $('#account,#redbag,#percentage,#message,#m2-commonRight').click(function(){
-      $("#user_name").focus();
+      $("#phone").focus();
     })
   })
 
 </script>
 <script type="text/javascript">
   function login(){
-    var p = makevar(['user_name','pass_word']);
+    var p = makevar(['phone','password']);
     var canSubmit = true;
     $(".alarmnew").html("");
-    if(typeof p.user_name=="undefined"){
+    if(typeof p.phone=="undefined"){
 
       $(".alarmnew").html("用户名不能为空");
       return false;
     }
-    if(typeof p.pass_word=="undefined" ||　typeof p.pass_word==null || p.pass_word==""){
+    if(typeof p.password=="undefined" ||　typeof p.password==null || p.password==""){
 
       $(".alarmnew").html("密码不能为空");
       return false;
@@ -674,7 +627,7 @@
     if(canSubmit!==true) return false;
     postData("ULogin",p,function(d){
 		  $(".alarmnew").hide();
-      d.url = decodeURIComponent(d.url);
+      //d.url = decodeURIComponent(d.url);
       if(d.status==3){
         showInfoDialog(d.message,1);
         setTimeout(function(){
@@ -686,7 +639,7 @@
           window.location.href=d.url;
         },3000);
       }else if(d.status==1){
-        showLoginInfoDialog(d.comments,1);
+       showLoginInfoDialog(d.comments,1);
         setTimeout(function(){
           window.location.href=d.url;
         },3000);

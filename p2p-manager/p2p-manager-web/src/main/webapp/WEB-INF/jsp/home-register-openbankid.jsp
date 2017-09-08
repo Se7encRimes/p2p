@@ -54,12 +54,12 @@
   </div>
   <style type="text/css">
     .myloginmask {position:fixed;top: 0;left: 0;right: 0;bottom: 0;background-color: black;display: none;opacity: 0.7;z-index: 800;filter:alpha(opacity=70)}
-    .mylogin {position:   fixed;top: 50%;left: 50%;margin-top: -346px;margin-left: -260px;width: 520px;height: 496px;background-image: url("statics/home2/images/login/login_info.png");background-repeat: no-repeat;z-index: 1000;display: none;}
+    .mylogin {position:   fixed;top: 50%;left: 50%;margin-top: -346px;margin-left: -260px;width: 520px;height: 496px;background-image: url("images/login/login_info.png");background-repeat: no-repeat;z-index: 1000;display: none;}
     .mylogin .topcontent {font-weight:bold;text-align: center;color: #666666;font-size: 18px;padding-top: 284px;line-height: 36px;}
     .mylogin .topcontent span {color: #883535;}
     .mylogin .bottomcontent {font-weight:bold;font-size:20px;line-height: 30px;width:384px;margin: 50px auto;}
     .mylogin .bottomcontent a{color: #333333;text-decoration: none;}
-    .mylogin .closeimg {position: absolute;top: 220px;right: 14px;width: 43px;height: 43px;background-image: url("statics/home2/images/login/cha.png");}
+    .mylogin .closeimg {position: absolute;top: 220px;right: 14px;width: 43px;height: 43px;background-image: url("images/login/cha.png");}
   </style>
   <div class="myloginmask"></div>
   <div class="mylogin">
@@ -173,25 +173,25 @@
             </tr>
             <tr>
               <td><i class="m2-regist-idnumber"></i>身份证号</td>
-              <td class="m2-regist-tdInput"><input type="text" class="m2-regist-username" id="idcard" value="" placeholder="身份证号（必填）"/><span class="m2-regist-errMsg m2-openbank-card"></span></td>
+              <td class="m2-regist-tdInput"><input type="text" class="m2-regist-username" id="card" value="" placeholder="身份证号（必填）"/><span class="m2-regist-errMsg m2-openbank-card"></span></td>
             </tr>
             <tr>
               <td><i class="m2-regist-cardnumber"></i>手机号</td>
               <td class="m2-regist-tdInput">
-                <span class="m2-reg-telSpan" style=""><span>${user1.phone}<%--</span><a target="_blank" href="#?phone=1">修改</a></span>--%>
-                <%--<span class="m2-regist-errMsg " style="color:#aaa;top:45px;">您的手机号需与开卡时手机号一致--%></span></td>
+                <span class="m2-reg-telSpan" style=""><span>${user1.phone}</span></span>
               </td>
             </tr>
             <tr>
               <td><i class="m2-regist-cardnumber"></i>借记卡</td>
-              <td class="m2-regist-tdInput"><input type="text" onkeydown="onlyNum();" style="ime-mode:Disabled" class="m2-regist-username" id="bankcardid" value="" placeholder="借记卡卡号（必填）"/><span class="m2-regist-errMsgcard"><span></td>
+              <td class="m2-regist-tdInput"><input type="text" onkeydown="onlyNum();" style="ime-mode:Disabled" class="m2-regist-username" id="bankcard" value="" placeholder="借记卡卡号（必填）"/><span class="m2-regist-errMsgcard"></span></td>
             </tr>
           </table>
-
           <div class="m2-regist-btn m2-regist-quit" >
             <a class="openbank openAble" id="openbank">立即开通</a><a class="m2-regist-look" href="touzi" target="_blank">我先看看</a>
           </div>
+
         </div>
+        <p>为了您的数据安全，我们采用了SSL传输方式，256位SGC加密保护!</p>
       </div>
       <div class="m2-login-right2">
         <img src="images/depos.png" />
@@ -208,22 +208,22 @@
       return true;
     }
     function checkIdNo() {
-      var bankNum = $('#idcard').val();
+      var bankNum = $('#card').val();
       if (bankNum == '') {
-        $('#idcard').next('.m2-regist-errMsg').html('身份证号不能为空!');
+        $('#card').next('.m2-regist-errMsg').html('身份证号不能为空!');
         return false;
       }
       if (!checkCard(bankNum)) {
-        $('#idcard').next('.m2-regist-errMsg').next('span').html('身份证格式不合法!');
+        $('#card').next('.m2-regist-errMsg').next('span').html('身份证格式不合法!');
         return false;
       }
-      $('#idcard').next('.m2-regist-errMsg').next('span').html('');
+      $('#card').next('.m2-regist-errMsg').next('span').html('');
       return true;
     }
     function checkBankCard() {
-      var bankcard = $('#bankcardid').val();
+      var bankcard = $('#bankcard').val();
       if (bankcard == '') {
-        $('#bankcardid').next('.m2-regist-errMsgcard').children('span').html('银行卡不能为空!');
+        $('#bankcard').next('.m2-regist-errMsgcard').children('span').html('银行卡不能为空!');
         return false;
       }
 //        $('#bankcardid').next('.m2-regist-errMsgcard').children('span').html('');
@@ -233,11 +233,11 @@
       $('#username').blur(function () {
         checkUserName();
       });
-      $('#idcard').blur(function () {
-        var bankNum = $('#idcard').val();
+      $('#card').blur(function () {
+        var bankNum = $('#card').val();
         checkCard(bankNum);
       });
-      $('#bankcardid').blur(function () {
+      $('#bankcard').blur(function () {
         checkBankCard();
         getCardInfo();
       });
@@ -248,9 +248,9 @@
           var ifIdNo=checkIdNo();
           //  var ifBankCard=$('#bankcardid').next('.m2-regist-errMsgcard').children('span').html().length==0;
           var canSubmit = true;
-          var p = makevar(['username', 'bankcardid', 'idcard']);
-          p['user_phone'] = ${user.phone};
-          if (($('#username').val() == '') || ($('#bankcardid').val() == '') || ($('#idcard').val() == '')) {
+          var p = makevar(['username', 'bankcard', 'card']);
+          p['phone'] = ${user1.phone};
+          if (($('#username').val() == '') || ($('#bankcard').val() == '') || ($('#card').val() == '')) {
             canSubmit = false;
           }
 
@@ -261,7 +261,7 @@
           });
 
 //            if ($('#bankcardid').next('.m2-regist-errMsgcard').children('span').html().length > 0) {
-          if ($('#bankcardid').val() == '') {
+          if ($('#bankcard').val() == '') {
             canSubmit = false;
           }
           if (canSubmit !== true)
@@ -269,15 +269,15 @@
 
           if(ifUserName&& ifIdNo){
             $.ajax({
-              url: "openBankActive",
+              url: "openbankactive",
               data: p,
               type: "POST",
               dataType: 'json',
               success: function (data) {
                 if (data.status == 1) {
-                  window.location.href = "/register-registersuccess";
+                  window.location.href = "index";
                 } else {
-                  $('#bankcardid').next('.m2-regist-errMsgcard').children('span').html(data.message);
+                  $('#bankcard').next('.m2-regist-errMsgcard').children('span').html(data.info);
                 }
               }
             });
@@ -341,11 +341,11 @@
     var show_flag = true;
     var card_no;
 
-    $('#bankcardid').keyup(function () {
+    $('#bankcard').keyup(function () {
 
-      var tcard_no = $('#bankcardid').val();
+      var tcard_no = $('#bankcard').val();
       if (tcard_no.length < 6) {
-        $('#bankcardid').next('.m2-regist-errMsgcard').children('span').html('');
+        $('#bankcard').next('.m2-regist-errMsgcard').children('span').html('');
         show_flag = false;
         return;
       } else if (card_no) {
@@ -360,11 +360,34 @@
 
     function getCardInfo() {
       if (send_flag) {
-        card_no = $('#bankcardid').val();
+        card_no = $('#bankcard').val();
         if(!card_no){
-          $('#bankcardid').next('.m2-regist-errMsgcard').children('span').html('银行卡不能为空');
+          $('#bankcard').next('.m2-regist-errMsgcard').children('span').html('银行卡不能为空');
           return false;
         }
+        send_flag = false;
+        show_flag = true;
+        $.ajax({
+          url: '/cupdata-card-getCardInfo',
+          data: {
+            card: card_no
+          },
+          success: function (data) {
+            send_flag = true;
+            if (show_flag) {
+              var obj = eval('(' + data + ')');
+
+              if (obj['day_limit'] >= 500000 && obj['single_limit'] >= 500000) {
+                $('#bankcard').next('.m2-regist-errMsgcard').children('span').html('');
+              } else if (obj['day_limit'] > 0 && obj['single_limit'] >= 0) {
+                $('#bankcard').next('.m2-regist-errMsgcard').children('span').html(obj['inst_name'] + '充值限额：单笔'
+                        + (obj['single_limit'] / 10000) + '万，单日' + (obj['day_limit'] / 10000) + '万'+',单月' + (obj['month_limit'] / 10000) + '万');
+              } else {
+                $('#bankcard').next('.m2-regist-errMsgcard').children('span').html('您的银行卡不支持充值，但可用于提现操作。');
+              }
+            }
+          }
+        });
       }
     }
   </script>

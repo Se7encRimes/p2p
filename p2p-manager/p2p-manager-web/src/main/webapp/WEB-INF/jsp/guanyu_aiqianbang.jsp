@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
@@ -6,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html lang="en">
 <head>
@@ -547,23 +548,28 @@
         </div>
       </div>
       <div class="m2-commonTop-right">
-        <div class="m2-commonTop-link">
-          <ul>
-            <!-- 论坛导航栏全部关闭 -->
-            <!--<li class="m2-commonTop-btn" style="display: none" id="bbs"><a id="bbslogin" target="_blank">论坛</a></li>-->
-            <li class="m2-commonTop-loged">
-              <span class="m2-commonTop-userName"><a href="usercenter.html">您好，iqb13737301354</a></span>
-            </li>
-            <li class="m2-commonTop-btn"><a href="#" style="border-right:none;">退出</a></li>
-            <li class="m2-commonTop-btn"><a href="company_finance.html" id="cfpage" style="border-right:none;width: 50px;">企业理财</a></li>
-            </li>
-          </ul>
-        </div>
-        <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
-          <a href="" class="m2-commonTop-and"></a>
-          <a href="" class="m2-commonTop-ios"></a>
-          <span>app下载入口</span>
-        </div>
+        <c:choose>
+          <c:when test="${sessionScope.user==null}">
+            <div class="m2-commonTop-link">
+              <ul>
+                <li class="m2-commonTop-btn"><a href="register" target="_blank">注册</a></li>
+                <li class="m2-commonTop-btn"><a href="login" target="_blank" style="border-right:none;">登录</a></li>
+              </ul>
+            </div>
+          </c:when>
+          <c:otherwise>
+            <div class="m2-commonTop-right">
+              <div class="m2-commonTop-link">
+                <ul>
+                  <li class="m2-commonTop-loged">
+                    <span class="m2-commonTop-userName"><a href="usercenter">您好,${sessionScope.user.phone}</a></span>
+                  </li>
+                  <li class="m2-commonTop-btn"><a href="UQuit" style="border-right:none;">退出</a></li>
+                </ul>
+              </div>
+            </div>
+          </c:otherwise>
+        </c:choose>
       </div>
     </div>
   </div>

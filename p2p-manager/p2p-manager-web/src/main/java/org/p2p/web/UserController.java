@@ -2,6 +2,7 @@ package org.p2p.web;
 
 import org.p2p.pojo.po.TbUser;
 import org.p2p.service.TbUserService;
+import org.p2p.utlis.ulogin;
 import org.p2p.utlis.uregister;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -77,9 +78,20 @@ public class UserController {
 
     //登录
     @RequestMapping("/ULogin")
-    public  String TbUserLogin(TbUser user,HttpSession session){
+    @ResponseBody
+    public ulogin TbUserLogin(TbUser user,HttpSession session){
         Map<String,Object> map=userService.userlogin(user);
-
+        ulogin login = (ulogin) map.get("ulogin");
+        if(map.get("user")!=null){
+            session.setAttribute("user",map.get("user"));
+        }
+        System.out.println(((TbUser)map.get("user")).getPassword());
+        return login;
+    }
+    //退出
+    @RequestMapping("UQuit")
+    public String TbUserQuit(HttpSession session){
+        session.removeAttribute("user");
         return "login";
     }
 }

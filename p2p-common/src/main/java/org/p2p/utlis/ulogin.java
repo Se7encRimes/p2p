@@ -11,6 +11,14 @@ public class ulogin {
     private String message;
     private String url;
 
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
     public String getMessage() {
         return message;
     }

@@ -91,10 +91,10 @@
   </script>
   <script type="text/javascript">
     $(function(){
-      $.post("mydatetime.html",{mytime:''},function(t){
+      $.post("2016年10月01日",{mytime:''},function(t){
         $("#mytime").html(t);
       });
-    })
+    });
   </script>
   <script type="text/javascript">
     function infoDialogClose(){
