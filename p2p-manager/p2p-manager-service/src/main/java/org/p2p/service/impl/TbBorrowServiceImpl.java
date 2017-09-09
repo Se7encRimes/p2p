@@ -27,4 +27,12 @@ public class TbBorrowServiceImpl implements TbBorrowService {
         return dao.updateUserStatus(loans,id);
     }
 
+
+
+    @Override
+    public String selectByUid(int id) {
+
+        return dao.selectByUid(id);
+    }
+
 }

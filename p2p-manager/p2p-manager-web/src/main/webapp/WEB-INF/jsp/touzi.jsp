@@ -12,6 +12,7 @@
 <head>
   <meta charset="UTF-8">
 
+
   <meta name="keywords" content="网贷理财,高收益投资理财项目,如何网上赚钱,理财知识,短期理财,银行理财,北京理财,普惠金融投资理财网">
   <meta name="description" content="爱钱帮是目前网贷理财知名的高收益理财项目平台，有海鲜帮、娱乐帮、汽车帮等高收益理财产品，还有“帮派”项目也接连而出，教您理财知识，如何网上赚钱。">
   <title>我要投资丨北京理财_银行理财_为您赚钱的互联网金融短期理财投资平台-爱钱帮       </title>
@@ -36,7 +37,9 @@
   <script type="text/javascript" src="js/m2-front.js?20160520"></script>
   <!-- 右侧边栏start -->
   <!-- 右侧登录窗口 -->
+</head>
 
+<body>
   <!--右侧登录框-->
   <div class="mo2-indexLoginbox" id="right-fix">
     <!-- 登录注册start -->
@@ -559,20 +562,20 @@
         </a>
       </div>
       <div class="m2-commonNav">
-        <ul class="m2-commonNavul-fir" data_page='twopage'>
+        <ul class="m2-commonNavul-fir" data_page='onepage'>
           <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
-          <li class="m2-commonNav-fir"><a href="borrow" id="jieqian">我要借钱</a></li>
+          <li class="m2-commonNav-fir"><a href="borrowaction" id="jieqian">我要借钱</a></li>
           <li class="m2-commonNav-fir"><a href="touzi" id="twopage">我要投资</a></li>
           <li class="m2-commonNav-fir"><a href="membermall" id="sevenpage">会员商城</a></li>
           <li class="m2-commonNav-fir"><a href="usercenter" id="threepage">我的账户</a></li>
           <!--                <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>-->
           <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang" id="fivepage">关于我们</a></li>
-          <li class="m2-commonNav-fir"><a href="admin" id="houtai">后台管理</a></li>
+          <li class="m2-commonNav-fir"><a href="adminlogin" id="houtai">后台管理</a></li>
+          <!--                <li class="m2-commonNav-fir"><a href="licaiwang_zhuantihuodong.html" id="sixpage">活动专区</a></li>-->
         </ul>
       </div>
     </div>
   </div>
-  </header>
 
   <style>
     .vIVR{display:none}

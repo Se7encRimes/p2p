@@ -1,6 +1,7 @@
 package org.p2p.web;
 
 import org.p2p.pojo.po.TbBorrow;
+import org.p2p.pojo.po.TbUser;
 import org.p2p.service.TbBorrowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
@@ -43,7 +45,7 @@ public class borrowController {
 
     @RequestMapping("/borrow1")
     @ResponseBody
-    public String insert(@RequestParam(name="carimg1",required=false) CommonsMultipartFile[] files,@ModelAttribute(value="dir") File dir,TbBorrow borrow,HttpServletRequest request) throws IOException {
+    public String insert(@RequestParam(name="carimg1",required=false) CommonsMultipartFile[] files,@ModelAttribute(value="dir") File dir,TbBorrow borrow,HttpServletRequest request,HttpSession session) throws IOException {
         if(files.length>0){
         for(int i=0;i<files.length;i++) {
             String fileName =files[i].getOriginalFilename();
@@ -84,9 +86,10 @@ public class borrowController {
             files[i].transferTo(file);//将文件内容存储到自定义文件中
         }
         }
-        /*int uid= (int)request.getAttribute("uid");*/
+        TbUser user=(TbUser)session.getAttribute("user");
+        int uid=user.getId();
         Date date=new Date();
-       /* borrow.setUid(uid);*/
+        borrow.setUid(uid);
         borrow.setApplydate(date);
         borrow.setState(0);
         borrow.setReturnway("按日计息，到期还本息");
@@ -98,7 +101,18 @@ public class borrowController {
         return "index";
     }
 
+    //判断是否开通存管
+    @RequestMapping("/borrowaction")
+    public String borrowaction(HttpServletRequest request,HttpSession session){
+
+        TbUser user=(TbUser)session.getAttribute("user");
 
 
-
+        int uid=user.getId();
+        if(service.selectByUid(uid)!=null){
+            return "borrow";
+        };
+        //不存在就进入开通存管页面
+        return "home-register-openbankid";
+    }
 }

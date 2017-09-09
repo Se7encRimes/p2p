@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
@@ -7,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -178,7 +179,14 @@
             <tr>
               <td><i class="m2-regist-cardnumber"></i>手机号</td>
               <td class="m2-regist-tdInput">
+                <c:choose>
+                  <c:when test="${sessionScope.user==null}">
                 <span class="m2-reg-telSpan" style=""><span>${user1.phone}</span></span>
+                  </c:when>
+                  <c:otherwise>
+                    <span class="m2-reg-telSpan" style=""><span>${sessionScope.user.phone}</span></span>
+                  </c:otherwise>
+                </c:choose>
               </td>
             </tr>
             <tr>
@@ -268,12 +276,14 @@
             return false;
 
           if(ifUserName&& ifIdNo){
+            alert("====>1");
             $.ajax({
               url: "openbankactive",
               data: p,
               type: "POST",
               dataType: 'json',
               success: function (data) {
+                alert("====>"+data);
                 if (data.status == 1) {
                   window.location.href = "index";
                 } else {

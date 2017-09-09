@@ -615,13 +615,13 @@
       <div class="m2-commonNav">
         <ul class="m2-commonNavul-fir" data_page='onepage'>
           <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
-          <li class="m2-commonNav-fir"><a href="borrow" id="jieqian">我要借钱</a></li>
+          <li class="m2-commonNav-fir"><a href="borrowaction" id="jieqian">我要借钱</a></li>
           <li class="m2-commonNav-fir"><a href="touzi" id="twopage">我要投资</a></li>
           <li class="m2-commonNav-fir"><a href="membermall" id="sevenpage">会员商城</a></li>
           <li class="m2-commonNav-fir"><a href="usercenter" id="threepage">我的账户</a></li>
           <!--                <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>-->
           <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang" id="fivepage">关于我们</a></li>
-          <li class="m2-commonNav-fir"><a href="admin" id="houtai">后台管理</a></li>
+          <li class="m2-commonNav-fir"><a href="adminlogin" id="houtai">后台管理</a></li>
           <!--                <li class="m2-commonNav-fir"><a href="licaiwang_zhuantihuodong.html" id="sixpage">活动专区</a></li>-->
         </ul>
       </div>

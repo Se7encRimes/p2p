@@ -45,12 +45,15 @@ public class UserController {
     @RequestMapping("openbankactive")
     @ResponseBody
     public uregister openBankActive(TbUser tbUser,HttpSession session){
+        System.out.println("1======<<?????");
         uregister uRegister = new uregister();
         TbUser tbUser1=userService.update(tbUser);
         if(tbUser1!=null){
+            System.out.println("2======<<?????");
             uRegister.setStatus(1);
             session.setAttribute("user",tbUser1);
         }else {
+            System.out.println("3======<<?????");
             uRegister.setMessage("开通失败");
         }
         return uRegister;

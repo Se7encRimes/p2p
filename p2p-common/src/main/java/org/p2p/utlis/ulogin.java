@@ -40,6 +40,16 @@ public class ulogin {
         return status;
     }
 
+    @Override
+    public String toString() {
+        return "ulogin{" +
+                "status=" + status +
+                ", comments='" + comments + '\'' +
+                ", message='" + message + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
+
     public void setStatus(int status) {
         this.status = status;
     }
