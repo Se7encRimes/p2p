@@ -47,14 +47,14 @@ public class TbUserServiceImpl implements TbUserService {
         } else {
             if (user.getPassword().equals(user2.getPassword())) {
                 uLogin.setStatus(1);
-                uLogin.setMessage("登录成功");
+                uLogin.setComments("登录成功");
                 uLogin.setUrl("index");
                 map.put("user", user2);
                 map.put("ulogin", uLogin);
             } else {
                 uLogin.setStatus(2);
-                uLogin.setMessage("密码不正确");
-                uLogin.setUrl("index");
+                uLogin.setComments("密码不正确");
+                uLogin.setUrl("login");
                 map.put("user", null);
                 map.put("ulogin", uLogin);
             }
