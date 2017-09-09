@@ -67,13 +67,13 @@
   <table align="center" valign="middle" width="50%">
     <tr>
       <td>
-        <input class="easyui-linkbutton" type="button" id="pass_" value="    保存修改    ">
+        <input class="easyui-linkbutton" type="button" id="_pass" value="    保存修改    ">
       </td>
       <td>
-        <input class="easyui-linkbutton" type="button" id="refuse_" value="    重置    ">
+        <input class="easyui-linkbutton" type="button" id="_refuse" value="    重置    ">
       </td>
       <td>
-        <input class="easyui-linkbutton" type="button" id="back_" value="    返回    ">
+        <input class="easyui-linkbutton" type="button" id="_back" value="    返回    ">
       </td>
     </tr>
   </table>
@@ -87,33 +87,31 @@
 //  });
 
 
-//  $("#pass_").click(function(){
-//    $.messager.confirm('确认','是否确定修改？',function(r) {
-//      if(r){
-//        $("#admin_project").form("submit",{
-//         // url:"editProjects",
-//          success:function(date){
-//            if(date>0){
-//              $.messager.alert("消息","修改成功");
-//              p2p.closeTab( "项目资料设置");
-//              $('#_projects').datagrid('reload');
-//            }
-//          }
-//        });
-//      }
-//    });
-//  });
+  $("#_pass").click(function(){
+    $.messager.confirm('确认','是否确定修改？',function(r) {
+      if(r){
+        $("#admin_project").form("submit",{
+          url:"editProjects",
+          success:function(date){
+            if(date>0){
+              $.messager.alert("消息","修改成功");
+              p2p.closeTab( "项目资料设置");
+              $('#_projects').datagrid('reload');
+            }
+          }
+        });
+      }
+    });
+  });
 
-  $("#back_").click(function(){
+  $("#_back").click(function(){
     p2p.closeTab("项目资料设置");
     $('#_projects').datagrid('reload');
   });
 
-  $("#refuse_").click(function(){
+  $("#_refuse").click(function(){
     $('#admin_project').form('reset');
   });
-
-
 
 </script>
 </body>

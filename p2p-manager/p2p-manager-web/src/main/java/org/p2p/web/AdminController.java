@@ -12,9 +12,13 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -69,11 +73,18 @@ public class AdminController {
         return projectService.listProjects(page,order);
     }
 
-    @RequestMapping("/editProjects")
+    @RequestMapping(value="/editProjects",method = RequestMethod.POST)
     @ResponseBody
-    public int editProjects(TbProject project){
-        System.err.println("*/*/*/*/*/*/*/*/*/*/*");
-        System.err.println("**********"+project.getGaiyao());
+    public int editProjects(String id,String guarantee,String endtime,String rate,String gaiyao) throws ParseException {
+        int pid = Integer.parseInt(id);
+        Date time = new SimpleDateFormat("yyyy-MM-dd").parse(endtime);
+        double lilv = Double.parseDouble(rate);
+        TbProject project = new TbProject();
+        project.setId(pid);
+        project.setGuarantee(guarantee);
+        project.setEndtime(time);
+        project.setRate(lilv);
+        project.setGaiyao(gaiyao);
         return projectService.editProject(project);
     }
     @RequestMapping("/upProjects")
