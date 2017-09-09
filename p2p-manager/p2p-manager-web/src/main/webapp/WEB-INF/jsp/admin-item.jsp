@@ -122,30 +122,50 @@
 </form>
 <script>
         $("#pass_").click(function(){
+            var sta = ${custom.state}
+            if(sta==1){
+                $.messager.alert("消息","该订单已经审核过,操作无效");
+                return;
+            }
             var num = $("#borrowid").val();
             $.messager.confirm('确认','是否确定审核通过？',function(r){
                 if(r){
                     $("#adminItem").form("submit",{
                         url:"audit?state=1&id="+num,
                         success:function(date){
-                            $.messager.alert("消息","审核通过");
-                            p2p.closeTab("申请详情");
-                            $('#table').datagrid('reload');
+                            if(date>0){
+                                $.messager.alert("消息","审核通过");
+                                p2p.closeTab("申请详情");
+                                $('#table').datagrid('reload');
+                            }else{
+                                $.messager.alert("消息","该订单已经审核过,操作无效");
+                            }
+
                         }
                     });
                 }
             });
         });
         $("#refuse_").click(function(){
+            var sta = ${custom.state}
+            if(sta==2){
+                $.messager.alert("消息","该订单已经被据单过,操作无效");
+                return;
+            }
             var num = $("#borrowid").val();
             $.messager.confirm('确认','是否确定拒单？',function(r) {
                 if (r) {
                     $("#adminItem").form("submit", {
                         url:"audit?state=2&id="+num,
                         success: function (date) {
-                            $.messager.alert("消息","拒单成功");
-                            p2p.closeTab( "申请详情");
-                            $('#table').datagrid('reload');
+                            if(date>0){
+                                $.messager.alert("消息","拒单成功");
+                                p2p.closeTab( "申请详情");
+                                $('#table').datagrid('reload');
+                            }else{
+                                $.messager.alert("消息","该订单已经拒单,操作无效");
+                            }
+
                         }
                     });
                 }

@@ -165,6 +165,66 @@ public class TbProjectExample {
             return (Criteria) this;
         }
 
+        public Criteria andBidIsNull() {
+            addCriterion("bid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBidIsNotNull() {
+            addCriterion("bid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBidEqualTo(Integer value) {
+            addCriterion("bid =", value, "bid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBidNotEqualTo(Integer value) {
+            addCriterion("bid <>", value, "bid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBidGreaterThan(Integer value) {
+            addCriterion("bid >", value, "bid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("bid >=", value, "bid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBidLessThan(Integer value) {
+            addCriterion("bid <", value, "bid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBidLessThanOrEqualTo(Integer value) {
+            addCriterion("bid <=", value, "bid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBidIn(List<Integer> values) {
+            addCriterion("bid in", values, "bid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBidNotIn(List<Integer> values) {
+            addCriterion("bid not in", values, "bid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBidBetween(Integer value1, Integer value2) {
+            addCriterion("bid between", value1, value2, "bid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBidNotBetween(Integer value1, Integer value2) {
+            addCriterion("bid not between", value1, value2, "bid");
+            return (Criteria) this;
+        }
+
         public Criteria andMoneyIsNull() {
             addCriterion("money is null");
             return (Criteria) this;

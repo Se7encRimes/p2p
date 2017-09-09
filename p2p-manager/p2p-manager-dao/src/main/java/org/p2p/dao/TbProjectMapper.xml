@@ -3,6 +3,7 @@
 <mapper namespace="org.p2p.dao.TbProjectMapper" >
   <resultMap id="BaseResultMap" type="org.p2p.pojo.po.TbProject" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="bid" property="bid" jdbcType="INTEGER" />
     <result column="money" property="money" jdbcType="DOUBLE" />
     <result column="rate" property="rate" jdbcType="DOUBLE" />
     <result column="state" property="state" jdbcType="INTEGER" />
@@ -74,8 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, money, rate, state, projectstate, guarantee, endtime, createdate, gaiyao, extends1, 
-    extends2, extends3
+    id, bid, money, rate, state, projectstate, guarantee, endtime, createdate, gaiyao, 
+    extends1, extends2, extends3
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.p2p.pojo.po.TbProjectExample" >
     select
@@ -108,22 +109,25 @@
     </if>
   </delete>
   <insert id="insert" parameterType="org.p2p.pojo.po.TbProject" >
-    insert into tb_project (id, money, rate, 
-      state, projectstate, guarantee, 
-      endtime, createdate, gaiyao, 
-      extends1, extends2, extends3
-      )
-    values (#{id,jdbcType=INTEGER}, #{money,jdbcType=DOUBLE}, #{rate,jdbcType=DOUBLE}, 
-      #{state,jdbcType=INTEGER}, #{projectstate,jdbcType=INTEGER}, #{guarantee,jdbcType=VARCHAR}, 
-      #{endtime,jdbcType=TIMESTAMP}, #{createdate,jdbcType=TIMESTAMP}, #{gaiyao,jdbcType=VARCHAR}, 
-      #{extends1,jdbcType=VARCHAR}, #{extends2,jdbcType=VARCHAR}, #{extends3,jdbcType=VARCHAR}
-      )
+    insert into tb_project (id, bid, money, 
+      rate, state, projectstate, 
+      guarantee, endtime, createdate, 
+      gaiyao, extends1, extends2, 
+      extends3)
+    values (#{id,jdbcType=INTEGER}, #{bid,jdbcType=INTEGER}, #{money,jdbcType=DOUBLE}, 
+      #{rate,jdbcType=DOUBLE}, #{state,jdbcType=INTEGER}, #{projectstate,jdbcType=INTEGER}, 
+      #{guarantee,jdbcType=VARCHAR}, #{endtime,jdbcType=TIMESTAMP}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{gaiyao,jdbcType=VARCHAR}, #{extends1,jdbcType=VARCHAR}, #{extends2,jdbcType=VARCHAR}, 
+      #{extends3,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.p2p.pojo.po.TbProject" >
     insert into tb_project
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="bid != null" >
+        bid,
       </if>
       <if test="money != null" >
         money,
@@ -162,6 +166,9 @@
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bid != null" >
+        #{bid,jdbcType=INTEGER},
       </if>
       <if test="money != null" >
         #{money,jdbcType=DOUBLE},
@@ -210,6 +217,9 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.bid != null" >
+        bid = #{record.bid,jdbcType=INTEGER},
+      </if>
       <if test="record.money != null" >
         money = #{record.money,jdbcType=DOUBLE},
       </if>
@@ -251,6 +261,7 @@
   <update id="updateByExample" parameterType="map" >
     update tb_project
     set id = #{record.id,jdbcType=INTEGER},
+      bid = #{record.bid,jdbcType=INTEGER},
       money = #{record.money,jdbcType=DOUBLE},
       rate = #{record.rate,jdbcType=DOUBLE},
       state = #{record.state,jdbcType=INTEGER},
@@ -269,6 +280,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="org.p2p.pojo.po.TbProject" >
     update tb_project
     <set >
+      <if test="bid != null" >
+        bid = #{bid,jdbcType=INTEGER},
+      </if>
       <if test="money != null" >
         money = #{money,jdbcType=DOUBLE},
       </if>
@@ -307,7 +321,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="org.p2p.pojo.po.TbProject" >
     update tb_project
-    set money = #{money,jdbcType=DOUBLE},
+    set bid = #{bid,jdbcType=INTEGER},
+      money = #{money,jdbcType=DOUBLE},
       rate = #{rate,jdbcType=DOUBLE},
       state = #{state,jdbcType=INTEGER},
       projectstate = #{projectstate,jdbcType=INTEGER},

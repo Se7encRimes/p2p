@@ -1,7 +1,9 @@
 package org.p2p.web;
 
+import org.p2p.pojo.po.TbProject;
 import org.p2p.pojo.vo.AdminLoansCustom;
 import org.p2p.service.AdminLoansService;
+import org.p2p.service.AdminProjectService;
 import org.p2p.utlis.Order;
 import org.p2p.utlis.Page;
 import org.p2p.utlis.Result;
@@ -10,10 +12,14 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * Created by 吴春杰 on 2017/9/6.
+ * 借款人申请贷款的后台审批和融资项目是否上线管理
  */
 @Controller
 @Scope("prototype")
@@ -21,6 +27,9 @@ public class AdminController {
 
     @Autowired
     private AdminLoansService service;
+
+    @Autowired
+    private AdminProjectService projectService;
 
     @RequestMapping("/borrows")
     @ResponseBody
@@ -31,7 +40,6 @@ public class AdminController {
 
     @RequestMapping("/admin-item")
     public String getBorrwoById(int id,Model model){
-        System.err.println("=====id:"+id);
         if(id==0){
             return "admin-item";
         }
@@ -43,6 +51,49 @@ public class AdminController {
     @RequestMapping("/audit")
     @ResponseBody
     public int anIntItem(int state,int id){
+        AdminLoansCustom custom = service.getBorrwoById(id);
+        if(custom.getState()!=0){
+            return -1;
+        }
+        if(state==1){
+            TbProject project = new TbProject();
+            project.setMoney(custom.getMoney());
+            projectService.createProject(project);
+        }
         return service.anIntItem(state,id);
+    }
+
+    @RequestMapping("/listProjects")
+    @ResponseBody
+    public List<TbProject> listProjects(Page page,Order order){
+        return projectService.listProjects(page,order);
+    }
+
+    @RequestMapping("/editProjects")
+    @ResponseBody
+    public int editProjects(TbProject project){
+        System.err.println("*/*/*/*/*/*/*/*/*/*/*");
+        System.err.println("**********"+project.getGaiyao());
+        return projectService.editProject(project);
+    }
+    @RequestMapping("/upProjects")
+    @ResponseBody
+    public int upProjects(@RequestParam("ids[]") List<Integer> ids){
+        return projectService.upProjects(ids);
+    }
+    @RequestMapping("/downProjects")
+    @ResponseBody
+    public int downProjects(@RequestParam("ids[]") List<Integer> ids){
+        return projectService.downProjects(ids);
+    }
+
+    @RequestMapping("/adminProjectById")
+    public String adminProjectById(int id,Model model){
+        if(id==0){
+            return "admin-project-item";
+        }
+        TbProject project = projectService.adminProjectById(id);
+        model.addAttribute("project",project);
+        return "admin-project-item";
     }
 }
