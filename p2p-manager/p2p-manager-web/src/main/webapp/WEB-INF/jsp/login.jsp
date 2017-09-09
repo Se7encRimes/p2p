@@ -41,7 +41,7 @@
   </div>
   <style type="text/css">
     .myloginmask {position:fixed;top: 0;left: 0;right: 0;bottom: 0;background-color: black;display: none;opacity: 0.7;z-index: 800;filter:alpha(opacity=70)}
-    .mylogin {position:   fixed;top: 50%;left: 50%;margin-top: -346px;margin-left: -260px;width: 520px;height: 496px;background-image: url("statics/home2/images/login/login_info.png");background-repeat: no-repeat;z-index: 1000;display: none;}
+    .mylogin {position:   fixed;top: 50%;left: 50%;margin-top: -346px;margin-left: -260px;width: 520px;height: 496px;background-image: url("images/login/login_info.png");background-repeat: no-repeat;z-index: 1000;display: none;}
     .mylogin .topcontent {font-weight:bold;text-align: center;color: #666666;font-size: 18px;padding-top: 284px;line-height: 36px;}
     .mylogin .topcontent span {color: #883535;}
     .mylogin .bottomcontent {font-weight:bold;font-size:20px;line-height: 30px;width:384px;margin: 50px auto;}
@@ -313,47 +313,7 @@
 
   </script>
   <script>
-    //注册方法
-    function verifycodeRight(){
-      var canSubmit=true;
-      $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html('');
-      if($("#vcodeRight").val().length==0){
-        $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html("验证码不能为空");
-        $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").show();
-        canSubmit = false;
-      }
-      if($("#passRight").val().length==0){
-        $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html("密码不能为空");
-        $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").show();
-        canSubmit = false;
-      }
-      if($("#regTelRight").val().length==0){
-        $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html("手机号不能为空");
-        $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").show();
-        canSubmit = false;
-      }
 
-      $(".mo2-indRegbox .mo2-indLogwarRight u").each(function(){
-        if($(this).html().length>0){
-          canSubmit = false;
-        }
-      });
-      if (canSubmit !== true) return false;
-      var p={"vcode":$("#vcodeRight").val()};
-      postData("/Home-Register-ckcode",p,function(d){
-        if(d.message!=" "){
-          $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html(d.message);
-          $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").show();
-          return false;
-        }else{
-          $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html('');
-          $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").hide();
-          $('.mo2-indRegboxRight').css('display','none');
-          $('.mo2-indRegbox2Right').css('display','block');
-        }
-
-      });
-    }
     //登录方法
     function loginRight(){
       var p = makevar(['user_nameRight','pass_wordRight','vcodeRight']);
@@ -390,13 +350,6 @@
       }
     }
 
-    // 注册登录tab切换
-    $('.mo2-indLogtab ul li').click(function(){
-      if ($(this).hasClass('mo2-logTab-unsel')) {
-        $(this).addClass('mo2-logTab-sel').removeClass('mo2-logTab-unsel');
-        $(this).siblings('.mo2-logTab-sel').addClass('mo2-logTab-unsel').removeClass('mo2-logTab-sel');
-      }
-    });
     // 注册登录显示隐藏
     $('.mo2-indTab-reg').click(function(){
       $('.mo2-indRegboxRight').show();
@@ -497,19 +450,19 @@
         </div>
       </div>
       <div class="m2-commonTop-right">
-        <div class="m2-commonTop-link">
-          <ul>
+      <%--  <div class="m2-commonTop-link">
+          <ul>--%>
             <!-- 论坛导航栏全部关闭 -->
             <!--<li class="m2-commonTop-btn" style="display: none" id="bbs"><a id="bbslogin" target="_blank">论坛</a></li>-->
-            <li class="m2-commonTop-btn"><a href="register" target="_blank">注册</a></li>
+          <%--  <li class="m2-commonTop-btn"><a href="register" target="_blank">注册</a></li>
             <li class="m2-commonTop-btn"><a href="login" target="_blank" style="border-right:none;">登录</a></li>
             <li class="m2-commonTop-btn"><a href="company_finance.html" id="cfpage" style="border-right:none;width: 50px;">企业理财</a></li>                </ul>
-        </div>
-        <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
+        </div>--%>
+       <%-- <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
           <a href="" class="m2-commonTop-and"></a>
           <a href="" class="m2-commonTop-ios"></a>
           <span>app下载入口</span>
-        </div>
+        </div>--%>
       </div>
     </div>
   </div>
@@ -611,12 +564,12 @@
             <form class="m2-login-form" action="">
               <div class="m2-loginForm-item m2-login-username">
                 <span><i></i></span>
-                <input type="text" id="user_name" placeholder="手机号">
+                <input type="text" id="phone" placeholder="手机号">
                 <b id="userwarn"></b>
               </div>
               <div class="m2-loginForm-item m2-login-pwd" style="margin:25px 0 0 0;">
                 <span><i></i></span>
-                <input type="password" id="pass_word" placeholder="密码">
+                <input type="password" id="password" placeholder="密码">
                 <b id="passwarn"></b>
               </div>
               <div class="m2-login-code"  style="display:none;">
@@ -650,46 +603,52 @@
 <script type="text/javascript">
   $(function(){
     $('#account,#redbag,#percentage,#message,#m2-commonRight').click(function(){
-      $("#user_name").focus();
+      $("#phone").focus();
     })
   })
 
 </script>
 <script type="text/javascript">
   function login(){
-    var p = makevar(['user_name','pass_word']);
+    var p = makevar(['phone','password']);
+    var regphone=/^(13|14|15|17|18)[0-9]{9}$/;
     var canSubmit = true;
     $(".alarmnew").html("");
-    if(typeof p.user_name=="undefined"){
-
-      $(".alarmnew").html("用户名不能为空");
+    if(typeof p.phone=="undefined"){
+      $(".alarmnew").html("手机号不能为空");
       return false;
     }
-    if(typeof p.pass_word=="undefined" ||　typeof p.pass_word==null || p.pass_word==""){
-
+    if(!regphone.test(p.phone)){
+      $(".alarmnew").html("手机号格式不正确");
+      return false;
+    }
+    if(typeof p.password=="undefined" ||　typeof p.password==null || p.password==""){
       $(".alarmnew").html("密码不能为空");
       return false;
     }
-
+    if(p.password.length<6){
+      $(".alarmnew").html("密码不能小于6位");
+      return false;
+    }
     if(canSubmit!==true) return false;
     postData("ULogin",p,function(d){
 		  $(".alarmnew").hide();
-      d.url = decodeURIComponent(d.url);
+      //d.url = decodeURIComponent(d.url);
       if(d.status==3){
-        showInfoDialog(d.message,1);
+        showInfoDialog(d.comments);
         setTimeout(function(){
           window.location.href=d.url;
-        },3000);
+        },2000);
       }else if(d.status==2){
-        showInfoDialog(d.comments,1);
+        showInfoDialog(d.comments);
         setTimeout(function(){
           window.location.href=d.url;
-        },3000);
+        },2000);
       }else if(d.status==1){
-        showLoginInfoDialog(d.comments,1);
+       showLoginInfoDialog(d.comments);
         setTimeout(function(){
           window.location.href=d.url;
-        },3000);
+        },2000);
       }
     });
   }

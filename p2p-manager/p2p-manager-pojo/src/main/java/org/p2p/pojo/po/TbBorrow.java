@@ -15,7 +15,7 @@ public class TbBorrow {
 
     private String gettime;
 
-    private Double residue;
+    private Double residue;//剩余还金额
 
     private Integer state;
 

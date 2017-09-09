@@ -92,28 +92,7 @@
       </div>
       <!-- 注册step2 end -->
 
-      <!-- 登录start -->
-      <div class="mo2-indLogboxRight">
-        <div class="mo2-indLogitem mo2-indLogitem-use" style="margin-bottom:9px;">
-          <i class="mo2-indLogicon-use"></i><input class="mo2-indIpt-all" type="text" id="user_nameRight" placeholder="用户名/手机号">
-          <b class="mo2-indLogwar" id="w_username"><em class="mo2-indlogWar-arr"></em><u id="r_usernameRight"></u></b>
-        </div>
-        <div class="mo2-indLogitem mo2-indLogitem-psw" style="margin-bottom:9px;">
-          <i class="mo2-indLogicon-psw"></i><input class="mo2-indIpt-all m2-ind-banPsw" maxlength="20" id="pass_wordRight" type="password" id="pass_wordRight" placeholder="输入登录密码">
-          <b class="mo2-indLogwar" id="w_password"><em class="mo2-indlogWar-arr"></em><u id="r_passwordRight"></u></b>
-        </div>
-        <div class="mo2-indLog-code" style="display:none;margin-bottom:8px;">
-          <div class="mo2-indLogcod-lef">
-            <i class="mo2-indLogicon-psw"></i>
-            <input type="text" id="vcodeRight" placeholder="验证码"></div>
-          <div class="mo2-indLogcod-rig"><img src="home-register-VerifyCode.png" onClick="document.getElementById('reverifyCode').src='home-register-VerifyCode.png?time='+Math.random();void(0);" alt="点击刷新验证码"></div>
-        </div>
-        <div class="mo2-indLog-forget"><a href="forget.html">忘记密码?</a></div>
-        <div style="padding-left: 24px;line-height: 30px;color:red;" id="error-hint"></div>
-        <div class="mo2-indReg-btn">
-          <a class="mo2-indRegbtn-able" onclick="loginRight();">登录</a>
-        </div>
-      </div>
+     
       <!-- 登录end -->
     </div>
     <!-- 登录注册end -->
@@ -550,21 +529,13 @@
       <div class="m2-commonTop-right">
         <div class="m2-commonTop-link">
           <ul>
-            <!-- 论坛导航栏全部关闭 -->
-            <!--<li class="m2-commonTop-btn" style="display: none" id="bbs"><a id="bbslogin" target="_blank">论坛</a></li>-->
-            <li class="m2-commonTop-loged">
-              <span class="m2-commonTop-userName"><a href="usercenter.html">您好，iqb13737301354</a></span>
+           <li class="m2-commonTop-loged">
+              <span class="m2-commonTop-userName"><a href="usercenter">您好,${sessionScope.user.phone}</a></span>
             </li>
-            <li class="m2-commonTop-btn"><a href="#" style="border-right:none;">退出</a></li>
-            <li class="m2-commonTop-btn"><a href="company_finance.html" id="cfpage" style="border-right:none;width: 50px;">企业理财</a></li>
-            </li>
+            <li class="m2-commonTop-btn"><a href="UQuit" style="border-right:none;">退出</a></li>
           </ul>
         </div>
-        <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
-          <a href="" class="m2-commonTop-and"></a>
-          <a href="" class="m2-commonTop-ios"></a>
-          <span>app下载入口</span>
-        </div>
+
       </div>
     </div>
   </div>
@@ -672,8 +643,9 @@
       //在表单提交成功以后触发
       success: function (data) {
         $.messager.alert('消息','申请表单提交成功！点击确定跳转到首页');
-        window.location.href="index";
-
+        setTimeout(function(){
+          window.location.href="index";
+        },4000);
       }
     });
 
@@ -882,22 +854,48 @@
         </tr>
 
         <tr>
+          <td class="label" align=""><h2 style="color:#0000FF">家庭住址:</h2></td>
+          <td>
 
+            <input  id="address" name="address" style="width:300px"  class="easyui-textbox" data-options="required:true" />
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label"><h2 style="color:#0000FF">第二联系人姓名:</h2></td>
+      <td>
+            <input  id="othername" name="othername" style="width:300px"  class="easyui-textbox" data-options="required:true" />
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label" algin=""><h2 style="color:#0000FF">第二联系人电话:</h2></td>
+          <td>
+            <input  id="otherphone" name="otherphone" style="width:300px"  class="easyui-textbox" data-options="required:true" />
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label"><h2 style="color:#0000FF">第二联系人住址:</h2></td>
+          <td>
+            <input  id="otheraddress" name="otheraddress" style="width:300px"  class="easyui-textbox" data-options="required:true" />
+          </td>
+        </tr>
+
+        <tr>
           <td class="label"><h2 style="color:#0000FF">车牌号:</h2></td>
           <td>
             <input  id="carnumber" name="carnumber" style="width:300px"  class="easyui-textbox" data-options="required:true" />
           </td>
         </tr>
 
-
         <tr>
           <td class="label"><h2 style="color:#0000FF">申请金额:</h2></td>
           <td>
             <input  id="money" name="money" style="width:300px" class="easyui-textbox" data-options="required:true"/>
-            <font color="blue" style="width:300px" name="returnway">返款方式:先息后本！！！</font>
+            <font color="blue" style="width:500px" name="returnway">返款方式:按日计息，到期还本息</font>
           </td>
         </tr>
-
 
         <tr>
           <td class="label"><h2 style="color:#0000FF">申请时长:</h2></td>
@@ -912,13 +910,13 @@
           </td>
         </tr>
 
-        <tr>
+  <%--      <tr>
           <td class="label"><h2 style="color:#0000FF"> 剩余需还款金额:</h2></td>
           <td>
 
             <input  id="residue" name="residue" style="width:300px" class="easyui-textbox" data-options="required:true"/>
           </td>
-        </tr>
+        </tr>--%>
 
         <tr>
           <td class="label"><h2 style="color:#0000FF">借款用途:</h2></td>
@@ -936,57 +934,138 @@
         </tr>
 
         <tr>
-          <td class="label"><h2 style="color:#0000FF">请上传您的汽车照片:</h2></td>
-          <td>
+          <%--<td class="label"><h2 style="color:#0000FF">身份证正面照片:</h2></td>--%>
+          <td width="30px">
+            <HR style="border:3 double #1dffca" width="80%" color=#1dffca SIZE=3>
+            <h2 style="color:#0000FF">身份证正面照片:</h2>
             <img id="ylimg" width="80px" height="80px" src="images/b.png" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg');"/>
           </td>
-        </tr>
 
-        <tr>
-          <td class="label"><h2 style="color:#0000FF">车辆抵押证明(照片):</h2></td>
-          <td>
+          <%--<td class="label"><h2 style="color:#0000FF">身份证反面照片:</h2></td>--%>
+          <td width="30px">
+            <HR style="border:3 double #1dffca" width="80%" color=#1dffca SIZE=3>
+            <h2 style="color:#0000FF">身份证反面照片:</h2>
             <img id="ylimg1" width="80px" height="80px" src="images/b.png" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg1');"/>
-          </td>
-        </tr>
 
-        <tr>
-          <td class="label"><h2 style="color:#0000FF">附加资料(房产证)(照片)(可选):</h2></td>
-          <td>
+          </td>
+
+          <%--<td class="label"><h2 style="color:#0000FF">请上传您的汽车照片:</h2></td>--%>
+          <td width="30px">
+            <HR style="border:3 double #1dffca" width="80%" color=#1dffca SIZE=3>
+            <h2 style="color:#0000FF">请上传您的汽车照片:</h2>
             <img id="ylimg2" width="80px" height="80px" src="images/b.png" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg2');"/>
           </td>
         </tr>
 
-        <tr>
-          <td class="label"><h2 style="color:#0000FF">附加资料(银行流水)(照片)(可选):</h2></td>
+<%--        <tr>
+          <td class="label"><h2 style="color:#0000FF">身份证反面照片:</h2></td>
           <td>
+            <img id="ylimg1" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg');"/>
+          </td>
+        </tr>--%>
+
+<%--        <tr>
+          <td class="label"><h2 style="color:#0000FF">请上传您的汽车照片:</h2></td>
+          <td>
+            <img id="ylimg2" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg');"/>
+          </td>
+        </tr>--%>
+
+        <tr>
+       <%--   <td class="label"><h2 style="color:#0000FF">车辆抵押证明(照片):</h2></td>--%>
+          <td  width="30px">
+            <h2 style="color:#0000FF">车辆抵押证明(照片):</h2>
             <img id="ylimg3" width="80px" height="80px" src="images/b.png" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg3');"/>
           </td>
-        </tr>
 
-        <tr>
-          <td class="label"><h2 style="color:#0000FF">附加资料(社保)(照片)(可选):</h2></td>
-          <td>
+        <%--  <td class="label"><h2 style="color:#0000FF">附加资料(房产证)(照片):</h2></td>--%>
+          <td  width="30px">
+            <h2 style="color:#0000FF">附加资料(房产证)(照片):</h2>
             <img id="ylimg4" width="80px" height="80px" src="images/b.png" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg4');"/>
           </td>
-        </tr>
 
-        <tr>
-          <td class="label"><h2 style="color:#0000FF">附加资料(家属身份证)(照片)(可选):</h2></td>
-          <td>
+          <%--<td class="label"><h2 style="color:#0000FF">家庭住址照片:</h2></td>--%>
+          <td  width="30px">
+            <h2 style="color:#0000FF">家庭住址照片:</h2>
             <img id="ylimg5" width="80px" height="80px" src="images/b.png" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg5');"/>
           </td>
+
         </tr>
 
-        <tr>
-          <td colspan="2">
-            <button onclick="submitForm()" class="easyui-linkbutton" type="button" data-options="iconCls:'icon-ok'">提交申请</button>
+<%--        <tr>
+          <td class="label"><h2 style="color:#0000FF">附加资料(房产证)(照片):</h2></td>
+          <td>
+            <img id="ylimg4" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg2');"/>
           </td>
+        </tr>--%>
+
+<%--
+        <tr>
+          <td class="label"><h2 style="color:#0000FF">家庭住址照片:</h2></td>
+          <td>
+            <img id="ylimg5" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg');"/>
+          </td>
+        </tr>
+--%>
+
+        <tr>
+         <%-- <td class="label"><h2 style="color:#0000FF">附加资料(银行流水)(照片):</h2></td>--%>
+          <td  width="30px">
+            <h2 style="color:#0000FF">附加资料(银行流水)(照片):</h2>
+            <img id="ylimg6" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg6');"/>
+            <HR style="border:3 double #1dffca" width="80%" color=#1dffca SIZE=3>
+          </td>
+
+          <%--<td class="label"><h2 style="color:#0000FF">附加资料(社保)(照片):</h2></td>--%>
+          <td  width="30px">
+            <h2 style="color:#0000FF">附加资料(社保)(照片):</h2>
+            <img id="ylimg7" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg7');"/>
+            <HR style="border:3 double #1dffca" width="80%" color=#1dffca SIZE=3>
+          </td>
+
+          <%--<td class="label"><h2 style="color:#0000FF">附加资料(家属身份证)(照片):</h2></td>--%>
+          <td width="30px">
+            <h2 style="color:#0000FF">附加资料(家属身份证)(照片):</h2>
+            <img id="ylimg8" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg8');"/>
+            <HR style="border:3 double #1dffca" width="80%" color=#1dffca SIZE=3>
+          </td>
+        </tr>
+
+<%--        <tr>
+          <td class="label"><h2 style="color:#0000FF">附加资料(社保)(照片):</h2></td>
+          <td>
+            <img id="ylimg7" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg4');"/>
+          </td>
+        </tr>--%>
+
+<%--        <tr>
+          <td class="label"><h2 style="color:#0000FF">附加资料(家属身份证)(照片):</h2></td>
+          <td>
+            <img id="ylimg8" width="80px" height="80px" src="images/b.png" />
+            <input type="file" name="carimg1" onchange="yulan(this,'ylimg5');"/>
+          </td>
+        </tr>--%>
+
+        <tr>
+          <td width="30px"></td>
+          <td width="30px">
+            <button  style="height:40px" onclick="submitForm()" class="easyui-linkbutton" type="button" data-options="iconCls:'icon-ok'">提交申请</button>
+          </td>
+          <td width="30px"></td>
         </tr>
 
       </table>

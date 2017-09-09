@@ -4,12 +4,7 @@ import org.p2p.pojo.po.TbUser;
 
 import java.util.Map;
 
-/**
- * @Author:HuangJianFang
- * @Description:
- * @Date:Created in 16:27 2017/9/7
- * @Modified By:
- */
+
 public interface TbUserService {
     //注册
     int save(TbUser user);

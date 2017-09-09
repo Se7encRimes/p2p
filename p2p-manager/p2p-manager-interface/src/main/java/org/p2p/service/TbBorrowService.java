@@ -8,6 +8,8 @@ import org.p2p.pojo.po.TbBorrow;
 
 public interface TbBorrowService {
 
+    //新增数据
     int insertMy(TbBorrow record);
-
+    //改变user的status
+    int updateUserStatus(int loans,int id);
 }
