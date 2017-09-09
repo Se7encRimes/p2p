@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
@@ -8,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -30,6 +29,8 @@
   <title>开通托管账户--爱钱帮</title>
   <link rel="stylesheet" href="css/login.css">
   <link rel="stylesheet" href="css/m2-login.css">
+  </head>
+<body>
   <div class="m2-loginBg" style="display:none;"></div>
   <div class="m2-loginReg-box" style="display:none;">
     <i class="m2-loginReg-boxClose"></i>
@@ -179,14 +180,7 @@
             <tr>
               <td><i class="m2-regist-cardnumber"></i>手机号</td>
               <td class="m2-regist-tdInput">
-                <c:choose>
-                  <c:when test="${sessionScope.user==null}">
                 <span class="m2-reg-telSpan" style=""><span>${user1.phone}</span></span>
-                  </c:when>
-                  <c:otherwise>
-                    <span class="m2-reg-telSpan" style=""><span>${sessionScope.user.phone}</span></span>
-                  </c:otherwise>
-                </c:choose>
               </td>
             </tr>
             <tr>
@@ -216,16 +210,11 @@
       return true;
     }
     function checkIdNo() {
-      var bankNum = $('#card').val();
-      if (bankNum == '') {
+      var cardNum = $('#card').val();
+      if (cardNum == '') {
         $('#card').next('.m2-regist-errMsg').html('身份证号不能为空!');
         return false;
       }
-      if (!checkCard(bankNum)) {
-        $('#card').next('.m2-regist-errMsg').next('span').html('身份证格式不合法!');
-        return false;
-      }
-      $('#card').next('.m2-regist-errMsg').next('span').html('');
       return true;
     }
     function checkBankCard() {
@@ -234,7 +223,6 @@
         $('#bankcard').next('.m2-regist-errMsgcard').children('span').html('银行卡不能为空!');
         return false;
       }
-//        $('#bankcardid').next('.m2-regist-errMsgcard').children('span').html('');
       return true;
     }
     $(function () {
@@ -243,17 +231,17 @@
       });
       $('#card').blur(function () {
         var bankNum = $('#card').val();
-        checkCard(bankNum);
+        checkIdNo(bankNum);
       });
       $('#bankcard').blur(function () {
         checkBankCard();
-        getCardInfo();
+        //getCardInfo();
       });
       $(".openbank").click(function () {
         if($(this).hasClass('openAble')){
           btnGrey();
           var ifUserName= checkUserName();
-          var ifIdNo=checkIdNo();
+          var ifIdNo = checkIdNo();
           //  var ifBankCard=$('#bankcardid').next('.m2-regist-errMsgcard').children('span').html().length==0;
           var canSubmit = true;
           var p = makevar(['username', 'bankcard', 'card']);
@@ -275,15 +263,13 @@
           if (canSubmit !== true)
             return false;
 
-          if(ifUserName&& ifIdNo){
-            alert("====>1");
+          if(ifUserName&&ifIdNo){
             $.ajax({
               url: "openbankactive",
               data: p,
               type: "POST",
               dataType: 'json',
               success: function (data) {
-                alert("====>"+data);
                 if (data.status == 1) {
                   window.location.href = "index";
                 } else {
@@ -329,24 +315,6 @@
     })
   </script>
   <script type="text/javascript">
-    //倒计时
-    var tim = 60; //剩余时间
-    function tim_Down() {
-      if (tim > 0) {
-        $('.m2-regTel-sec').show().html(tim);
-        tim--;
-        setTimeout("tim_Down()", 1000);
-      }
-      else if (tim <= 0) {
-        $('.m2-regTel-sec').hide();
-        $('.m2-regTel-det').html('重新获取');
-        $('.m2-regTeltips').addClass('m2-regTel-step1').removeClass('m2-regTel-step2');
-        tim = 60;
-      }
-    }
-  </script>
-  <script>
-
     var send_flag = true;
     var show_flag = true;
     var card_no;
@@ -365,41 +333,8 @@
           show_flag = false;
         }
       }
-      getCardInfo();
     });
 
-    function getCardInfo() {
-      if (send_flag) {
-        card_no = $('#bankcard').val();
-        if(!card_no){
-          $('#bankcard').next('.m2-regist-errMsgcard').children('span').html('银行卡不能为空');
-          return false;
-        }
-        send_flag = false;
-        show_flag = true;
-        $.ajax({
-          url: '/cupdata-card-getCardInfo',
-          data: {
-            card: card_no
-          },
-          success: function (data) {
-            send_flag = true;
-            if (show_flag) {
-              var obj = eval('(' + data + ')');
-
-              if (obj['day_limit'] >= 500000 && obj['single_limit'] >= 500000) {
-                $('#bankcard').next('.m2-regist-errMsgcard').children('span').html('');
-              } else if (obj['day_limit'] > 0 && obj['single_limit'] >= 0) {
-                $('#bankcard').next('.m2-regist-errMsgcard').children('span').html(obj['inst_name'] + '充值限额：单笔'
-                        + (obj['single_limit'] / 10000) + '万，单日' + (obj['day_limit'] / 10000) + '万'+',单月' + (obj['month_limit'] / 10000) + '万');
-              } else {
-                $('#bankcard').next('.m2-regist-errMsgcard').children('span').html('您的银行卡不支持充值，但可用于提现操作。');
-              }
-            }
-          }
-        });
-      }
-    }
   </script>
   <script>
     $(function(){

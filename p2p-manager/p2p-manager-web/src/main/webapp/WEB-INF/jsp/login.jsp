@@ -41,7 +41,7 @@
   </div>
   <style type="text/css">
     .myloginmask {position:fixed;top: 0;left: 0;right: 0;bottom: 0;background-color: black;display: none;opacity: 0.7;z-index: 800;filter:alpha(opacity=70)}
-    .mylogin {position:   fixed;top: 50%;left: 50%;margin-top: -346px;margin-left: -260px;width: 520px;height: 496px;background-image: url("statics/home2/images/login/login_info.png");background-repeat: no-repeat;z-index: 1000;display: none;}
+    .mylogin {position:   fixed;top: 50%;left: 50%;margin-top: -346px;margin-left: -260px;width: 520px;height: 496px;background-image: url("images/login/login_info.png");background-repeat: no-repeat;z-index: 1000;display: none;}
     .mylogin .topcontent {font-weight:bold;text-align: center;color: #666666;font-size: 18px;padding-top: 284px;line-height: 36px;}
     .mylogin .topcontent span {color: #883535;}
     .mylogin .bottomcontent {font-weight:bold;font-size:20px;line-height: 30px;width:384px;margin: 50px auto;}
@@ -450,19 +450,19 @@
         </div>
       </div>
       <div class="m2-commonTop-right">
-        <div class="m2-commonTop-link">
-          <ul>
+      <%--  <div class="m2-commonTop-link">
+          <ul>--%>
             <!-- 论坛导航栏全部关闭 -->
             <!--<li class="m2-commonTop-btn" style="display: none" id="bbs"><a id="bbslogin" target="_blank">论坛</a></li>-->
-            <li class="m2-commonTop-btn"><a href="register" target="_blank">注册</a></li>
+          <%--  <li class="m2-commonTop-btn"><a href="register" target="_blank">注册</a></li>
             <li class="m2-commonTop-btn"><a href="login" target="_blank" style="border-right:none;">登录</a></li>
             <li class="m2-commonTop-btn"><a href="company_finance.html" id="cfpage" style="border-right:none;width: 50px;">企业理财</a></li>                </ul>
-        </div>
-        <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
+        </div>--%>
+       <%-- <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
           <a href="" class="m2-commonTop-and"></a>
           <a href="" class="m2-commonTop-ios"></a>
           <span>app下载入口</span>
-        </div>
+        </div>--%>
       </div>
     </div>
   </div>
@@ -613,38 +613,44 @@
 <script type="text/javascript">
   function login(){
     var p = makevar(['phone','password']);
+    var regphone=/^(13|14|15|17|18)[0-9]{9}$/;
     var canSubmit = true;
     $(".alarmnew").html("");
     if(typeof p.phone=="undefined"){
-
-      $(".alarmnew").html("用户名不能为空");
+      $(".alarmnew").html("手机号不能为空");
+      return false;
+    }
+    if(!regphone.test(p.phone)){
+      $(".alarmnew").html("手机号格式不正确");
       return false;
     }
     if(typeof p.password=="undefined" ||　typeof p.password==null || p.password==""){
-
       $(".alarmnew").html("密码不能为空");
       return false;
     }
-
+    if(p.password.length<6){
+      $(".alarmnew").html("密码不能小于6位");
+      return false;
+    }
     if(canSubmit!==true) return false;
     postData("ULogin",p,function(d){
 		  $(".alarmnew").hide();
       //d.url = decodeURIComponent(d.url);
       if(d.status==3){
-        showInfoDialog(d.message,1);
+        showInfoDialog(d.comments);
         setTimeout(function(){
           window.location.href=d.url;
-        },3000);
+        },2000);
       }else if(d.status==2){
-        showInfoDialog(d.comments,1);
+        showInfoDialog(d.comments);
         setTimeout(function(){
           window.location.href=d.url;
-        },3000);
+        },2000);
       }else if(d.status==1){
-       showLoginInfoDialog(d.comments,1);
+       showLoginInfoDialog(d.comments);
         setTimeout(function(){
           window.location.href=d.url;
-        },3000);
+        },2000);
       }
     });
   }

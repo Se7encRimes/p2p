@@ -1,7 +1,7 @@
 package org.p2p.service.impl;
 
 import org.p2p.dao.AdminCustomMapper;
-import org.p2p.pojo.po.TbAdmin;
+import org.p2p.pojo.po.TbProject;
 import org.p2p.pojo.vo.AdminLoansCustom;
 import org.p2p.service.AdminLoansService;
 import org.p2p.utlis.Order;
@@ -10,6 +10,7 @@ import org.p2p.utlis.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -41,5 +42,13 @@ public class AdminLoansServiceImpl implements AdminLoansService {
         return mapper.anIntItem(state,id);
     }
 
-
+    @Override
+    public Result<AdminLoansCustom> listProjects(Page page, Order order) {
+        Result<AdminLoansCustom> rs = new Result<>();
+        List<AdminLoansCustom> rows = mapper.listProjects(page,order);
+        long total = mapper.countProjects();
+        rs.setRows(rows);
+        rs.setTotal(total);
+        return rs;
+    }
 }

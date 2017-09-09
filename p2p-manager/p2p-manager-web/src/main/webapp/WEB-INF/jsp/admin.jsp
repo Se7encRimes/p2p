@@ -25,6 +25,7 @@
         <div title="商品管理" data-options="selected:true" style="padding:10px 0;">
             <ul class="easyui-tree">
                 <li data-options="attributes:{'href':'admin-list'}">申请管理</li>
+                <li data-options="attributes:{'href':'admin-project'}">投资项目管理</li>
             </ul>
         </div>
         <div title="网站内容管理" style="padding:10px 0;">

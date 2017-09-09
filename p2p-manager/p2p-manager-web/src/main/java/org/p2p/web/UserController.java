@@ -2,6 +2,7 @@ package org.p2p.web;
 
 import org.p2p.pojo.po.TbUser;
 import org.p2p.service.TbUserService;
+import org.p2p.utlis.MD5;
 import org.p2p.utlis.ulogin;
 import org.p2p.utlis.uregister;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,36 +46,41 @@ public class UserController {
     @RequestMapping("openbankactive")
     @ResponseBody
     public uregister openBankActive(TbUser tbUser,HttpSession session){
-        System.out.println("1======<<?????");
+        System.err.println(tbUser.getPassword()+"=====");
         uregister uRegister = new uregister();
         TbUser tbUser1=userService.update(tbUser);
         if(tbUser1!=null){
-            System.out.println("2======<<?????");
             uRegister.setStatus(1);
             session.setAttribute("user",tbUser1);
         }else {
-            System.out.println("3======<<?????");
             uRegister.setMessage("开通失败");
         }
         return uRegister;
     }
 
+    private  MD5 md5 = new MD5();
     //注册普通会员
     @RequestMapping("/URegister")
     @ResponseBody
-    public  uregister TbUserRegister(TbUser user,Model model){
+    public  uregister TbUserRegister(TbUser user,Model model,HttpServletRequest request){
+        user.setPassword(md5.getMD5ofStr(user.getPassword()));
         uregister uRegister = new uregister();
-       int i = userService.save(user);
-        if (i>0){
-            uRegister.setStatus(1);
-            uRegister.setPhone(user.getPhone());
-            model.addAttribute("user1",user);
-        }else if (i==-1){
-            uRegister.setStatus(5);
-            uRegister.setMessage("手机号已存在");
-        }else {
-            uRegister.setStatus(-1);
-            uRegister.setMessage("注册失败");
+        String strCode=(String)request.getSession().getAttribute("strCode");
+        if(strCode!=null){
+            if(strCode.equals(request.getParameter("vcode"))){
+                int i = userService.save(user);
+                if (i>0){
+                    uRegister.setStatus(1);
+                    uRegister.setPhone(user.getPhone());
+                    model.addAttribute("user1",user);
+                }else if (i==-1){
+                    uRegister.setStatus(5);
+                    uRegister.setMessage("手机号已存在");
+                }else {
+                    uRegister.setStatus(-1);
+                    uRegister.setMessage("注册失败");
+                }
+            }
         }
         return uRegister;
     }
@@ -83,13 +89,13 @@ public class UserController {
     @RequestMapping("/ULogin")
     @ResponseBody
     public ulogin TbUserLogin(TbUser user,HttpSession session){
+        user.setPassword(md5.getMD5ofStr(user.getPassword()));
         Map<String,Object> map=userService.userlogin(user);
-        ulogin login = (ulogin) map.get("ulogin");
+        ulogin loginx = (ulogin) map.get("ulogin");
         if(map.get("user")!=null){
             session.setAttribute("user",map.get("user"));
         }
-        System.out.println(((TbUser)map.get("user")).getPassword());
-        return login;
+      return loginx;
     }
     //退出
     @RequestMapping("UQuit")

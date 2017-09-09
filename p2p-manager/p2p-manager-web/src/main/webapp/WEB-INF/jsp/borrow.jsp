@@ -92,28 +92,7 @@
       </div>
       <!-- 注册step2 end -->
 
-      <!-- 登录start -->
-      <div class="mo2-indLogboxRight">
-        <div class="mo2-indLogitem mo2-indLogitem-use" style="margin-bottom:9px;">
-          <i class="mo2-indLogicon-use"></i><input class="mo2-indIpt-all" type="text" id="user_nameRight" placeholder="用户名/手机号">
-          <b class="mo2-indLogwar" id="w_username"><em class="mo2-indlogWar-arr"></em><u id="r_usernameRight"></u></b>
-        </div>
-        <div class="mo2-indLogitem mo2-indLogitem-psw" style="margin-bottom:9px;">
-          <i class="mo2-indLogicon-psw"></i><input class="mo2-indIpt-all m2-ind-banPsw" maxlength="20" id="pass_wordRight" type="password" id="pass_wordRight" placeholder="输入登录密码">
-          <b class="mo2-indLogwar" id="w_password"><em class="mo2-indlogWar-arr"></em><u id="r_passwordRight"></u></b>
-        </div>
-        <div class="mo2-indLog-code" style="display:none;margin-bottom:8px;">
-          <div class="mo2-indLogcod-lef">
-            <i class="mo2-indLogicon-psw"></i>
-            <input type="text" id="vcodeRight" placeholder="验证码"></div>
-          <div class="mo2-indLogcod-rig"><img src="home-register-VerifyCode.png" onClick="document.getElementById('reverifyCode').src='home-register-VerifyCode.png?time='+Math.random();void(0);" alt="点击刷新验证码"></div>
-        </div>
-        <div class="mo2-indLog-forget"><a href="forget.html">忘记密码?</a></div>
-        <div style="padding-left: 24px;line-height: 30px;color:red;" id="error-hint"></div>
-        <div class="mo2-indReg-btn">
-          <a class="mo2-indRegbtn-able" onclick="loginRight();">登录</a>
-        </div>
-      </div>
+     
       <!-- 登录end -->
     </div>
     <!-- 登录注册end -->

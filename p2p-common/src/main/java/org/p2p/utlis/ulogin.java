@@ -8,7 +8,6 @@ package org.p2p.utlis;
 public class ulogin {
     private int status;
     private String comments;
-    private String message;
     private String url;
 
     public String getComments() {
@@ -17,14 +16,6 @@ public class ulogin {
 
     public void setComments(String comments) {
         this.comments = comments;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
     public String getUrl() {

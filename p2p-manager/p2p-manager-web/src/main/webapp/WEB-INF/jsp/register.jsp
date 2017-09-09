@@ -180,7 +180,10 @@
             <tr  class="verify_code_tr">
               <td><i class="m2-regist-passicon"></i>验证码</td>
               <td class="m2-regist-tdInput m2-regist-check">
-                <img src="home-register-VerifyCode.png" onClick="document.getElementById('reverifyCode').src='home-register-VerifyCode.png?time='+Math.random();void(0);" id="reverifyCode" /><input style="margin-right:5px;width:170px;" type="text" maxlength="5" class="m2-regist-username m2-regist-code" id="vcode" placeholder="验证码"/><span class="m2-regist-errMsg"></span></td>
+                <img src="authCode" onClick="chageCode()" id="reverifyCode" /><input style="margin-right:5px;width:170px;" type="text" maxlength="5" class="m2-regist-username m2-regist-code" id="vcode" placeholder="验证码"/><span class="m2-regist-errMsg"></span></td>
+               <td> <label><a onclick="chageCode()">看不清？换一张</a></label></td>
+              <input type="hidden" value="${sessionScope.strCode}" id="strCode"/>
+              </td>
             </tr>
 
           </table>
@@ -218,6 +221,10 @@
   <input type="hidden" value="1" id="regvalue">
   <input type="hidden" name='sourcelist' id="from" value="0"/>
   <script type="text/javascript">
+
+    function chageCode(){
+      $('#reverifyCode').attr('src','authCode?abc='+Math.random());//链接后添加Math.random，确保每次产生新的验证码，避免缓存问题。
+    }
     $(function(){
       //显示弹窗
 
@@ -251,6 +258,10 @@
       $('.m2-reg-voice').click(function(){
         if($('#phone').val()==''){
           $('#phone').next('.m2-regist-errMsg').html('手机号不能为空！');
+          return false;
+        }
+        if($('#password').val()==''){
+          $('#password').next('.m2-regist-errMsg').html('密码不能为空！');
           return false;
         }
         if($('#vcode').val()==''){
@@ -340,13 +351,29 @@
         }
       }
     }
+    function checkvcode(){
+      if($('#vcode').val()==''){
+        $('#vcode').next('.m2-regist-errMsg').html('验证码不能为空！');
+        return false;
+      }
+      else{
+        var reg=/^[a-zA-Z0-9]{4}$/g;
+        if(!reg.test($('#vcode').val())){
+          $('#vcode').next('.m2-regist-errMsg').html('验证码格式错误！');
+          return false;
+        }else{
+          $('#vcode').next('.m2-regist-errMsg').html('');
+        }
+      }
+    }
     function register(){
       checkpsw();
       checkphone();
+      checkvcode()
       var canSubmit = true;
-      var p = makevar(['password','phone']);
+      var p = makevar(['password','phone','vcode']);
       p['from']=$("#from").val();
-      if(($('#password').val()=='')||($('#phone').val()=='')){
+      if(($('#password').val()=='')||($('#phone').val()=='')||($('#vcode').val()=='')){
         canSubmit = false;
       }
       $(".m2-regist-errMsg").each(function(){
@@ -354,6 +381,10 @@
           canSubmit = false;
         }
       });
+      if(!$('#vcode').val()==$('#strCode').val()){
+        $('#vcode').next('.m2-regist-errMsg').html('验证码错误');
+        canSubmit=false;
+      }
       if(!$("#service").is(":checked")){
         showInfoDialog("必须先同意服务协议!",0);
         canSubmit = false;
@@ -384,6 +415,9 @@
     $(function(){
       $('#password').blur(function(){
         checkpsw();
+      });
+      $('#vcode').blur(function(){
+        checkvcode();
       });
       $('#phone').blur(function(){
         checkphone();

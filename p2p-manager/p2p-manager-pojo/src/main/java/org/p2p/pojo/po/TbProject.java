@@ -5,6 +5,8 @@ import java.util.Date;
 public class TbProject {
     private Integer id;
 
+    private Integer bid;
+
     private Double money;
 
     private Double rate;
@@ -33,6 +35,14 @@ public class TbProject {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getBid() {
+        return bid;
+    }
+
+    public void setBid(Integer bid) {
+        this.bid = bid;
     }
 
     public Double getMoney() {

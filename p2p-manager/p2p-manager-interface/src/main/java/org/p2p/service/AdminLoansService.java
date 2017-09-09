@@ -16,5 +16,5 @@ public interface AdminLoansService {
 
     int anIntItem(int state,int id);
 
-
+    Result<AdminLoansCustom> listProjects(Page page, Order order);
 }
