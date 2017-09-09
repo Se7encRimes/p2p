@@ -13,7 +13,7 @@
     <title>项目资料设置</title>
 </head>
 <body>
-<form class="admin_project" id="admin_project" name="admin_project" method="post" action="editProjects">
+<form class="admin_project" id="admin_project" name="admin_project" method="post">
   <input type="hidden" name="id" value="${project.id}">
   <table align="center" valign="middle">
     <tr>
@@ -67,7 +67,7 @@
   <table align="center" valign="middle" width="50%">
     <tr>
       <td>
-        <input class="easyui-linkbutton" type="submit" id="pass_" value="    保存修改    ">
+        <input class="easyui-linkbutton" type="button" id="pass_" value="    保存修改    ">
       </td>
       <td>
         <input class="easyui-linkbutton" type="button" id="refuse_" value="    重置    ">
