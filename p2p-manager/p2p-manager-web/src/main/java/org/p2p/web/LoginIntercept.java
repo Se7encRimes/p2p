@@ -40,6 +40,7 @@ public class LoginIntercept implements HandlerInterceptor {
             }
         }
 
+
         if(user==null&&i!=null){
            /* httpServletRequest.getRequestDispatcher("admin").forward(httpServletRequest,httpServletResponse);*/
             return  true;
@@ -47,6 +48,15 @@ public class LoginIntercept implements HandlerInterceptor {
             httpServletRequest.getRequestDispatcher("login").forward(httpServletRequest,httpServletResponse);
             return  false;
         }else if(user!=null){
+            if(path.equals("/admin")){
+                if(i!=null&&i==1){
+                   return true;
+                }
+                if(i==null||i!=1){
+                    httpServletResponse.sendRedirect("index");
+                    return false;
+                }
+            }
             return true;
         }
         return false;
