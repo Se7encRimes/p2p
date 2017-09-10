@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by 张平清 on 2017/9/9/009.
  */
@@ -23,9 +25,16 @@ public class AdminLoginController {
 
     @RequestMapping("/adminaction")
     @ResponseBody
-    public ulogin login(TbAdmin admin){
+    public ulogin login(TbAdmin admin,HttpSession session){
 
         //返回json数据
+        session.setAttribute("admin",1);
         return service.select(admin);
+    }
+
+    @RequestMapping("adminquit")
+    public String quit(HttpSession session){
+        session.removeAttribute("admin");
+        return "index";
     }
 }

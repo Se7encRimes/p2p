@@ -53,6 +53,7 @@ public class UserController {
             uRegister.setStatus(1);
             session.setAttribute("user",tbUser1);
         }else {
+            uRegister.setStatus(2);
             uRegister.setMessage("开通失败");
         }
         return uRegister;

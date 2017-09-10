@@ -106,13 +106,12 @@ public class borrowController {
     public String borrowaction(HttpServletRequest request,HttpSession session){
 
         TbUser user=(TbUser)session.getAttribute("user");
-
-
-        int uid=user.getId();
-        if(service.selectByUid(uid)!=null){
+        int uid = user.getId();
+        if (service.selectByUid(uid) != null) {
             return "borrow";
-        };
+        }
         //不存在就进入开通存管页面
         return "home-register-openbankid";
+
     }
 }

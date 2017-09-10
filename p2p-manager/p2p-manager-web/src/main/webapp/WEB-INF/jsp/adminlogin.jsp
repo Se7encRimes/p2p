@@ -416,12 +416,12 @@
     }
 
     if(typeof p.vcode=="undefined"){
-
     }
     if(canSubmit!==true) return false;
-
+    //alert("1");
     postData("adminaction",p,function(d){
       $(".alarmnew").hide();
+      //alert("2");
       //d.url = decodeURIComponent(d.url);
       if(d.status==3){
         alert("用户名不存在,1秒后刷新页面");
@@ -435,6 +435,7 @@
           window.location.href=d.url;
         },1000);
       }else if(d.status==1){
+       // alert("3");
         alert("登陆成功，1秒后进入后台页面");
         setTimeout(function(){
           window.location.href=d.url;
