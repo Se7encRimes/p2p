@@ -138,7 +138,7 @@
                                 p2p.closeTab("申请详情");
                                 $('#table').datagrid('reload');
                             }else{
-                                $.messager.alert("消息","该订单已经审核过,操作无效");
+                                $.messager.alert("消息","该订单已经被操作,操作无效");
                             }
 
                         }
@@ -163,7 +163,7 @@
                                 p2p.closeTab( "申请详情");
                                 $('#table').datagrid('reload');
                             }else{
-                                $.messager.alert("消息","该订单已经拒单,操作无效");
+                                $.messager.alert("消息","该订单已经被操作,操作无效");
                             }
 
                         }

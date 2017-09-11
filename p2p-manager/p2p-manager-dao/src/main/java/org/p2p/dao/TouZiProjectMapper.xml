@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.p2p.dao.TouZiProjectMapper" >
+    <select id="touziList" resultType="org.p2p.pojo.vo.TouZiProject">
+        SELECT p.*,b.carimg
+        FROM tb_project p
+        LEFT JOIN tb_borrow b ON p.bid=b.id
+        ORDER BY createdate DESC
+        limit #{page.offset},5
+    </select>
+</mapper>

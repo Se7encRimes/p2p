@@ -6,10 +6,6 @@
         VALUES (#{money},0,0,now())
     </insert>
 
-    <sql id="project_sql">
-
-    </sql>
-
         <select id="listProjects" resultType="org.p2p.pojo.po.TbProject">
             SELECT *
             FROM tb_project

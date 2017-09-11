@@ -36,6 +36,9 @@
       {field: 'money', title: '申请金额'},
       {field: 'guarantee', title: '担保措施'},
       {field: 'endtime', title: '融资到期时间',sortable:true,formatter:function(value,row,index){
+        if(value==null){
+          return "未选择时间";
+        }
         return moment(value).format("YYYY年MM月DD日")
       }},
       {field: 'projectstate', title: '项目状态',sortable:true,formatter:function(value,row,index){
