@@ -18,7 +18,7 @@ public class LoginIntercept implements HandlerInterceptor {
 
     //配置需要忽略的请求路径名称
     private final String[] excludeNames1={"checkVcode","ogin","authCode","mydatetime",
-            "Index-VerifyCode","index","egister","2016å¹´10æ\u009C\u008801æ\u0097¥","Index-VerifyCode.png","adminaction"};
+            "Index-VerifyCode","index","egister","2016å¹´10æ\u009C\u008801æ\u0097¥","Index-VerifyCode.png","adminaction","borrow1"};
     private final String[] excludeNames2={"/"};
 
     @Override
