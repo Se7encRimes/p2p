@@ -12,4 +12,6 @@ public interface TbBorrowService {
     int insertMy(TbBorrow record);
     //改变user的status
     int updateUserStatus(int loans,int id);
+    //判断是否开通过存管
+    String  selectByUid(int id);
 }

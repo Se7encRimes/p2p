@@ -1,6 +1,7 @@
 package org.p2p.dao;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.p2p.pojo.po.TbBorrow;
 import org.p2p.pojo.po.TbBorrowExample;
@@ -32,5 +33,8 @@ public interface TbBorrowMapper {
 
     @Update("update tb_user set loans=#{arg0} where id=#{arg1}")
     int updateUserStatus(@Param("arg0")int loans,@Param("arg1")int id);
+
+    @Select("select card from tb_user where id=#{id}")
+    String  selectByUid(int id);
 
 }

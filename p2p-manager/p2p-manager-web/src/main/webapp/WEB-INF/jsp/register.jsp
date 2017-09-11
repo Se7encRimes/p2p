@@ -182,7 +182,6 @@
               <td class="m2-regist-tdInput m2-regist-check">
                 <img src="authCode" onClick="chageCode()" id="reverifyCode" /><input style="margin-right:5px;width:170px;" type="text" maxlength="5" class="m2-regist-username m2-regist-code" id="vcode" placeholder="验证码"/><span class="m2-regist-errMsg"></span></td>
                <td> <label><a onclick="chageCode()">看不清？换一张</a></label></td>
-              <input type="hidden" value="${sessionScope.strCode}" id="strCode"/>
               </td>
             </tr>
 
@@ -212,7 +211,7 @@
           <span class="incentivebox_bp1">恭喜您注册爱钱帮，<span class="red">20000元</span>体验金已经发送您的账户</span>
           <p class="comregistbox_bp2">您可以去体验金项目进行投资</p>
         </div>
-        <a href="tiyanjin.html">去投资</a>
+        <a href="touzi">去投资</a>
         <div class="close" id="newregister-close"><img src="images/december-expermoney/close.png"></div>
       </div>
     </div>
@@ -366,10 +365,25 @@
         }
       }
     }
+    //ajax同步请求校验验证码
+    function confirmVcode(){
+      var result="";
+      $.ajax({
+        type: "post",
+        url: "checkVcode",
+        cache:false,
+        async:false,
+        success: function(d){
+         // alert(d);
+          result=""+d;
+        }
+      });
+      return result;
+    }
     function register(){
       checkpsw();
       checkphone();
-      checkvcode()
+      checkvcode();
       var canSubmit = true;
       var p = makevar(['password','phone','vcode']);
       p['from']=$("#from").val();
@@ -381,9 +395,12 @@
           canSubmit = false;
         }
       });
-      if(!$('#vcode').val()==$('#strCode').val()){
+      alert($('#vcode').val());
+      alert(confirmVcode());
+      if($('#vcode').val()===confirmVcode()){
+        $('#vcode').next('.m2-regist-errMsg').html('验证码正确');
+      }else{
         $('#vcode').next('.m2-regist-errMsg').html('验证码错误');
-        canSubmit=false;
       }
       if(!$("#service").is(":checked")){
         showInfoDialog("必须先同意服务协议!",0);
@@ -392,17 +409,13 @@
       if(canSubmit!==true) return false;
       postData("URegister",p,function(d){
         if(d.status==1){
-          $('#newregister').show();   	 //去除了跳转提示(体验金活动)
+       //   $('#newregister').show();   	 //去除了跳转提示(体验金活动)
           showInfoDialog("注册成功!请等待跳转！",1);
           setTimeout(function(){
             window.location.href="tiaozhuan?phone="+ d.phone;
           },6000);//增加了跳转等待时间3000毫秒
-        }else if(d.status==5){
-          showInfoDialog(d.message,0);
-          $("#reverifyCode").click();
-        }
-        else {
-          showInfoDialog(d.message,0);
+        }else if(d.status==2){
+          //showInfoDialog(d.message,0);
           $("#reverifyCode").click();
         }
       });

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
@@ -178,10 +179,21 @@
               <td class="m2-regist-tdInput"><input type="text" class="m2-regist-username" id="card" value="" placeholder="身份证号（必填）"/><span class="m2-regist-errMsg m2-openbank-card"></span></td>
             </tr>
             <tr>
-              <td><i class="m2-regist-cardnumber"></i>手机号</td>
-              <td class="m2-regist-tdInput">
-                <span class="m2-reg-telSpan" style=""><span>${user1.phone}</span></span>
-              </td>
+              <c:choose>
+                <c:when test="${sessionScope.user==null}">
+                  <td><i class="m2-regist-cardnumber"></i>手机号</td>
+                  <td class="m2-regist-tdInput">
+                    <span class="m2-reg-telSpan" style=""><span id="phone">${user1.phone}</span></span>
+                  </td>
+                </c:when>
+                <c:otherwise>
+                  <td><i class="m2-regist-cardnumber"></i>手机号</td>
+                  <td class="m2-regist-tdInput">
+                    <span class="m2-reg-telSpan" style=""><span id="phone">${sessionScope.user.phone}</span></span>
+                  </td>
+                </c:otherwise>
+              </c:choose>
+
             </tr>
             <tr>
               <td><i class="m2-regist-cardnumber"></i>借记卡</td>
@@ -231,11 +243,10 @@
       });
       $('#card').blur(function () {
         var bankNum = $('#card').val();
-        checkIdNo(bankNum);
+        checkIdNo();
       });
       $('#bankcard').blur(function () {
         checkBankCard();
-        //getCardInfo();
       });
       $(".openbank").click(function () {
         if($(this).hasClass('openAble')){
@@ -245,7 +256,7 @@
           //  var ifBankCard=$('#bankcardid').next('.m2-regist-errMsgcard').children('span').html().length==0;
           var canSubmit = true;
           var p = makevar(['username', 'bankcard', 'card']);
-          p['phone'] = ${user1.phone};
+          p['phone'] = document.getElementById("phone").innerHTML;
           if (($('#username').val() == '') || ($('#bankcard').val() == '') || ($('#card').val() == '')) {
             canSubmit = false;
           }
@@ -256,18 +267,15 @@
             }
           });
 
-//            if ($('#bankcardid').next('.m2-regist-errMsgcard').children('span').html().length > 0) {
-          if ($('#bankcard').val() == '') {
-            canSubmit = false;
-          }
           if (canSubmit !== true)
             return false;
 
           if(ifUserName&&ifIdNo){
+            alert("asdsad");
             $.ajax({
               url: "openbankactive",
               data: p,
-              type: "POST",
+              type: "post",
               dataType: 'json',
               success: function (data) {
                 if (data.status == 1) {

@@ -3,6 +3,7 @@ package org.p2p.web;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,14 @@ import java.util.Random;
 @Controller
 @Scope("prototype")
 public class VerificatCode {
-    @RequestMapping({"authCode"})
+
+    @RequestMapping("checkVcode")
+    @ResponseBody
+    public String checkVcode(HttpSession session){
+        return (String)session.getAttribute("strCode");
+    }
+
+    @RequestMapping("/authCode")
     public void getAuthCode(HttpServletRequest request, HttpServletResponse response,HttpSession session)
             throws IOException {
         int width = 63;
@@ -61,13 +69,14 @@ public class VerificatCode {
         }
         //将字符保存到session中用于前端的验证
         session.setAttribute("strCode", strCode);
+        System.out.println("验证码"+strCode);
         g.dispose();
 
         ImageIO.write(image, "JPEG", response.getOutputStream());
         response.getOutputStream().flush();
 
     }
-    Color getRandColor(int fc,int bc){
+    public Color getRandColor(int fc,int bc){
         Random random = new Random();
         if(fc>255)
             fc = 255;
