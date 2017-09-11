@@ -61,6 +61,7 @@ public class AdminController {
         }
         if(state==1){
             TbProject project = new TbProject();
+            project.setBid(id);
             project.setMoney(custom.getMoney());
             projectService.createProject(project);
         }
@@ -75,7 +76,7 @@ public class AdminController {
 
     @RequestMapping(value="/editProjects",method = RequestMethod.POST)
     @ResponseBody
-    public int editProjects(String id,String guarantee,String endtime,String rate,String gaiyao) throws ParseException {
+    public int editProjects(String id,String guarantee,String endtime,String rate,String gaiyao,String carinfo) throws ParseException {
         int pid = Integer.parseInt(id);
         Date time = new SimpleDateFormat("yyyy-MM-dd").parse(endtime);
         double lilv = Double.parseDouble(rate);
@@ -85,6 +86,7 @@ public class AdminController {
         project.setEndtime(time);
         project.setRate(lilv);
         project.setGaiyao(gaiyao);
+        project.setCarinfo(carinfo);
         return projectService.editProject(project);
     }
     @RequestMapping("/upProjects")

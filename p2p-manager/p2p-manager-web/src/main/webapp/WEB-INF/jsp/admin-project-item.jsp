@@ -56,8 +56,8 @@
           </c:choose>
         </select>
       </td>
-      <td></td>
-      <td></td>
+      <td>车辆信息</td>
+      <td><input class="easyui-validatebox" type="text" name="carinfo" data-options="required:true" value="${project.carinfo}"></td>
       </tr>
     <tr>
       <td>项目概要</td>
