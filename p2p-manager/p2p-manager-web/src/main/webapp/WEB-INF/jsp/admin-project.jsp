@@ -14,8 +14,8 @@
 <table id="_projects"></table>
 <div id="toolbar">
   <button onclick="edit()" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">编辑</button>
-  <button onclick="down()" class="easyui-linkbutton" data-options="iconCls:'icon-down',plain:true">下架</button>
-  <button onclick="up()" class="easyui-linkbutton" data-options="iconCls:'icon-up',plain:true">上架</button>
+  <button onclick="down()" class="easyui-linkbutton" data-options="iconCls:'icon-down',plain:true">下线</button>
+  <button onclick="up()" class="easyui-linkbutton" data-options="iconCls:'icon-up',plain:true">上线</button>
 </div>
 <script>
   $('#_projects').datagrid({
@@ -35,7 +35,9 @@
       {field: 'rate', title: '利率'},
       {field: 'money', title: '申请金额'},
       {field: 'guarantee', title: '担保措施'},
-      {field: 'endtime', title: '融资到期时间'},
+      {field: 'endtime', title: '融资到期时间',sortable:true,formatter:function(value,row,index){
+        return moment(value).format("YYYY年MM月DD日")
+      }},
       {field: 'projectstate', title: '项目状态',sortable:true,formatter:function(value,row,index){
         switch (value){
           case 0:
@@ -91,10 +93,10 @@
           ids.push(rows[i].id);
         }
         $.post(
-                "items/batch",
+                "upProjects",
                 {"ids[]":ids},
                 function(data){
-                  $('#table').datagrid('reload');
+                  $('#_projects').datagrid('reload');
                 },
                 "json"
         );
@@ -108,6 +110,22 @@
       $.messager.alert('消息','未选中任何记录','info');
       return;
     }
+    $.messager.confirm('确认','是否确定下线项目？',function(r){
+      if (r){
+        var ids = [];
+        for(var i=0;i<rows.length;i++){
+          ids.push(rows[i].id);
+        }
+        $.post(
+                "downProjects",
+                {"ids[]":ids},
+                function(data){
+                  $('#_projects').datagrid('reload');
+                },
+                "json"
+        );
+      }
+    });
   }
 
 

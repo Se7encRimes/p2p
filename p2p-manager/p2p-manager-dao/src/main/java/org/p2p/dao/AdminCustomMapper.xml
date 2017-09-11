@@ -16,7 +16,7 @@
         select
         <include refid="Base_Column_List" />
         from tb_user u
-        LEFT JOIN tb_borrow b ON u.id=b.uid
+        RIGHT JOIN tb_borrow b ON u.id=b.uid
         WHERE loans = 1
         <choose>
         <when test="order != null and order.sort != null and order.order != null">

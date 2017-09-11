@@ -51,7 +51,7 @@
           }
       }},
       {field: 'applydate', title: '申请日期',sortable:true,formatter:function(value,row,index){
-        return moment(value).format("dddd, MMMM Do YYYY,h:mm:ss a")
+        return moment(value).format("YYYY年MM月DD日")
       }}
 
     ]],

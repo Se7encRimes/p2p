@@ -90,11 +90,13 @@ public class AdminController {
     @RequestMapping("/upProjects")
     @ResponseBody
     public int upProjects(@RequestParam("ids[]") List<Integer> ids){
+        System.err.println(ids);
         return projectService.upProjects(ids);
     }
     @RequestMapping("/downProjects")
     @ResponseBody
     public int downProjects(@RequestParam("ids[]") List<Integer> ids){
+        System.err.println(ids);
         return projectService.downProjects(ids);
     }
 
