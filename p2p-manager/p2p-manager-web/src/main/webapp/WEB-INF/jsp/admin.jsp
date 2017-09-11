@@ -18,11 +18,12 @@
     <table width="100%">
         <tr>
             <td>
-    <h2>P2P-网贷后台管理系统</h2>
+                <h2>P2P-网贷后台管理系统</h2>
             </td>
             <td align="right"><h3><a href="adminquit">退出</a></h3></td>
         </tr>
     </table>
+
 </div>
 <div data-options="region:'south'" style="padding:5px;background:#eee;">
     系统版本：V1.0
@@ -35,18 +36,6 @@
                 <li data-options="attributes:{'href':'admin-project'}">投资项目管理</li>
             </ul>
         </div>
-        <div title="网站内容管理" style="padding:10px 0;">
-            <ul class="easyui-tree">
-                <li data-options="attributes:{'href':'content-category'}">内容分类管理</li>
-                <li data-options="attributes:{'href':'content'}">内容管理</li>
-            </ul>
-        </div>
-        <div title="索引库管理" data-options="iconCls:'icon-tip'" style="padding:10px 0;">
-            <ul class="easyui-tree">
-                <li data-options="attributes:{'href':'index-item'}">solr索引库维护</li>
-            </ul>
-        </div>
-
     </div>
 </div>
 <div data-options="region:'center'" style="background:#eee;">

@@ -44,7 +44,7 @@ public class AdminProjectServiceImpl implements AdminProjectService{
     @Override
     public int downProjects(List<Integer> ids) {
         TbProject project = new TbProject();
-        project.setProjectstate(2);
+        project.setProjectstate(0);
         TbProjectExample example = new TbProjectExample();
         TbProjectExample.Criteria criteria = example.createCriteria();
         criteria.andIdIn(ids);
