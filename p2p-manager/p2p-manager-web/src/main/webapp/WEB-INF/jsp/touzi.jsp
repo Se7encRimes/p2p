@@ -35,96 +35,11 @@
   <script type="text/javascript" src="js/projectList.js?20160520"></script>
   <script type="text/javascript" src="js/common.js?20160520"></script>
   <script type="text/javascript" src="js/m2-front.js?20160520"></script>
-  <!-- 右侧边栏start -->
-  <!-- 右侧登录窗口 -->
+
 </head>
 
 <body>
-  <!--右侧登录框-->
-  <div class="mo2-indexLoginbox" id="right-fix">
-    <!-- 登录注册start -->
-    <div class="mo2-indLogreg" >				<div class="mo2-indLogtab">
-      <ul>
-        <li class="mo2-logTab-unsel mo2-indTab-reg">
-          <span>注册</span><b></b>
-        </li>
-        <li class="mo2-logTab-sel mo2-indTab-log">
-          <span>登录</span><b></b>
-        </li>
-      </ul>
-    </div>
-      <!-- 注册start -->
-      <div class="mo2-indRegboxRight" style="display:none;">
-        <div class="mo2-indLogitem" style="margin-bottom:6px;">
-          <i class="mo2-indLogicon-tel"></i><input class="mo2-indIpt-all" id="regTelRight" maxlength="11" type="text" placeholder="输入手机号码"><b class="mo2-indLogwarRight"><em class="mo2-indlogWar-arr"></em><u></u></b>
-        </div>
-        <div class="mo2-indLogitem" style="margin-bottom:6px;">
-          <i class="mo2-indLogicon-psw"></i><input class="mo2-indIpt-all m2-ind-banPsw" id="passRight" type="password" placeholder="6-20位数字与字母组合的密码"><b class="mo2-indLogwarRight"><em class="mo2-indlogWar-arr"></em><u></u></b>
-        </div>
-        <div class="mo2-indLogitem-step1">
-          <div class="mo2-indLogreg-step1">
-            <i class="mo2-indLogicon-code"></i><input class="mo2-indIptcod-step1" id="vcodeRight" type="text" placeholder="验证码">
-          </div>
-          <img class="mo2-indRegcode" src="home-register-VerifyCode.png" onClick="document.getElementById('reverifyCodeRight').src='home-register-VerifyCode.png?time='+Math.random();void(0);" id="reverifyCodeRight"  alt="点击刷新验证码">
-          <span class="mo2-indReg-refresh">看不清？换一张</span>
-          <b class="mo2-indLogwarRight"><em class="mo2-indlogWar-arr"></em><u></u></b>
-        </div>
-        <div class="mo2-indReg-btn" id="verifyregcode" onclick="verifycodeRight();" style="margin-top:8px;">
-          <a class="mo2-indRegbtn-able" href="#">立即注册</a>
-        </div>
-        <div class="mo2-indRegagree">
-          <i class="mo2-indReg-sel"></i><span>我已阅读并同意</span><b>《爱钱帮注册服务协议》</b>
-        </div>
-      </div>
-      <!-- 注册end -->
-      <!-- 注册step2 start -->
-      <div class="mo2-indRegbox2Right"  style="display:none;" >
-        <div class="mo2-indReg2-con">
-          <ul>
-            <li><i class="mo2-indRegicon-step1"></i><span>为了确保您手机可用，请填写您收到的手机动态码。</span></li>
-            <li><i class="mo2-indRegicon-step2"></i><span>如收不到短信验证码，可点击下面的获取语音验证码。</span></li>
-          </ul>
-        </div>
-        <div class="mo2-indLogitem">
-          <i class="mo2-indLogicon-code"></i><input class="mo2-indIpt-half" id="codeRight" type="text" placeholder="验证码">
-          <span class="mo2-indRegtim mo2-regTin-able"><u>60秒后</u><span>获取手机验证码</span></span>
-          <b class="mo2-indLogwarRight" style="width:200px;"><em class="mo2-indlogWar-arr"></em><u>错误提示信息</u></b>
-        </div>
-        <div class="mo2-indRegvoice">
-          <span class="mo2-indRegvoi-btn mo2-indRegvoi-able"><i></i>获取语音验证码</span>
-        </div>
-        <div class="mo2-indReg-btn" onclick="registerRight();" id="verifyregphone"  style="margin-top:8px;">
-          <a class="mo2-indRegbtn-able"  href="#">立即注册</a>
-        </div>
-      </div>
-      <!-- 注册step2 end -->
 
-      <!-- 登录start -->
-      <div class="mo2-indLogboxRight">
-        <div class="mo2-indLogitem mo2-indLogitem-use" style="margin-bottom:9px;">
-          <i class="mo2-indLogicon-use"></i><input class="mo2-indIpt-all" type="text" id="user_nameRight" placeholder="用户名/手机号">
-          <b class="mo2-indLogwar" id="w_username"><em class="mo2-indlogWar-arr"></em><u id="r_usernameRight"></u></b>
-        </div>
-        <div class="mo2-indLogitem mo2-indLogitem-psw" style="margin-bottom:9px;">
-          <i class="mo2-indLogicon-psw"></i><input class="mo2-indIpt-all m2-ind-banPsw" maxlength="20" id="pass_wordRight" type="password" id="pass_wordRight" placeholder="输入登录密码">
-          <b class="mo2-indLogwar" id="w_password"><em class="mo2-indlogWar-arr"></em><u id="r_passwordRight"></u></b>
-        </div>
-        <div class="mo2-indLog-code" style="display:none;margin-bottom:8px;">
-          <div class="mo2-indLogcod-lef">
-            <i class="mo2-indLogicon-psw"></i>
-            <input type="text" id="vcodeRight" placeholder="验证码"></div>
-          <div class="mo2-indLogcod-rig"><img src="Index-VerifyCode.png" onClick="document.getElementById('reverifyCode').src='Index-VerifyCode.png?time='+Math.random();void(0);" alt="点击刷新验证码"></div>
-        </div>
-        <div class="mo2-indLog-forget"><a href="forget.html">忘记密码?</a></div>
-        <div style="padding-left: 24px;line-height: 30px;color:red;" id="error-hint"></div>
-        <div class="mo2-indReg-btn">
-          <a class="mo2-indRegbtn-able" onclick="loginRight();">登录</a>
-        </div>
-      </div>
-      <!-- 登录end -->
-    </div>
-    <!-- 登录注册end -->
-  </div>
   <!-- 右侧登录窗口 -->
   <!--add by zml start-->
   <!--<div id="fixbar" style="width:50px;position:fixed;top:0;right:0px;background:#ff6666;z-index:5;"></div>-->
@@ -520,36 +435,7 @@
 
     </div>
   </div>
-  <!--  用户登陆后，（部分用户）导航栏显示论坛选项、现在全部关闭
-  <script type="text/javascript">
-      $(function () {
-         $('#bbslogin').click(function(){
-             var w = window.open();
-              $.ajax({
-                  type:"GET",
-                  url :"/api-bbslogin",
-                  success:function(msg){
-                      var obj = eval('('+msg+')');
-                      var obj = eval(obj);
-                      if (obj.status == 1){
-                          w.location = obj.message;
-                      }
-                  }
-              });
-         });
-         var _uid = Number();
-         var _all_uid = Array(5277,320,25893,77960,70760,4762,36256,59960,126250,75980,4039,68689,133118,185);
-         function in_array(uid,array){
-              for(var i in array){
-                  if(array[i] == uid){
-                      $("#bbs").attr("style","display:block");
-                  }
-              }
-         }
-         in_array(_uid,_all_uid);
-      });
-  </script>
-  -->
+
   </div>
   <div class="m2-commonNav-con">
     <div class="m2-commonNav-box">
@@ -562,7 +448,7 @@
         </a>
       </div>
       <div class="m2-commonNav">
-        <ul class="m2-commonNavul-fir" data_page='onepage'>
+        <ul class="m2-commonNavul-fir" data_page='twopage'>
           <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
           <li class="m2-commonNav-fir"><a href="borrowaction" id="jieqian">我要借钱</a></li>
           <li class="m2-commonNav-fir"><a href="touzi" id="twopage">我要投资</a></li>
@@ -613,7 +499,7 @@
   </div>
   <div class="m2-invTable-con">
     <ul class="m2-invTablelist"><!-- 只能显示7个，其余隐藏 -->
-      <li class="m2-invTab-sel"><span onclick="window.location.href='/touzi_licai_chanpin.html'">项目直投</span><i></i></li>
+      <li class="m2-invTab-sel"><span onclick="window.location.href='#'">项目直投</span><i></i></li>
    <%--   <li class="m2-invTab-unsel"><span onclick="window.location.href='/wangshang_licai_chanpin.html'">债权转让</span><i></i></li>
       <li class="m2-invTab-unsel"><span onclick="window.location.href='/duanqi_licai_chanpin.html'">爱车贷</span><i></i></li>
       <li class="m2-invTab-unsel"><span onclick="window.location.href='/aifangdai_licai_chanpin.html'">爱房贷</span><i></i></li>
@@ -646,7 +532,7 @@
         <li data="61|180" class="m2-invSea-unsel"><span onclick="searchBorrow('leftday','61|180')">61天-180天</span></li>
         <li data="181|360" class="m2-invSea-unsel"><span onclick="searchBorrow('leftday','181|360')">181天-360天</span></li>
         <li data="361|3600" class="m2-invSea-unsel"><span onclick="searchBorrow('leftday','361|3600')">其他</span></li>
-      </ul><!--
+      </ul>
 		<ul class="m2-invSea-sum" id="search_borrow_money">
 			<li class="m2-invSea-tit"><span>金&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;额</span></li>
 			<li data="0" class="m2-invSea-sel m2-invSea-all"><span onclick="searchBorrow('borrow_money',0)">全部</span></li>
@@ -655,7 +541,7 @@
 			<li data="1000001|2000000" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_money','1000001|2000000')">100万-200万</span></li>
 
 		</ul>
-		--><ul class="m2-invSea-pro" id="search_progress">
+		<ul class="m2-invSea-pro" id="search_progress">
       <li class="m2-invSea-tit"><span>进&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度</span></li>
       <li data="0" class="m2-invSea-sel m2-invSea-all"><span onclick="searchBorrow('progress',0)">全部</span></li>
       <li data="0|30" class="m2-invSea-unsel"><span onclick="searchBorrow('progress','0|30')">30%以下</span></li>
@@ -688,7 +574,7 @@
     <div style="width:100%; height:100%; position:fixed; z-index:100;top:0; left:0;display:none;" id="allP" >
       <div style="width:100%; height:100%; position:absolute; top:0; left:0; background:#000; opacity:0.5;"></div>
       <div style="width:404px; height:154px; background:#fff; position:absolute; top:50%; left:50%; margin-left:-252px; margin-top:-100px; border:2px solid #666;">
-        <p style="color: #666666;font-size: 16px;absolute;line-height:170px;text-align: center; font-family: Microsoft YaHei;;">该项目已还清，为保护企业隐私，不再公示项目信息</p>
+        <p style="color: #666666;font-size: 16px;position:absolute;line-height:170px;text-align: center; font-family: Microsoft YaHei;;">该项目已还清，为保护企业隐私，不再公示项目信息</p>
         <div style="width: 30px;height: 30px;position: absolute;top: 11px;right: 0px;color: #666;font-size: 20px;cursor: pointer;" id="close">X</div>
       </div>
 
@@ -703,7 +589,7 @@
             </div>
             <div class="m2-invItemleft-rig">
               <h4>
-                <i class="m2-invItemIcon-inv"></i>														    <a href="chanpin.html#-moxOeTwTZaOw8TY79g.html" target="_blank" title="爱车贷-雪佛兰迈锐宝-XAA067">爱车贷-雪佛兰迈锐宝-XAA067</a>						</h4>
+                <i class="m2-invItemIcon-inv"></i>														    <a href="chanpin" target="_blank" title="爱车贷-雪佛兰迈锐宝-XAA067">爱车贷-雪佛兰迈锐宝-XAA067</a>						</h4>
               <ul class="m2-invItemleft-list">
                 <li>
 								<span  class="m2-invItemdet-big huodongjiaxi">
@@ -1170,9 +1056,9 @@
   </script>
 
   <script src="js/common.js?20160520"></script>
-  <link type="text/css" rel="stylesheet" href="statics/common/tipBox/colorbox-master/css/colorbox.css?20160520">
-  <script src="statics/common/tipBox/layer-v1.5.1/layer/layer.js?20160520"></script>
-  <script src="statics/common/tipBox/common.js?20160520"></script>
+  <link type="text/css" rel="stylesheet" href="css/colorbox.css?20160520">
+  <script src="js/layer.js?20160520"></script>
+  <script src="js/common.js?20160520"></script>
   <!--tipBOx-->
   <script language=JavaScript type="text/javascript" src="js/tab.js?20160520"></script>
   <script type="text/javascript">$(function(){

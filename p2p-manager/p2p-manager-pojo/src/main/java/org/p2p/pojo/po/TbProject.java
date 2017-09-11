@@ -23,6 +23,10 @@ public class TbProject {
 
     private String gaiyao;
 
+    private String carinfo;
+
+    private Double jindu;
+
     private String extends1;
 
     private String extends2;
@@ -107,6 +111,22 @@ public class TbProject {
 
     public void setGaiyao(String gaiyao) {
         this.gaiyao = gaiyao == null ? null : gaiyao.trim();
+    }
+
+    public String getCarinfo() {
+        return carinfo;
+    }
+
+    public void setCarinfo(String carinfo) {
+        this.carinfo = carinfo == null ? null : carinfo.trim();
+    }
+
+    public Double getJindu() {
+        return jindu;
+    }
+
+    public void setJindu(Double jindu) {
+        this.jindu = jindu;
     }
 
     public String getExtends1() {

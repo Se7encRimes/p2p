@@ -1,6 +1,5 @@
 package org.p2p.web;
 
-import org.p2p.pojo.po.TbProject;
 import org.p2p.pojo.vo.AdminLoansCustom;
 import org.p2p.service.AdminLoansService;
 import org.p2p.service.AdminProjectService;

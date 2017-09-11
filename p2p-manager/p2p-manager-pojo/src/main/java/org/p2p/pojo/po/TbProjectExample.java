@@ -725,6 +725,136 @@ public class TbProjectExample {
             return (Criteria) this;
         }
 
+        public Criteria andCarinfoIsNull() {
+            addCriterion("carinfo is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCarinfoIsNotNull() {
+            addCriterion("carinfo is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCarinfoEqualTo(String value) {
+            addCriterion("carinfo =", value, "carinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andCarinfoNotEqualTo(String value) {
+            addCriterion("carinfo <>", value, "carinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andCarinfoGreaterThan(String value) {
+            addCriterion("carinfo >", value, "carinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andCarinfoGreaterThanOrEqualTo(String value) {
+            addCriterion("carinfo >=", value, "carinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andCarinfoLessThan(String value) {
+            addCriterion("carinfo <", value, "carinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andCarinfoLessThanOrEqualTo(String value) {
+            addCriterion("carinfo <=", value, "carinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andCarinfoLike(String value) {
+            addCriterion("carinfo like", value, "carinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andCarinfoNotLike(String value) {
+            addCriterion("carinfo not like", value, "carinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andCarinfoIn(List<String> values) {
+            addCriterion("carinfo in", values, "carinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andCarinfoNotIn(List<String> values) {
+            addCriterion("carinfo not in", values, "carinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andCarinfoBetween(String value1, String value2) {
+            addCriterion("carinfo between", value1, value2, "carinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andCarinfoNotBetween(String value1, String value2) {
+            addCriterion("carinfo not between", value1, value2, "carinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andJinduIsNull() {
+            addCriterion("jindu is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJinduIsNotNull() {
+            addCriterion("jindu is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJinduEqualTo(Double value) {
+            addCriterion("jindu =", value, "jindu");
+            return (Criteria) this;
+        }
+
+        public Criteria andJinduNotEqualTo(Double value) {
+            addCriterion("jindu <>", value, "jindu");
+            return (Criteria) this;
+        }
+
+        public Criteria andJinduGreaterThan(Double value) {
+            addCriterion("jindu >", value, "jindu");
+            return (Criteria) this;
+        }
+
+        public Criteria andJinduGreaterThanOrEqualTo(Double value) {
+            addCriterion("jindu >=", value, "jindu");
+            return (Criteria) this;
+        }
+
+        public Criteria andJinduLessThan(Double value) {
+            addCriterion("jindu <", value, "jindu");
+            return (Criteria) this;
+        }
+
+        public Criteria andJinduLessThanOrEqualTo(Double value) {
+            addCriterion("jindu <=", value, "jindu");
+            return (Criteria) this;
+        }
+
+        public Criteria andJinduIn(List<Double> values) {
+            addCriterion("jindu in", values, "jindu");
+            return (Criteria) this;
+        }
+
+        public Criteria andJinduNotIn(List<Double> values) {
+            addCriterion("jindu not in", values, "jindu");
+            return (Criteria) this;
+        }
+
+        public Criteria andJinduBetween(Double value1, Double value2) {
+            addCriterion("jindu between", value1, value2, "jindu");
+            return (Criteria) this;
+        }
+
+        public Criteria andJinduNotBetween(Double value1, Double value2) {
+            addCriterion("jindu not between", value1, value2, "jindu");
+            return (Criteria) this;
+        }
+
         public Criteria andExtends1IsNull() {
             addCriterion("extends1 is null");
             return (Criteria) this;

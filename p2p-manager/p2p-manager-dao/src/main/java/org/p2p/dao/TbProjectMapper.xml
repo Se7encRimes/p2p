@@ -12,6 +12,8 @@
     <result column="endtime" property="endtime" jdbcType="TIMESTAMP" />
     <result column="createdate" property="createdate" jdbcType="TIMESTAMP" />
     <result column="gaiyao" property="gaiyao" jdbcType="VARCHAR" />
+    <result column="carinfo" property="carinfo" jdbcType="VARCHAR" />
+    <result column="jindu" property="jindu" jdbcType="DOUBLE" />
     <result column="extends1" property="extends1" jdbcType="VARCHAR" />
     <result column="extends2" property="extends2" jdbcType="VARCHAR" />
     <result column="extends3" property="extends3" jdbcType="VARCHAR" />
@@ -76,7 +78,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, bid, money, rate, state, projectstate, guarantee, endtime, createdate, gaiyao, 
-    extends1, extends2, extends3
+    carinfo, jindu, extends1, extends2, extends3
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.p2p.pojo.po.TbProjectExample" >
     select
@@ -112,13 +114,15 @@
     insert into tb_project (id, bid, money, 
       rate, state, projectstate, 
       guarantee, endtime, createdate, 
-      gaiyao, extends1, extends2, 
-      extends3)
+      gaiyao, carinfo, jindu, 
+      extends1, extends2, extends3
+      )
     values (#{id,jdbcType=INTEGER}, #{bid,jdbcType=INTEGER}, #{money,jdbcType=DOUBLE}, 
       #{rate,jdbcType=DOUBLE}, #{state,jdbcType=INTEGER}, #{projectstate,jdbcType=INTEGER}, 
       #{guarantee,jdbcType=VARCHAR}, #{endtime,jdbcType=TIMESTAMP}, #{createdate,jdbcType=TIMESTAMP}, 
-      #{gaiyao,jdbcType=VARCHAR}, #{extends1,jdbcType=VARCHAR}, #{extends2,jdbcType=VARCHAR}, 
-      #{extends3,jdbcType=VARCHAR})
+      #{gaiyao,jdbcType=VARCHAR}, #{carinfo,jdbcType=VARCHAR}, #{jindu,jdbcType=DOUBLE}, 
+      #{extends1,jdbcType=VARCHAR}, #{extends2,jdbcType=VARCHAR}, #{extends3,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="org.p2p.pojo.po.TbProject" >
     insert into tb_project
@@ -152,6 +156,12 @@
       </if>
       <if test="gaiyao != null" >
         gaiyao,
+      </if>
+      <if test="carinfo != null" >
+        carinfo,
+      </if>
+      <if test="jindu != null" >
+        jindu,
       </if>
       <if test="extends1 != null" >
         extends1,
@@ -193,6 +203,12 @@
       </if>
       <if test="gaiyao != null" >
         #{gaiyao,jdbcType=VARCHAR},
+      </if>
+      <if test="carinfo != null" >
+        #{carinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="jindu != null" >
+        #{jindu,jdbcType=DOUBLE},
       </if>
       <if test="extends1 != null" >
         #{extends1,jdbcType=VARCHAR},
@@ -244,6 +260,12 @@
       <if test="record.gaiyao != null" >
         gaiyao = #{record.gaiyao,jdbcType=VARCHAR},
       </if>
+      <if test="record.carinfo != null" >
+        carinfo = #{record.carinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jindu != null" >
+        jindu = #{record.jindu,jdbcType=DOUBLE},
+      </if>
       <if test="record.extends1 != null" >
         extends1 = #{record.extends1,jdbcType=VARCHAR},
       </if>
@@ -270,6 +292,8 @@
       endtime = #{record.endtime,jdbcType=TIMESTAMP},
       createdate = #{record.createdate,jdbcType=TIMESTAMP},
       gaiyao = #{record.gaiyao,jdbcType=VARCHAR},
+      carinfo = #{record.carinfo,jdbcType=VARCHAR},
+      jindu = #{record.jindu,jdbcType=DOUBLE},
       extends1 = #{record.extends1,jdbcType=VARCHAR},
       extends2 = #{record.extends2,jdbcType=VARCHAR},
       extends3 = #{record.extends3,jdbcType=VARCHAR}
@@ -307,6 +331,12 @@
       <if test="gaiyao != null" >
         gaiyao = #{gaiyao,jdbcType=VARCHAR},
       </if>
+      <if test="carinfo != null" >
+        carinfo = #{carinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="jindu != null" >
+        jindu = #{jindu,jdbcType=DOUBLE},
+      </if>
       <if test="extends1 != null" >
         extends1 = #{extends1,jdbcType=VARCHAR},
       </if>
@@ -330,6 +360,8 @@
       endtime = #{endtime,jdbcType=TIMESTAMP},
       createdate = #{createdate,jdbcType=TIMESTAMP},
       gaiyao = #{gaiyao,jdbcType=VARCHAR},
+      carinfo = #{carinfo,jdbcType=VARCHAR},
+      jindu = #{jindu,jdbcType=DOUBLE},
       extends1 = #{extends1,jdbcType=VARCHAR},
       extends2 = #{extends2,jdbcType=VARCHAR},
       extends3 = #{extends3,jdbcType=VARCHAR}

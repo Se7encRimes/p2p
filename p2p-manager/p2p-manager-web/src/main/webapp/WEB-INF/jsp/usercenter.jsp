@@ -186,10 +186,10 @@
 <div class="m2-commonNav-con">
   <div class="m2-commonNav-box">
     <div class="m2-commonLogo">
-      <a href="index.html"><img src="statics/newcommon/images/m2-logo.png" title="爱钱帮官网" alt="爱钱帮_logo"></a>
+      <a href="index.html"><img src="images/m2-logo.png" title="爱钱帮官网" alt="爱钱帮_logo"></a>
     </div>
     <div class="m2-commonNav">
-      <ul class="m2-commonNavul-fir" data_page='onepage'>
+      <ul class="m2-commonNavul-fir" data_page='threepage'>
         <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
         <li class="m2-commonNav-fir"><a href="borrowaction" id="jieqian">我要借钱</a></li>
         <li class="m2-commonNav-fir"><a href="touzi" id="twopage">我要投资</a></li>
@@ -1016,7 +1016,7 @@
           margin-left: 4px;
           width: 50px;
           height: 25px;
-          background: url(images/iconAdv.png) no-repeat 0 5px;
+          background: url(/images/iconAdv.png) no-repeat 0 5px;
         }
         .b0-botDet{
           display: inline-block;
@@ -1033,7 +1033,7 @@
           width: 16px;
           height: 16px;
           margin: 6px 0 0 12px;
-          background: url(images/b-question.png) no-repeat;
+          background: url(/images/b-question.png) no-repeat;
           cursor: pointer;
         }
         .b0-backMore:hover span{
@@ -1059,7 +1059,7 @@
           height: 12px;
           left: -8px;
           top:70px;
-          background: url(statics/usercenter/images/borrow_arrow.png);
+          background: url(images/borrow_arrow.png);
         }
         .b0-backMore span b{
           font-weight:normal;

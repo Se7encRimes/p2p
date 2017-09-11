@@ -1,21 +1,21 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
-  Date: 2017/9/6
-  Time: 23:11
+  Date: 2017/9/11
+  Time: 16:19
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 
-  <meta name="keywords" content="互联网金融,投资理财,互联网投资理财">
-  <meta name="description" content="爱钱帮从事的互联网金融，以资金托管 + 担保 + 独立风控的阳光P2B互联网投资理财新模式，为投资人提供12%—15%的优质投资项目，安全合规并且全面保护用户的资金安全。">
-  <title>关于我们丨理财产品，为您赚钱的互联网金融理财投资平台-爱钱帮  </title>
+  <meta name="keywords" content="互联网金融,理财平台">
+  <meta name="description" content="爱钱帮为您打造一个公平、透明、安全、高效的互联网金融平台，引入第三方平台进行资金托管，爱钱帮不接手借贷资金，保障资金安全，回归中介本质，是您首选的理财平台。">
+  <title>安全保障丨理财产品，为您赚钱的互联网金融理财投资平台-爱钱帮</title>
 
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
@@ -56,7 +56,7 @@
           <div class="mo2-indLogreg-step1">
             <i class="mo2-indLogicon-code"></i><input class="mo2-indIptcod-step1" id="vcodeRight" type="text" placeholder="验证码">
           </div>
-          <img class="mo2-indRegcode" src="home-register-VerifyCode.png" onClick="document.getElementById('reverifyCodeRight').src='home-register-VerifyCode.png'+Math.random();void(0);" id="reverifyCodeRight"  alt="点击刷新验证码">
+          <img class="mo2-indRegcode" src="Index-VerifyCode.png" onClick="document.getElementById('reverifyCodeRight').src='Index-VerifyCode.png?time='+Math.random();void(0);" id="reverifyCodeRight"  alt="点击刷新验证码">
           <span class="mo2-indReg-refresh">看不清？换一张</span>
           <b class="mo2-indLogwarRight"><em class="mo2-indlogWar-arr"></em><u></u></b>
         </div>
@@ -104,7 +104,7 @@
           <div class="mo2-indLogcod-lef">
             <i class="mo2-indLogicon-psw"></i>
             <input type="text" id="vcodeRight" placeholder="验证码"></div>
-          <div class="mo2-indLogcod-rig"><img src="home-register-VerifyCode.png" onClick="document.getElementById('reverifyCode').src='home-register-VerifyCode.png?time='+Math.random();void(0);" alt="点击刷新验证码"></div>
+          <div class="mo2-indLogcod-rig"><img src="Index-VerifyCode.png" onClick="document.getElementById('reverifyCode').src='Index-VerifyCode.png?time='+Math.random();void(0);" alt="点击刷新验证码"></div>
         </div>
         <div class="mo2-indLog-forget"><a href="forget.html">忘记密码?</a></div>
         <div style="padding-left: 24px;line-height: 30px;color:red;" id="error-hint"></div>
@@ -144,7 +144,7 @@
           </div>
         </li>
         <li class="m2-comRigli m2-comRigli-qq m2-comRigli_new" data="#fixnavbar_three">
-          <img src="statics/home2/images/fixed-r3.png" alt="我的加息券">
+          <img src="images/fixed-r3.png" alt="我的加息券">
           <div></div>            	<div class="toAbs">
           <div><img src="images/fixedl-3_v2.png" alt="我的加息券"></div>
           <div></div>
@@ -236,7 +236,7 @@
               </div>
               <div class="m2-comRigtel-lefBot">
                 <input type="text" placeholder="验证码" id="ivrSecurityCode">
-                <img id="ivrSecurityCodeImg" onclick="getCode()" src="home-register-VerifyCode.png" alt="验证码" title="点击更新验证码">
+                <img id="ivrSecurityCodeImg" onclick="getCode()" src="Index-VerifyCode.png" alt="验证码" title="点击更新验证码">
               </div>
             </div>
             <div class="m2-comRigtel-rig">
@@ -570,6 +570,7 @@
             </div>
           </c:otherwise>
         </c:choose>
+
       </div>
     </div>
   </div>
@@ -615,7 +616,7 @@
         </a>
       </div>
       <div class="m2-commonNav">
-        <ul class="m2-commonNavul-fir" data_page='fivepage'>
+        <ul class="m2-commonNavul-fir" data_page='onepage'>
           <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
           <li class="m2-commonNav-fir"><a href="borrowaction" id="jieqian">我要借钱</a></li>
           <li class="m2-commonNav-fir"><a href="touzi" id="twopage">我要投资</a></li>
@@ -656,291 +657,103 @@
     }
   </script>
   <!-- headerEnd -->
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>关于我们</title>
-    <script type="text/javascript" src="js/jquery.roundabout.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.js"></script>
-    <link rel="stylesheet" href="css/m2-main.css?20160520">
-  </head>
-  <body style="background-color:#F0F0F0;">
-  <div class="m2-parBg"></div>
-  <div class="m2-parHidebox">
-    <b class="m2-parHideclose"></b>
-    <h2>我要转让</h2>
-    <div class="m2-parHideimg">
-      <img src="images/guarantee/m2-partnersImg1.png" alt="">
-    </div>
-    <div class="m2-parHidefoot">
-      <span class="m2-parPagecurrent"></span>&frasl;<span class="m2-parPagetotal"></span>
-      <i class="m2-parPageprev"></i><i class="m2-parPagenext"></i>
-    </div>
-  </div>
 
+  <meta charset="UTF-8">
+  <title>安全保障</title>
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <![endif]-->
   <link rel="stylesheet" href="css/front.css?20160520">
+  <link rel="stylesheet" href="css/m2-main.css?20160520">
   <script type="text/javascript" src="js/m2-front.js"></script>
-  <!--头部导航start-->
-  <div class="m2-frontHead">
-    <div class="m2-frontHeadbox">
-      <ul class="m2-frontHeadlist" id='aboutusul' style="width:998px;">
-        <li>
-          <i class="m2-frontHeadbox-line"></i>
-          <a href="guanyu_aiqianbang.html">
-            <b class="m2-headIcon1"></b>
-            <span>关于我们</span>
-          </a>
-        </li>
-        <li>
-          <i class="m2-frontHeadbox-line"></i>
-          <a href="anquanlicai_yewutese.html">
-            <b class="m2-headIcon2"></b>
-            <span>业务特色</span>
-          </a>
-        </li>
-        <li>
-          <i class="m2-frontHeadbox-line"></i>
-          <a href="aiqianbang_touzilicaigongsi_dashiji.html">
-            <b class="m2-headIcon3"></b>
-            <span>大事记</span>
-          </a>
-        </li>
-        <li>
-          <i class="m2-frontHeadbox-line"></i>
-          <a href="meitibaodao_aiqianbang_licaiwang.html">
-            <b class="m2-headIcon4"></b>
-            <span>媒体报道</span>
-          </a>
-        </li>
-        <li>
-          <i class="m2-frontHeadbox-line"></i>
-          <a href="licai_gonggao.html">
-            <b class="m2-headIcon5"></b>
-            <span id="announcementnav">网站公告</span>
-          </a>
-        </li>
-        <li>
-          <i class="m2-frontHeadbox-line"></i>
-          <a href="aiqianbang_touzilicaigongsi_tuanduijieshao.html">
-            <b class="m2-headIcon6"></b>
-            <span>管理团队</span>
-          </a>
-        </li><!--
-            <li>
-                <i class="m2-frontHeadbox-line"></i>
-                <a href="/aiqianbang_licaiwang_zhaopin.html">
-                    <b class="m2-headIcon7"></b>
-                    <span>加入我们</span>
-                </a>
-            </li>
-            --><li style="margin-right:0px">
-        <a href="lianxi_aiqianbang_licaiwang.html">
-          <b class="m2-headIcon8"></b>
-          <span>联系我们</span>
-        </a>
-      </li>
-      </ul>
+</head>
+<body>
+<!--头部start-->
+<header>
+  <div class="m2-secBanner-con"></div>
+  <div class="security_ensure_one">
+    <div class="security_ensure_content_title"><div class="left solid"></div>为什么爱钱帮安全<div class="right solid"></div></div>
+    <div class="content">
+      &nbsp;爱钱帮以风险防控为核心，采用六重安全保障。用户信息和资金全部在徽商银行存管，平台项目全部小额分散有抵质押的优质资产，独立的第三方担保机构提供安全保障，并且采用全方位大数据风控。平台在上线两个月获得知名投资机构，美国上市公司盛大资本的战略投资。
     </div>
   </div>
-  <script>
-    var href = window.location.href;
-    var search = window.location.search;
-    $('#aboutusul a').each(function () {
-      if ($(this).prop('href') + search == href) {
-        $(this).children('span').css('color', '#09ABE9');
-      }
-    });
-    $(function(){
-      $('body').css('background-color','#F0F0F0');
-    });
-  </script>
-  <!--头部导航end-->
-  <div class="m2-aboutBanner-con">
-
-  </div>
-
-  <div class="m2-about-con">
-    <h1>爱钱帮是谁</h1>
-    <div class="m2-abuoutDet-box">
-      <h3><i></i>公司简介</h3>
-      <p>北京爱钱帮财富科技有限公司是一家践行普惠金融的科技金融公司，爱钱帮平台于2014年4月上线运营，上线两个月即获盛大资本的战略投资。管理团队来自清华、北航、上财等知名院校，具有丰富的金融和风险管理经验。2015年7月，爱钱帮与徽商银行首创“银行存管+余额理财”新模式，成为真正实现银行资金存管的平台。2015年10月，爱钱帮联合江西银行推出基于游戏消费场景的消费金融新产品“闪垫侠”，即“游戏白条”。截至2016年4月，平台累计成交额已经超过20亿元，用户数超过35万人。爱钱帮自主研发的业内领先的大数据风控系统实现了线上审批，即刻放款，贷后系统监控，结合线下风控手段，形成了独特的O2O风险管理体系。</p>
-      <h3><i></i>公司优势</h3>
-      <p>爱钱帮的业务模式安全合规，受到政府部门和行业协会的高度认可。爱钱帮是央行中国互联网金融协会的首批会员单位，是北京网贷行业协会的首批创始会员，也是中关村网贷联盟的首批创始会员，同时还是中国小额信贷联盟会的理事单位。2014年，爱钱帮荣获“年度最具成长性P2P平台”。同年，爱钱帮全面升级信息安全体系，并通过了ISO27001信息安全管理体系认证。2015年1月，爱钱帮荣获由中国证券市场研究设计中心与和讯网联合主办的“第12届中国财经风云榜2014年最佳品牌营销奖”。2015年，爱钱帮被授予国家高新科技企业称号。</p>
-      <!-- <h3><i></i>公司特色</h3>
-      <p>随着公司的快速发展，爱钱帮不断带给P2P行业新的惊喜，海鲜帮、娱乐帮、汽车帮等特色产业“帮派”项目也接连而出，在创造高收益的同时也优化了单一的理财产品模式，不断的进行创新，开始走出自己的特色。</p> -->
+  <div class="security_ensure_two">
+    <div class="security_ensure_content_title"><div class="left solid"></div>安全体系<div class="right solid"></div></div>
+    <div class="content">
+      <div class="lefthover">
+        <span>提供担保和债权回购</span>
+        <img src="images/security/securitythree.png" style="vertical-align:-2px;margin-left:2px;">
+        <div class="detail" style="color:#959595;">
+          <img src="images/security/securityfour.png" class="detail_title">
+          担保：是指在借贷、买卖、货物运输、加工承揽等经济活动中，债权人为保障其债权实现的，要求债务人向债权人提供担保的合同。担保方式为保证、抵押、质押、留置和定金五种。
+        </div>
+      </div>
+      <div class="righthover">
+        <span>提供反担保</span>
+        <img src="images/security/securitythree.png" style="vertical-align:-2px;margin-left:2px;">
+        <div class="detail" style="color:#959595;">
+          <img src="images/security/securityfour.png" class="detail_title">
+          反担保：反担保又可称为求偿担保，偿还约定书或反保证书。是指为保障债务人之外的担保人将来承担单号责任后对债务人的追偿权的实现而设定的担保。
+        </div>
+      </div>
     </div>
-    <h1 style="margin-top:10px;">公司资质</h1>
-    <ul class="m2-aboutImglist">
-      <li src="images/guarantee/m2-yyzz.jpg">
-        <i class="m2-aboutImglist-1"></i>
-        <p>营业执照</p>
-      </li>
-      <li src="images/guarantee/m2-khxkz.jpg">
-        <i class="m2-aboutImglist-2"></i>
-        <p>开户许可证</p>
-      </li>
-      <!--		<li src="statics/home2/images/guarantee/m2-partnersImg1.png">-->
-      <!--			<i class="m2-aboutImglist-3"></i>-->
-      <!--			<p>税务登记证</p>-->
-      <!--		</li>-->
-      <!--		<li src="statics/home2/images/guarantee/m2-partnersImg1.png">-->
-      <!--			<i class="m2-aboutImglist-4"></i>-->
-      <!--			<p>组织机构代码</p>-->
-      <!--		</li>-->
-      <li src="images/guarantee/m2-xydmz.jpg">
-        <i class="m2-aboutImglist-5"></i>
-        <p>信用代码证</p>
-      </li>
-      <li src="images/guarantee/m2-jyxkz.jpg">
-        <i class="m2-aboutImglist-6"></i>
-        <p>经营许可证</p>
-      </li>
-    </ul>
+  </div>
+  <div class="security_ensure_three">
+    <div class="container">
+      <img src="images/security/securityfive.png">
+      <div class="container_style right" style="top:10px;">
+        <h4>银行存管<span>用户信息和资金银行存管，用户资金完全隔离</span></h4>
+        <p>用户信息和资金全部在徽商银行存管，平台不直接经手客户资金，也无权动用客户在银行存管系统的资金。投资人通过银行存管账户投资成功后，资金将直接进入借款人账户，保证交易真实和投资人资金安全。</p>
+      </div>
+    </div>
+    <div class="container">
+      <img src="images/security/securitysix.png" class="right">
+      <div class="container_style">
+        <h4>收益保障<span>强力担保回购机制，三重回款保障</span></h4>
+        <p>除了借款人负有还款责任，将经营收入作为第一还款来源，个人无限责任，还有可以执行的抵质押物可以变现用于还款；平台引入第三方担保机构，负有连带责任保证，承诺到期回购。同时，平台也制定了完善的法律服务体系，将法律途径引入还款保障。</p>
+      </div>
+    </div>
+    <div class="container">
+      <img src="images/security/securityseven.png">
+      <div class="container_style right" style="top:46px;">
+        <h4>业务安全<span>小额分散有抵质押的优质资产</span></h4>
+        <p>平台秉承安全至上的资产筛选原则，选择最安全的贷款领域，选取房产与车产抵质押资产，实现贷款的小额分散，并根据不同的领域与交易场景制定严苛的准入与审批标准。每一个项目都来自平台的精心筛选。</p>
+      </div>
+    </div>
+    <div class="container">
+      <img src="images/security/securityeight.png" class="right">
+      <div class="container_style">
+        <h4>技术安全<span>信息技术安全，多重加密多重备份</span></h4>
+        <p>团队成员具有丰富的网络技术研发经验。爱钱帮已经通过ISO27001信息安全管理体系认证，2015年，爱钱帮被授予国家高新科技企业称号。平台对信息进行信息多重备份，并使用128位加密技术，保障数据传输安全。平台严格按照隐私条款保障用户的信息。</p>
+      </div>
+    </div>
+    <div class="container">
+      <img src="images/security/securitynine.png">
+      <div class="container_style right" style="top:0;">
+        <h4>法律安全<span>合法合规有据可依，有效法律保障</span></h4>
+        <p>2014年平台聘用了国浩律师事务所为常年法律顾问。平台模式、各类法律文书，包括各类协议、合同等，均由律师事务所审核，确保与投资人相关的各类文书合法有效。《合同法》《电子签名法》《关于人民法院审理借贷案件的若干意见》等相关法律法规，是平台提供合法的居间服务的法律基础，同时说明互联网个人借贷合同的合法性。</p>
+      </div>
+    </div>
+    <div class="container" style="margin-bottom:0;">
+      <img src="images/security/securityten.png" class="right">
+      <div class="container_style">
+        <h4>风控安全<span>严格风险管理，全方位大数据风控</span></h4>
+        <p>爱钱帮的风险管理核心技术脱胎于德国IPC技术。平台接入了国内多家知名征信公司、数据公司，实现大数据风控。在此基础之上，爱钱帮自主研发的业内领先的大数据风控系统实现了线上审批、贷后系统监控，结合线下风控手段，形成了独特的O2O风险管理体系，确保项目安全。</p>
+      </div>
+    </div>
+  </div>
+  <div class="security_ensure_four">
+    <div class="security_ensure_content_title"><div class="left solid"></div>实力合作机构<div class="right solid"></div></div>
+    <div style="margin:20px auto;width:840px;">
+      <a href="/home-aboutus-coorprate?id=58" target="_blank"><img src="uploadData/ad/20160512110603864.png" alt=""></a><a href="http://www.hsbank.com.cn/" target="_blank"><img src="uploadData/ad/20160512111038163.png" alt=""></a><a href="http://www.jx-bank.com/nccbank/zh_CN/home/index.html" target="_blank"><img src="uploadData/ad/2016051211111329.png" alt=""></a><a href="/home-aboutus-coorprate?id=62" target="_blank"><img src="uploadData/ad/20160512111134837.png" alt=""></a><a href="/home-aboutus-coorprate?id=59" target="_blank"><img src="uploadData/ad/20160512111157415.png" alt=""></a><a href="/home-aboutus-coorprate?id=72" target="_blank"><img src="uploadData/ad/2016051211121652.png" alt=""></a><a href="https://www.alipay.com/" target="_blank"><img src="uploadData/ad/20160512111336923.png" alt=""></a><a href="http://www.yeepay.com/" target="_blank"><img src="uploadData/ad/20160512111356562.png" alt=""></a><a href="https://www.aliyun.com/" target="_blank"><img src="uploadData/ad/20160512111411694.png" alt=""></a><a href="/home-aboutus-coorprate?id=76" target="_blank"><img src="uploadData/ad/20160512111439851.png" alt=""></a><a href="/home-aboutus-coorprate?id=61" target="_blank"><img src="uploadData/ad/20160512111459408.png" alt=""></a><a href="http://www.cecr.com.cn/bencandy.php?fid=79&amp;id=858" target="_blank"><img src="uploadData/ad/20160616194004859.png" alt=""></a>
+    </div>
+  </div>
+  <div class="security_ensure_five">
+    <p>用户信息和资金全部在徽商银行存管，马上开启您的赚钱之旅吧！</p>
+    <button class="success_btn" onclick='window.location.href="touzi"'>立即投资</button>
   </div>
 
-  <div id="m2-aboutSec-list" style="width:1030px;margin-bottom:50px;">
-    <h3>企业荣誉</h3>
-    <ul>
-      <li><img src="images/about/prize01_v2.jpg" alt=""></li>
-      <li><img src="images/about/prize04_v2.jpg" alt=""></li>
-      <li><img src="images/about/prize02_v2.jpg" alt=""></li>
-      <li><img src="images/about/prize03_v2.jpg" alt=""></li>
-      <li><img src="images/about/prize05_v2.jpg" alt=""></li>
-      <li><img src="images/about/prize06_v2.jpg" alt=""></li>
-    </ul>
-  </div>
 
-  <!--<div class="m2-aboutPho-con">-->
-  <!--	<div class="m2-aboutPho-tit">-->
-  <!--		<h3>爱钱帮风采</h3>-->
-  <!--		 <p>我们提供安全高收益的投资，选择追求项目的公开透明，挖掘企业的信用价值，支持有梦想的企业家提升融资效率和社会整体生产力。</p> -->
-  <!--	</div>-->
-  <!--	<div class="m2-aboutPho-box">-->
-  <!--		<ul>-->
-  <!--			<li>-->
-  <!--				<span><img src="statics/home2/images/about/photo01_v2.jpg" alt=""></span>-->
-  <!--				<a >一路有你，相伴随行</a>-->
-  <!--				<i></i>-->
-  <!--				<b></b>-->
-  <!--			</li>-->
-  <!--			<li>-->
-  <!--				<span><img src="statics/home2/images/about/photo02_v2.jpg" alt=""></span>-->
-  <!--				<a >休闲环境</a>-->
-  <!--				<i></i>-->
-  <!--				<b></b>-->
-  <!--			</li>-->
-  <!--			<li>-->
-  <!--				<span><img src="statics/home2/images/about/photo03_v2.jpg" alt=""></span>-->
-  <!--				<a >外部环境</a>-->
-  <!--				<i></i>-->
-  <!--				<b></b>-->
-  <!--			</li>-->
-  <!--			<li>-->
-  <!--				<span><img src="statics/home2/images/about/photo04_v2.jpg" alt=""></span>-->
-  <!--				<a >员工风采</a>-->
-  <!--				<i></i>-->
-  <!--				<b></b>-->
-  <!--			</li>-->
-  <!--			<li>-->
-  <!--				<span><img src="statics/home2/images/about/photo05_v2.jpg" alt=""></span>-->
-  <!--				<a >办公环境</a>-->
-  <!--				<i></i>-->
-  <!--				<b></b>-->
-  <!--			</li>-->
-  <!--			<li>-->
-  <!--				<span><img src="statics/home2/images/about/photo06_v2.jpg" alt=""></span>-->
-  <!--				<a>周边景色</a>-->
-  <!--				<i></i>-->
-  <!--				<b></b>-->
-  <!--			</li>-->
-  <!--		</ul>-->
-  <!--	</div>-->
-  <!--</div>-->
-
-
-
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('#m2-aboutSec-list ul').roundabout({
-        easing: 'easeOutInCirc',
-        duration: 600
-      });
-      $('.m2-frontHead').css('z-index',120);
-      $('.m2-topNav-ulSec').css('z-index',130);
-      $('.m2-parBg').css('z-index',140);
-      $('.m2-parHidebox').css('z-index',150);
-    });
-  </script>
-  <script type="text/javascript">
-    $(function(){
-      var docTop =$(document).scrollTop()+142; //弹出层top
-      var tolPage=4; //总页数
-      var curPage=1; //当前页
-      $('.m2-parPagetotal').html(tolPage);
-      /*点击弹出蒙板*/
-      $('.m2-aboutImglist li').click(function(){
-        curPage=$(this).index()+1; //当前页
-        docTop =$(document).scrollTop()+142; //滚动条高度
-        var imgSrc=$(this).attr('src'); //图片src
-        var imgTit=$(this).children('p').html();
-        $('.m2-parHidebox').css('top',docTop); //改变图片box的top
-        $('.m2-parHideimg img').attr('src',imgSrc); //替换图片
-        $('.m2-parPagecurrent').html(curPage); //改变当前页值
-        $('.m2-parHidebox h2').html(imgTit); //改变图片标题
-        $('.m2-parBg,.m2-parHidebox').show() //显示蒙板和图片box
-        btnShow();
-      });
-
-      /*上一页点击*/
-      $('.m2-parPageprev').click(function(){
-        if(curPage != 1){
-          curPage-=1;
-        }
-        showpage(curPage);
-        btnShow();
-      });
-
-      /*下一页点击*/
-      $('.m2-parPagenext').click(function(){
-        curPage+=1;
-        showpage(curPage);
-        btnShow();
-      });
-
-      /*点击关闭弹窗*/
-      $('.m2-parHideclose').click(function(){
-        $('.m2-parBg').hide();
-        $('.m2-parHidebox').hide();
-      });
-
-      /*判断翻页是否显示*/
-      function btnShow(){console.log(curPage);
-        if (curPage<=1) {
-          $('.m2-parPageprev').fadeOut(200);
-          $('.m2-parPagenext').show();
-          curPage=1;
-        }
-        else if (curPage>=tolPage) {
-          $('.m2-parPagenext').fadeOut(200);
-          $('.m2-parPageprev').show();
-          curPage=tolPage;
-        }
-        else{
-          $('.m2-parPageprev').show();
-          $('.m2-parPagenext').show();
-        }
-      }
-      //点击换页数图片等函数
-      function showpage(pagenumber){
-        var pagenumber=pagenumber-1;
-        var imgSrc=$($('.m2-aboutImglist').find("li")[pagenumber]).attr("src");
-        var imgTit=$($('.m2-aboutImglist').find("li")[pagenumber]).children('p').html();
-        $('.m2-parHidebox h2').html(imgTit);
-        $('.m2-parHideimg img').attr('src',imgSrc); //替换图片
-        $('.m2-parPagecurrent').html(curPage); //改变当前页值
-      }
-    });
-  </script>
   <link rel="stylesheet" href="css/newPage.css?20160520" />
   <div id="mainNewfoot">
     <div class="mainNewfocus" style ="width:740px;">
@@ -955,10 +768,10 @@
           <h3>客服电话:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:12px;">投资有风险，请谨慎投资</span></h3>
           <h3>4006-777-518&nbsp;&nbsp;&nbsp;http://www.iqianbang.com</h3>
           <ul>
-            <li><a href="touzi_licai_chanpin.html">我要投资</a></li>
-            <li><a href="guide.html">帮助中心</a></li>
-            <li><a href="guanyu_aiqianbang.html">关于我们</a></li>
-            <li><a href="licai_gonggao.html">新闻公告</a></li>
+            <li><a href="touzi">我要投资</a></li>
+            <li><a href="guide">帮助中心</a></li>
+            <li><a href="guanyu_aiqianbang">关于我们</a></li>
+            <li><a href="licai_gonggao">新闻公告</a></li>
           </ul>
         </div>
         <div class="mainNewown">
@@ -986,7 +799,7 @@
     var GV = {
       DIMAUB: "",
       JS_ROOT: "statics/home/js/",
-      TOKEN: "8ba1ece370de1b3e55877e7ef191af79_e104e13a491d385198f84a34f74ec90a",
+      TOKEN: "7b578148de1565cb7ea895370618f82e_3622fbb55461a7e248a69c8b3e651175",
       THIS_URL: "Aboutus-",
       TINVEST_URL: "/invest-shownewinvest.shtml"
     };
@@ -1004,7 +817,6 @@
     }
   })
   </script>
-  </body>
-  </html>
-  </body>
+</body>
 </html>
+
