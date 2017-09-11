@@ -8,6 +8,7 @@ import org.p2p.pojo.po.TbProject;
 public class TouZiProject extends TbProject {
     private String carimg;
 
+
     public String getCarimg() {
         return carimg;
     }
