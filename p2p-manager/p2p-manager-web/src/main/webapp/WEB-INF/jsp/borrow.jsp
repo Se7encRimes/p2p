@@ -626,6 +626,7 @@
       $.messager.alert("提示","请选择文件夹");
       return false;
     }*/
+
     $("#itemAddForm").form('submit',{
       type:"post",  //提交方式
       url:"borrow1", //请求url
