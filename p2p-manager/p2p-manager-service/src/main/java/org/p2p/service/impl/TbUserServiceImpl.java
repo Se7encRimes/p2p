@@ -47,7 +47,7 @@ public class TbUserServiceImpl implements TbUserService {
         } else {
             if (user.getPassword().equals(user2.getPassword())) {
                 uLogin.setStatus(1);
-                uLogin.setComments("登录成功");
+                uLogin.setComments("登录成功,等待跳转..");
                 uLogin.setUrl("index");
                 map.put("user", user2);
                 map.put("ulogin", uLogin);
@@ -77,5 +77,15 @@ public class TbUserServiceImpl implements TbUserService {
     @Override
     public TbUser query(String phone) {
         return tbUserMapperCustom.selectByPhone(phone);
+    }
+
+    @Override
+    public double selectMoney(int userId) {
+        return tbUserMapperCustom.selectMoneyByUserId(userId);
+    }
+
+    @Override
+    public double selectEarning(int userId) {
+        return tbUserMapperCustom.selectEarningByUserId(userId);
     }
 }

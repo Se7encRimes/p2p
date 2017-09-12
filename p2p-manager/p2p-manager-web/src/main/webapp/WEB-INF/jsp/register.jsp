@@ -395,8 +395,6 @@
           canSubmit = false;
         }
       });
-      alert($('#vcode').val());
-      alert(confirmVcode());
       if($('#vcode').val()===confirmVcode()){
         $('#vcode').next('.m2-regist-errMsg').html('验证码正确');
       }else{

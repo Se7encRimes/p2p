@@ -15,4 +15,9 @@ public interface TbUserMapperCustom {
     @Update("update tb_user set username=#{username}, card=#{card}, bankcard=#{bankcard} where phone=#{phone}")
     int updateByPhone(TbUser tbUser);
 
+    @Select("select money from tb_invest where userid=#{userId}")
+    double selectMoneyByUserId(int userId);
+
+    @Select("select earnings from tb_invest where userid=#{userId}")
+    double selectEarningByUserId(int userId);
 }

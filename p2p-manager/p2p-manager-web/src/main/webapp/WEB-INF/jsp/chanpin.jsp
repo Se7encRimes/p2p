@@ -984,7 +984,8 @@
       <div class="m2-detItemlef-img">
         <i class="m2-detItemlef-newIcon"></i>                <img  src="uploadData/UserBorrowData/182015-20160902132425642.jpg" alt="" width='256' height="200">
 
-        <p class="m2-detItemlef-imgSha" style="margin-top: 0">
+<%--
+        <scrip&lt;%&ndash;       <p class="m2-detItemlef-imgSha" style="margin-top: 0">
           <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
         <div class="jiathis_style" style='margin-top: 10px;margin-left: 50px;min-height:16px;'>
           <span class="jiathis_txt" style='color:#898989;font-size: 14px;'>分享到：</span>
@@ -997,8 +998,7 @@
         <div style="padding-top: 24px;margin-left: 38px;"><span style='color:#898989;font-size: 12px;'>邀请好友投资，双方有奖!</span>
           <span id="d_clip_button" class="button" style="color:#ba3635;font-size:12px;margin-right: 30px;">复制推广链接</span>
           <span id="d_clip_container" style="position:relative;background:#fff000;height:20px;font-size:12px;right:0px"></span></div>
-        </p>
-        <script type="text/javascript" src="statics/common/ZeroClipboard/ZeroClipboard_mo.js?20160520"></script>
+        </p>&ndash;%&gt;t type="text/javascript" src="statics/common/ZeroClipboard/ZeroClipboard_mo.js?20160520"></script>--%>
         <script>
           var clip = null;
           function initCopy() {
@@ -1133,7 +1133,7 @@
   </div>
 
   <div class="m2-detialsAct">
-    <h2><i></i>项目活动</h2>
+    <h2><i></i>        项目活动</h2>
     <div class="m2-detActbox">
       <div style="padding-left:30px;" id="borrowactivity">
       </div>

@@ -3,6 +3,7 @@ package org.p2p.web;
 import org.p2p.pojo.po.TbBorrow;
 import org.p2p.pojo.po.TbUser;
 import org.p2p.service.TbBorrowService;
+import org.p2p.utlis.ulogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -46,6 +47,8 @@ public class borrowController {
     @RequestMapping("/borrow1")
     @ResponseBody
     public String insert(@RequestParam(name="carimg1",required=false) CommonsMultipartFile[] files,@ModelAttribute(value="dir") File dir,TbBorrow borrow,HttpServletRequest request,HttpSession session) throws IOException {
+        ulogin uLogin = new ulogin();
+        System.out.println("!!!!!!!!!!!!!!!");
         if(files.length>0){
         for(int i=0;i<files.length;i++) {
             String fileName =files[i].getOriginalFilename();
@@ -86,6 +89,7 @@ public class borrowController {
             files[i].transferTo(file);//将文件内容存储到自定义文件中
         }
         }
+
         TbUser user=(TbUser)session.getAttribute("user");
         int uid=user.getId();
         Date date=new Date();
@@ -96,9 +100,10 @@ public class borrowController {
         String time=borrow.getGettime();
         borrow.setResidue(borrow.getMoney() * 1.002*Integer.parseInt(time.substring(0,time.length()-2)));
         if( service.insertMy(borrow)>0){
-            service.updateUserStatus(1,24);
+            service.updateUserStatus(1,uid);
+            return "index";
         }
-        return "index";
+        return "borrow";
     }
 
     //判断是否开通存管

@@ -597,6 +597,7 @@
 <!--头部end-->
 
 <script src="js/jquery-easyui-1.5/jquery.min.js"></script>
+<script src=js/jquery-form.js"></script>
 <!-- jquery easyui -->
 <script src="js/jquery-easyui-1.5/jquery.easyui.min.js"></script>
 <script src="js/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
@@ -619,19 +620,31 @@
     }
   }
 
-/*  function submitForm(){
-    if($("#file").val()==""){
+  function submitForm(){
+
+/*    if($("#file").val()==""){
       $.messager.alert("提示","请选择文件夹");
       return false;
-    }
-    $("#itemAddForm").ajaxSubmit({
+    }*/
+
+    $("#itemAddForm").form('submit',{
       type:"post",  //提交方式
       url:"borrow1", //请求url
       success:function(data){ //提交成功的回调函数
-        $.messager.alert("提示",data);
+        if(data==="index") {
+          alert("申请成功，1秒后进入首面");
+          setTimeout(function () {
+            window.location.href = data;
+          }, 1000);
+        }else{
+          alert("申请失败，请重新申请");
+          setTimeout(function () {
+            window.location.href = data;
+          }, 1000);
+        }
       }
     });
-  }*/
+  }
 
 /*    $('#dd').datebox({
       required: true
@@ -812,6 +825,7 @@
 </script>
 
 <script src="js/common.js?20160520"></script>
+
 <link type="text/css" rel="stylesheet" href="statics/common/tipBox/colorbox-master/css/colorbox.css?20160520">
 <script src="statics/common/tipBox/layer-v1.5.1/layer/layer.js?20160520"></script>
 <script src="statics/common/tipBox/common.js?20160520"></script>
@@ -826,7 +840,7 @@
 <body>
 
   <div  data-options="region:'north',title:'North Title',split:true" style="height:100px;background:  bisque"><h1><font color="black">申请借钱页面</font></h1></div>
-  <div data-options="region:'center',title:'center title'" style="padding:100px;background:#A9A9A9" align="center">
+  <div data-options="region:'center',title:'center title'" style="padding:100px;background: url(images/cc.jpg)" align="center">
 
 
     <form class="itemForm" id="itemAddForm" name="itemAddForm" method="post" enctype="multipart/form-data">
@@ -921,7 +935,7 @@
           <td width="30px">
             <HR style="border:3 double #1dffca" width="80%" color=#1dffca SIZE=3>
             <h2 style="color:#0000FF">身份证正面照片:</h2>
-            <img id="ylimg" width="80px" height="80px" src="images/b.png" />
+            <img id="ylimg" width="80px" height="80px" src="images/a.jpg" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg');"/>
           </td>
 
@@ -929,7 +943,7 @@
           <td width="30px">
             <HR style="border:3 double #1dffca" width="80%" color=#1dffca SIZE=3>
             <h2 style="color:#0000FF">身份证反面照片:</h2>
-            <img id="ylimg1" width="80px" height="80px" src="images/b.png" />
+            <img id="ylimg1" width="80px" height="80px" src="images/a.jpg" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg1');"/>
 
           </td>
@@ -938,7 +952,7 @@
           <td width="30px">
             <HR style="border:3 double #1dffca" width="80%" color=#1dffca SIZE=3>
             <h2 style="color:#0000FF">请上传您的汽车照片:</h2>
-            <img id="ylimg2" width="80px" height="80px" src="images/b.png" />
+            <img id="ylimg2" width="80px" height="80px" src="images/a.jpg" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg2');"/>
           </td>
         </tr>
@@ -963,21 +977,21 @@
        <%--   <td class="label"><h2 style="color:#0000FF">车辆抵押证明(照片):</h2></td>--%>
           <td  width="30px">
             <h2 style="color:#0000FF">车辆抵押证明(照片):</h2>
-            <img id="ylimg3" width="80px" height="80px" src="images/b.png" />
+            <img id="ylimg3" width="80px" height="80px" src="images/a.jpg" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg3');"/>
           </td>
 
         <%--  <td class="label"><h2 style="color:#0000FF">附加资料(房产证)(照片):</h2></td>--%>
           <td  width="30px">
             <h2 style="color:#0000FF">附加资料(房产证)(照片):</h2>
-            <img id="ylimg4" width="80px" height="80px" src="images/b.png" />
+            <img id="ylimg4" width="80px" height="80px" src="images/a.jpg" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg4');"/>
           </td>
 
           <%--<td class="label"><h2 style="color:#0000FF">家庭住址照片:</h2></td>--%>
           <td  width="30px">
             <h2 style="color:#0000FF">家庭住址照片:</h2>
-            <img id="ylimg5" width="80px" height="80px" src="images/b.png" />
+            <img id="ylimg5" width="80px" height="80px" src="images/a.jpg" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg5');"/>
           </td>
 
@@ -1005,7 +1019,7 @@
          <%-- <td class="label"><h2 style="color:#0000FF">附加资料(银行流水)(照片):</h2></td>--%>
           <td  width="30px">
             <h2 style="color:#0000FF">附加资料(银行流水)(照片):</h2>
-            <img id="ylimg6" width="80px" height="80px" src="images/b.png" />
+            <img id="ylimg6" width="80px" height="80px" src="images/a.jpg" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg6');"/>
             <HR style="border:3 double #1dffca" width="80%" color=#1dffca SIZE=3>
           </td>
@@ -1013,7 +1027,7 @@
           <%--<td class="label"><h2 style="color:#0000FF">附加资料(社保)(照片):</h2></td>--%>
           <td  width="30px">
             <h2 style="color:#0000FF">附加资料(社保)(照片):</h2>
-            <img id="ylimg7" width="80px" height="80px" src="images/b.png" />
+            <img id="ylimg7" width="80px" height="80px" src="images/a.jpg" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg7');"/>
             <HR style="border:3 double #1dffca" width="80%" color=#1dffca SIZE=3>
           </td>
@@ -1021,7 +1035,7 @@
           <%--<td class="label"><h2 style="color:#0000FF">附加资料(家属身份证)(照片):</h2></td>--%>
           <td width="30px">
             <h2 style="color:#0000FF">附加资料(家属身份证)(照片):</h2>
-            <img id="ylimg8" width="80px" height="80px" src="images/b.png" />
+            <img id="ylimg8" width="80px" height="80px" src="images/a.jpg" />
             <input type="file" name="carimg1" onchange="yulan(this,'ylimg8');"/>
             <HR style="border:3 double #1dffca" width="80%" color=#1dffca SIZE=3>
           </td>
