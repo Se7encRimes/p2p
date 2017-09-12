@@ -619,7 +619,7 @@
         <ul class="m2-commonNavul-fir" data_page='onepage'>
           <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
           <li class="m2-commonNav-fir"><a href="borrowaction" id="jieqian">我要借钱</a></li>
-          <li class="m2-commonNav-fir"><a href="touzi" id="twopage">我要投资</a></li>
+          <li class="m2-commonNav-fir"><a href="touzi?pageNo=1" id="twopage">我要投资</a></li>
           <li class="m2-commonNav-fir"><a href="membermall" id="sevenpage">会员商城</a></li>
           <li class="m2-commonNav-fir"><a href="usercenter" id="threepage">我的账户</a></li>
           <!--                <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>-->
@@ -750,7 +750,7 @@
   </div>
   <div class="security_ensure_five">
     <p>用户信息和资金全部在徽商银行存管，马上开启您的赚钱之旅吧！</p>
-    <button class="success_btn" onclick='window.location.href="touzi"'>立即投资</button>
+    <button class="success_btn" onclick='window.location.href="touzi?pageNo=1"'>立即投资</button>
   </div>
 
 
@@ -768,7 +768,7 @@
           <h3>客服电话:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:12px;">投资有风险，请谨慎投资</span></h3>
           <h3>4006-777-518&nbsp;&nbsp;&nbsp;http://www.iqianbang.com</h3>
           <ul>
-            <li><a href="touzi">我要投资</a></li>
+            <li><a href="touzi?pageNo=1">我要投资</a></li>
             <li><a href="guide">帮助中心</a></li>
             <li><a href="guanyu_aiqianbang">关于我们</a></li>
             <li><a href="licai_gonggao">新闻公告</a></li>

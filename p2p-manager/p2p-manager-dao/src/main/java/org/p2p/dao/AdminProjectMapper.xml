@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.p2p.dao.AdminProjectMapper" >
     <insert id="createProject">
-        INSERT INTO tb_project(bid,money,state,projectstate,createdate)
-        VALUES (#{bid},#{money},0,0,now())
+        INSERT INTO tb_project(bid,money,state,projectstate,createdate,jindu)
+        VALUES (#{bid},#{money},0,0,now(),0)
     </insert>
 
         <select id="listProjects" resultType="org.p2p.pojo.po.TbProject">

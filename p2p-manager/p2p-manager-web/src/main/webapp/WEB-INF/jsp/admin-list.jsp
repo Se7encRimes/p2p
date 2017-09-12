@@ -58,7 +58,7 @@
   });
   $('#table').datagrid({
       onClickRow: function(index,row){
-          console.log(row.num);
+          console.log(row);
           p2p.add_Tab("申请详情","admin-item",row.num);
       }
   })

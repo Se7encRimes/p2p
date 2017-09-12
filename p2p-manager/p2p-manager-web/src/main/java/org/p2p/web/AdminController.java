@@ -35,6 +35,12 @@ public class AdminController {
     @Autowired
     private AdminProjectService projectService;
 
+    /**
+     * 查询借款申请列表
+     * @param page
+     * @param order
+     * @return Result<AdminLoansCustom>
+     */
     @RequestMapping("/borrows")
     @ResponseBody
     public Result<AdminLoansCustom> listBorrows(Page page,Order order){
@@ -42,6 +48,12 @@ public class AdminController {
         return service.listBorrows(page,order);
     }
 
+    /**
+     * 按主键查询借款申请
+     * @param id
+     * @param model
+     * @return String
+     */
     @RequestMapping("/admin-item")
     public String getBorrwoById(int id,Model model){
         if(id==0){
@@ -52,31 +64,60 @@ public class AdminController {
         return "admin-item";
     }
 
+    /**
+     * 审批借款申请
+     * @param state
+     * @param id
+     * @return int
+     */
     @RequestMapping("/audit")
     @ResponseBody
     public int anIntItem(int state,int id){
+        //查询当前申请是否已经被审批过
         AdminLoansCustom custom = service.getBorrwoById(id);
         if(custom.getState()!=0){
             return -1;
         }
+        //如果审批通过,则在投资项目中创建一条记录
         if(state==1){
             TbProject project = new TbProject();
+            //设置当前项目是哪个借款人申请审批通过创建的
             project.setBid(id);
+            //设置借款人申请的金额为融资金额
             project.setMoney(custom.getMoney());
+            //创建记录
             projectService.createProject(project);
         }
         return service.anIntItem(state,id);
     }
 
+    /**
+     * 得到投资项目的列表
+     * @param page
+     * @param order
+     * @return List<TbProject>
+     */
     @RequestMapping("/listProjects")
     @ResponseBody
     public List<TbProject> listProjects(Page page,Order order){
         return projectService.listProjects(page,order);
     }
 
+    /**
+     * 修改投资项目的资料
+     * @param id
+     * @param guarantee
+     * @param endtime
+     * @param rate
+     * @param gaiyao
+     * @param carinfo
+     * @return int
+     * @throws ParseException
+     */
     @RequestMapping(value="/editProjects",method = RequestMethod.POST)
     @ResponseBody
     public int editProjects(String id,String guarantee,String endtime,String rate,String gaiyao,String carinfo) throws ParseException {
+        //由于未知原因MVC无法接受ajax的数据且不能自动转化数据类型
         int pid = Integer.parseInt(id);
         Date time = new SimpleDateFormat("yyyy-MM-dd").parse(endtime);
         double lilv = Double.parseDouble(rate);
@@ -89,12 +130,24 @@ public class AdminController {
         project.setCarinfo(carinfo);
         return projectService.editProject(project);
     }
+
+    /**
+     * 项目上线
+     * @param ids
+     * @return int
+     */
     @RequestMapping("/upProjects")
     @ResponseBody
     public int upProjects(@RequestParam("ids[]") List<Integer> ids){
         System.err.println(ids);
         return projectService.upProjects(ids);
     }
+
+    /**
+     * 项目下线
+     * @param ids
+     * @return int
+     */
     @RequestMapping("/downProjects")
     @ResponseBody
     public int downProjects(@RequestParam("ids[]") List<Integer> ids){
@@ -102,6 +155,12 @@ public class AdminController {
         return projectService.downProjects(ids);
     }
 
+    /**
+     * 按主键查询投资项目
+     * @param id
+     * @param model
+     * @return String
+     */
     @RequestMapping("/adminProjectById")
     public String adminProjectById(int id,Model model){
         if(id==0){

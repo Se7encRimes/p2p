@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by 吴春杰 on 2017/9/9.
+ * 投资项目的操作
  */
 @Service
 public class AdminProjectServiceImpl implements AdminProjectService{
@@ -24,16 +25,32 @@ public class AdminProjectServiceImpl implements AdminProjectService{
     @Autowired
     private TbProjectMapper projectMapper;
 
+    /**
+     * 创建一条投资项目记录
+     * @param project
+     * @return int
+     */
     @Override
     public int createProject(TbProject project) {
         return mapper.createProject(project);
     }
 
+    /**
+     * 查询投资项目的列表
+     * @param page
+     * @param order
+     * @return List<TbProject>
+     */
     @Override
     public List<TbProject> listProjects(Page page,Order order) {
         return mapper.listProjects(page,order);
     }
 
+    /**
+     * 项目上线
+     * @param ids
+     * @return int
+     */
     @Override
     public int upProjects(List<Integer> ids) {
         TbProject project = new TbProject();
@@ -44,6 +61,11 @@ public class AdminProjectServiceImpl implements AdminProjectService{
         return projectMapper.updateByExampleSelective(project,example);
     }
 
+    /**
+     * 项目下线
+     * @param ids
+     * @return int
+     */
     @Override
     public int downProjects(List<Integer> ids) {
         TbProject project = new TbProject();
@@ -54,11 +76,21 @@ public class AdminProjectServiceImpl implements AdminProjectService{
         return projectMapper.updateByExampleSelective(project,example);
     }
 
+    /**
+     * 修改投资项目
+     * @param project
+     * @return int
+     */
     @Override
     public int editProject(TbProject project) {
         return projectMapper.updateByPrimaryKeySelective(project);
     }
 
+    /**
+     * 按主键查询投资项目
+     * @param id
+     * @return TbProject
+     */
     @Override
     public TbProject adminProjectById(int id) {
         return projectMapper.selectByPrimaryKey(id);

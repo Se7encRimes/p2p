@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by 吴春杰 on 2017/9/11.
+ * 投资项目的控制器
  */
 @Controller
 public class TouZiController {
@@ -19,6 +20,7 @@ public class TouZiController {
     @Autowired
     private TouZiService service;
 
+    //得到投资项目资料
     @RequestMapping("touzi")
     public  String touziList(int pageNo,Model model){
         Page page = new Page();

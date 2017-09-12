@@ -185,7 +185,7 @@
       <ul class="m2-commonNavul-fir" data_page='onepage'>
         <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
         <li class="m2-commonNav-fir"><a href="borrowaction" id="jieqian">我要借钱</a></li>
-        <li class="m2-commonNav-fir"><a href="touzi" id="twopage">我要投资</a></li>
+        <li class="m2-commonNav-fir"><a href="touzi?pageNo=1" id="twopage">我要投资</a></li>
         <li class="m2-commonNav-fir"><a href="membermall" id="sevenpage">会员商城</a></li>
         <li class="m2-commonNav-fir"><a href="usercenter" id="threepage">我的账户</a></li>
         <!--                <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>-->
