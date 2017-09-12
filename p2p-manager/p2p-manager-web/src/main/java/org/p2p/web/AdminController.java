@@ -1,9 +1,11 @@
 package org.p2p.web;
 
 import org.p2p.pojo.po.TbProject;
+import org.p2p.pojo.po.TbUser;
 import org.p2p.pojo.vo.AdminLoansCustom;
 import org.p2p.service.AdminLoansService;
 import org.p2p.service.AdminProjectService;
+import org.p2p.service.TbUserGetMoney;
 import org.p2p.utlis.Order;
 import org.p2p.utlis.Page;
 import org.p2p.utlis.Result;
@@ -34,6 +36,9 @@ public class AdminController {
 
     @Autowired
     private AdminProjectService projectService;
+
+    @Autowired
+    private TbUserGetMoney tbUserGetMoney;
 
     /**
      * 查询借款申请列表
@@ -84,9 +89,18 @@ public class AdminController {
             //设置当前项目是哪个借款人申请审批通过创建的
             project.setBid(id);
             //设置借款人申请的金额为融资金额
-            project.setMoney(custom.getMoney());
+            double money = custom.getMoney();
+            project.setMoney(money);
             //创建记录
             projectService.createProject(project);
+            //审核通过,将申请的钱增加在用户余额中
+            TbUser tbUser = tbUserGetMoney.selectUserByBid(id);
+            if(tbUser.getBalance()==null){
+                tbUser.setBalance(money);
+            }else{
+                tbUser.setBalance(tbUser.getBalance()+money);
+            }
+            tbUserGetMoney.setUserBalance(tbUser);
         }
         return service.anIntItem(state,id);
     }
