@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
@@ -127,22 +128,28 @@
       </div>
     </div>
     <div class="m2-commonTop-right">
-      <div class="m2-commonTop-link">
-        <ul>
-          <li class="m2-commonTop-btn" style="display: none" id="bbs"><a id="bbslogin" target="_blank">论坛</a></li>
-          <li class="m2-commonTop-loged">
-            <span class="m2-commonTop-userName"><a href="usercenter">您好，iqb13737301354</a></span>
-          </li>
-          <li class="m2-commonTop-btn"><a href="#" style="border-right:none;">退出</a></li>
-          <li class="m2-commonTop-btn"><a href="company_finance.html" id="cfpage" style="border-right:none;width: 50px;">企业理财</a></li>
-          </li>
-        </ul>
-      </div>
-      <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
-        <a href="" class="m2-commonTop-and"></a>
-        <a href="" class="m2-commonTop-ios"></a>
-        <span>app下载入口</span>
-      </div>
+      <c:choose>
+        <c:when test="${sessionScope.user==null}">
+          <div class="m2-commonTop-link">
+            <ul>
+              <li class="m2-commonTop-btn"><a href="register" target="_blank">注册</a></li>
+              <li class="m2-commonTop-btn"><a href="login" target="_blank" style="border-right:none;">登录</a></li>
+            </ul>
+          </div>
+        </c:when>
+        <c:otherwise>
+          <div class="m2-commonTop-right">
+            <div class="m2-commonTop-link">
+              <ul>
+                <li class="m2-commonTop-loged">
+                  <span class="m2-commonTop-userName"><a href="usercenter">您好,${sessionScope.user.phone}</a></span>
+                </li>
+                <li class="m2-commonTop-btn"><a href="UQuit" style="border-right:none;">退出</a></li>
+              </ul>
+            </div>
+          </div>
+        </c:otherwise>
+      </c:choose>
     </div>
   </div>
 </div>
@@ -181,7 +188,7 @@
       <a href="index.html"><img src="images/m2-logo.png" title="爱钱帮官网" alt="爱钱帮_logo"></a>
     </div>
     <div class="m2-commonNav">
-      <ul class="m2-commonNavul-fir" data_page='onepage'>
+      <ul class="m2-commonNavul-fir" data_page='threepage'>
         <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
         <li class="m2-commonNav-fir"><a href="borrowaction" id="jieqian">我要借钱</a></li>
         <li class="m2-commonNav-fir"><a href="touzi?pageNo=1" id="twopage">我要投资</a></li>
@@ -243,9 +250,6 @@
             <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord">投资记录</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-investcontrol-monthrepayment">回款计划</a>
-          </li>
-          <li>
             <a class="m2-aside-secLink-item" href="touzi?pageNo=1" target="_blank">立即投资</a>
           </li>
 
@@ -259,14 +263,7 @@
           邀请好友
         </a>
       </li>
-      <li class="m2-asideListitem">
-        <a class="m2-aside-item m2-aside-toggle" href="home-register-openbankid.html"><i class="m2-asideIcon3"></i>徽商资金管理</a>            <ul class="m2-aside-secItem" style="display:none">
-        <li><a class="m2-aside-secLink-item" href="#">充&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值</a></li>
-        <li><a class="m2-aside-secLink-item" href="#">提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现</a></li>
-        <li><a class="m2-aside-secLink-item" href="#">资金流水</a></li>
 
-      </ul>
-      </li>
       <li class="m2-asideListitem">
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon4"></i>奖励管理</a>
         <ul class="m2-aside-secItem" style="display:none">

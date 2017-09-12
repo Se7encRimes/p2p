@@ -181,7 +181,7 @@
       <a href="index.html"><img src="images/m2-logo.png" title="爱钱帮官网" alt="爱钱帮_logo"></a>
     </div>
     <div class="m2-commonNav">
-      <ul class="m2-commonNavul-fir" data_page='onepage'>
+      <ul class="m2-commonNavul-fir" data_page='threepage'>
         <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
         <li class="m2-commonNav-fir"><a href="borrowaction" id="jieqian">我要借钱</a></li>
         <li class="m2-commonNav-fir"><a href="touzi?pageNo=1" id="twopage">我要投资</a></li>
@@ -243,10 +243,7 @@
             <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord">投资记录</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-investcontrol-monthrepayment">回款计划</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="touzi_licai_chanpin" target="_blank">立即投资</a>
+            <a class="m2-aside-secLink-item" href="touzi?pageNo=1" target="_blank">立即投资</a>
           </li>
 
         </ul>
@@ -259,14 +256,7 @@
           邀请好友
         </a>
       </li>
-      <li class="m2-asideListitem">
-        <a class="m2-aside-item m2-aside-toggle" href="home-register-openbankid.html"><i class="m2-asideIcon3"></i>徽商资金管理</a>            <ul class="m2-aside-secItem" style="display:none">
-        <li><a class="m2-aside-secLink-item" href="#">充&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值</a></li>
-        <li><a class="m2-aside-secLink-item" href="#">提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现</a></li>
-        <li><a class="m2-aside-secLink-item" href="#">资金流水</a></li>
 
-      </ul>
-      </li>
       <li class="m2-asideListitem">
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon4"></i>奖励管理</a>
         <ul class="m2-aside-secItem" style="display:none">
