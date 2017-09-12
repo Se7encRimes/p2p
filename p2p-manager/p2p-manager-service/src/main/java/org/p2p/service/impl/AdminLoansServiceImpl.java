@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Created by 吴春杰 on 2017/9/6.
+ * 对借款申请的审批操作
  */
 @Service
 public class AdminLoansServiceImpl implements AdminLoansService {
@@ -20,6 +21,12 @@ public class AdminLoansServiceImpl implements AdminLoansService {
     @Autowired
     private AdminCustomMapper mapper;
 
+    /**
+     * 查询借款人申请列表
+     * @param page
+     * @param order
+     * @return Result<AdminLoansCustom>
+     */
     @Override
     public Result<AdminLoansCustom> listBorrows(Page page, Order order) {
         Result<AdminLoansCustom> result = new Result<>();
@@ -30,16 +37,33 @@ public class AdminLoansServiceImpl implements AdminLoansService {
         return result;
     }
 
+    /**
+     * 按主键查询借款人申请信息
+     * @param id
+     * @return AdminLoansCustom
+     */
     @Override
     public AdminLoansCustom getBorrwoById(int id) {
         return mapper.getBorrwoById(id);
     }
 
+    /**
+     * 审核借款人的申请
+     * @param state
+     * @param id
+     * @return int
+     */
     @Override
     public int anIntItem(int state, int id) {
         return mapper.anIntItem(state,id);
     }
 
+    /**
+     * 获取投资项目的列表
+     * @param page
+     * @param order
+     * @return Result<AdminLoansCustom>
+     */
     @Override
     public Result<AdminLoansCustom> listProjects(Page page, Order order) {
         Result<AdminLoansCustom> rs = new Result<>();

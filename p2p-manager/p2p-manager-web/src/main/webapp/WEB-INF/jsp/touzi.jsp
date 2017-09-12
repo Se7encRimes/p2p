@@ -451,7 +451,7 @@
         <ul class="m2-commonNavul-fir" data_page='twopage'>
           <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
           <li class="m2-commonNav-fir"><a href="borrowaction" id="jieqian">我要借钱</a></li>
-          <li class="m2-commonNav-fir"><a href="touzi" id="twopage">我要投资</a></li>
+          <li class="m2-commonNav-fir"><a href="touzi?pageNo=1" id="twopage">我要投资</a></li>
           <li class="m2-commonNav-fir"><a href="membermall" id="sevenpage">会员商城</a></li>
           <li class="m2-commonNav-fir"><a href="usercenter" id="threepage">我的账户</a></li>
           <!--                <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>-->
@@ -581,257 +581,74 @@
     </div>
     <div class="m2-invResuleitem-box">
       <ul>
-        <li class="m2-invResuleitem">
-          <div class="m2-invItem-lef">
-            <div class="m2-invItemleft-lef">
-              <i class="m2-invItem-new"></i>
-              <img src="uploadData/UserBorrowData/182015-20160902132425642.jpg" alt="爱车贷-雪佛兰迈锐宝-XAA067" />
-            </div>
-            <div class="m2-invItemleft-rig">
-              <h4>
-                <i class="m2-invItemIcon-inv"></i>														    <a href="chanpin" target="_blank" title="爱车贷-雪佛兰迈锐宝-XAA067">爱车贷-雪佛兰迈锐宝-XAA067</a>						</h4>
-              <ul class="m2-invItemleft-list">
-                <li>
-								<span  class="m2-invItemdet-big huodongjiaxi">
-																														8%+1%
-										<p style="margin-left:-2px;" class="jiaxishow">
-                                          活动加息1%																				</p>								</span>
-                  <span class="m2-invItemdet-nor">预期年化收益率</span>
-                  <i class="m2-invItemdet-line"></i>
-                </li>
-                <li>
-								<span class="m2-invItemdet-big">
-																				26天																	</span>
-                  <span class="m2-invItemdet-nor">期限</span>
-                  <i class="m2-invItemdet-line"></i>
-                </li>
-                <li>
-                  <span class="m2-invItemdet-big">86,200.00</span>
-                  <span class="m2-invItemdet-nor">融资金额</span>
-                </li>
-              </ul>
-              <div class="m2-invItemprogress">
-							<span class="m2-invItemprogress-tit">
-																	正在募集							</span>
-                <b>
-                  <i style="width:42.11% "></i>
-                  <u style="left:42.11%">可投：4.99万</u>							</b>
-                <span class="m2-invItemprogress-per">42.11%</span>
+
+        <c:forEach items="${projects}" var="project">
+
+          <li class="m2-invResuleitem">
+            <div class="m2-invItem-lef">
+              <div class="m2-invItemleft-lef">
+
+                <img src="${pageContext.request.contextPath}/my_files/${project.carimg}" alt="${project.carinfo}" />
+              </div>
+              <div class="m2-invItemleft-rig">
+                <h4><i class="m2-invItemIcon-inv"></i>
+                  <a href="chanpin?id=${project.id}" target="_blank" title="${project.carinfo}">${project.carinfo}</a>
+                </h4>
+                <ul class="m2-invItemleft-list">
+                  <li>
+			<span  class="m2-invItemdet-big huodongjiaxi">${project.rate*100}%
+            </span>
+                    <span class="m2-invItemdet-nor">预期年化收益率</span>
+                    <i class="m2-invItemdet-line"></i>
+                  </li>
+                  <li>
+                    <span class="m2-invItemdet-big">${project.residueTime}天</span>
+                    <span class="m2-invItemdet-nor">期限</span>
+                    <i class="m2-invItemdet-line"></i>
+                  </li>
+                  <li>
+                    <span class="m2-invItemdet-big">${project.money}元</span>
+                    <span class="m2-invItemdet-nor">融资金额</span>
+                  </li>
+                </ul>
+                <div class="m2-invItemprogress">
+		<span class="m2-invItemprogress-tit">
+          <c:choose>
+            <c:when test="${project.money==project.jindu}">
+              还款中
+            </c:when>
+            <c:otherwise>
+              正在募集
+            </c:otherwise>
+          </c:choose>
+        </span>
+                  <b>
+                    <i style="width:${project.plan}% "></i>
+                    <u style="left:${project.plan}%">可投：${project.residuemoney}元</u>
+                  </b>
+                  <span class="m2-invItemprogress-per">${project.plan}%</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="m2-invItem-rig">
-            <div class="m2-invItemrig-main">
-              <p class="m2-invItemrig-gua">
-                <span class="m2-invItemrig-guaTit" style="color:#333;">担保措施:</span>
-                <span class="m2-invItemrig-guaDet" style="color:#ff9900;">车辆质押</span>						</p>
-              <div class="m2-invItemrig-link">
-                <a href="chanpin.html#-moxOeTwTZaOw8TY79g.html" class="m2-invItemlink-inv" target="_blank" title="点击立即投资 爱车贷-雪佛兰迈锐宝-XAA067">立即投资</a>						</div>
+            <div class="m2-invItem-rig">
+              <div class="m2-invItemrig-main">
+                <p class="m2-invItemrig-gua">
+                  <span class="m2-invItemrig-guaTit" style="color:#333;">担保措施:</span>
+                  <span class="m2-invItemrig-guaDet" style="color:#ff9900;">${project.guarantee}</span>
+                </p>
+                <div class="m2-invItemrig-link">
+                  <a href="chanpin?id=${project.id}" class="m2-invItemlink-inv" target="_blank" title="点击立即投资 ${project.carinfo}">立即投资</a>
+                </div>
+              </div>
+              <p class="m2-invItem-det" style="text-indent:20px;">投资万元预期收益：<span>${project.rate*10000}元</span></p>
+              <p class="m2-invItem-det">投资起点金额：<span style="color:#ff6666;">100元</span></p>
             </div>
-            <p class="m2-invItem-det" style="text-indent:20px;">投资万元预期收益：<span>64.10元</span></p>
-            <p class="m2-invItem-det">投资起点金额：<span style="color:#ff6666;">100元</span></p>				</div>
-        </li><li class="m2-invResuleitem">
-        <div class="m2-invItem-lef">
-          <div class="m2-invItemleft-lef">
-            <i class="m2-invItem-hot"></i>						<img src="uploadData/UserBorrowData/200528-201609011135068334.jpg" alt="【新手标】爱车贷-丰田普瑞维亚-SX047" />
-          </div>
-          <div class="m2-invItemleft-rig">
-            <h4>
-              <i class="m2-invItemIcon-inv"></i>														    <a href="chanpin.html#-md0YeDEUbvew8TU68g.html" target="_blank" title="【新手标】爱车贷-丰田普瑞维亚-SX047">【新手标】爱车贷-丰田普瑞维亚-SX047</a>						</h4>
-            <ul class="m2-invItemleft-list">
-              <li>
-								<span  class="m2-invItemdet-big huodongjiaxi">
-																														9%+1%
-										<p style="margin-left:-2px;" class="jiaxishow">
-                                          活动加息1%																				</p>								</span>
-                <span class="m2-invItemdet-nor">预期年化收益率</span>
-                <i class="m2-invItemdet-line"></i>
-              </li>
-              <li>
-								<span class="m2-invItemdet-big">
-																				53天																	</span>
-                <span class="m2-invItemdet-nor">期限</span>
-                <i class="m2-invItemdet-line"></i>
-              </li>
-              <li>
-                <span class="m2-invItemdet-big">230,000.00</span>
-                <span class="m2-invItemdet-nor">融资金额</span>
-              </li>
-            </ul>
-            <div class="m2-invItemprogress">
-							<span class="m2-invItemprogress-tit">
-																	正在募集							</span>
-              <b>
-                <i style="width:99.91% "></i>
-                <u style="left:99.91%">可投：200元</u>							</b>
-              <span class="m2-invItemprogress-per">99.91%</span>
-            </div>
-          </div>
-        </div>
-        <div class="m2-invItem-rig">
-          <div class="m2-invItemrig-main">
-            <p class="m2-invItemrig-gua">
-              <span class="m2-invItemrig-guaTit" style="color:#333;">担保措施:</span>
-              <span class="m2-invItemrig-guaDet" style="color:#ff9900;">车辆质押</span>						</p>
-            <div class="m2-invItemrig-link">
-              <a href="chanpin.html#-md0YeDEUbvew8TU68g.html" class="m2-invItemlink-inv" target="_blank" title="点击立即投资 【新手标】爱车贷-丰田普瑞维亚-SX047">立即投资</a>						</div>
-          </div>
-          <p class="m2-invItem-det" style="text-indent:20px;">投资万元预期收益：<span>145.2元</span></p>
-          <p class="m2-invItem-det">投资起点金额：<span style="color:#ff6666;">100元</span></p>				</div>
-      </li><li class="m2-invResuleitem">
-        <div class="m2-invItem-lef">
-          <div class="m2-invItemleft-lef">
-            <img src="uploadData/UserBorrowData/200528-201609031224409479.jpg" alt="爱车贷-尼桑天籁-SX119" />
-          </div>
-          <div class="m2-invItemleft-rig">
-            <h4>
-              <i class="m2-invItemIcon-back"></i>
-              <a href="chanpin.html#-md0fJWlJZPew8TY+8A.html" target="_blank" title="爱车贷-尼桑天籁-SX119">爱车贷-尼桑天籁-SX119</a>						</h4>
-            <ul class="m2-invItemleft-list">
-              <li>
-								<span  class="m2-invItemdet-big huodongjiaxi">
-																														9%+1%
-										<p style="margin-left:-2px;" class="jiaxishow">
-                                          活动加息1%																				</p>								</span>
-                <span class="m2-invItemdet-nor">预期年化收益率</span>
-                <i class="m2-invItemdet-line"></i>
-              </li>
-              <li>
-								<span class="m2-invItemdet-big">
-																			2个月								</span>
-                <span class="m2-invItemdet-nor">期限</span>
-                <i class="m2-invItemdet-line"></i>
-              </li>
-              <li>
-                <span class="m2-invItemdet-big">40,000.00</span>
-                <span class="m2-invItemdet-nor">融资金额</span>
-              </li>
-            </ul>
-            <div class="m2-invItemprogress">
-							<span class="m2-invItemprogress-tit">
-								还款中
-															</span>
-              <b>
-                <i style="width:100.00% "></i>
-              </b>
-              <span class="m2-invItemprogress-per">100.00%</span>
-            </div>
-          </div>
-        </div>
-        <div class="m2-invItem-rig">
-          <div class="m2-invItemrig-main">
-            <p class="m2-invItemrig-gua">
-              <span class="m2-invItemrig-guaTit" style="color:#333;">担保措施:</span>
-              <span class="m2-invItemrig-guaDet" style="color:#ff9900;">车辆质押</span>						</p>
-            <div class="m2-invItemrig-link">
-              <a href="chanpin.html#-md0fJWlJZPew8TY+8A.html" class="m2-invItemlink-back" target="_blank" title="点击还款中查看 爱车贷-尼桑天籁-SX119">还款中</a>
-            </div>
-          </div>
-          <div class="m2-invItem-rigBg"></div>
-        </div>
-      </li><li class="m2-invResuleitem">
-        <div class="m2-invItem-lef">
-          <div class="m2-invItemleft-lef">
-            <img src="uploadData/UserBorrowData/199076-201609031612075569.jpg" alt="爱车贷-风行景逸-XT125" />
-          </div>
-          <div class="m2-invItemleft-rig">
-            <h4>
-              <i class="m2-invItemIcon-back"></i>
-              <a href="chanpin.html#-mNtPLjgTY!Gw8TY++A.html" target="_blank" title="爱车贷-风行景逸-XT125">爱车贷-风行景逸-XT125</a>						</h4>
-            <ul class="m2-invItemleft-list">
-              <li>
-								<span  class="m2-invItemdet-big huodongjiaxi">
-																														8%+1%
-										<p style="margin-left:-2px;" class="jiaxishow">
-                                          活动加息1%																				</p>								</span>
-                <span class="m2-invItemdet-nor">预期年化收益率</span>
-                <i class="m2-invItemdet-line"></i>
-              </li>
-              <li>
-								<span class="m2-invItemdet-big">
-																			1个月								</span>
-                <span class="m2-invItemdet-nor">期限</span>
-                <i class="m2-invItemdet-line"></i>
-              </li>
-              <li>
-                <span class="m2-invItemdet-big">20,000.00</span>
-                <span class="m2-invItemdet-nor">融资金额</span>
-              </li>
-            </ul>
-            <div class="m2-invItemprogress">
-							<span class="m2-invItemprogress-tit">
-								还款中
-															</span>
-              <b>
-                <i style="width:100.00% "></i>
-              </b>
-              <span class="m2-invItemprogress-per">100.00%</span>
-            </div>
-          </div>
-        </div>
-        <div class="m2-invItem-rig">
-          <div class="m2-invItemrig-main">
-            <p class="m2-invItemrig-gua">
-              <span class="m2-invItemrig-guaTit" style="color:#333;">担保措施:</span>
-              <span class="m2-invItemrig-guaDet" style="color:#ff9900;">车辆质押</span>						</p>
-            <div class="m2-invItemrig-link">
-              <a href="chanpin.html#-mNtPLjgTY!Gw8TY++A.html" class="m2-invItemlink-back" target="_blank" title="点击还款中查看 爱车贷-风行景逸-XT125">还款中</a>
-            </div>
-          </div>
-          <div class="m2-invItem-rigBg"></div>
-        </div>
-      </li><li class="m2-invResuleitem">
-        <div class="m2-invItem-lef">
-          <div class="m2-invItemleft-lef">
-            <img src="uploadData/UserBorrowData/208071-201609031345456731.jpg" alt="爱车贷-本田艾力绅-HCK120" />
-          </div>
-          <div class="m2-invItemleft-rig">
-            <h4>
-              <i class="m2-invItemIcon-back"></i>
-              <a href="chanpin.html#-nNtKLzlGY!Gw8TY+8g.html" target="_blank" title="爱车贷-本田艾力绅-HCK120">爱车贷-本田艾力绅-HCK120</a>						</h4>
-            <ul class="m2-invItemleft-list">
-              <li>
-								<span  class="m2-invItemdet-big huodongjiaxi">
-																														9%+1%
-										<p style="margin-left:-2px;" class="jiaxishow">
-                                          活动加息1%																				</p>								</span>
-                <span class="m2-invItemdet-nor">预期年化收益率</span>
-                <i class="m2-invItemdet-line"></i>
-              </li>
-              <li>
-								<span class="m2-invItemdet-big">
-																			2个月								</span>
-                <span class="m2-invItemdet-nor">期限</span>
-                <i class="m2-invItemdet-line"></i>
-              </li>
-              <li>
-                <span class="m2-invItemdet-big">210,000.00</span>
-                <span class="m2-invItemdet-nor">融资金额</span>
-              </li>
-            </ul>
-            <div class="m2-invItemprogress">
-							<span class="m2-invItemprogress-tit">
-								还款中
-															</span>
-              <b>
-                <i style="width:100.00% "></i>
-              </b>
-              <span class="m2-invItemprogress-per">100.00%</span>
-            </div>
-          </div>
-        </div>
-        <div class="m2-invItem-rig">
-          <div class="m2-invItemrig-main">
-            <p class="m2-invItemrig-gua">
-              <span class="m2-invItemrig-guaTit" style="color:#333;">担保措施:</span>
-              <span class="m2-invItemrig-guaDet" style="color:#ff9900;">车辆质押</span>						</p>
-            <div class="m2-invItemrig-link">
-              <a href="chanpin.html#-nNtKLzlGY!Gw8TY+8g.html" class="m2-invItemlink-back" target="_blank" title="点击还款中查看 爱车贷-本田艾力绅-HCK120">还款中</a>
-            </div>
-          </div>
-          <div class="m2-invItem-rigBg"></div>
-        </div>
-      </li>	</ul>
+          </li>
+
+        </c:forEach>
+
+
+
     </div>
     <div class="m2-newListpage-con" style="padding-top:5px;">
       <div class="m2-newListpage">

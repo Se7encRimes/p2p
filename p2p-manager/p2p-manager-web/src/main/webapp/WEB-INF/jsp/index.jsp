@@ -770,7 +770,7 @@
       <ul class="m2-commonNavul-fir" data_page='onepage'>
         <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
         <li class="m2-commonNav-fir"><a href="borrowaction" id="jieqian">我要借钱</a></li>
-        <li class="m2-commonNav-fir"><a href="touzi" id="twopage">我要投资</a></li>
+        <li class="m2-commonNav-fir"><a href="touzi?pageNo=1" id="twopage">我要投资</a></li>
         <li class="m2-commonNav-fir"><a href="membermall" id="sevenpage">会员商城</a></li>
         <li class="m2-commonNav-fir"><a href="usercenter" id="threepage">我的账户</a></li>
         <!--                <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>-->
@@ -932,7 +932,7 @@
         </a>
       </li>
       <li class="mo2-indSteite  mo2-indSteite2">
-        <a href="touzi" target="_blank">
+        <a href="touzi?pageNo=1" target="_blank">
           <div class="mo2-indStelef"><i class="mo2-indSteicon2"></i></div>
           <div class="mo-indSterig">
             <p class="mo2-indSte-big">安全收益</p>
@@ -941,7 +941,7 @@
         </a>
       </li>
       <li class="mo2-indSteite  mo2-indSteite3">
-        <a href="touzi" target="_blank">
+        <a href="touzi?pageNo=1" target="_blank">
           <div class="mo2-indStelef"><i class="mo2-indSteicon3"></i></div>
           <div class="mo-indSterig">
             <p class="mo2-indSte-big">灵活方便</p>
@@ -1153,9 +1153,9 @@
   <div class="mo2-indCar-con">
     <h2 class="mo2-indCar-head">
       <i class="mo2-indProtop-sma tobig">投资理财</i>
-      <a class="mo2-indCarhead-a1" href="touzi"></a>
+      <a class="mo2-indCarhead-a1" href="touzi?pageNo=1"></a>
       <span>汽车金融，垂直细分新领域</span>
-      <a class="mo2-indCarhead-a2" href="touzi">查看全部</a>
+      <a class="mo2-indCarhead-a2" href="touzi?pageNo=1">查看全部</a>
     </h2>
     <div class="mo2-indCarlist-prev"></div>
     <div class="mo2-indCarlist-next"></div>
@@ -2658,7 +2658,7 @@
         <h3>客服电话:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:12px;">投资有风险，请谨慎投资</span></h3>
         <h3>4006-777-518&nbsp;&nbsp;&nbsp;http://www.iqianbang.com</h3>
         <ul>
-          <li><a href="touzi">我要投资</a></li>
+          <li><a href="touzi?pageNo=1">我要投资</a></li>
           <li><a href="guide">帮助中心</a></li>
           <li><a href="guanyu_aiqianbang">关于我们</a></li>
           <li><a href="licai_gonggao">新闻公告</a></li>

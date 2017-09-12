@@ -201,7 +201,7 @@
             </tr>
           </table>
           <div class="m2-regist-btn m2-regist-quit" >
-            <a class="openbank openAble" id="openbank">立即开通</a><a class="m2-regist-look" href="touzi" target="_blank">我先看看</a>
+            <a class="openbank openAble" id="openbank">立即开通</a><a class="m2-regist-look" href="touzi?pageNo=1" target="_blank">我先看看</a>
           </div>
 
         </div>
