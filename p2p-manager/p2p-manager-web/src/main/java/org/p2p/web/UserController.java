@@ -30,19 +30,27 @@ public class UserController {
     @Autowired
     private TbUserService userService;
 
+    //获取本金
+    @RequestMapping("getMoney")
+    @ResponseBody
+    public double getMoney(String userId){
+        double money = userService.selectMoney(Integer.parseInt(userId));
+        return money;
+    }
+
     //获取当日收益
     @RequestMapping("getEarningToday")
     @ResponseBody
-    public String getEarningTaday(String userId){
+    public double getEarningTaday(String userId){
         double earning = userService.selectMoney(Integer.parseInt(userId))*0.0001;
-        return earning+"";
+        return earning;
     }
     //获取累计收益
     @RequestMapping("getEarningTotal")
     @ResponseBody
-    public String getEarningTotal(String userId){
-        double earnings = userService.selectEarning(Integer.parseInt(userId));
-        return earnings+"";
+    public double getEarningTotal(String userId){
+        double earnings = userService.selectEarningTotal(Integer.parseInt(userId));
+        return earnings;
     }
 
     //普通会员注册后跳转到开通存管账户

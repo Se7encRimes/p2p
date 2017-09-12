@@ -85,7 +85,7 @@ public class TbUserServiceImpl implements TbUserService {
     }
 
     @Override
-    public double selectEarning(int userId) {
-        return tbUserMapperCustom.selectEarningByUserId(userId);
+    public double selectEarningTotal(int userId) {
+        return tbUserMapperCustom.selectEarningTotalByUserId(userId);
     }
 }

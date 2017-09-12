@@ -20,5 +20,5 @@ public interface TbUserService {
 
     double selectMoney(int userId);
 
-    double selectEarning(int userId);
+    double selectEarningTotal(int userId);
 }

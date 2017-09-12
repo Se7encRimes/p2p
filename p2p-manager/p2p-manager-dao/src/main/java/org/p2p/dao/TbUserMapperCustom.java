@@ -19,5 +19,5 @@ public interface TbUserMapperCustom {
     double selectMoneyByUserId(int userId);
 
     @Select("select earnings from tb_invest where userid=#{userId}")
-    double selectEarningByUserId(int userId);
+    double selectEarningTotalByUserId(int userId);
 }
