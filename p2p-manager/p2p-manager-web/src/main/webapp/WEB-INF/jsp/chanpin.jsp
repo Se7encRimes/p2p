@@ -119,7 +119,7 @@
         </a>
       </div>
       <div class="m2-commonNav">
-        <ul class="m2-commonNavul-fir" data_page='onepage'>
+        <ul class="m2-commonNavul-fir" data_page='twopage'>
           <li class="m2-commonNav-fir"><a href="index" id="onepage">首页</a></li>
           <li class="m2-commonNav-fir"><a href="borrowaction" id="jieqian">我要借钱</a></li>
           <li class="m2-commonNav-fir"><a href="touzi?pageNo=1" id="twopage">我要投资</a></li>

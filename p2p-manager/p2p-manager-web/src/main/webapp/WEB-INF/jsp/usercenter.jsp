@@ -51,7 +51,7 @@
           </div>
           <div class="m2-comRigtel-lefBot">
             <input type="text" placeholder="验证码" id="ivrSecurityCode">
-            <img id="ivrSecurityCodeImg" onclick="getCode()" src="Index-VerifyCode.png" alt="验证码" title="点击更新验证码">
+            <img id="ivrSecurityCodeImg" onclick="getCode()" src="images/Index-VerifyCode.png" alt="验证码" title="点击更新验证码">
           </div>
         </div>
         <div class="m2-comRigtel-rig">
@@ -278,10 +278,7 @@
             <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord">投资记录</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-investcontrol-monthrepayment.html">回款计划</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="touzi" target="_blank">立即投资</a>
+            <a class="m2-aside-secLink-item" href="touzi?pageNo=1" target="_blank">立即投资</a>
           </li>
 
         </ul>
@@ -294,14 +291,7 @@
           邀请好友
         </a>
       </li>
-      <li class="m2-asideListitem">
-        <a class="m2-aside-item m2-aside-toggle" href="home-register-openbankid"><i class="m2-asideIcon3"></i>徽商资金管理</a>            <ul class="m2-aside-secItem" style="display:none">
-        <li><a class="m2-aside-secLink-item" href="#">充&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值</a></li>
-        <li><a class="m2-aside-secLink-item" href="#">提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现</a></li>
-        <li><a class="m2-aside-secLink-item" href="#">资金流水</a></li>
 
-      </ul>
-      </li>
       <li class="m2-asideListitem">
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon4"></i>奖励管理</a>
         <ul class="m2-aside-secItem" style="display:none">
@@ -395,7 +385,7 @@
   <div style="width:100%; height:100%; position:fixed; z-index:100; display:none; top:0; left:0;" id="allP" >
     <div style="width:100%; height:100%; position:absolute; top:0; left:0; background:#000; opacity:0.5;"></div>
     <div style="width:404px; height:154px; background:#fff; position:absolute; top:50%; left:50%; margin-left:-252px; margin-top:-100px; border:2px solid #666;">
-      <p style="color: #666666;font-size: 16px;absolute;line-height:170px;text-align: center; font-family: Microsoft YaHei;;">该项目已还清，为保护企业隐私，不再公示项目信息</p>
+      <p style="color: #666666;font-size: 16px;position: absolute;line-height:170px;text-align: center; font-family: Microsoft YaHei;;">该项目已还清，为保护企业隐私，不再公示项目信息</p>
       <div style="width: 30px;height: 30px;position: absolute;top: 11px;right: 0px;color: #666;font-size: 20px;cursor: pointer;" id="close">X</div>
     </div>
   </div>
@@ -426,14 +416,13 @@
         <!--            <span style="position:absolute;top:85px;right:10px;font-size:15px;line-height:15px;">邀请码：<i style="font-style:normal;">xrejfr</i></span>-->
         <div class="left">
           <img src="images/growth/vip.png" alt="爱钱帮" style="margin:20px;"><br>
-          <button style="background-color:#b7b6b6;outline:none;" >已签到</button>                <p>您已连续签到<span id='day'>1</span>天，</p>
+          <button style="background-color:#b7b6b6;outline:none;" >已签到</button><p>您已连续签到<span id='day'>1</span>天，</p>
           <p><span id='today'>明天</span>再签到可获得<span id='growth'>2</span>个成长值</p>
         </div>
         <div class="right">
           <div class="m2-userMsg-iconLv" >
             <a href="usercenter-growth-index.html" class="m2-iconLevel-normal"><i></i><span>帮主</span></a>
           </div>
-
           <div>成长值：<span id="mydetail_num" data="4000">1</span><a href="usercenter-growth-index" style="color:#69b1d7;float:right;">如何加速？</a></div>
           <div id="desc" style="margin:10px 0;font-size:12px;">距离 <span id='vipname'>铁帮主</span> 还需要 <span id='integral'>3999</span> 成长值</div>	            <div id="growth_scale"><div class='bg'></div></div>
           <ul style="margin:16px 0 10px 0;">
@@ -514,8 +503,8 @@
           </script>
         </div>
         <div class="m2-wel-profitLink" style="padding-top:26px; margin-left:10px;">
-          <a class="m2-profit-cha" href="home-register-openbankid.html">徽商充值</a>
-          <a class="m2-profit-cha" href="home-register-openbankid.html" style="margin-left:54px;">徽商提现</a><!--                 -->
+          <a class="m2-profit-cha" href="home-register-openbankid">徽商充值</a>
+          <a class="m2-profit-cha" href="home-register-openbankid" style="margin-left:54px;">徽商提现</a><!--                 -->
         </div>
       </div>
     </div>
@@ -911,9 +900,9 @@
           display: none;
           top: 0px;
           left: 39px;
-          box-sizing:contect-box;
-          -moz-box-sizing:contect-box; /* Firefox */
-          -webkit-box-sizing:contect-box; /* Safari */
+          box-sizing:content-box;
+          -moz-box-sizing:content-box; /* Firefox */
+          -webkit-box-sizing:content-box; /* Safari */
           z-index: 100;
           width: 222px;
           border: 1px solid #F67645;
