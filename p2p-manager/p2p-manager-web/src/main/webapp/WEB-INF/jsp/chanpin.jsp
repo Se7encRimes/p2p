@@ -551,20 +551,11 @@
       <div class="m2-commonTop-right">
         <div class="m2-commonTop-link">
           <ul>
-            <!-- 论坛导航栏全部关闭 -->
-            <!--<li class="m2-commonTop-btn" style="display: none" id="bbs"><a id="bbslogin" target="_blank">论坛</a></li>-->
             <li class="m2-commonTop-loged">
-              <span class="m2-commonTop-userName"><a href="usercenter.html">您好，iqb13737301354</a></span>
+              <span class="m2-commonTop-userName"><a href="usercenter">您好,${sessionScope.user.phone}</a></span>
             </li>
-            <li class="m2-commonTop-btn"><a href="#" style="border-right:none;">退出</a></li>
-            <li class="m2-commonTop-btn"><a href="company_finance.html" id="cfpage" style="border-right:none;width: 50px;">企业理财</a></li>
-            </li>
+            <li class="m2-commonTop-btn"><a href="UQuit" style="border-right:none;">退出</a></li>
           </ul>
-        </div>
-        <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
-          <a href="" class="m2-commonTop-and"></a>
-          <a href="" class="m2-commonTop-ios"></a>
-          <span>app下载入口</span>
         </div>
       </div>
     </div>

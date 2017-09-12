@@ -424,7 +424,7 @@
             <a href="usercenter-growth-index.html" class="m2-iconLevel-normal"><i></i><span>帮主</span></a>
           </div>
           <div>成长值：<span id="mydetail_num" data="4000">1</span><a href="usercenter-growth-index" style="color:#69b1d7;float:right;">如何加速？</a></div>
-          <div id="desc" style="margin:10px 0;font-size:12px;">距离 <span id='vipname'>铁帮主</span> 还需要 <span id='integral'>3999</span> 成长值</div>	            <div id="growth_scale"><div class='bg'></div></div>
+          <div id="desc" style="margin:10px 0;font-size:12px;">距离 <span id='vipname'>铁帮主 还需要 3999</span> 成长值</div>	            <div id="growth_scale"><div class='bg'></div></div>
           <ul style="margin:16px 0 10px 0;">
             <li class="m2-userMsg-icon" style="margin-left:-8px;"><a href="#" id='verify_id' class="m2-iconUser-fal" title='实名认证'></a></li>
             <li class="m2-userMsg-icon"><a href="#?phone=1" id='verify_phone' class="m2-iconPho-fal" title='手机认证'></a></li>
