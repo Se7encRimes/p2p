@@ -281,21 +281,21 @@
             <a class="m2-aside-secLink-item" href="usercenter-investcontrol-monthrepayment.html">回款计划</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="touzi_licai_chanpin.html" target="_blank">立即投资</a>
+            <a class="m2-aside-secLink-item" href="touzi" target="_blank">立即投资</a>
           </li>
 
         </ul>
       </li>
 
       <li class="m2-asideListitem">
-        <a class="m2-aside-item" href="usercenter-invitefriends.html">
+        <a class="m2-aside-item" href="usercenter-invitefriends">
           <i class="m2-asideIcon-invit"></i>
           <b class="m2-asideIcon-prize"></b>
           邀请好友
         </a>
       </li>
       <li class="m2-asideListitem">
-        <a class="m2-aside-item m2-aside-toggle" href="home-register-openbankid.html"><i class="m2-asideIcon3"></i>徽商资金管理</a>            <ul class="m2-aside-secItem" style="display:none">
+        <a class="m2-aside-item m2-aside-toggle" href="home-register-openbankid"><i class="m2-asideIcon3"></i>徽商资金管理</a>            <ul class="m2-aside-secItem" style="display:none">
         <li><a class="m2-aside-secLink-item" href="#">充&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值</a></li>
         <li><a class="m2-aside-secLink-item" href="#">提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现</a></li>
         <li><a class="m2-aside-secLink-item" href="#">资金流水</a></li>
@@ -377,6 +377,7 @@
       }
     });
     // 		});
+
   </script>
 
   <style>
@@ -397,17 +398,30 @@
       <p style="color: #666666;font-size: 16px;absolute;line-height:170px;text-align: center; font-family: Microsoft YaHei;;">该项目已还清，为保护企业隐私，不再公示项目信息</p>
       <div style="width: 30px;height: 30px;position: absolute;top: 11px;right: 0px;color: #666;font-size: 20px;cursor: pointer;" id="close">X</div>
     </div>
-
   </div>
   <div class="m2-userCentermain-con">
     <div class="m2-msgBox">
       <b>通知<em></em></b>
       <span id='notice-text'></span>
-      <a id='notice-url' href="usercenter-messagecontrol-sitemsg.html">&nbsp;&nbsp;[详情]</a>
+      <a id='notice-url' href="usercenter-messagecontrol-sitemsg">&nbsp;&nbsp;[详情]</a>
       <i class="m2-msgBox-close" id='notice-close'></i>
     </div>
+    <!-- 判断当前时间 -->
+
+    <input type="hidden" id="userId" value="${sessionScope.user.id}"/>
     <div class="m2-wel-con" style="background-color:white;width:798px;">
-      <p class="m2-wel-hello" id='greeting' style="background-color:white;margin:0 10px;width: 730px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" title='上午好，iqb13737301354，投资，是为了更好的自己！'>上午好，iqb13737301354，投资，是为了更好的自己！</p>
+      <p class="m2-wel-hello" id='greeting' style="background-color:white;margin:0 10px;width: 730px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+        <script language="javaScript">
+        now = new Date(),hour = now.getHours()
+        if(hour < 6){document.write(" 凌晨好！")}
+        else if (hour < 9){document.write(" 早上好!")}
+        else if (hour < 12){document.write(" 上午好!")}
+        else if (hour < 14){document.write(" 中午好!")}
+        else if (hour < 17){document.write(" 下午好!")}
+        else if (hour < 19){document.write(" 傍晚好!")}
+        else if (hour < 22){document.write(" 晚上好!")}
+        else {document.write("夜里好!")}
+      </script>，${sessionScope.user.phone}，投资，是为了更好的自己！</p>
       <div class="m2-wel-lef">
         <!--            <span style="position:absolute;top:85px;right:10px;font-size:15px;line-height:15px;">邀请码：<i style="font-style:normal;">xrejfr</i></span>-->
         <div class="left">
@@ -447,12 +461,28 @@
                 <u style="width:100px;z-index: 10;">
                   <em class="m2-userProfit-arr"></em>
                   <em class="m2-userProfit-arrBg"></em>
-                  到账收益：0.00<br>
+                  到账收益：<br><a id="earnMoneyTotal2"></a>
                 </u>
               </b>
             </p>
-            <span>0.00</span>
+            <span id="earnMoneyTotal1"></span>
           </div>
+          <script language="javaScript">
+            $(function (){
+              var earning = "";
+              $.ajax({
+                async:false,//使用同步的Ajax请求
+                type: "POST",
+                url: "getEarningTotal?userId="+document.getElementById("userId").value,
+                //data: ,
+                success: function(data){
+                  earning=data;
+                }
+              });
+              document.getElementById("earnMoneyTotal1").innerHTML=earning;
+              document.getElementById("earnMoneyTotal2").innerHTML=earning+" 元";
+            });
+          </script>
           <div class="m2-wel-profit" style="width:142px;">
             <p>
               今日赚取（元）
@@ -460,12 +490,28 @@
                 <u style="width:120px;">
                   <em class="m2-userProfit-arr"></em>
                   <em class="m2-userProfit-arrBg"></em>
-                  按在投项目精确计算的当天收益金额
+                  按在投项目精确计算的当天收益金额<br><a id="earnMoneyTaday2"></a>
                 </u>
               </b>
             </p>
-            <span>0.00</span>
+            <span id="earnMoneyTaday1"></span>
           </div>
+          <script language="javaScript">
+            $(function (){
+              var earning = "";
+              $.ajax({
+                async:false,//使用同步的Ajax请求
+                type: "POST",
+                url: "getEarningToday?userId="+document.getElementById("userId").value,
+                //data: ,
+                success: function(data){
+                  earning=data;
+                }
+              });
+              document.getElementById("earnMoneyTaday1").innerHTML=earning;
+              document.getElementById("earnMoneyTaday2").innerHTML=earning+" 元";
+            });
+          </script>
         </div>
         <div class="m2-wel-profitLink" style="padding-top:26px; margin-left:10px;">
           <a class="m2-profit-cha" href="home-register-openbankid.html">徽商充值</a>
@@ -581,7 +627,7 @@
        </div>
     -->
     <div class="m2-profitChart">
-      <img src="statics/usercenter/images/m2-ajax-loading.gif" alt="" class="m2-chartLoading">
+      <img src="images/m2-ajax-loading.gif" alt="" class="m2-chartLoading">
       <div class="m2-chart-head">
         <h3><i></i>收益走势</h3>
         <hr style="display:inline-block;width:110px;border:0;background-color:#0996cc;height:1px;margin-left:6px;"></h3>
@@ -643,7 +689,7 @@
           </div>
         </div>
       </div>
-      <script type="text/javascript" src="statics/usercenter/js/jquery.datetimepicker.modified.js?20160520"></script>
+      <script type="text/javascript" src="js/jquery.datetimepicker.modified.js?20160520"></script>
       <script><!--
 
       var now = new Date();
@@ -1016,7 +1062,7 @@
           margin-left: 4px;
           width: 50px;
           height: 25px;
-          background: url(/images/iconAdv.png) no-repeat 0 5px;
+          background: url(images/iconAdv.png) no-repeat 0 5px;
         }
         .b0-botDet{
           display: inline-block;
@@ -1033,7 +1079,7 @@
           width: 16px;
           height: 16px;
           margin: 6px 0 0 12px;
-          background: url(/images/b-question.png) no-repeat;
+          background: url(images/b-question.png) no-repeat;
           cursor: pointer;
         }
         .b0-backMore:hover span{
@@ -1070,7 +1116,7 @@
 
     <div class="m2-user-invest">
       <div class="m2-user-invest-head">
-        <h3><i></i>最近投资记录<a href="usercenter-investcontrol-investrecord.html">更多</a></h3>
+        <h3><i></i>最近投资记录<a href="usercenter-investcontrol-investrecord">更多</a></h3>
         <hr style="display:inline-block;width:148px;border:0;background-color:#0996cc
 				;height:1px;margin-left:6px;"></h3>
         <hr style="display:inline-block;width:642px;border:0;background-color:#dadada;height:1px;margin-left:-4px;"></h3>

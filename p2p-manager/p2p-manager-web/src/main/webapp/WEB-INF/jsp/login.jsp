@@ -640,17 +640,17 @@
         showInfoDialog(d.comments);
         setTimeout(function(){
           window.location.href=d.url;
-        },2000);
+        },1500);
       }else if(d.status==2){
         showInfoDialog(d.comments);
         setTimeout(function(){
           window.location.href=d.url;
-        },2000);
+        },1500);
       }else if(d.status==1){
        showLoginInfoDialog(d.comments);
         setTimeout(function(){
           window.location.href=d.url;
-        },2000);
+        },1500);
       }
     });
   }

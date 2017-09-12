@@ -17,4 +17,8 @@ public interface TbUserService {
 
     //查询
     TbUser query(String phone);
+
+    double selectMoney(int userId);
+
+    double selectEarning(int userId);
 }

@@ -436,7 +436,7 @@
         },1000);
       }else if(d.status==1){
        // alert("3");
-        alert("登陆成功，1秒后进入后台页面");
+       // alert("登陆成功，1秒后进入后台页面");
         setTimeout(function(){
           window.location.href=d.url;
         },1000);

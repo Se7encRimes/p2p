@@ -30,6 +30,21 @@ public class UserController {
     @Autowired
     private TbUserService userService;
 
+    //获取当日收益
+    @RequestMapping("getEarningToday")
+    @ResponseBody
+    public String getEarningTaday(String userId){
+        double earning = userService.selectMoney(Integer.parseInt(userId))*0.0001;
+        return earning+"";
+    }
+    //获取累计收益
+    @RequestMapping("getEarningTotal")
+    @ResponseBody
+    public String getEarningTotal(String userId){
+        double earnings = userService.selectEarning(Integer.parseInt(userId));
+        return earnings+"";
+    }
+
     //普通会员注册后跳转到开通存管账户
     @RequestMapping("tiaozhuan")
     public String goToOpenBank(String phone,Model model,HttpServletRequest request){
