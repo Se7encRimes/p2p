@@ -681,9 +681,7 @@
   <div class="m2-commonTop">
     <div class="m2-commonTop-left">
       <div class="m2-commonTop-tel"><i></i>4006&nbsp;-&nbsp;777&nbsp;-&nbsp;518</div>
-      <div class="m2-commonTop-service" style="padding-left:0;"><span style="float:left;">客服：</span>
-        <div style="float:left;display:inline-block;width:92px;height:22px;padding:6px 0 13px 0;"></div>
-      </div>
+      <div class="m2-commonTop-service"><i></i><span>客服：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2522274059&amp;site=qq&amp;menu=yes" title="客服">2522274059</a></span></div>
       <div class="m2-commonEwm">
         <span class="m2-commonEwm-tit">关注我们：</span>
         <div class="m2-commonEwmwx">
