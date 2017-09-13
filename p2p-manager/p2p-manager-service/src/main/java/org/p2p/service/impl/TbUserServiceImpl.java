@@ -2,14 +2,19 @@ package org.p2p.service.impl;
 
 import org.p2p.dao.TbUserMapper;
 import org.p2p.dao.TbUserMapperCustom;
+import org.p2p.pojo.po.TbItem;
 import org.p2p.pojo.po.TbUser;
 import org.p2p.service.TbUserService;
+import org.p2p.utlis.Data;
+import org.p2p.utlis.Sign_Growth;
+import org.p2p.utlis.UserEnerning;
 import org.p2p.utlis.ulogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -87,5 +92,43 @@ public class TbUserServiceImpl implements TbUserService {
     @Override
     public double selectEarningTotal(int userId) {
         return tbUserMapperCustom.selectEarningTotalByUserId(userId);
+    }
+
+    @Override
+    public Sign_Growth getSign_Growth(int userId) {
+        TbUser tbUser = tbUserMapperCustom.selectTbuserByUserId(userId);
+        Sign_Growth sign_growth = new Sign_Growth();
+        Data data = new Data();
+        data.setGrowthvalue(tbUser.getGrowth());
+        if(tbUser.getGrowth()<4000){
+            data.setName("铁帮主");
+            data.setIntegral(4000-tbUser.getGrowth());
+            data.setLevel(0);
+        }else if(tbUser.getGrowth()<20000){
+            data.setName("铜帮主");
+            data.setIntegral(20000-tbUser.getGrowth());
+            data.setLevel(1);
+        }else if(tbUser.getGrowth()<60000){
+            data.setIntegral(60000-tbUser.getGrowth());
+            data.setName("金帮主");
+            data.setLevel(2);
+        }else if(tbUser.getGrowth()<240000){
+            data.setIntegral(24000-tbUser.getGrowth());
+            data.setName("白金帮主");
+            data.setLevel(3);
+        }else if(tbUser.getGrowth()==240000){
+            data.setLevel(4);
+        }else{
+            data.setLevel(5);
+        }
+        sign_growth.setData(data);
+        sign_growth.setResultcode(41001);
+        return sign_growth;
+    }
+
+    @Override
+    public List<UserEnerning> selectUserMonthEnerning(int userId) {
+        List<UserEnerning> list = tbUserMapperCustom.selectUserMonthEnerning(userId);
+        return list;
     }
 }

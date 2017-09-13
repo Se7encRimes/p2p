@@ -391,10 +391,10 @@
   </div>
   <div class="m2-userCentermain-con">
     <div class="m2-msgBox">
-      <b>通知<em></em></b>
-      <span id='notice-text'></span>
-      <a id='notice-url' href="usercenter-messagecontrol-sitemsg">&nbsp;&nbsp;[详情]</a>
-      <i class="m2-msgBox-close" id='notice-close'></i>
+    <b>通知<em></em></b>
+    <span id='notice-text'></span>
+    <a id='notice-url' href="usercenter-messagecontrol-sitemsg">&nbsp;&nbsp;[详情]</a>
+    <i class="m2-msgBox-close" id='notice-close'></i>
     </div>
     <!-- 判断当前时间 -->
 
@@ -404,9 +404,9 @@
         <script language="javaScript">
         now = new Date(),hour = now.getHours()
         if(hour < 6){document.write(" 凌晨好！")}
-        else if (hour < 9){document.write(" 早上好!")}
-        else if (hour < 12){document.write(" 上午好!")}
-        else if (hour < 14){document.write(" 中午好!")}
+        else if (hour < 8){document.write(" 早上好!")}
+        else if (hour < 11){document.write(" 上午好!")}
+        else if (hour < 13){document.write(" 中午好!")}
         else if (hour < 17){document.write(" 下午好!")}
         else if (hour < 19){document.write(" 傍晚好!")}
         else if (hour < 22){document.write(" 晚上好!")}
@@ -419,7 +419,7 @@
         <!--            <span style="position:absolute;top:85px;right:10px;font-size:15px;line-height:15px;">邀请码：<i style="font-style:normal;">xrejfr</i></span>-->
         <div class="left">
           <img src="images/growth/vip.png" alt="爱钱帮" style="margin:20px;"><br>
-          <button style="background-color:#b7b6b6;outline:none;" title="">已签到</button>
+          <button style="outline:none;"  id="sign">签到</button>
         </div>
         <div class="right">
           <div class="m2-userMsg-iconLv" >
@@ -445,7 +445,6 @@
             </p>
             <span id="earnMoneyTotal1"></span>
           </div>
-
           <script language="javaScript">
             //累计收益
             $(function (){
@@ -470,11 +469,11 @@
                 <u style="width:120px;">
                   <em class="m2-userProfit-arr"></em>
                   <em class="m2-userProfit-arrBg"></em>
-                  按在投项目精确计算的当天收益金额<br><a id="earnMoneyTaday2"></a>
+                  按在投项目精确计算的当天收益金额<br><a id="earnMoneyToday2"></a>
                 </u>
               </b>
             </p>
-            <span id="earnMoneyTaday1"></span>
+            <span id="earnMoneyToday1"></span>
           </div>
           <script language="javaScript">
             $(function (){
@@ -489,8 +488,8 @@
                   earningTaday=data;
                 }
               });
-              document.getElementById("earnMoneyTaday1").innerHTML=earningTaday+"";
-              document.getElementById("earnMoneyTaday2").innerHTML=earningTaday+" 元";
+              document.getElementById("earnMoneyToday1").innerHTML=earningTaday+"";
+              document.getElementById("earnMoneyToday2").innerHTML=earningTaday+" 元";
             });
           </script>
         </div>
@@ -581,11 +580,12 @@
         <hr style="display:inline-block;width:682px;border:0;background-color:#dadada;height:1px;margin-left:-4px;"></h3>
       </div>
       <div class="m2-profitChart-tit">
-        <span class="m2-chartItemtit-day m2-chart-unsel">日收益</span>
         <span class="m2-chartItemtit-mon m2-chart-sel">月收益</span>
       </div>
       <div class="m2-chart-con" style="background-color:white;">
-        <div class="m2-chartItemuser" id="m2-chartMonth"></div>
+        <div class="m2-chartItemuser" id="m2-chartMonth">
+
+        </div>
       </div>
     </div>
 
@@ -1095,8 +1095,9 @@
         var active_id='0';
         $.ajax({
           type:"POST",
-          url: "/usercenter-Index-sign_in",
+          url: "sign_in_growth?userId="+document.getElementById("userId").value,
           data: {active_id:active_id},
+          scriptCharset: 'utf-8',
           success: function (data) {
             var obj=JSON.parse(data);
             var data = obj.data;
@@ -1109,13 +1110,6 @@
               $("#mydetail_num").text(data.growthvalue);
               $("#sign").css("backgroundColor","#b7b6b6");
               $("#sign").text('已签到');
-              $('#day').html(parseInt($('#day').html())+1);
-              var growth=parseInt($('#growth').html())+1;
-              if (growth>=10){
-                growth=10;
-              }
-              $('#growth').html(growth);
-              $('#today').html('明天');
               var scale=$("#mydetail_num").text()/$("#mydetail_num").attr("data")*100+"%";
               $("#growth_scale .bg").animate({width:scale},900);
               $('#integral').html(data.integral);
@@ -1152,7 +1146,7 @@
           }
         });
       })
-    })
+    });
     var oP=document.getElementById('allP');
     var oClose=document.getElementById('close');
     //oP.style.display='none';
@@ -1206,13 +1200,11 @@
       //用户问候语图标
       getGreeting();
 
-      //用户认证
-      userVerify();
       //收益金颜色
       moneyColor();
       //异步加载月收益图
       loadMonChart();
-      fitBottom();
+      //fitBottom();
     });
 
     function getMsg() {
@@ -1255,39 +1247,7 @@
       $('#greeting').prepend(icon);
     }
 
-    function userVerify() {
 
-      var i = 0;
-      if (1 == '0') {
-        $('#verify_id').prop('class', 'm2-iconUser-tur');
-        i++;
-      }
-      if (1 == '1') {
-        $('#verify_phone').prop('class', 'm2-iconPho-tur');
-        i++;
-      }
-      if (1 == '0') {
-        $('#verify_email').prop('class', 'm2-iconEmail-tur');
-        i++;
-      }
-      if (i == 1) {
-        $('#safe_level').text('低');
-      } else if (i == 2) {
-        $('#safe_level').text('中');
-      } else if (i == 3) {
-        $('#safe_level').text('高');
-        $('#safe_level_url').hide();
-      } else {
-        $('#safe_level').text('极低');
-      }
-      var j = 0;
-      $('#safe_level_bar i').each(function () {
-        if (j < i) {
-          $(this).prop('class', 'm2-levelIcon-tur');
-          j++;
-        }
-      });
-    }
 
     function moneyColor() {
 
@@ -1305,18 +1265,21 @@
     }
 
     function loadMonChart() {
-
+      var monthData;
+      var monthCate;
       $('.m2-chartLoading').show();
       $.ajax({
-        url: "usercenter-Index-getIncomeList",
+        url: "getIncomeList?userId="+document.getElementById("userId").value,
         data: {},
         success: function (data) {
+          alert(data);
           $('.m2-chartLoading').hide();
           var obj = eval('(' + data + ')');
-          monthData = getList(obj.monlist, 'income');
+          alert(obj.monincomelist);
+          monthData = getList(obj.monincomelist, 'income');
           monthCate = getList(obj.monlist, 'month');
-          dailyData = getList(obj.daylist, 'income');
-          dailyCate = getList(obj.daylist, 'day');
+          alert(monthData);
+          alert(monthCate);
           loadChartmonth(monthData, monthCate);
         }
       });
@@ -1324,9 +1287,10 @@
 
     function getList(data, key) {
       var l = Array();
-      for (k in data) {
-        l.push(data[k][key]);
+      for (var k in data) {
+        l.push(data[k]);
       }
+      alert(l);
       return l;
     }
     function getPaymentDetail(date) {
