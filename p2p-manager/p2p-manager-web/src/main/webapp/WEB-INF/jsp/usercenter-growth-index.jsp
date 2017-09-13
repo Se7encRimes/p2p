@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
@@ -128,22 +129,28 @@
       </div>
     </div>
     <div class="m2-commonTop-right">
-      <div class="m2-commonTop-link">
-        <ul>
-          <li class="m2-commonTop-btn" style="display: none" id="bbs"><a id="bbslogin" target="_blank">论坛</a></li>
-          <li class="m2-commonTop-loged">
-            <span class="m2-commonTop-userName"><a href="usercenter">您好，iqb13737301354</a></span>
-          </li>
-          <li class="m2-commonTop-btn"><a href="#" style="border-right:none;">退出</a></li>
-          <li class="m2-commonTop-btn"><a href="company_finance.html" id="cfpage" style="border-right:none;width: 50px;">企业理财</a></li>
-          </li>
-        </ul>
-      </div>
-      <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
-        <a href="" class="m2-commonTop-and"></a>
-        <a href="" class="m2-commonTop-ios"></a>
-        <span>app下载入口</span>
-      </div>
+      <c:choose>
+        <c:when test="${sessionScope.user==null}">
+          <div class="m2-commonTop-link">
+            <ul>
+              <li class="m2-commonTop-btn"><a href="register" target="_blank">注册</a></li>
+              <li class="m2-commonTop-btn"><a href="login" target="_blank" style="border-right:none;">登录</a></li>
+            </ul>
+          </div>
+        </c:when>
+        <c:otherwise>
+          <div class="m2-commonTop-right">
+            <div class="m2-commonTop-link">
+              <ul>
+                <li class="m2-commonTop-loged">
+                  <span class="m2-commonTop-userName"><a href="usercenter">您好,${sessionScope.user.phone}</a></span>
+                </li>
+                <li class="m2-commonTop-btn"><a href="UQuit" style="border-right:none;">退出</a></li>
+              </ul>
+            </div>
+          </div>
+        </c:otherwise>
+      </c:choose>
     </div>
   </div>
 </div>
@@ -347,43 +354,43 @@
         <div class="ringleader">
           <div class="ringleader-son">
             <div class="ringleader-sonl">
-              <img src="statics/usercenter/images/growth/1.png" alt="" width="34px"/>
-              <img src="statics/usercenter/images/growth/s.png" alt="" class="arrow"/>
+              <img src="images/growth/1.png" alt="" width="34px"/>
+              <img src="images/growth/s.png" alt="" class="arrow"/>
             </div>
             <span class="ringleader-sonr">帮主</span>
           </div>
           <div class="ringleader-son">
             <div class="ringleader-sonl">
-              <img src="statics/usercenter/images/growth/2.png" alt="" width="34px"/>
-              <img src="statics/usercenter/images/growth/s.png" alt="" class="arrow"/>
+              <img src="images/growth/2.png" alt="" width="34px"/>
+              <img src="images/growth/s.png" alt="" class="arrow"/>
             </div>
             <span class="ringleader-sonr">铁帮主</span>
           </div>
           <div class="ringleader-son">
             <div class="ringleader-sonl">
-              <img src="statics/usercenter/images/growth/3.png" alt="" width="34px"/>
-              <img src="statics/usercenter/images/growth/s.png" alt="" class="arrow"/>
+              <img src="images/growth/3.png" alt="" width="34px"/>
+              <img src="images/growth/s.png" alt="" class="arrow"/>
             </div>
             <span class="ringleader-sonr">铜帮主</span>
           </div>
           <div class="ringleader-son">
             <div class="ringleader-sonl">
-              <img src="statics/usercenter/images/growth/4.png" alt="" width="34px"/>
-              <img src="statics/usercenter/images/growth/s.png" alt="" class="arrow"/>
+              <img src="images/growth/4.png" alt="" width="34px"/>
+              <img src="images/growth/s.png" alt="" class="arrow"/>
             </div>
             <span class="ringleader-sonr">金帮主</span>
           </div>
           <div class="ringleader-son">
             <div class="ringleader-sonl">
-              <img src="statics/usercenter/images/growth/5.png" alt="" width="34px"/>
-              <img src="statics/usercenter/images/growth/s.png" alt="" class="arrow"/>
+              <img src="images/growth/5.png" alt="" width="34px"/>
+              <img src="images/growth/s.png" alt="" class="arrow"/>
             </div>
             <span class="ringleader-sonr">白金帮主</span>
           </div>
           <div class="ringleader-son" style="width:100px">
             <div class="ringleader-sonl">
-              <img src="statics/usercenter/images/growth/6.png" alt="" width="34px"/>
-              <img src="statics/usercenter/images/growth/s.png" alt="" class="arrow"/>
+              <img src="images/growth/6.png" alt="" width="34px"/>
+              <img src="images/growth/s.png" alt="" class="arrow"/>
             </div>
             <span class="ringleader-sonr">特邀帮主</span>
           </div>
@@ -391,7 +398,7 @@
         <div class="range-parents">
           <div class="range"><div style="width: 8%;" class="range-son"></div></div>
           <span class="progress" style="left:18px;margin-top:10px;">0</span>
-          <div class="myprogress" style="left:33px;"><span class="myprogress-son">1</span></div>
+          <div class="myprogress" style="left:33px;"><span class="myprogress-son">${sessionScope.user.growth}</span></div>
           <span class="progress" style="left:130px;margin-top:10px;">4000</span>
           <span class="progress" style="left:255px;margin-top:10px;">20000</span>
           <span class="progress" style="left:380px;margin-top:10px;">60000</span>

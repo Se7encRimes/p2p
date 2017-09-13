@@ -411,34 +411,23 @@
         else if (hour < 19){document.write(" 傍晚好!")}
         else if (hour < 22){document.write(" 晚上好!")}
         else {document.write("夜里好!")}
-      </script>，${sessionScope.user.phone}，投资，是为了更好的自己！</p>
+      </script>，${sessionScope.user.phone}，投资，是为了更好的自己！
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span id="balance" style="color: #ff35c3 "><font style="font-size: large;">账户余额：${sessionScope.user.balance}元</font></span>
+      </p>
       <div class="m2-wel-lef">
         <!--            <span style="position:absolute;top:85px;right:10px;font-size:15px;line-height:15px;">邀请码：<i style="font-style:normal;">xrejfr</i></span>-->
         <div class="left">
           <img src="images/growth/vip.png" alt="爱钱帮" style="margin:20px;"><br>
-          <button style="background-color:#b7b6b6;outline:none;" >已签到</button><p>您已连续签到<span id='day'>1</span>天，</p>
-          <p><span id='today'>明天</span>再签到可获得<span id='growth'>2</span>个成长值</p>
+          <button style="background-color:#b7b6b6;outline:none;" title="">已签到</button>
         </div>
         <div class="right">
           <div class="m2-userMsg-iconLv" >
-            <a href="usercenter-growth-index.html" class="m2-iconLevel-normal"><i></i><span>帮主</span></a>
+            <a href="usercenter-growth-index" class="m2-iconLevel-normal"><i></i><span>帮主</span></a>
           </div>
-          <div>成长值：<span id="mydetail_num" data="4000">1</span><a href="usercenter-growth-index" style="color:#69b1d7;float:right;">如何加速？</a></div>
-          <div id="desc" style="margin:10px 0;font-size:12px;">距离 <span id='vipname'>铁帮主 还需要 3999</span> 成长值</div>	            <div id="growth_scale"><div class='bg'></div></div>
-          <ul style="margin:16px 0 10px 0;">
-            <li class="m2-userMsg-icon" style="margin-left:-8px;"><a href="#" id='verify_id' class="m2-iconUser-fal" title='实名认证'></a></li>
-            <li class="m2-userMsg-icon"><a href="#?phone=1" id='verify_phone' class="m2-iconPho-fal" title='手机认证'></a></li>
-            <li class="m2-userMsg-icon"><a href="#?email=1" id='verify_email' class="m2-iconEmail-fal" title='邮箱认证'></a></li>
-          </ul>
-          <div class="m2-wel-level" style="margin-left:0;">
-            <p>安全等级：<span class="m2-level-low" id='safe_level'  style="color:#1adb9e;"></span><a href="#" id='safe_level_url' style="color:#0996cc;">[提升]</a></p>
-            <!--                <div class="m2-level-image" id='safe_level_bar'>-->
-            <!--                    <i class="m2-levelIcon-fal"></i>-->
-            <!--                    <i class="m2-levelIcon-fal"></i>-->
-            <!--                    <i class="m2-levelIcon-fal"></i>-->
-            <!--                </div>-->
-            <!--                <div class="m2-wel-border"></div>-->
-          </div>
+          <div>成长值：<span id="mydetail_num" data="4000">${sessionScope.user.growth}</span><a href="usercenter-growth-index" style="color:#69b1d7;float:right;">如何加速？</a></div>
+          <div id="desc" style="margin:10px 0;font-size:12px;">距离 <span id='vipname'>铁帮主</span> 还需要 <span id='integral'>3999</span> 成长值</div>
+          <div id="growth_scale"><div class='bg'></div></div>
         </div>
       </div>
       <div class="m2-wel-rig" style="float:right;width:320px;padding-top:66px;height:174px;border-left:1px solid #f0f0f0;">
@@ -456,20 +445,22 @@
             </p>
             <span id="earnMoneyTotal1"></span>
           </div>
+
           <script language="javaScript">
+            //累计收益
             $(function (){
-              var earning = "";
+              var earningTotal = 0.00;
               $.ajax({
                 async:false,//使用同步的Ajax请求
                 type: "POST",
                 url: "getEarningTotal?userId="+document.getElementById("userId").value,
                 //data: ,
                 success: function(data){
-                  earning=data;
+                  earningTotal=data;
                 }
               });
-              document.getElementById("earnMoneyTotal1").innerHTML=earning;
-              document.getElementById("earnMoneyTotal2").innerHTML=earning+" 元";
+              document.getElementById("earnMoneyTotal1").innerHTML=earningTotal+"";
+              document.getElementById("earnMoneyTotal2").innerHTML=earningTotal+" 元";
             });
           </script>
           <div class="m2-wel-profit" style="width:142px;">
@@ -487,24 +478,25 @@
           </div>
           <script language="javaScript">
             $(function (){
-              var earning = "";
+              //今日赚取
+              var earningTaday = 0.00;
               $.ajax({
                 async:false,//使用同步的Ajax请求
                 type: "POST",
                 url: "getEarningToday?userId="+document.getElementById("userId").value,
                 //data: ,
                 success: function(data){
-                  earning=data;
+                  earningTaday=data;
                 }
               });
-              document.getElementById("earnMoneyTaday1").innerHTML=earning;
-              document.getElementById("earnMoneyTaday2").innerHTML=earning+" 元";
+              document.getElementById("earnMoneyTaday1").innerHTML=earningTaday+"";
+              document.getElementById("earnMoneyTaday2").innerHTML=earningTaday+" 元";
             });
           </script>
         </div>
         <div class="m2-wel-profitLink" style="padding-top:26px; margin-left:10px;">
           <a class="m2-profit-cha" href="home-register-openbankid">徽商充值</a>
-          <a class="m2-profit-cha" href="home-register-openbankid" style="margin-left:54px;">徽商提现</a><!--                 -->
+          <a class="m2-profit-cha" href="home-register-openbankid" style="margin-left:54px;">徽商提现</a>
         </div>
       </div>
     </div>
@@ -514,107 +506,73 @@
       </div>
       <ul>
         <li class="m2-userIndnum-item">
-          <p class="m2-detail-tit">资产总计:
-          </p>
-          <span class="m2-detailNum-tur" style="color:#f5944f">0.00</span>
+          <p class="m2-detail-tit" >资产总计:</p>
+          <span class="m2-detailNum-tur" style="color:#f5944f" id="totalAssets">0.00</span>
           <i class="m2-userIndnum-equ" ></i>
         </li>
         <li class="m2-userIndnum-item">
-          <p class="m2-detail-tit">待收本金:
-
-          </p>
-          <span class="m2-detailNum-fal">0.00</span>
+          <p class="m2-detail-tit">待收本金:</p>
+          <span class="m2-detailNum-fal" id="investmentAmount">0.00</span>
           <i class="m2-userIndnum-add"></i>
         </li>
         <li class="m2-userIndnum-item">
-          <p class="m2-detail-tit">待收收益:
-          </p>
-          <span class="m2-detailNum-fal">0.00</span>
+          <p class="m2-detail-tit">待收收益:</p>
+          <span class="m2-detailNum-fal" id="earnings">0.00</span>
           <i class="m2-userIndnum-add"></i>
         </li>
         <li class="m2-userIndnum-item">
-          <p class="m2-detail-tit">可用奖励金:
-          </p>
-          <span class="m2-detailNum-fal">0.00</span>
-          <i class="m2-userIndnum-add"></i>
-        </li>
-        <li class="m2-userIndnum-item">
-          <p class="m2-detail-tit">账户余额:
-            <b class="m2-detail-titIcon">
-              <u style="width:160px;text-align:left">
-                <em class="m2-detail-titHide-arr"></em>
-                <em class="m2-detail-titHide-arrBg"></em>
-                <!---->
-                徽商账户余额：0.00                        </u>
-            </b>
-          </p>
-          <span class="m2-detailNum-fal">0.00</span>
+          <p class="m2-detail-tit">账户余额:</p>
+          <span class="m2-detailNum-fal" id="accountBalance">${sessionScope.user.balance}</span>
         </li>
       </ul>
     </div>
-    <!--
-       <div class="m2-detail-con">
-           <ul>
+    <script language="javaScript">
+      $(function (){
+        //待收本金
+        var investmentAmount = "";
+        //待收收益
+        $.ajax({
+          async:false,//使用同步的Ajax请求
+          type: "POST",
+          url: "getMoney?userId="+document.getElementById("userId").value,
+          //data: ,
+          success: function(data){
+            investmentAmount=data;
+          }
+        });
+
+        document.getElementById("investmentAmount").innerHTML=investmentAmount;
+        var earnings = document.getElementById("earnings").innerHTML=document.getElementById("earnMoneyTotal1").innerHTML;
+        var accountBalance = document.getElementById("accountBalance").innerHTML;
+        var totalAssets = (Number)(investmentAmount)+(Number)(earnings)+(Number)(accountBalance);
+        document.getElementById("totalAssets").innerHTML=totalAssets+"";
+      });
+    </script>
+
+       <%--<div class="m2-detail-con">
+        <ul>
                <li>
                    <i class="m2-detialIcon-alr"></i>
                    <p class="m2-detail-tit">已投资本金：
-                       <b class="m2-detail-titIcon">
-                           <u>
-                               <em class="m2-detail-titHide-arr"></em>
-                               <em class="m2-detail-titHide-arrBg"></em>
-                               已投资本金=已回款本金+待收本金<br>
-                               已回款本金：0.00<br>
-                               待收本金：0.00                           </u>
-                       </b>
                    </p>
                    <span class="m2-detailNum-fal">0.00</span>
                </li>
                <li>
                    <i class="m2-detialIcon-sum"></i>
                    <p class="m2-detail-tit">资产总计：
-                       <b class="m2-detail-titIcon">
-                           <u>
-                               <em class="m2-detail-titHide-arr"></em>
-                               <em class="m2-detail-titHide-arrBg"></em>
-                               资产总计=账户余额+待收本金+待收收益+可用奖励<br>
-                               账户余额：0.00<br>
-                               待收本金：0.00<br>
-                               待收收益：0.00<br>
-                               可用奖励：0.00                           </u>
-                       </b>
-                   </p>
-                   <span class="m2-detailNum-fal">0.00</span>
-               </li>
-               <li>
-                   <i class="m2-detialIcon-awa"></i>
-                   <p class="m2-detail-tit">可用奖励：
-                       <b class="m2-detail-titIcon">
-                           <u style="width:130px">
-                               <em class="m2-detail-titHide-arr"></em>
-                               <em class="m2-detail-titHide-arrBg"></em>
-                                                                  累计投资满10000元（含10000），即可使用。
-                                                              </u>
-                       </b>
                    </p>
                    <span class="m2-detailNum-fal">0.00</span>
                </li>
                <li>
                    <i class="m2-detialIcon-bal"></i>
                    <p class="m2-detail-tit">账户余额：
-                    <b class="m2-detail-titIcon">
-                           <u style="width:170px">
-                               <em class="m2-detail-titHide-arr"></em>
-                               <em class="m2-detail-titHide-arrBg"></em>
-                               账户余额=  可用资金+冻结金额<br>
-                              可用资金：0.00<br>
-                              冻结金额：0.00                           </u>
-                       </b>
                    </p>
                    <span class="m2-detailNum-fal">0.00</span>
                </li>
+             <li></li>
            </ul>
-       </div>
-    -->
+       </div>--%>
+
     <div class="m2-profitChart">
       <img src="images/m2-ajax-loading.gif" alt="" class="m2-chartLoading">
       <div class="m2-chart-head">
@@ -679,7 +637,7 @@
         </div>
       </div>
       <script type="text/javascript" src="js/jquery.datetimepicker.modified.js?20160520"></script>
-      <script><!--
+      <script>
 
       var now = new Date();
       var year = now.getFullYear();       //年
@@ -893,7 +851,7 @@
         m=Math.pow(10,Math.max(sq1,sq2));
         return Math.round(( num1 * m - num2 * m ) / m * 100)/100;
       }
-      --></script>
+      </script>
       <style type="text/css">
         div.calenderdetail{
           position: absolute;

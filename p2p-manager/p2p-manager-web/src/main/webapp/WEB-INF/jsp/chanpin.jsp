@@ -152,7 +152,7 @@
   </script>
   <!-- headerEnd -->
   <!--[if lt IE 9]>
-  <script src="../common/js/html5shiv.js"></script>
+  <script src="js/html5shiv.js"></script>
   <script src="js/excanvas.js" type="text/javascript"></script>
   <link rel="js/stylesheet" href="iefix.css">
   <![endif]-->
@@ -501,7 +501,7 @@
         <script>
           var clip = null;
           function initCopy() {
-            ZeroClipboard.setMoviePath("statics/common/ZeroClipboard/ZeroClipboard.swf");
+            ZeroClipboard.setMoviePath("images/ZeroClipboard.swf");
             clip = new ZeroClipboard.Client();
             clip.setHandCursor(true);
 
@@ -1480,8 +1480,19 @@
     rewardID(id, type, val, condition);
   });
   //立即投资
+
   $('#invest_now').click(function () {
-    if(!uid){
+
+    $.ajax({
+      async:true,//使用同步的Ajax请求
+      type: "POST",
+      url: "jinxingtouzi?invest_money="+document.getElementById("invest_money").value,
+      //data: ,
+      success: function(d){
+        window.location.href=d;
+      }
+    });
+    /*if(!uid){
       window.location.href = '/login';
       return;
     }
@@ -1510,7 +1521,7 @@
       }
     } else {
       showOpenDialog();
-    }
+    }*/
   });
   // 确认弹窗
   function confirmDialog(action) {
@@ -1850,7 +1861,7 @@
   }
 
   //绑卡
-  function bondcard() {
+  /*function bondcard() {
 
     $.ajax({
       url: '/cupdata-card-changeCard',
@@ -1876,7 +1887,7 @@
         }
       }
     });
-  }
+  }*/
 
   //充值投资
   function rechargeInvest() {
@@ -1954,9 +1965,9 @@
         <h3>客服电话:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:12px;">投资有风险，请谨慎投资</span></h3>
         <h3>4006-777-518&nbsp;&nbsp;&nbsp;http://www.iqianbang.com</h3>
         <ul>
-          <li><a href="/invest">我要投资</a></li>
-          <li><a href="guide.html">帮助中心</a></li>
-          <li><a href="guanyu_aiqianbang.html">关于我们</a></li>
+          <li><a href="touzi">我要投资</a></li>
+          <li><a href="guide">帮助中心</a></li>
+          <li><a href="guanyu_aiqianbang">关于我们</a></li>
           <li><a href="/licai_gonggao">新闻公告</a></li>
         </ul>
       </div>
@@ -1972,7 +1983,7 @@
           --><li class="icon-kx"><a href="https://ss.knet.cn/verifyseal.dll?sn=e14032111010847492vg0o000000&amp;ct=df&amp;a=1&amp;pa=0.8090716653969139" target="_blank"></a></li>
           <!--								<li class="icon-360"><a href="http://webscan.360.cn/index/checkwebsite/url/www.iqianbang.com" target="_blank"></a></li>-->
           <li class="icon-zhx"><a href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1076572005" target="_blank"></a></li>
-          <li class="icon-icp"><a rel="nofollow"  href="/anquanlicai_icp.html" target="_blank"></a></li>
+          <li class="icon-icp"><a rel="nofollow"  href="anquanlicai_icp" target="_blank"></a></li>
         </ul>
       </div>
     </div>
@@ -1991,9 +2002,9 @@
 </script>
 
 <script src="js/common.js?20160520"></script>
-<link type="text/css" rel="stylesheet" href="statics/common/tipBox/colorbox-master/css/colorbox.css?20160520">
-<script src="statics/common/tipBox/layer-v1.5.1/layer/layer.js?20160520"></script>
-<script src="statics/common/tipBox/common.js?20160520"></script>
+<link type="text/css" rel="stylesheet" href="css/colorbox.css?20160520">
+<script src="js/layer.js?20160520"></script>
+<script src="js/common.js?20160520"></script>
 <!--tipBOx-->
 <script language=JavaScript type="text/javascript" src="js/tab.js?20160520"></script>
 <script type="text/javascript">$(function(){
