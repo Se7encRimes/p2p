@@ -41,20 +41,24 @@ public class TouZiController {
         String[] rate = new String[2];
         ProjectVague projectVague = new ProjectVague();
         if("0".equals(borrow_interest_rate)){
-            projectVague.setMaxRate(null);
+            projectVague.setMaxRate(-1);
         }else if(borrow_interest_rate!=null&&borrow_interest_rate.length()>0){
             rate = borrow_interest_rate.split("\\|");
-            projectVague.setMinRate(rate[0]);
-            projectVague.setMaxRate(rate[1]);
+            double minRate = Double.parseDouble(rate[0]);
+            double maxRate = Double.parseDouble(rate[1]);
+            projectVague.setMinRate(minRate);
+            projectVague.setMaxRate(maxRate);
             System.err.println("rate:"+ Arrays.toString(rate));
         }
         if("0".equals(borrow_money)){
-            projectVague.setMaxMoney(null);
+            projectVague.setMaxMoney(-1);
         }else if(borrow_money!=null&&borrow_money.length()>0){
             money = borrow_money.split("\\|");
             System.err.println("money:"+Arrays.toString(money));
-            projectVague.setMinMoney(money[0]);
-            projectVague.setMaxMoney(money[1]);
+            double minMoney = Double.parseDouble(money[0]);
+            double maxMoney = Double.parseDouble(money[1]);
+            projectVague.setMinMoney(minMoney);
+            projectVague.setMaxMoney(maxMoney);
         }
         int state = -1;
         if(borrow_interest_rate!=null&&borrow_interest_rate.length()>0){

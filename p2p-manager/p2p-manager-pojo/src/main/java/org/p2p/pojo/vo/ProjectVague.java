@@ -4,41 +4,41 @@ package org.p2p.pojo.vo;
  * Created by 吴春杰 on 2017/9/12.
  */
 public class ProjectVague {
-    private String minMoney;
-    private String maxMoney;
-    private String minRate;
-    private String maxRate;
+    private double minMoney;
+    private double maxMoney;
+    private double minRate;
+    private double maxRate;
     private int state;
 
-    public String getMinMoney() {
+    public double getMinMoney() {
         return minMoney;
     }
 
-    public void setMinMoney(String minMoney) {
+    public void setMinMoney(double minMoney) {
         this.minMoney = minMoney;
     }
 
-    public String getMaxMoney() {
+    public double getMaxMoney() {
         return maxMoney;
     }
 
-    public void setMaxMoney(String maxMoney) {
+    public void setMaxMoney(double maxMoney) {
         this.maxMoney = maxMoney;
     }
 
-    public String getMinRate() {
+    public double getMinRate() {
         return minRate;
     }
 
-    public void setMinRate(String minRate) {
+    public void setMinRate(double minRate) {
         this.minRate = minRate;
     }
 
-    public String getMaxRate() {
+    public double getMaxRate() {
         return maxRate;
     }
 
-    public void setMaxRate(String maxRate) {
+    public void setMaxRate(double maxRate) {
         this.maxRate = maxRate;
     }
 
