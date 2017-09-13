@@ -10,7 +10,7 @@ public class TouZiProject extends TbProject {
     //车辆照片
     private String carimg;
     //融资剩余时间
-    private int residueTime;
+    private long residueTime;
     //融资完成百分比
     private double plan;
     //剩余融资金额
@@ -32,11 +32,11 @@ public class TouZiProject extends TbProject {
         this.residuemoney = residuemoney;
     }
 
-    public int getResidueTime() {
+    public long getResidueTime() {
         return residueTime;
     }
 
-    public void setResidueTime(int residueTime) {
+    public void setResidueTime(long residueTime) {
         this.residueTime = residueTime;
     }
 

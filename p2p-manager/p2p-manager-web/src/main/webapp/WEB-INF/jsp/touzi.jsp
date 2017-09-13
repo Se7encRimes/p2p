@@ -172,24 +172,17 @@
   <div class="m2-invSearch">
     <div class="m2-invSearch-con">
       <!--		<h3>项目筛选</h3>-->
+      <h3>项目筛选</h3>
       <i class="m2-invSea-arrUp"></i>
     </div>
     <div class="m2-invSearchbox" style="display: none;">
       <ul class="m2-invSea-ben" id="search_borrow_interest_rate">
         <li class="m2-invSea-tit"><span>收&nbsp;&nbsp;益&nbsp;&nbsp;率</span></li>
         <li data="0" class="m2-invSea-sel m2-invSea-all"><span onclick="searchBorrow('borrow_interest_rate',0)">全部</span></li>
-        <li data="0|8" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_interest_rate','0|8')">8%及以下</span></li>
-        <li data="9|9" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_interest_rate','9|9')">9%</span></li>
+        <li data="0|3" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_interest_rate','0|3')">3%及以下</span></li>
+        <li data="5|5" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_interest_rate','5|5')">5%</span></li>
         <li data="10|10" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_interest_rate','10|10')">10%</span></li>
         <li data="10.1|100" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_interest_rate','10.1|100')">其他</span></li>
-      </ul>
-      <ul class="m2-invSea-tim" id="search_leftday">
-        <li class="m2-invSea-tit"><span>时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;限</span></li>
-        <li data="0" class="m2-invSea-sel m2-invSea-all"><span onclick="searchBorrow('leftday',0)">全部</span></li>
-        <li data="0|60" class="m2-invSea-unsel"><span onclick="searchBorrow('leftday','0|60')">60天及以下</span></li>
-        <li data="61|180" class="m2-invSea-unsel"><span onclick="searchBorrow('leftday','61|180')">61天-180天</span></li>
-        <li data="181|360" class="m2-invSea-unsel"><span onclick="searchBorrow('leftday','181|360')">181天-360天</span></li>
-        <li data="361|3600" class="m2-invSea-unsel"><span onclick="searchBorrow('leftday','361|3600')">其他</span></li>
       </ul>
 		<ul class="m2-invSea-sum" id="search_borrow_money">
 			<li class="m2-invSea-tit"><span>金&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;额</span></li>
@@ -199,29 +192,19 @@
 			<li data="1000001|2000000" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_money','1000001|2000000')">100万-200万</span></li>
 
 		</ul>
-		<ul class="m2-invSea-pro" id="search_progress">
-      <li class="m2-invSea-tit"><span>进&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度</span></li>
-      <li data="0" class="m2-invSea-sel m2-invSea-all"><span onclick="searchBorrow('progress',0)">全部</span></li>
-      <li data="0|30" class="m2-invSea-unsel"><span onclick="searchBorrow('progress','0|30')">30%以下</span></li>
-      <li data="31.01|60" class="m2-invSea-unsel"><span onclick="searchBorrow('progress','30.01|60')">30%-60%</span></li>
-      <li  data="61.01|100" class="m2-invSea-unsel"><span onclick="searchBorrow('progress','60.01|100')">60%-100%</span></li>
-
-    </ul>
       <ul class="m2-invSea-sta" id="search_borrow_status">
         <li class="m2-invSea-tit"><span>项目状态</span></li>
-        <li data="0" class="m2-invSea-sel m2-invSea-all"><span onclick="searchBorrow('borrow_status','0')">全部</span></li>
-        <li data="2" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_status','2')">正在募集</span></li>
-        <li data="6" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_status','6')">还款中</span></li>
-        <li data="7" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_status','7')">已结清</span></li>
+        <li data="3" class="m2-invSea-sel m2-invSea-all"><span onclick="searchBorrow('borrow_status','3')">全部</span></li>
+        <li data="0" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_status','0')">正在募集</span></li>
+        <li data="1" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_status','1')">还款中</span></li>
+        <li data="2" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_status','2')">已结清</span></li>
       </ul>
       <div class="m2-invSeadisply">
         <span style="margin-left:10px;">筛选条件</span>
         <b class="m2-invDis-ben" onclick="searchBorrow('borrow_interest_rate',0)">全部<i></i></b>
-        <b class="m2-invDis-tim" onclick="searchBorrow('leftday',0)">全部<i></i></b>
         <b class="m2-invDis-sum" onclick="searchBorrow('borrow_money',0)">全部<i></i></b>
-        <b class="m2-invDis-pro" onclick="searchBorrow('progress',0)">全部<i></i></b>
         <b class="m2-invDis-sta" onclick="searchBorrow('borrow_status',0)">全部<i></i></b>
-        <u onclick="searchBorrow('borrow_interest_rate',0)&searchBorrow('leftday',0)&searchBorrow('borrow_money',0)&searchBorrow('progress',0)&searchBorrow('borrow_status',0)"><i></i>重置</u>
+        <u onclick="searchBorrow('borrow_interest_rate',0)&searchBorrow('borrow_money',0)&searchBorrow('borrow_status',3)"><i></i>重置</u>
       </div>
     </div>
   </div>
@@ -272,12 +255,15 @@
                 <div class="m2-invItemprogress">
 		<span class="m2-invItemprogress-tit">
           <c:choose>
-            <c:when test="${project.money==project.jindu}">
+            <c:when test="${project.state==0}">
+              正在募集
+            </c:when>
+            <c:when test="${project.state==1}">
               还款中
             </c:when>
-            <c:otherwise>
-              正在募集
-            </c:otherwise>
+            <c:when test="${project.state==2}">
+              已结清
+            </c:when>
           </c:choose>
         </span>
                   <b>
@@ -288,19 +274,50 @@
                 </div>
               </div>
             </div>
-            <div class="m2-invItem-rig">
-              <div class="m2-invItemrig-main">
-                <p class="m2-invItemrig-gua">
-                  <span class="m2-invItemrig-guaTit" style="color:#333;">担保措施:</span>
-                  <span class="m2-invItemrig-guaDet" style="color:#ff9900;">${project.guarantee}</span>
-                </p>
-                <div class="m2-invItemrig-link">
-                  <a href="chanpin?id=${project.id}" class="m2-invItemlink-inv" target="_blank" title="点击立即投资 ${project.carinfo}">立即投资</a>
+            <c:choose>
+              <c:when test="${project.state==1}">
+                <div class="m2-invItem-rig">
+                  <div class="m2-invItemrig-main">
+                    <p class="m2-invItemrig-gua">
+                      <span class="m2-invItemrig-guaTit" style="color:#333;">担保措施:</span>
+                      <span class="m2-invItemrig-guaDet" style="color:#ff9900;">车辆质押</span>						</p>
+                    <div class="m2-invItemrig-link">
+                      <a class="m2-invItemlink-back" target="_blank" title="还款中禁止查看">还款中</a>
+                    </div>
+                  </div>
+                  <div class="m2-invItem-rigBg"></div>
                 </div>
-              </div>
-              <p class="m2-invItem-det" style="text-indent:20px;">投资万元预期收益：<span>${project.rate*10000}元</span></p>
-              <p class="m2-invItem-det">投资起点金额：<span style="color:#ff6666;">100元</span></p>
-            </div>
+              </c:when>
+              <c:when test="${project.state==2}">
+                <div class="m2-invItem-rig">
+                  <div class="m2-invItemrig-main">
+                    <p class="m2-invItemrig-gua">
+                      <span class="m2-invItemrig-guaTit" style="color:#333;">担保措施:</span>
+                      <span class="m2-invItemrig-guaDet" style="color:#ff9900;">车辆质押</span>						</p>
+                    <div class="m2-invItemrig-link">
+                      <a class="m2-invItemlink-back" target="_blank" title="已结清禁止查看">已结清</a>
+                    </div>
+                  </div>
+                  <div class="m2-invItem-rigBg"></div>
+                </div>
+              </c:when>
+              <c:when test="${project.state==0}">
+                <div class="m2-invItem-rig">
+                  <div class="m2-invItemrig-main">
+                    <p class="m2-invItemrig-gua">
+                      <span class="m2-invItemrig-guaTit" style="color:#333;">担保措施:</span>
+                      <span class="m2-invItemrig-guaDet" style="color:#ff9900;">${project.guarantee}</span>
+                    </p>
+                    <div class="m2-invItemrig-link">
+                      <a href="chanpin?id=${project.id}" class="m2-invItemlink-inv" target="_blank" title="点击立即投资 ${project.carinfo}">立即投资</a>
+                    </div>
+                  </div>
+                  <p class="m2-invItem-det" style="text-indent:20px;">投资万元预期收益：<span>${project.rate*10000}元</span></p>
+                  <p class="m2-invItem-det">投资起点金额：<span style="color:#ff6666;">100元</span></p>
+                </div>
+              </c:when>
+            </c:choose>
+
           </li>
 
         </c:forEach>
@@ -414,47 +431,7 @@
       });
     });
   </script>
-  <script type="text/javascript">
-    //倒计时
-    var start_time;
-    var intDiff = parseInt(start_time);
 
-    function timeDown(intDiff){
-      window.setInterval(function() {
-        if (intDiff > 0) {
-          $("#time").css('display', 'block');
-          day = Math.floor(intDiff / (60 * 60 * 24));
-          hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
-          minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
-          second = Math.floor(intDiff) - (day * 24 * 60 * 60)
-                  - (hour * 60 * 60) - (minute * 60);
-        }
-        else {
-          $("#time").css('display', 'none');
-          return false;
-        }
-        if (minute <= 9)
-          minute = '0' + minute;
-        if (second <= 9)
-          second = '0' + second;
-        $('.m2-invDay').html('<i>'+day+'</i>天&nbsp;');
-        $('.m2-invHou').html('<i>'+hour+'</i>时&nbsp;');
-        $('.m2-invMin').html('<i>'+minute+'</i>分&nbsp;');
-        $('.m2-invSec').html('<i>'+second+'</i>秒&nbsp;');
-        intDiff--;
-        if (intDiff > 86400) {
-          $('.m2-invSec').css('display', 'none');
-        }
-        if (intDiff < 86400) {
-          $('.m2-invDay').css('display', 'none');
-        }
-        if (intDiff == 0) {
-          window.location.reload();
-        }
-      }, 1000);
-    }
-    timeDown(intDiff);
-  </script>
   <script type="text/javascript">
     function searchBorrow(stype,value){
       $("#search_"+stype+" li[data='"+value+"']").addClass("aprhover").siblings('li').removeClass('aprhover');
@@ -464,7 +441,7 @@
 
     function getBorrowList(p){
       p['isAjax']=2;
-      getData("Project-index",function(d){
+      getData("project-select",function(d){
         if(d.status==1){
           $(".m2-invResult-con").html(d.message);
         }
@@ -473,11 +450,9 @@
 
     function getCurrentFilter(){
       var p={ };
-      p['progress'] = $("#search_progress li.aprhover").attr('data');
       p['borrow_interest_rate'] = $("#search_borrow_interest_rate li.aprhover").attr('data');
       p['borrow_money'] = $("#search_borrow_money li.aprhover").attr('data');
       p['borrow_status'] = $("#search_borrow_status li.aprhover").attr('data');
-      p['leftday'] = $("#search_leftday li.aprhover").attr('data');
       return p;
     }
   </script>

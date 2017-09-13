@@ -5,7 +5,26 @@
         SELECT p.*,b.carimg
         FROM tb_project p
         LEFT JOIN tb_borrow b ON p.bid=b.id
+        WHERE guarantee is not NULL
         ORDER BY createdate DESC
-        limit #{page.offset},5
+        limit #{page.offset},#{page.rows}
+    </select>
+
+    <select id="projectVague" resultType="org.p2p.pojo.vo.TouZiProject">
+        SELECT p.*,b.carimg
+        FROM tb_project p
+        LEFT JOIN tb_borrow b ON p.bid=b.id
+        WHERE
+        <if test="project.maxMoney > 0">
+          money BETWEEN #{project.minMoney} AND #{project.maxMoney} AND
+        </if>
+        <if test="project.maxRate > 0">
+          p.money BETWEEN #{project.minRate} AND #{project.maxRate} AND
+        </if>
+        <if test="project.state > 0">
+          state = #{project.state} AND
+        </if>
+        guarantee is not NULL
+        limit #{page.offset},#{page.rows}
     </select>
 </mapper>
