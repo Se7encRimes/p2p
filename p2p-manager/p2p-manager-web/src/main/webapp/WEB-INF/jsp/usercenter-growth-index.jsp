@@ -469,28 +469,28 @@
           </tr>
         </table>
         <div class="detail" style="margin-left: 0">
-          <div class="detail-l"><img src="statics/usercenter/images/growth/award.png" alt="div"/></div>
+          <div class="detail-l"><img src="images/growth/award.png" alt="div"/></div>
           <div class="detail-r">
             <span class="detail-r-title">推荐好友奖励</span>
             <span class="detail-r-content">邀请好友注册爱钱帮并投资将获得相应奖励，奖励形式不定期更新</span>
           </div>
         </div>
         <div class="detail">
-          <div class="detail-l"><img src="statics/usercenter/images/growth/birth.png" alt="div"/></div>
+          <div class="detail-l"><img src="images/growth/birth.png" alt="div"/></div>
           <div class="detail-r">
             <span class="detail-r-title">生日特权</span>
             <span class="detail-r-content">帮主在生日当天产生的投资将获得双倍钱帮币奖励</span>
           </div>
         </div>
         <div class="detail" style="margin-left: 0">
-          <div class="detail-l"><img src="statics/usercenter/images/growth/finance.png" alt="div"/></div>
+          <div class="detail-l"><img src="images/growth/finance.png" alt="div"/></div>
           <div class="detail-r">
             <span class="detail-r-title">理财沙龙</span>
             <span class="detail-r-content">有机会参加由爱钱帮组织发起的线下理财沙龙、讲座、见面会等精彩活动</span>
           </div>
         </div>
         <div class="detail">
-          <div class="detail-l"><img src="statics/usercenter/images/growth/person.png" alt="div"/></div>
+          <div class="detail-l"><img src="images/growth/person.png" alt="div"/></div>
           <div class="detail-r">
             <span class="detail-r-title">专属客服</span>
             <span class="detail-r-content">获得一对一的专属客服服务</span>

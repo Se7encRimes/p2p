@@ -1,10 +1,10 @@
 package org.p2p.web;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.p2p.pojo.po.TbUser;
 import org.p2p.service.TbUserService;
-import org.p2p.utlis.MD5;
-import org.p2p.utlis.ulogin;
-import org.p2p.utlis.uregister;
+import org.p2p.utlis.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -14,15 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 
-/**
- * @Author:HuangJianFang
- * @Description:
- * @Date:Created in 16:15 2017/9/7
- * @Modified By:
- */
 
 @Controller
 @Scope("prototype")
@@ -30,6 +26,40 @@ public class UserController {
     @Autowired
     private TbUserService userService;
 
+    //月收益
+    @RequestMapping(value = "getIncomeList",produces = "text/html;charset=UTF-8")
+    @ResponseBody
+    public String getIncomeList(String userId) throws JsonProcessingException {
+        List<UserEnerning> list = userService.selectUserMonthEnerning(Integer.parseInt(userId));
+        List<String> list1 = new ArrayList<>();
+        List<String> list2 = new ArrayList<>();
+        System.out.println("=====>"+list.get(0).getMonth());
+        System.out.println("=====>"+list.get(0).getSum());
+        for(int i=0;i<list.size();i++){
+            list1.add(list.get(i).getMonth());
+            list2.add(list.get(i).getSum());
+        }
+        MonthEarning monthEarning = new MonthEarning();
+        monthEarning.setMonlist(list1);
+        monthEarning.setMonincomelist(list2);
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(monthEarning);
+        System.out.println(json);
+        return json;
+    }
+
+    //签到
+    @RequestMapping(value="sign_in_growth",produces = "text/html;charset=UTF-8")
+    @ResponseBody
+    public String getSign_Growth(String userId,int active_id) throws JsonProcessingException {
+        System.err.println(active_id+"<=====");
+        System.err.println("=====>"+userId);
+        Sign_Growth sign_growth = userService.getSign_Growth(Integer.parseInt(userId));
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(sign_growth);
+        System.err.println(json);
+        return json;
+    }
     //获取本金
     @RequestMapping("getMoney")
     @ResponseBody
