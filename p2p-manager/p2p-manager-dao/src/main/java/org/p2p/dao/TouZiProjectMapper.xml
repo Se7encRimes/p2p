@@ -6,7 +6,7 @@
         FROM tb_project p
         LEFT JOIN tb_borrow b ON p.bid=b.id
         WHERE guarantee is not NULL
-        ORDER BY createdate DESC
+        ORDER BY p.state,createdate DESC
         limit #{page.offset},#{page.rows}
     </select>
 
@@ -16,15 +16,39 @@
         LEFT JOIN tb_borrow b ON p.bid=b.id
         WHERE
         <if test="project.maxMoney > 0">
-          money BETWEEN #{project.minMoney} AND #{project.maxMoney} AND
+          p.money BETWEEN #{project.minMoney} AND #{project.maxMoney} AND
         </if>
         <if test="project.maxRate > 0">
-          p.money BETWEEN #{project.minRate} AND #{project.maxRate} AND
+          p.rate BETWEEN #{project.minRate} AND #{project.maxRate} AND
         </if>
         <if test="project.state > 0">
-          state = #{project.state} AND
+            <if test="3 > project.state">
+                p.state = #{project.state} AND
+            </if>
         </if>
         guarantee is not NULL
+        ORDER BY p.state
         limit #{page.offset},#{page.rows}
+    </select>
+
+    <select id="getPageSize" resultType="int">
+        SELECT 
+        COUNT(1)
+        FROM tb_project p
+        LEFT JOIN tb_borrow b ON p.bid=b.id
+        WHERE
+        <if test="project.maxMoney > 0">
+            p.money BETWEEN #{project.minMoney} AND #{project.maxMoney} AND
+        </if>
+        <if test="project.maxRate > 0">
+            p.rate BETWEEN #{project.minRate} AND #{project.maxRate} AND
+        </if>
+        <if test="project.state > 0">
+            <if test="3 > project.state">
+                p.state = #{project.state} AND
+            </if>
+        </if>
+        guarantee is not NULL
+        ORDER BY p.state
     </select>
 </mapper>

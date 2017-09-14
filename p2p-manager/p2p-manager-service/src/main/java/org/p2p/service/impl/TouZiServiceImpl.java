@@ -9,6 +9,7 @@ import org.p2p.utlis.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -34,8 +35,73 @@ public class TouZiServiceImpl implements TouZiService {
     @Override
     public List<TouZiProject> touziList(Page page) {
         //查询项目数
-        page.setRows(5);
         List<TouZiProject>  projects = mapper.touziList(page);
+        return getTouziProject(projects);
+    }
+
+    /**
+     * 条件查询投资项目列表
+     * @param projectVague
+     * @param page
+     * @return List<TouZiProject>
+     */
+    @Override
+    public List<TouZiProject> projectVague(ProjectVague projectVague,Page page) {
+        List<TouZiProject>  projects = mapper.projectVague(projectVague,page);
+        return getTouziProject(projects);
+    }
+
+    /**
+     * 获取分页页数
+     * @param projectVague
+     * @return int
+     */
+    @Override
+    public int getPageSize(ProjectVague projectVague) {
+        return mapper.getPageSize(projectVague);
+    }
+
+    /**
+     * 请求数据内容转换
+     * @param borrow_interest_rate
+     * @param borrow_money
+     * @param borrow_status
+     * @return ProjectVague
+     */
+    @Override
+    public ProjectVague getProjectVague(String borrow_interest_rate, String borrow_money, String borrow_status) {
+        String[] money = new String[2];
+        String[] rate = new String[2];
+        ProjectVague projectVague = new ProjectVague();
+        if("0".equals(borrow_interest_rate)){
+            projectVague.setMaxRate(-1);
+        }else if(borrow_interest_rate!=null&&borrow_interest_rate.length()>0){
+            rate = borrow_interest_rate.split("\\|");
+            double minRate = Double.parseDouble(rate[0]);
+            double maxRate = Double.parseDouble(rate[1]);
+            projectVague.setMinRate(minRate);
+            projectVague.setMaxRate(maxRate);
+            System.err.println("rate:"+ Arrays.toString(rate));
+        }
+        if("0".equals(borrow_money)){
+            projectVague.setMaxMoney(-1);
+        }else if(borrow_money!=null&&borrow_money.length()>0){
+            money = borrow_money.split("\\|");
+            System.err.println("money:"+Arrays.toString(money));
+            double minMoney = Double.parseDouble(money[0]);
+            double maxMoney = Double.parseDouble(money[1]);
+            projectVague.setMinMoney(minMoney);
+            projectVague.setMaxMoney(maxMoney);
+        }
+        int state = -1;
+        if(borrow_status!=null&&borrow_status.length()>0){
+            state = Integer.parseInt(borrow_status);
+        }
+        projectVague.setState(state);
+        return projectVague;
+    }
+
+    public List<TouZiProject> getTouziProject(List<TouZiProject> projects){
         for (TouZiProject project:projects){
             //获取当前时间
             long nowtime = System.currentTimeMillis();
@@ -68,11 +134,5 @@ public class TouZiServiceImpl implements TouZiService {
             project.setResiduemoney(residuemoeny);
         }
         return projects;
-    }
-
-    @Override
-    public List<TouZiProject> projectVague(ProjectVague projectVague,Page page) {
-        page.setRows(5);
-        return mapper.projectVague(projectVague,page);
     }
 }

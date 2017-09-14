@@ -15,4 +15,6 @@ public interface TouZiProjectMapper {
     List<TouZiProject> touziList(@Param("page") Page page);
 
     List<TouZiProject> projectVague(@Param("project")ProjectVague project,@Param("page")Page page);
+
+    int getPageSize(@Param("project")ProjectVague projectVague);
 }
