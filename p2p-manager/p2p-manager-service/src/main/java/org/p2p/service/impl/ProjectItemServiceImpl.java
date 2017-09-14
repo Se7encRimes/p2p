@@ -47,16 +47,12 @@ public class ProjectItemServiceImpl implements ProjectItemService {
         System.err.println("applydate:"+applydate);
         String gettime = projectItem.getGettime();
         int indexOf = gettime.indexOf("个");
-        System.err.println("indexOf:"+indexOf);
         String strmonth = gettime.substring(0, indexOf);
-        System.err.println("strmonth:"+strmonth);
         int month = Integer.parseInt(strmonth);
-        System.err.println("month:"+month);
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(applydate);
         calendar.add(Calendar.MONTH,month);
         Date calendarTime = calendar.getTime();
-        System.err.println("calendarTime:"+calendarTime);
         projectItem.setLastTime(new SimpleDateFormat("yyyy-MM-dd").format(calendarTime));
         return projectItem;
     }

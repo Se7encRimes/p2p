@@ -102,7 +102,6 @@ public class TouZiServiceImpl implements TouZiService {
             projectVague.setMaxMoney(-1);
         }else if(borrow_money!=null&&borrow_money.length()>0){
             money = borrow_money.split("\\|");
-            System.err.println("money:"+Arrays.toString(money));
             double minMoney = Double.parseDouble(money[0]);
             double maxMoney = Double.parseDouble(money[1]);
             projectVague.setMinMoney(minMoney);
@@ -131,7 +130,6 @@ public class TouZiServiceImpl implements TouZiService {
             long endtiem = enddate.getTime();
             //转换成天数
             long i = endtiem - nowtime;
-            System.err.println("天数"+i/1000/60/60/24);
             long j = i/1000/60/60/24;
             //设置融资剩余时间
             project.setResidueTime(j);
