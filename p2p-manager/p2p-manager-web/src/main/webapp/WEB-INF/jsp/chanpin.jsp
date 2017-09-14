@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -389,35 +391,38 @@
   <h2 class="m2-tranHide-head">投资收益计算器</h2>
   <div class="m2-tranHide-box">
     <div class="m2-tranHidetit">
-      <span>所选项目：</span>
-      【新手标】爱车贷-雪佛兰迈锐宝-XAA067            </div>
+      <span>所选项目： 【新手标】爱车贷-雪佛兰迈锐宝-XAA067 </span>
+                </div>
     <div class="m2-tranHiderem">
-      <span>徽商账户余额：</span>
-      <span style="color:#ea731e;">0元</span>
-      <b class='invest_all'>全用</b>
+      <span>徽商账户余额： <span style="color:#ea731e;">${balance}<b class='invest_all'>全用</b></span></span>
     </div>
     <div class="m2-tranHidenum">
-      <span>投资金额：</span>
-      <input placeholder="请输入金额" type="text" id='invest_money1'>
-      <span class="m2-tranHidenum-btn">确认返回</span>
+
+      <span>投资金额：<input placeholder="请输入金额" type="text" id='invest_money1'></span>
       <b>投资金额应为100的整数倍</b>
     </div>
+    <div class="m2-tranHidenum"><span class="m2-tranHidenum-btn">确认返回</span></div>
+
   </div>
   <div class="m2-tranHide-info">
-    <div class="m2-tranInfo-sum">投资到期可获得总收益：<span id='interesttotal' data-totalinterest='0.64109589041096'>0元</span></div>
-    <div class="m2-tranInfo-num">起投金额：<span>100元</span>投资金额：<span id='invest_money2'>0元</span></div>
+    <div class="m2-tranInfo-sum">投资到期可获得总收益：<span id='interesttotal' data-totalinterest='0.01'>0元</span></div>
+    <div class="m2-tranInfo-num">起投金额：<span>100元</span>
+
+
+    </div>
   </div>
-  <div class="m2-tranHidelist">
+<%--  <div class="m2-tranHidelist">
     <ul>
       <li>
         <div class="m2-tranHide-det m2-tranHide-day">计息天数:<span>26天</span></div>
         <div class="m2-tranHide-det m2-tranHide-tim">支付时间:<span>2016-10-01</span></div>
         <div class="m2-tranHide-det m2-tranHide-num" data-interest="0.64109589041096" data-days="26">支付利息:<span>0元</span></div>
       </li>            </ul>
-  </div>
+  </div>--%>
   <div class="m2-tranHidetoggle m2-tranMore">
     <span>显示更多&raquo;</span>
   </div>
+  <p class="m2-transHide-bottom">投资金额：<span style="color:#ea731e;" id='invest_money2'>0元</span></p>
   <p class="m2-transHide-bottom">偿还本金: <span style="color:#ea731e;" id="invest_money3">0元</span></p>
 </div>
 <script type="text/javascript">
@@ -466,8 +471,8 @@
   <div class="m2-investBreadbox">
     <i class="m2-investBreadicon"></i>
     <span class="m2-invBre-fat"><a href="index.html">首页&nbsp;&gt;</a></span>
-    <span class="m2-invBre-fat"><a href="touzi_licai_chanpin.html">我要投资&nbsp;&gt;</a></span>
-    <a class="m2-invBre-cur" >项目详情</a>
+    <%--<span class="m2-invBre-fat"><a href="touzi_licai_chanpin.html">我要投资&nbsp;&gt;</a></span>--%>
+   <%-- <a class="m2-invBre-cur" >项目详情</a>--%>
   </div>
 </div>
 
@@ -475,7 +480,7 @@
   <div class="m2-detialsItembox">
     <h2>
       <span class="m2-detialsItembox-lef">【新手标】爱车贷-雪佛兰迈锐宝-XAA067</span>
-      <span class="m2-detialsItembox-rig">项目编号：XACD201609067</span>
+      <span class="m2-detialsItembox-rig">项目编号：${Xid}</span>
     </h2>
   </div>
   <div class="m2-detialsItem">
@@ -571,13 +576,13 @@
       <div class="m2-detRig-unlogin m2-detRig-select">
         <div class="m2-detRiglogin">
           <p class="mo2-proNewdet">可投金额：<span id='left_money'>12,700.00                                元 </span></p>
-          <p>徽商账户余额：0元<a style="color: #09c;float: right;margin-right: 30px;" href='#?chargereturnurl=/invest-borrownew-id-moxOeTwTZaOw8TY79g.shtml' target="_blank">充值</a>
+          <p>徽商账户余额：${balance}元<a style="color: #09c;float: right;margin-right: 30px;" href='#?chargereturnurl=/invest-borrownew-id-moxOeTwTZaOw8TY79g.shtml' target="_blank">充值</a>
           </p>
         </div>
         <div class="m2-detRigipt">
-          <input placeholder="100元起投" type="text" id="invest_money"> <span  class='invest_all'>全投</span>
+          <input placeholder="100元起投" type="text" id="invest_money"> <span  class='invest_all'><%--全投--%></span>
         </div>
-        <div class="m2-detRigjust">
+       <%-- <div class="m2-detRigjust">
           <b class="m2-detRigjust-btn"></b>
           <!--<b class="m2-detRigjust-lef" style="color: #f5944f;cursor: pointer;">使用奖励</b>-->
 
@@ -586,8 +591,8 @@
 
           <b class="m2-detRigjust-btn"></b><em id='reward_info'></em>
           <span class="m2-detJust-tit reward-select" id='reward_tip'><i></i>未使用任何奖励</span>
-        </div>
-        <p class="m2-detRigjust-ben">本次收益：<span id="interest_money">0元</span><span>+</span><span id="reward_money">0元</span></p>
+        </div>--%>
+        <p class="m2-detRigjust-ben">本次收益：<span id="interest_money">0元</span></p>
       </div>
 
       <div class="m2-detRigjust-linkBtn">
@@ -734,8 +739,8 @@
       <ul>
         <li>
           <img src="uploadData/UserBorrowData/182015-201609021324588831.jpg" alt="左前" data-fullpic="uploadData/UserBorrowData/182015-201609021324588831.jpg">
-          <p>左前</p>
-        </li><li>
+          <p>照片</p>
+        </li><%--<li>
         <img src="uploadData/UserBorrowData/182015-201609021325192931.jpg" alt="右后" data-fullpic="uploadData/UserBorrowData/182015-201609021325192931.jpg">
         <p>右后</p>
       </li><li>
@@ -750,7 +755,7 @@
       </li><li>
         <img src="uploadData/UserBorrowData/182015-20160902132509102.jpg" alt="后排" data-fullpic="uploadData/UserBorrowData/182015-20160902132509102.jpg">
         <p>后排</p>
-      </li>            </ul>
+      </li> --%>           </ul>
     </div>
     <div class="m2-detSec-toggle">
       <span class="m2-detSec-down">展开<i></i></span>
@@ -784,6 +789,7 @@
       <span class="m2-detSec-down">展开<i></i></span>
     </div>
   </div>
+
   <!-- 车辆手续start -->
   <div class="m2-detCarfile m2-detSection"   >
     <h3>车辆手续<i></i></h3>
@@ -822,7 +828,12 @@
         <span class="m2-detReccon-tim">投资时间</span>
       </li>
       <li class="m2-detRecitem">
-        <span style='width: 90%;'>暂无数据</span>
+        <c:forEach var="recode" items="${recode}">
+        <span class="m2-detReccon-user">${recode.username}</span>
+        <span class="m2-detReccon-tel">${recode.phone}</span>
+        <span class="m2-detReccon-sum">${recode.money}</span>
+        <span class="m2-detReccon-tim"><f:formatDate value="${recode.createdate}"  pattern="yyyy-MM-hh:mm:ss"></f:formatDate></span>
+        </c:forEach>
       </li>
     </ul>
   </div>
@@ -1275,10 +1286,10 @@
     $('#invest_money1').val(invest_money);
     $('#invest_money2').html(invest_money + '元');
     $('#invest_money3').html(invest_money + '元');
-    var otitm = Math.round(days * interest_rate * invest_money / 365) / 100;
+    var otitm = Math.round(invest_money*0.01) ;
     $('#interest_money').text(otitm + '元');
     interestSync();
-    $('#qb_coin').text(Math.round(invest_money * days / 30000) + '个');
+    $('#qb_coin').text(Math.round(invest_money * 0.01) + '个');
     var hongbao = 0;
     var jiaxiquan = 0;
     var next=0;
@@ -1328,14 +1339,14 @@
       $('#reward_tip').html(t);
     }
     if (reward_id > 0 && reward_type == 2) {
-      var extram = Math.round(days * reward_interest_rate * invest_money / 365) / 100;
+      var extram = Math.round(days * reward_interest_rate * invest_money )*0.01 ;
       $('#reward_money').text(extram + '元');
     }
   }
   //同步利息明细
   function interestSync() {
     //var titm = Math.round(Number($('#interesttotal').data('totalinterest')) * invest_money) / 100;
-    var titm = Math.floor(days * (interest_rate + reward_interest_rate) * invest_money / 365) / 100;
+    var titm = Math.floor( invest_money*0.01) ;
     $('#interesttotal').text(titm + '元');
     $('.m2-tranHide-num').each(function () {
       //var itm = Math.round(Number($(this).data('interest')) * invest_money) / 100;
@@ -1482,14 +1493,15 @@
   //立即投资
 
   $('#invest_now').click(function () {
-
     $.ajax({
       async:true,//使用同步的Ajax请求
       type: "POST",
-      url: "jinxingtouzi?invest_money="+document.getElementById("invest_money").value,
+      url: "creatOrder?invest_money="+document.getElementById("invest_money").value+'&xid=15',
       //data: ,
       success: function(d){
+        if(window.confirm("亲爱的用户:点击确定将进入支付页面")){
         window.location.href=d;
+        }
       }
     });
     /*if(!uid){

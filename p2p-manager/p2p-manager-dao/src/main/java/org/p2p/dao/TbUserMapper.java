@@ -1,9 +1,10 @@
 package org.p2p.dao;
 
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.p2p.pojo.po.TbUser;
 import org.p2p.pojo.po.TbUserExample;
+
+import java.util.List;
 
 public interface TbUserMapper {
     int countByExample(TbUserExample example);
@@ -27,4 +28,6 @@ public interface TbUserMapper {
     int updateByPrimaryKeySelective(TbUser record);
 
     int updateByPrimaryKey(TbUser record);
+
+
 }

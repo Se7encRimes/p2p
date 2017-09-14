@@ -709,7 +709,7 @@
                             </span>
           </div>
         </div>                <div class="mo2-indCarbot">
-          <a href="chanpin.html#-md0YeDEUbvew8TU68g.html" target="_blank">立即投资</a>                </div>
+          <a href="chanpinaction" target="_blank">立即投资</a>                </div>
       </li><li class="mo2-indCarlist mo2-indCarlist-ed">
         <div class="mo2-indCartop">
           <div class="mo2-indCartop-img">
@@ -1193,28 +1193,28 @@
         <div class="m2-indexVodbtn-next"></div>
         <div class="m2-indVodmain">
           <ul class="m2-indVodlist">
-            <li data-vedio='uploadData/vedio/12.mp4'>
-              <div class="m2-indVodlist-bg"></div>
-              <div class="m2-indVodlist-bot">舌尖上的金融</div>
-              <img src="images/vedio/vedio12.jpg" alt="舌尖上的金融">
-              <i></i>
-            </li>
             <li data-vedio='uploadData/vedio/10.mp4'>
               <div class="m2-indVodlist-bg"></div>
-              <div class="m2-indVodlist-bot">金融革命的萌芽</div>
-              <img src="images/vedio/vedio10.jpg" alt="金融革命的萌芽">
-              <i></i>
-            </li>
-            <li data-vedio='uploadData/vedio/11.mp4'>
-              <div class="m2-indVodlist-bg"></div>
-              <div class="m2-indVodlist-bot">几招搞定P2P网贷投资</div>
-              <img src="images/vedio/vedio11.jpg" alt="几招搞定P2P网贷投资">
+              <div class="m2-indVodlist-bot">爱钱帮宣传片</div>
+              <img src="images/vedio/vedio12.jpg" alt="爱钱帮宣传片">
               <i></i>
             </li>
             <li data-vedio='uploadData/vedio/9.mp4'>
               <div class="m2-indVodlist-bg"></div>
-              <div class="m2-indVodlist-bot">P2P网贷 经济转型下的投资新契机</div>
-              <img src="images/vedio/vedio9.jpg" alt="P2P网贷 经济转型下的投资新契机">
+              <div class="m2-indVodlist-bot">中国网贷第一部微电影-P2P网贷平台</div>
+              <img src="images/vedio/vedio10.jpg" alt="中国网贷第一部微电影-P2P网贷平台">
+              <i></i>
+            </li>
+            <li data-vedio='uploadData/vedio/11.mp4'>
+              <div class="m2-indVodlist-bg"></div>
+              <div class="m2-indVodlist-bot">供应链网贷p2p中东金融二次见面会</div>
+              <img src="images/vedio/vedio11.jpg" alt="供应链网贷p2p中东金融二次见面会">
+              <i></i>
+            </li>
+            <li data-vedio='uploadData/vedio/12.mp4'>
+              <div class="m2-indVodlist-bg"></div>
+              <div class="m2-indVodlist-bot">网贷联播-专业的互联网金融视频-</div>
+              <img src="images/vedio/vedio9.jpg" alt="网贷联播-专业的互联网金融视频-">
               <i></i>
             </li>
             <li data-vedio='uploadData/vedio/8.mp4'>
@@ -1277,11 +1277,11 @@
         <!--<a class="m2-indCoomore" href="#">更多&raquo;</a>-->
       </h2>
       <ul>
-        <li><a  target="_blank">
+        <li><a  href=http://www.cyzone.cn/d/20150525/417.html target="_blank">
           <img src=uploadData/ad/20160512110603864.png alt=""></a>
-        </li><li><a  target="_blank">
+        </li><li><a a href=http://www.hsbank.com.cn/  target="_blank">
         <img src=uploadData/ad/20160512111038163.png alt=""></a>
-      </li><li><a  target="_blank">
+      </li><li><a  href=http://www.jx-bank.com/nccbank/zh_CN/home/index.html target="_blank">
         <img src=uploadData/ad/2016051211111329.png alt=""></a>
       </li><li><a  target="_blank">
         <img src=uploadData/ad/20160512111134837.png alt=""></a>
@@ -1289,9 +1289,9 @@
         <img src=uploadData/ad/20160512111157415.png alt=""></a>
       </li><li><a  target="_blank">
         <img src=uploadData/ad/2016051211121652.png alt=""></a>
-      </li><li><a  target="_blank">
+      </li><li><a href=https://www.alipay.com/  target="_blank">
         <img src=uploadData/ad/20160512111336923.png alt=""></a>
-      </li><li><a  target="_blank">
+      </li><li><a href=http://www.yeepay.com/  target="_blank">
         <img src=uploadData/ad/20160512111356562.png alt=""></a>
       </li><li><a  target="_blank">
         <img src=uploadData/ad/20160512111411694.png alt=""></a>
