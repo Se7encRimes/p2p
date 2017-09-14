@@ -6,6 +6,7 @@
         FROM tb_project p
         LEFT JOIN tb_borrow b ON p.bid=b.id
         WHERE guarantee is not NULL
+        AND projectstate=1
         ORDER BY p.state,createdate DESC
         limit #{page.offset},#{page.rows}
     </select>
@@ -27,6 +28,7 @@
             </if>
         </if>
         guarantee is not NULL
+        AND projectstate=1
         ORDER BY p.state
         limit #{page.offset},#{page.rows}
     </select>
@@ -49,6 +51,7 @@
             </if>
         </if>
         guarantee is not NULL
+        AND projectstate=1
         ORDER BY p.state
     </select>
 </mapper>

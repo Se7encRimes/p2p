@@ -40,7 +40,7 @@ public class TouZiController {
         Page page = new Page();
         page.setPage(pageNo);
         page.setRows(5);
-        List<TouZiProject> projects =service.projectVague(projectVague, page);
+        List<TouZiProject> projects = service.projectVague(projectVague, page);
         return projects;
     }
     //获取页数

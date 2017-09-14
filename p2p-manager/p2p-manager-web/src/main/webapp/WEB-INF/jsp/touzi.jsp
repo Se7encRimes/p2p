@@ -27,9 +27,6 @@
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/common.js?20160520"></script>
   <!--分页-->
-  <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
@@ -42,7 +39,7 @@
 
 </head>
 
-<body onload="fistLoad()">
+<body onload="fistLoad(),timingLoad()">
 
   <!--右侧悬浮条-->
   <jsp:include page="index-right.jsp"></jsp:include>
@@ -181,7 +178,7 @@
     <div class="m2-invSearchbox">
       <ul class="m2-invSea-ben" id="search_borrow_interest_rate">
         <li class="m2-invSea-tit"><span>收&nbsp;&nbsp;益&nbsp;&nbsp;率</span></li>
-        <li data="0" class="m2-invSea-sel m2-invSea-all"><span onclick="searchBorrow('borrow_interest_rate',0)">ALL</span></li>
+        <li data="0" class="m2-invSea-sel m2-invSea-all"><span onclick="searchBorrow('borrow_interest_rate',0)">全部</span></li>
         <li data="0|3" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_interest_rate','0|3')">3%及以下</span></li>
         <li data="5|5" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_interest_rate','5|5')">5%</span></li>
         <li data="10|10" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_interest_rate','10|10')">10%</span></li>
@@ -189,15 +186,15 @@
       </ul>
 		<ul class="m2-invSea-sum" id="search_borrow_money">
 			<li class="m2-invSea-tit"><span>金&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;额</span></li>
-			<li data="0" class="m2-invSea-sel m2-invSea-all"><span onclick="searchBorrow('borrow_money',0)">ALL</span></li>
+			<li data="0" class="m2-invSea-sel m2-invSea-all"><span onclick="searchBorrow('borrow_money',0)">全部</span></li>
 			<li data="0|500000" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_money','0|500000')">50万以下</span></li>
-			<li data="500001|1000000" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_money','500001|1000000')">50-100万</span></li>
-			<li data="1000001|2000000" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_money','1000001|2000000')">100-200万</span></li>
+			<li data="500001|1000000" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_money','500001|1000000')">50万-100万</span></li>
+			<li data="1000001|2000000" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_money','1000001|2000000')">100万-200万</span></li>
 
 		</ul>
       <ul class="m2-invSea-sta" id="search_borrow_status">
         <li class="m2-invSea-tit"><span>项目状态</span></li>
-        <li data="3" class="m2-invSea-sel m2-invSea-all"><span onclick="searchBorrow('borrow_status','3')"><ALL></ALL></span></li>
+        <li data="3" class="m2-invSea-sel m2-invSea-all"><span onclick="searchBorrow('borrow_status','3')">全部</span></li>
         <li data="0" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_status','0')">正在募集</span></li>
         <li data="1" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_status','1')">还款中</span></li>
         <li data="2" class="m2-invSea-unsel"><span onclick="searchBorrow('borrow_status','2')">已结清</span></li>
@@ -228,14 +225,12 @@
     <div class="m2-invResuleitem-box" id="touZiBack"></div>
 
     <input type="hidden" id="pageNo">
+    <input type="hidden" id="pageSize">
 
     <div class="m2-newListpage-con" style="padding-top:5px;">
       <div class="m2-newListpage">
-        <div class="m2-news-pages" style="padding-right:40px;margin:12px auto;">
+        <div class="m2-news-pages" style="padding-right:40px;margin:12px auto;" id="page_num">
           <!-- 分页按钮生成区域 -->
-          <ul class="pagination" id="page_num">
-
-          </ul>
         </div>
       </div>
     </div>
@@ -268,13 +263,19 @@
     //分页
     $(document).on('click','.m2-news-pages a',function(){
       var p=getCurrentFilter();
-      console.log(p);
       var pageNo = $(this).attr('href');
       if(pageNo==0){
         pageNo = $("#pageNo").val()-0+1;
+        var pageSize = $("#pageSize").val();
+        if(pageNo>pageSize){
+          pageNo=pageSize;
+        }
         $("#pageNo").val(pageNo);
       }else if(pageNo==-1){
         pageNo = $("#pageNo").val()-1;
+        if(pageNo<=0){
+          pageNo=1;
+        }
         $("#pageNo").val(pageNo);
       }else{
         $("#pageNo").val(pageNo);
@@ -347,6 +348,15 @@
   </script>
 
   <script type="text/javascript">
+    function timingLoad(){
+      setInterval(timingRefresh,20000);
+    }
+    function timingRefresh(){
+      var pageNo = $("#pageNo").val();
+      var p = getCurrentFilter();
+      console.log(p);
+      getBorrowList(p,pageNo);
+    }
     function searchBorrow(stype,value,pageNo){
       if(pageNo==undefined){
         pageNo=1;
@@ -372,20 +382,38 @@
         type: "get",
         dataType: "json",
         success: function(date) {
+          $("#pageSize").val(date)
           setPageSize(date);
         }
       });
     }
     function setPageSize(date){
-      var html1 = "<li><a href='-1'>&laquo;</a></li>";
-      html1 += "<li><a href='1'>1</a></li>";
+      var html1 = "<a href='-1' class='m2-pages-num m2-page-prev'>&laquo;</a>";
+      html1 += "<a href='1' class='m2-pages-num m2-page-sel'>1</a>";
       for(var i=2;i<date+1;i++){
-        html1 +="<li><a href='"+i+"'>"+i+"</a></li>";
+        html1 +="<a href='"+i+"' class='m2-pages-num m2-page-unsel'>"+i+"</a>";
       }
-      html1 += "<li><a href='0'>&raquo;</a></li>";
+      html1 += "<a href='0' class='m2-pages-num m2-page-unsel'>&raquo;</a>";
       document.getElementById("page_num").innerHTML = html1;
-      $("#pageNo").val(1);
     }
+
+//    $(function(){
+//      $('.m2-news-pages a').click(function(){
+//        if ($(this).hasClass('m2-invTab-unsel')) {
+//          $(this).addClass('m2-invTab-sel').removeClass('m2-invTab-unsel');
+//          $(this).siblings('.m2-invTab-sel').addClass('m2-invTab-unsel').removeClass('m2-invTab-sel');
+//          //$('.m2-invSearch-con h3').html($(this).children('span').html()); //改变下方H3的值
+//        }
+//      });
+//      $('.m2-invTabhide-list li').click(function(){
+//        var newCon = $(this).html();
+//        var oldCon = $('.m2-invTab-old span').html();
+//        $('.m2-invTab-old span').html(newCon); //改变最后一个LI
+//        $(this).html(oldCon);
+//        $('.m2-invTab-old').addClass('m2-invTab-sel').removeClass('m2-invTab-unsel');
+//        $('.m2-invTab-old').siblings('.m2-invTab-sel').addClass('m2-invTab-unsel').removeClass('m2-invTab-sel');
+//      })
+
     function getBorrowList(p,pageNo){
       if(pageNo==undefined){
         pageNo=1;

@@ -36,7 +36,14 @@ public class TouZiServiceImpl implements TouZiService {
     public List<TouZiProject> touziList(Page page) {
         //查询项目数
         List<TouZiProject>  projects = mapper.touziList(page);
-        return getTouziProject(projects);
+        List<TouZiProject> touZiProjects = null;
+        for(int i=0;;i++){
+            touZiProjects = getTouziProject(projects);
+            if(touZiProjects!=null){
+                break;
+            }
+        }
+        return touZiProjects;
     }
 
     /**
@@ -48,7 +55,15 @@ public class TouZiServiceImpl implements TouZiService {
     @Override
     public List<TouZiProject> projectVague(ProjectVague projectVague,Page page) {
         List<TouZiProject>  projects = mapper.projectVague(projectVague,page);
-        return getTouziProject(projects);
+        List<TouZiProject> touZiProjects = null;
+        for(int i=0;;i++){
+            touZiProjects = getTouziProject(projects);
+            if(touZiProjects!=null){
+                break;
+            }
+        }
+        return touZiProjects;
+
     }
 
     /**
@@ -101,6 +116,11 @@ public class TouZiServiceImpl implements TouZiService {
         return projectVague;
     }
 
+    /**
+     * 转换成符合页面所需要数据的类型和内容
+     * @param projects
+     * @return List<TouZiProject>
+     */
     public List<TouZiProject> getTouziProject(List<TouZiProject> projects){
         for (TouZiProject project:projects){
             //获取当前时间
@@ -124,12 +144,12 @@ public class TouZiServiceImpl implements TouZiService {
             }
             //设置融资剩余金额
             double residuemoeny = project.getMoney()-project.getJindu();
-            if(residuemoeny==0){
+            if(residuemoeny==0&&project.getState()==0){
                 project.setState(1);
                 tbProjectMapper.updateByPrimaryKeySelective(project);
+                return null;
             }else if(residuemoeny>0){
                 project.setState(0);
-                tbProjectMapper.updateByPrimaryKeySelective(project);
             }
             project.setResiduemoney(residuemoeny);
         }
