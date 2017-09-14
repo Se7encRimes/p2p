@@ -4,7 +4,7 @@ import org.p2p.pojo.po.TbAdmin;
 import org.p2p.utlis.ulogin;
 
 /**
- * User: zyyy
+ * User:
  * Date: 2017/9/9
  * Time: 22:03
  */
