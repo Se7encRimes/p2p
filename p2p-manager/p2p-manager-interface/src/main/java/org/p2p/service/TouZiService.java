@@ -14,4 +14,8 @@ public interface TouZiService {
     List<TouZiProject> touziList(Page page);
 
     List<TouZiProject> projectVague(ProjectVague projectVague,Page page);
+
+    int getPageSize(ProjectVague projectVague);
+
+    ProjectVague getProjectVague(String borrow_interest_rate,String borrow_money,String borrow_status);
 }

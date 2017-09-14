@@ -263,7 +263,7 @@ function postData(url, dataPost, callBack) {
     });
 }
 
-function getData(url, callBack, dataSend) {
+function getData(url, dataSend,classpath) {
     var dataSend = dataSend || {};
     jQuery.ajax({
         url: url,
@@ -274,14 +274,62 @@ function getData(url, callBack, dataSend) {
         dataType: "json",
         success: function(d, s, r) {
             if (d) {
-                callBack(d);
+                touZiBack(d,classpath);
             } else {
                 Mix.alert("获取数据出错");
             }
         }
     });
 }
-
+function touZiBack(d,classpath){
+    var project = eval(d);
+    var html1 = "<ul>";
+    for(var i in project) {
+        html1 += "<li class='m2-invResuleitem'><div class='m2-invItem-lef'><div class='m2-invItemleft-lef'>";
+        html1 += "<img src='"+classpath+"/my_files/" + project[i].carimg + "' alt='" + project[i].carinfo + "' /></div>";
+        html1 += "<div class='m2-invItemleft-rig'><h4><i class='m2-invItemIcon-inv'></i>";
+        html1 += "<a href='chanpin?id=" + project[i].id + "' target='_blank' title='" + project[i].carinfo + "'>" + project[i].carinfo + "</a></h4>";
+        html1 += "<ul class='m2-invItemleft-list'><li><span  class='m2-invItemdet-big huodongjiaxi'>" + project[i].rate * 100 + "%</span>";
+        html1 += "<span class='m2-invItemdet-nor'>预期年化收益率</span><i class='m2-invItemdet-line'></i></li>";
+        html1 += "<li><span class='m2-invItemdet-big'>" + project[i].residueTime + "天</span><span class='m2-invItemdet-nor'>期限</span>";
+        html1 += "<i class='m2-invItemdet-line'></i></li><li><span class='m2-invItemdet-big'>" + project[i].money + "元</span>";
+        html1 += "<span class='m2-invItemdet-nor'>融资金额</span></li></ul><div class='m2-invItemprogress'><span class='m2-invItemprogress-tit'>";
+        if(project[i].state==0){
+            html1 += "正在募集";
+        }
+        if(project[i].state==1){
+            html1 += "还款中";
+        }
+        if(project[i].state==2){
+            html1 += "已结清";
+        }
+        html1 += "</span><b><i style='width:" + project[i].plan + "% '></i>";
+        html1 += "<u style='left:" + project[i].plan + "%'>可投：" + project[i].residuemoney + "元</u></b><span class='m2-invItemprogress-per'>" + project[i].plan + "%</span>";
+        html1 += "</div></div></div>";
+        if(project[i].state==1){
+            html1 += "<div class='m2-invItem-rig'><div class='m2-invItemrig-main'>";
+            html1 += "<p class='m2-invItemrig-gua'><span class='m2-invItemrig-guaTit' style='color:#333;'>担保措施:</span>";
+            html1 += "<span class='m2-invItemrig-guaDet' style='color:#ff9900;'>" + project[i].guarantee + "</span></p><div class='m2-invItemrig-link'>";
+            html1 += "<a class='m2-invItemlink-back' target='_blank' title='还款中禁止查看'>还款中</a></div></div><div class='m2-invItem-rigBg'></div></div></li>";
+        }
+        if(project[i].state==2){
+            html1 += "<div class='m2-invItem-rig'><div class='m2-invItemrig-main'>";
+            html1 += "<p class='m2-invItemrig-gua'><span class='m2-invItemrig-guaTit' style='color:#333;'>担保措施:</span>";
+            html1 += "<span class='m2-invItemrig-guaDet' style='color:#ff9900;'>" + project[i].guarantee + "</span></p><div class='m2-invItemrig-link'>";
+            html1 += "<a class='m2-invItemlink-back' target='_blank' title='已结清禁止查看'>已结清</a></div></div><div class='m2-invItem-rigBg'></div></div></li>";
+        }
+        if(project[i].state==0){
+            html1 += "<div class='m2-invItem-rig'><div class='m2-invItemrig-main'>";
+            html1 += "<p class='m2-invItemrig-gua'><span class='m2-invItemrig-guaTit' style='color:#333;'>担保措施:</span>";
+            html1 += "<span class='m2-invItemrig-guaDet' style='color:#ff9900;'>" + project[i].guarantee + "</span></p><div class='m2-invItemrig-link'>";
+            html1 += "<a href='chanpin?id=" + project[i].id + "' class='m2-invItemlink-inv' target='_blank' title='点击立即投资 " + project[i].carinfo + "'>立即投资</a>";
+            html1 += "</div></div><p class='m2-invItem-det' style='text-indent:20px;'>投资万元预期收益：<span>" + project[i].rate * 10000 + "元</span></p>";
+            html1 += "<p class='m2-invItem-det'>投资起点金额：<span style='color:#ff6666;'>100元</span></p></div></li>";
+        }
+    }
+    html1+="</ul>";
+    document.getElementById("touZiBack").innerHTML=html1;
+}
 
 function ajaxGetData(url, targetid, data) {
     if (!url)
@@ -382,115 +430,115 @@ function Serialize(obj) {
     }
 }
 $(function(){
-	$("a.weixin").mouseover(function(){
-		$(this).css('background','url(/statics/home/images/sub02.png)');
-		$("#weixin_box").show();
-	});
-	$("a.weixin").mouseout(function(){
-	$(this).css('background','url(/statics/home/images/sub.png)');
-		$("#weixin_box").hide();
-	});
-	$("a.weibo").mouseover(function(){
-		$(this).css('background','url(/statics/home/images/sub02.png) 0 25px');
-	});
-	$("a.weibo").mouseout(function(){
-		$(this).css('background','url(/statics/home/images/sub.png) 0 25px');
-	});
+    $("a.weixin").mouseover(function(){
+        $(this).css('background','url(/statics/home/images/sub02.png)');
+        $("#weixin_box").show();
+    });
+    $("a.weixin").mouseout(function(){
+        $(this).css('background','url(/statics/home/images/sub.png)');
+        $("#weixin_box").hide();
+    });
+    $("a.weibo").mouseover(function(){
+        $(this).css('background','url(/statics/home/images/sub02.png) 0 25px');
+    });
+    $("a.weibo").mouseout(function(){
+        $(this).css('background','url(/statics/home/images/sub.png) 0 25px');
+    });
 });
 
 $(function() {
     $('.down,.qq').hover(
-            function() {
-                $('#qq_qun').css('display', 'block');
-                $('.down').css('background-position-x', '-2px');
-                $('.down').css('background-position-x', '-4px');
-            },
-            function() {
-                $('#qq_qun').css('display', 'none');
-                $('.down').css('background-position-x', '-68px');
-                $('.down').css('background-position-x', '-4px');
-            });
-			
-	
+        function() {
+            $('#qq_qun').css('display', 'block');
+            $('.down').css('background-position-x', '-2px');
+            $('.down').css('background-position-x', '-4px');
+        },
+        function() {
+            $('#qq_qun').css('display', 'none');
+            $('.down').css('background-position-x', '-68px');
+            $('.down').css('background-position-x', '-4px');
+        });
 
-	
-/*window.onscroll = hasScrollToTop;
-  hasScrollToTop();
-   function hasScrollToTop() {
+
+
+
+    /*window.onscroll = hasScrollToTop;
+     hasScrollToTop();
+     function hasScrollToTop() {
      var top = $(document).scrollTop();
      var back_to_top = $("#back-to-top");
      if (top >= 10) {
-       $("#filter").removeClass('filter-no-top');
-           // $("#filter").css({height: '272'});
-         $("#back-to-top").css('display', "block");
+     $("#filter").removeClass('filter-no-top');
+     // $("#filter").css({height: '272'});
+     $("#back-to-top").css('display', "block");
      } else {
-          $("#filter").addClass('filter-no-top');
-         // $("#filter").css({height: '162'});
-         $("#back-to-top").css('display',"none");
-      }
-  }
- //当点击跳转链接后，回到页面顶部位置
+     $("#filter").addClass('filter-no-top');
+     // $("#filter").css({height: '162'});
+     $("#back-to-top").css('display',"none");
+     }
+     }
+     //当点击跳转链接后，回到页面顶部位置
 
-   $("#back-to-top").click(function() {
-      $('body,html').animate({scrollTop: 0}, 1000);
+     $("#back-to-top").click(function() {
+     $('body,html').animate({scrollTop: 0}, 1000);
      return false;
- });
-*/
+     });
+     */
 
 
 //返回顶部功能菜单 开始
-	$(function() {
-				$("#back-to-top").hide();
-				//当滚动条的位置处于距顶部20像素以下时，跳转链接出现，否则消失
-				$(window).scroll(function(){
-				if ($(window).scrollTop()>40){
-				$("#back-to-top").fadeIn(100);
-				}
-				else
-				{
-				$("#back-to-top").fadeOut(100);
-				}
-				});
-		});
-			 //当点击跳转链接后，回到页面顶部位置
-
-	$("#back-to-top").click(function() {
-		$('body,html').animate({scrollTop: 0}, 1000);
-		return false;
-		  });
-	
- //IE6下的定位
-	if (!window.XMLHttpRequest) {
-	$("#back-to-top").css("top", "st" + "winh" - "166");
-	};
-  //返回顶部功能菜单 结束  
- 
- 
- 
- 
-    $('#myTab li').hover(function() {
-        $(this).children('ul').css('visibility', 'visible');
-    },
-            function() {
-                $(this).children('ul').css('visibility', 'hidden');
+    $(function() {
+        $("#back-to-top").hide();
+        //当滚动条的位置处于距顶部20像素以下时，跳转链接出现，否则消失
+        $(window).scroll(function(){
+            if ($(window).scrollTop()>40){
+                $("#back-to-top").fadeIn(100);
             }
+            else
+            {
+                $("#back-to-top").fadeOut(100);
+            }
+        });
+    });
+    //当点击跳转链接后，回到页面顶部位置
+
+    $("#back-to-top").click(function() {
+        $('body,html').animate({scrollTop: 0}, 1000);
+        return false;
+    });
+
+    //IE6下的定位
+    if (!window.XMLHttpRequest) {
+        $("#back-to-top").css("top", "st" + "winh" - "166");
+    };
+    //返回顶部功能菜单 结束
+
+
+
+
+    $('#myTab li').hover(function() {
+            $(this).children('ul').css('visibility', 'visible');
+        },
+        function() {
+            $(this).children('ul').css('visibility', 'hidden');
+        }
     );
 
-	
-	
+
+
     $('#C_comment_content').keyup(function() {
-        var curLength = $("#C_comment_content").val().length;
-        if (curLength >= 280)
-        {
-            var num = $("#C_comment_content").val().substr(0, 280);
-            $("#C_comment_content").val(num);
-            $('. plbotm .redFont').html("你输入的内容超过字数限制，多出的内容将被忽略！");
+            var curLength = $("#C_comment_content").val().length;
+            if (curLength >= 280)
+            {
+                var num = $("#C_comment_content").val().substr(0, 280);
+                $("#C_comment_content").val(num);
+                $('. plbotm .redFont').html("你输入的内容超过字数限制，多出的内容将被忽略！");
+            }
+            else
+            {
+                $(".plbotm .redFont").html('您还可以输入' + parseInt((280 - $("#C_comment_content").val().length) / 2) + '个字!');
+            }
         }
-        else
-        {
-            $(".plbotm .redFont").html('您还可以输入' + parseInt((280 - $("#C_comment_content").val().length) / 2) + '个字!');
-        }
-    }
     );
 });
 
