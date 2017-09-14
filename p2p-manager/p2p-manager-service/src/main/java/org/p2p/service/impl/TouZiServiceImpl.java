@@ -129,7 +129,6 @@ public class TouZiServiceImpl implements TouZiService {
             Date enddate = project.getEndtime();
             //得到2个时间的毫秒差
             long endtiem = enddate.getTime();
-            System.err.println("endtime-nowtime="+endtiem+":"+nowtime);
             //转换成天数
             long i = endtiem - nowtime;
             System.err.println("天数"+i/1000/60/60/24);

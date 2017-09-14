@@ -391,7 +391,7 @@
   <h2 class="m2-tranHide-head">投资收益计算器</h2>
   <div class="m2-tranHide-box">
     <div class="m2-tranHidetit">
-      <span>所选项目： 【新手标】爱车贷-雪佛兰迈锐宝-XAA067 </span>
+      <span>${projectItem.carinfo}</span>
                 </div>
     <div class="m2-tranHiderem">
       <span>徽商账户余额： <span style="color:#ea731e;">${balance}<b class='invest_all'>全用</b></span></span>
@@ -479,14 +479,14 @@
 <div class="m2-detialsCon">
   <div class="m2-detialsItembox">
     <h2>
-      <span class="m2-detialsItembox-lef">【新手标】爱车贷-雪佛兰迈锐宝-XAA067</span>
-      <span class="m2-detialsItembox-rig">项目编号：${Xid}</span>
+      <span class="m2-detialsItembox-lef">${projectItem.carinfo}</span>
+      <span class="m2-detialsItembox-rig">项目编号：XX1003${projectItem.id}</span>
     </h2>
   </div>
   <div class="m2-detialsItem">
     <div class="m2-detItemlef">
       <div class="m2-detItemlef-img">
-        <i class="m2-detItemlef-newIcon"></i>                <img  src="uploadData/UserBorrowData/182015-20160902132425642.jpg" alt="" width='256' height="200">
+          <img  src="${pageContext.request.contextPath}/${projectItem.carimg}" alt="${projectItem.carinfo}" width='256' height="200">
 
 <%--
         <scrip&lt;%&ndash;       <p class="m2-detItemlef-imgSha" style="margin-top: 0">
@@ -531,43 +531,35 @@
       <div class="m2-detItemlef-con">
         <ul>
           <li style='width: 160px;padding-left: 15px;'>
-                        <span class="m2-detItempsg-big huodongjiaxi" style="white-space: nowrap;">
-                            									                               			 8%+1%
-                              	<p style="margin-top:0;margin-left:-2px;" class="jiaxishow">
-                                  <if condition="$vo['additional_rights_detail'] neq ''">
-                                    活动加息1%																			</p>
-                          </if>
-                        </span>
+                        <span class="m2-detItempsg-big huodongjiaxi" style="white-space: nowrap;">${projectItem.rate*100}%</span>
             <span class="m2-detItempsg-nor">预期年化收益率</span>
             <i class="m2-detItemlef-line"></i>
           </li>
           <li style="width:205px;">
-                        <span class="m2-detItempsg-big">26天(1个月)
-                                </span>
+                        <span class="m2-detItempsg-big">剩余${projectItem.residueTime}天</span>
             <span class="m2-detItempsg-nor">期限</span>
           </li>
           <li style='width: 160px;padding-left: 15px;'>
-            <span class="m2-detItempsg-big">8.62万</span>
+            <span class="m2-detItempsg-big">${projectItem.money}万</span>
             <span class="m2-detItempsg-nor">产品金额</span>
           </li>
           <li>
-            <span class="m2-detItempsg-sma">还款日期：2016-10-01</span>
+            <span class="m2-detItempsg-sma">还款日期：${projectItem.lastTime}</span>
           </li>
         </ul>
         <div class="m2-detPro">
           <div class="m2-derProgress">
-                        <span>                                正在募集
-                                    ：</span>
-            <b><i style="width: 85.26%;"></i></b>
-            <span>85.26%</span>
+                        <span>正在募集：</span>
+            <b><i style="width: ${projectItem.plan}%;"></i></b>
+            <span>${projectItem.plan}%</span>
           </div>
           <div class="m2-detProdet">
-            <span class="m2-detProdet-lef">投资万元预期收益：<span>64.11元</span></span>
+            <span class="m2-detProdet-lef">投资万元预期收益：${projectItem.rate*10000}</span>
             <a href="/member-contract-project-id-11606.shtml" class="m2-detProdet-rig" target='_blank'>项目合同范本<i></i></a>
           </div>
         </div>
         <div class="m2-detItemlef-bot">
-          <a href="javascript:void(0)" class="m2-detIetmbot2" title='担保措施：车辆质押（押车押手续）' style='margin-right: 24px;'><i></i>担保措施</a>                    <a href="javascript:void(0)" class="m2-detIetmbot3" style='margin-right: 0px;' title='还款方式：按日计息，到期还本息'>
+          <a href="javascript:void(0)" class="m2-detIetmbot2" title='担保措施：${projectItem.guarantee}' style='margin-right: 24px;'><i></i>担保措施</a>                    <a href="javascript:void(0)" class="m2-detIetmbot3" style='margin-right: 0px;' title='还款方式：按日计息，到期还本息'>
           <i></i>还款方式</a>
         </div>
       </div>
@@ -575,7 +567,7 @@
     <div class="m2-detItemrig"  style="display:none;">
       <div class="m2-detRig-unlogin m2-detRig-select">
         <div class="m2-detRiglogin">
-          <p class="mo2-proNewdet">可投金额：<span id='left_money'>12,700.00                                元 </span></p>
+          <p class="mo2-proNewdet">可投金额：<span id='left_money'>${projectItem.residuemoney}                               元 </span></p>
           <p>徽商账户余额：${balance}元<a style="color: #09c;float: right;margin-right: 30px;" href='#?chargereturnurl=/invest-borrownew-id-moxOeTwTZaOw8TY79g.shtml' target="_blank">充值</a>
           </p>
         </div>
@@ -661,13 +653,7 @@
                1.平台上发布的质押车辆，车辆手续齐全，借款人信息实名认证，专业团队实地评估车辆性能与价格、借款人信用情况；
                2.采用车贷业内安全级别最高的风控手段——押车押手续，车辆入库保管，车场设有屏蔽器，互联网监控设备，车辆手续存入保险柜。根据不同城市车市值存在差价以及冷热门车，设置的质押率控制在估值的85%以内；大额度车辆要求质押并过户抵押；
                3.项目到期由担保公司进行债权回购。</p>-->
-      <p style='font-size: 14px;line-height: 26px;'>产品金额为8.62万元。借款人的信用良好。
-        质押车辆基本信息：
-        车辆型号：迈锐宝
-        车辆购买时间：2014-07-23
-        公里数：31986公里
-        二手市场评估价格：17.5万
-        车辆是否有贷款：是</p>
+      <p style='font-size: 14px;line-height: 26px;'>${projectItem.gaiyao}</p>
     </div>
     <div class="m2-detSec-toggle">
       <!--<span class="m2-detSec-down">展开<i></i></span>

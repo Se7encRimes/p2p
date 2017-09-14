@@ -287,7 +287,13 @@ function touZiBack(d,classpath){
     for(var i in project) {
         html1 += "<li class='m2-invResuleitem'><div class='m2-invItem-lef'><div class='m2-invItemleft-lef'>";
         html1 += "<img src='"+classpath+"/my_files/" + project[i].carimg + "' alt='" + project[i].carinfo + "' /></div>";
-        html1 += "<div class='m2-invItemleft-rig'><h4><i class='m2-invItemIcon-inv'></i>";
+        html1 += "<div class='m2-invItemleft-rig'>";
+        if(project[i].state==0){
+            html1 += "<h4><i class='m2-invItemIcon-inv'></i>";
+        }
+        if(project[i].state==1){
+            html1 += "<h4><i class='m2-invItemIcon-back'></i>";
+        }
         html1 += "<a href='chanpin?id=" + project[i].id + "' target='_blank' title='" + project[i].carinfo + "'>" + project[i].carinfo + "</a></h4>";
         html1 += "<ul class='m2-invItemleft-list'><li><span  class='m2-invItemdet-big huodongjiaxi'>" + project[i].rate * 100 + "%</span>";
         html1 += "<span class='m2-invItemdet-nor'>预期年化收益率</span><i class='m2-invItemdet-line'></i></li>";
