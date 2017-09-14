@@ -280,9 +280,12 @@
       }else{
         $("#pageNo").val(pageNo);
       }
-      getBorrowList(p,pageNo);
+      p['isAjax']=2;
+      var classpath = $("#classpath").val();
+      getData("project-select?pageNo="+pageNo,p,classpath);
       return false;
     })
+
     $(function(){
       $('.m2-invTablelist li').click(function(){
         if ($(this).hasClass('m2-invTab-unsel')) {
@@ -354,8 +357,8 @@
     function timingRefresh(){
       var pageNo = $("#pageNo").val();
       var p = getCurrentFilter();
-      console.log(p);
-      getBorrowList(p,pageNo);
+      var classpath = $("#classpath").val();
+      getData("project-select?pageNo="+pageNo,p,classpath);
     }
     function searchBorrow(stype,value,pageNo){
       if(pageNo==undefined){
@@ -369,6 +372,7 @@
       var p=getCurrentFilter();
       console.log(p);
       var pageNo = 1;
+      $("#pageNo").val(1);
       getBorrowList(p,pageNo);
       getPageSize();
     }
@@ -389,19 +393,42 @@
     }
     function setPageSize(date){
       var html1 = "<a href='-1' class='m2-pages-num m2-page-prev'>&laquo;</a>";
-      html1 += "<a href='1' class='m2-pages-num m2-page-sel'>1</a>";
+      html1 += "<a href='1' class='m2-pages-num m2-page-sel' id='pageNo1'>1</a>";
       for(var i=2;i<date+1;i++){
-        html1 +="<a href='"+i+"' class='m2-pages-num m2-page-unsel'>"+i+"</a>";
+        html1 +="<a href='"+i+"' class='m2-pages-num m2-page-unsel' id='pageNo"+i+"'>"+i+"</a>";
       }
-      html1 += "<a href='0' class='m2-pages-num m2-page-unsel'>&raquo;</a>";
+      html1 += "<a href='0' class='m2-pages-num m2-page-next'>&raquo;</a>";
       document.getElementById("page_num").innerHTML = html1;
     }
-
+    $(document).on('click','.m2-news-pages a',function(){
+      if ($(this).hasClass('m2-page-unsel')) {
+          $(this).addClass('m2-page-sel').removeClass('m2-page-unsel');
+          $(this).siblings('.m2-page-sel').addClass('m2-page-unsel').removeClass('m2-page-sel');
+          //$('.m2-invSearch-con h3').html($(this).children('span').html()); //改变下方H3的值
+        }
+      if($(this).hasClass('m2-page-prev')){
+        var i = $("#pageNo").val();
+        var aId = "#pageNo"+i;
+        if ($(aId).hasClass('m2-page-unsel')) {
+          $(aId).addClass('m2-page-sel').removeClass('m2-page-unsel');
+          $(aId).siblings('.m2-page-sel').addClass('m2-page-unsel').removeClass('m2-page-sel');
+        }
+      }
+      if($(this).hasClass('m2-page-next')){
+        var i = $("#pageNo").val();
+        var aId = "#pageNo"+i;
+        if ($(aId).hasClass('m2-page-unsel')) {
+          $(aId).addClass('m2-page-sel').removeClass('m2-page-unsel');
+          $(aId).siblings('.m2-page-sel').addClass('m2-page-unsel').removeClass('m2-page-sel');
+        }
+      }
+      return false;
+    })
 //    $(function(){
 //      $('.m2-news-pages a').click(function(){
-//        if ($(this).hasClass('m2-invTab-unsel')) {
-//          $(this).addClass('m2-invTab-sel').removeClass('m2-invTab-unsel');
-//          $(this).siblings('.m2-invTab-sel').addClass('m2-invTab-unsel').removeClass('m2-invTab-sel');
+//        if ($(this).hasClass('m2-page-unsel')) {
+//          $(this).addClass('m2-page-sel').removeClass('m2-page-unsel');
+//          $(this).siblings('.m2-page-sel').addClass('m2-page-unsel').removeClass('m2-page-sel');
 //          //$('.m2-invSearch-con h3').html($(this).children('span').html()); //改变下方H3的值
 //        }
 //      });
