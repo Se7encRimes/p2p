@@ -26,6 +26,16 @@ public class UserController {
     @Autowired
     private TbUserService userService;
 
+    //时间选择
+    @RequestMapping("getInvestItem")
+    @ResponseBody
+    public String usercenter(String userId) throws JsonProcessingException {
+        List<InvestItem> investItems= userService.getInvestItem(Integer.parseInt(userId));
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(investItems);
+        System.out.println(json);
+        return json;
+    }
     //月收益
     @RequestMapping(value = "getIncomeList",produces = "text/html;charset=UTF-8")
     @ResponseBody

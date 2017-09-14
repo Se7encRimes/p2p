@@ -365,25 +365,15 @@
     <div class="inviteFriendTable">
       <div class="topclick">
         <ul>
-          <li index="0" class="selected" data="showcontent1">邀请记录</li>
-          <li index="1" data="showcontent2">奖励规则</li>
-          <li index="2" data="showcontent3">活动说明</li>
+          <li index="1" data="showcontent1">奖励规则</li>
+          <li index="2" data="showcontent2">活动说明</li>
         </ul>
         <div class="clickanimate">
           <div class="sanjiao"></div>
         </div>
       </div>
+
       <div class="showcontent1 showcontent">
-        <table>
-          <tr style="background-color:#0996cc;color:white;height:40px;font-size:14px;">
-            <th>好友手机号</th>
-            <th>好友注册时间</th>
-            <th>奖励原因</th>
-            <th>奖励详情</th>
-          </tr>
-        </table>
-      </div>
-      <div class="showcontent2 showcontent">
         <h5 style="margin-top:0;">奖励规则：</h5>
         <p>1.被邀请人通过邀请人的专属链接或二维码注册爱钱帮理财平台，即为推荐人和被邀请人关系；</p>
         <p>2.每邀请一人注册并完成首笔投资，即获得100个成长值；</p>
@@ -395,7 +385,7 @@
         <p>被邀请人投资10万-50万元（不含），邀请人获得300元红包</p>
         <p>被邀请人投资50万元及以上，邀请人获得500元红包</p>
       </div>
-      <div class="showcontent3 showcontent">
+      <div class="showcontent2 showcontent">
         <h5 style="margin-top:0;">红包说明：</h5>
         <p>1.红包在满足条件后24小时内发放至账户，可进行投资（红包拆分为10元-200元不等金额，使用比例1:300）;</p>
         <p>2.发起债权转让，不计入投资总额若被邀请人对已投项目发起债权转让，该项目投资金额将不计入累计投资总额。</p>

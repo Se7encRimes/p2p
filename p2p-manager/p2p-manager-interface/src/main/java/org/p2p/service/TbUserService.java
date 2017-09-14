@@ -1,6 +1,7 @@
 package org.p2p.service;
 
 import org.p2p.pojo.po.TbUser;
+import org.p2p.utlis.InvestItem;
 import org.p2p.utlis.Sign_Growth;
 import org.p2p.utlis.UserEnerning;
 
@@ -28,4 +29,6 @@ public interface TbUserService {
     Sign_Growth getSign_Growth(int userId);
 
     List<UserEnerning> selectUserMonthEnerning(int userId);
+
+    List<InvestItem> getInvestItem(int userId);
 }

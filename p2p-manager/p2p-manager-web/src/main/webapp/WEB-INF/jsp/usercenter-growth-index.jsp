@@ -235,10 +235,10 @@
   <div class="m2-userCentermain-aside">
     <ul>
       <li class="m2-asideListitem">
-        <a class="m2-aside-item" href="usercenter.html"><i class="m2-asideIcon1"></i>我的账户</a>
+        <a class="m2-aside-item" href="usercenter"><i class="m2-asideIcon1"></i>我的账户</a>
       </li>
       <li class="m2-asideListitem">
-        <a class="m2-aside-cur" href="usercenter-growth-index.html"><i class="m2-asideIcon-vip"></i>成长值中心</a>
+        <a class="m2-aside-cur" href="usercenter-growth-index"><i class="m2-asideIcon-vip"></i>成长值中心</a>
       </li>
       <li class="m2-asideListitem">
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon2"></i>投资管理<b class="m2-asideIcon-new"></b></a>
@@ -249,7 +249,7 @@
           <!--                    </li>-->
 
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord.html">投资记录</a>
+            <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord">投资记录</a>
           </li>
           <li>
             <a class="m2-aside-secLink-item" href="touzi?pageNo=1" target="_blank">立即投资</a>
@@ -259,7 +259,7 @@
       </li>
 
       <li class="m2-asideListitem">
-        <a class="m2-aside-item" href="usercenter-invitefriends.html">
+        <a class="m2-aside-item" href="usercenter-invitefriends">
           <i class="m2-asideIcon-invit"></i>
           <b class="m2-asideIcon-prize"></b>
           邀请好友
@@ -270,16 +270,16 @@
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon4"></i>奖励管理</a>
         <ul class="m2-aside-secItem" style="display:none">
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-rewardrecord.html">奖励金流水</a>
+            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-rewardrecord">奖励金流水</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-redpacket.html">我的红包</a>
+            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-redpacket">我的红包</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-interestcoupon.html">我的加息券</a>
+            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-interestcoupon">我的加息券</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-mycoin.html">我的钱帮币</a>
+            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-mycoin">我的钱帮币</a>
           </li>
         </ul>
       </li>
@@ -287,10 +287,10 @@
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon5"></i>消息管理 </a>
         <ul class="m2-aside-secItem" style="display:none">
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-sitemsg.html">站内消息</a>
+            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-sitemsg">站内消息</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-set_message.html">通知设置</a>
+            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-set_message">通知设置</a>
           </li>
         </ul>
       </li>
@@ -406,7 +406,7 @@
         </div>
         <p class="p-fi">成长值越高，帮主等级越高。当成长值满足升级条件时，系统自动给予升级。</p>
         <p class="p-se">“特邀帮主”目前采取邀请制，接到平台邀请开通的用户可享有。</p>
-        <a href="/usercenter-Growth-growth_log" class="query">成长值查询>></a>
+
       </div>
 
 

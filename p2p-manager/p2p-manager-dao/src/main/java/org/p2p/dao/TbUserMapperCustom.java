@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.type.JdbcType;
 import org.p2p.pojo.po.TbUser;
+import org.p2p.utlis.InvestItem;
 import org.p2p.utlis.UserEnerning;
 
 import java.util.List;
@@ -36,4 +37,14 @@ public interface TbUserMapperCustom {
             @Result(column = "sum(em.earnings)",property = "sum",jdbcType = JdbcType.VARCHAR)
     })
     List<UserEnerning> selectUserMonthEnerning(int userId);
+
+    @Select("select em.money money,p.id id,p.rate rate ,DATE_FORMAT(p.createdate,'%Y-%m-%d %T') createdate,DATE_FORMAT(p.endtime,'%Y-%m-%d %T') endtime from tb_project p LEFT JOIN tb_item em ON p.id=em.projectid LEFT JOIN tb_invest st ON em.incestid=st.id WHERE st.userid=#{userId} ORDER BY p.createdate")
+    @Results({
+            @Result(column = "money",property = "money",jdbcType = JdbcType.DOUBLE),
+            @Result(column = "id",property = "id",jdbcType = JdbcType.INTEGER),
+            @Result(column = "rate",property = "rate",jdbcType = JdbcType.DOUBLE),
+            @Result(column = "createdate",property = "createdate"),
+            @Result(column = "endtime",property = "endtime")
+    })
+    List<InvestItem> selectInvestItem(int userId);
 }
