@@ -684,7 +684,7 @@
 
       function loadDatepicker(){
         $.ajax({
-          url:"usercenter-index-getServerTime",
+          url:"getServerTime",
           data:{},
           success:function(data){
             var obj = eval('('+data+')');
@@ -1069,15 +1069,16 @@
         <hr style="display:inline-block;width:642px;border:0;background-color:#dadada;height:1px;margin-left:-4px;"></h3>
       </div>
       <div class="m2-user-invest-list">
-        <table class="m2-userInvest-table"  cellpadding="0" cellspacing="0" >
+        <table class="m2-userInvest-table"  cellpadding="0" cellspacing="0" id="Invest_Item">
           <tr class="m2-userInevst-head" >
-            <th style="width:150px;">项目名称</th>
+            <th style="width:150px;">项目编号</th>
             <th style="width:130px;">投资金额</th>
             <th style="width:110px;">收益率</th>
             <th style="width:120px;">计息日</th>
             <th style="width:120px;">还款日</th>
             <th style="width:148px;"></th>
           </tr>
+
         </table>
       </div>
     </div>
@@ -1086,7 +1087,29 @@
     <span id='ntitle'></span>
     <span id='nmsg'></span>
   </div>
-
+  <script language="javaScript">
+    $(function (){
+      //投资记录
+      var str;
+      $.ajax({
+        async:false,//使用同步的Ajax请求
+        type: "POST",
+        url: "getInvestItem?userId="+document.getElementById("userId").value,
+        //data: ,
+        success: function(data){
+          str=data;
+        }
+      });
+      var obj = JSON.parse(str);
+      var tbody="";
+      $.each(obj, function (n, value) {
+        var trs = "";
+        trs += "<tr><td>" + value.id + "</td> <td>" + value.money + "</td> <td>" + value.rate +"</td> <td>" + value.createdate +"</td> <td>" + value.endtime +"</td></tr>";
+        tbody += trs;
+      });
+      $("#Invest_Item").append(tbody);
+    });
+  </script>
   <script>
     $(function(){
       var scale=$("#mydetail_num").text()/$("#mydetail_num").attr("data")*100+"%";
@@ -1272,14 +1295,10 @@
         url: "getIncomeList?userId="+document.getElementById("userId").value,
         data: {},
         success: function (data) {
-          alert(data);
           $('.m2-chartLoading').hide();
           var obj = eval('(' + data + ')');
-          alert(obj.monincomelist);
           monthData = getList(obj.monincomelist, 'income');
           monthCate = getList(obj.monlist, 'month');
-          alert(monthData);
-          alert(monthCate);
           loadChartmonth(monthData, monthCate);
         }
       });
@@ -1290,7 +1309,6 @@
       for (var k in data) {
         l.push(data[k]);
       }
-      alert(l);
       return l;
     }
     function getPaymentDetail(date) {

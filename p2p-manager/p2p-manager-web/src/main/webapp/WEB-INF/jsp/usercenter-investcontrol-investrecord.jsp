@@ -261,16 +261,16 @@
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon4"></i>奖励管理</a>
         <ul class="m2-aside-secItem" style="display:none">
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-rewardrecord.html">奖励金流水</a>
+            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-rewardrecord">奖励金流水</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-redpacket.html">我的红包</a>
+            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-redpacket">我的红包</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-interestcoupon.html">我的加息券</a>
+            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-interestcoupon">我的加息券</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-mycoin.html">我的钱帮币</a>
+            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-mycoin">我的钱帮币</a>
           </li>
         </ul>
       </li>

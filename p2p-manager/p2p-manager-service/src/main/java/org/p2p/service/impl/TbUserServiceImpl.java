@@ -5,10 +5,7 @@ import org.p2p.dao.TbUserMapperCustom;
 import org.p2p.pojo.po.TbItem;
 import org.p2p.pojo.po.TbUser;
 import org.p2p.service.TbUserService;
-import org.p2p.utlis.Data;
-import org.p2p.utlis.Sign_Growth;
-import org.p2p.utlis.UserEnerning;
-import org.p2p.utlis.ulogin;
+import org.p2p.utlis.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -130,5 +127,10 @@ public class TbUserServiceImpl implements TbUserService {
     public List<UserEnerning> selectUserMonthEnerning(int userId) {
         List<UserEnerning> list = tbUserMapperCustom.selectUserMonthEnerning(userId);
         return list;
+    }
+
+    @Override
+    public List<InvestItem> getInvestItem(int userId) {
+        return tbUserMapperCustom.selectInvestItem(userId);
     }
 }
