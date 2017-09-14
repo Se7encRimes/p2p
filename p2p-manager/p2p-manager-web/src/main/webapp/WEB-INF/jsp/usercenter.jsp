@@ -580,7 +580,7 @@
         <hr style="display:inline-block;width:682px;border:0;background-color:#dadada;height:1px;margin-left:-4px;"></h3>
       </div>
       <div class="m2-profitChart-tit">
-        <span class="m2-chartItemtit-mon m2-chart-sel">月收益</span>
+        <span class="m2-chartItemtit-mon m2-chart-sel">近30天的收益</span>
       </div>
       <div class="m2-chart-con" style="background-color:white;">
         <div class="m2-chartItemuser" id="m2-chartMonth">
