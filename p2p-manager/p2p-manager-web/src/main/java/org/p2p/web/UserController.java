@@ -26,7 +26,14 @@ public class UserController {
     @Autowired
     private TbUserService userService;
 
-    //时间选择
+    //签到
+    @RequestMapping("sign_in")
+    @ResponseBody
+    public String sign_in(String userId){
+        String str = userService.signIn(Integer.parseInt(userId));
+        return str;
+    }
+    //投资记录
     @RequestMapping("getInvestItem")
     @ResponseBody
     public String usercenter(String userId) throws JsonProcessingException {
@@ -36,7 +43,7 @@ public class UserController {
         System.out.println(json);
         return json;
     }
-    //月收益
+    //月收益走势
     @RequestMapping(value = "getIncomeList",produces = "text/html;charset=UTF-8")
     @ResponseBody
     public String getIncomeList(String userId) throws JsonProcessingException {
@@ -58,8 +65,8 @@ public class UserController {
         return json;
     }
 
-    //签到
-    @RequestMapping(value="sign_in_growth",produces = "text/html;charset=UTF-8")
+    //获取成长值
+    @RequestMapping(value="getGrowth",produces = "text/html;charset=UTF-8")
     @ResponseBody
     public String getSign_Growth(String userId,int active_id) throws JsonProcessingException {
         System.err.println(active_id+"<=====");
@@ -138,7 +145,7 @@ public class UserController {
                     uRegister.setPhone(user.getPhone());
                     model.addAttribute("user1",user);
                 }else if (i==-1){
-                    uRegister.setStatus(5);
+                    uRegister.setStatus(2);
                     uRegister.setMessage("手机号已存在");
                 }else {
                     uRegister.setStatus(-1);

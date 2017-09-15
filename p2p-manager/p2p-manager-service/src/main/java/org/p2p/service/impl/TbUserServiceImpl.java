@@ -2,7 +2,6 @@ package org.p2p.service.impl;
 
 import org.p2p.dao.TbUserMapper;
 import org.p2p.dao.TbUserMapperCustom;
-import org.p2p.pojo.po.TbItem;
 import org.p2p.pojo.po.TbUser;
 import org.p2p.service.TbUserService;
 import org.p2p.utlis.*;
@@ -91,6 +90,11 @@ public class TbUserServiceImpl implements TbUserService {
         return tbUserMapperCustom.selectEarningTotalByUserId(userId);
     }
 
+    /**
+     *
+     * @param userId
+     * @return
+     */
     @Override
     public Sign_Growth getSign_Growth(int userId) {
         TbUser tbUser = tbUserMapperCustom.selectTbuserByUserId(userId);
@@ -132,5 +136,21 @@ public class TbUserServiceImpl implements TbUserService {
     @Override
     public List<InvestItem> getInvestItem(int userId) {
         return tbUserMapperCustom.selectInvestItem(userId);
+    }
+
+    @Override
+    public String signIn(int userId) {
+        Integer i=tbUserMapperCustom.selectSignByuserId(userId);
+        if(i==null){
+            Integer a=tbUserMapperCustom.sign_in(userId);
+            Integer b=tbUserMapperCustom.updateGrowth(userId);
+            if(a==1&&b==1){
+                return "success";
+            }else{
+                return "fail";
+            }
+        }else{
+            return "signed";
+        }
     }
 }

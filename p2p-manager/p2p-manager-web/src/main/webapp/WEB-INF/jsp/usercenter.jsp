@@ -32,52 +32,8 @@
 <title>我的账户丨理财产品，为您赚钱短期理财的互联网金融理财投资平台-爱钱帮</title>
 <div class="m2-userCentercommon-bg" style="display:none;"></div>
 <!-- 右侧边栏start -->
-<div class="m2-commonRight">
-  <ul class="m2-comRiglist">
-    <li class="m2-comRigli m2-comRigli-ewm">
-      <i class="m2-comRigli-icon"></i>
-      <span class="m2-comRigli-hov">关注<br>微信</span>
-      <div class="m2-comRighide m2-comRighide-ewm"><i></i></div>
-    </li>
-    <li class="m2-comRigli m2-comRigli-tel">
-      <i class="m2-comRigli-icon"></i>
-      <span class="m2-comRigli-hov">联系<br>我们</span>
-      <div class="m2-comRighide m2-comRighide-tel">
-        <div class="m2-comRighide-telSpace"></div>
-        <b class="m2-comRighide-telBorder"></b>
-        <div class="m2-comRigtel-lef">
-          <div class="m2-comRigtel-lefTop">
-            <input type="text" placeholder="请输入您的手机号"  id='phonenumber'>
-          </div>
-          <div class="m2-comRigtel-lefBot">
-            <input type="text" placeholder="验证码" id="ivrSecurityCode">
-            <img id="ivrSecurityCodeImg" onclick="getCode()" src="images/Index-VerifyCode.png" alt="验证码" title="点击更新验证码">
-          </div>
-        </div>
-        <div class="m2-comRigtel-rig">
-          <span  onclick='callback()'>免费<br>拨打</span>
-        </div>
-      </div>
-    </li>
-    <li class="m2-comRigli m2-comRigli-qq">
-      <a  target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2522274059&amp;site=qq&amp;menu=yes">
-        <i class="m2-comRigli-icon"></i>
-        <span class="m2-comRigli-hov">在线<br>客服</span>
-      </a>
-      <!-- <div class="m2-comRighide"></div> -->
-    </li>
-    <!--<li class="m2-comRigli m2-comRigli-sug">-->
-    <!--<i class="m2-comRigli-icon"></i>-->
-    <!--<span class="m2-comRigli-hov">意见<br>反馈</span>-->
-    <!-- <div class="m2-comRighide"></div> -->
-    <!--</li>-->
-    <li class="m2-comRigli m2-comRigli-top">
-      <i class="m2-comRigli-icon"></i>
-      <span class="m2-comRigli-hov">返回<br>顶部</span>
-      <!-- <div class="m2-comRighide"></div> -->
-    </li>
-  </ul>
-</div>
+
+
 
 <script type="text/javascript">
   $(function () {
@@ -267,21 +223,7 @@
         <a class="m2-aside-item" href="usercenter-growth-index"><i class="m2-asideIcon-vip"></i>成长值中心</a>
       </li>
       <li class="m2-asideListitem">
-        <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon2"></i>投资管理<b class="m2-asideIcon-new"></b></a>
-        <ul class="m2-aside-secItem" style="display:none">
-          <!--             取消自动投标-->
-          <!--                   <li>-->
-          <!--                        <a class="m2-aside-secLink-item" href="/usercenter-investcontrol-autoinvest"><b class="m2-asideIcon-new"></b>自动投标</a>-->
-          <!--                    </li>-->
-
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord">投资记录</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="touzi?pageNo=1" target="_blank">立即投资</a>
-          </li>
-
-        </ul>
+        <a class="m2-aside-item m2-aside-toggle" href="usercenter-investcontrol-investrecord"><i class="m2-asideIcon2"></i>投资记录</a>
       </li>
 
       <li class="m2-asideListitem">
@@ -293,40 +235,18 @@
       </li>
 
       <li class="m2-asideListitem">
-        <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon4"></i>奖励管理</a>
-        <ul class="m2-aside-secItem" style="display:none">
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-rewardrecord.html">奖励金流水</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-redpacket.html">我的红包</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-interestcoupon.html">我的加息券</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-mycoin.html">我的钱帮币</a>
-          </li>
-        </ul>
-      </li>
-      <li class="m2-asideListitem">
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon5"></i>消息管理 </a>
         <ul class="m2-aside-secItem" style="display:none">
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-sitemsg.html">站内消息</a>
+            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-sitemsg">站内消息</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-set_message.html">通知设置</a>
+            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-set_message">通知设置</a>
           </li>
         </ul>
       </li>
       <li class="m2-asideListitem">
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon6"></i>账户管理</a>
-        <ul class="m2-aside-secItem" style="display:none" id='aaa'>
-          <li>
-            <a class="m2-aside-secLink-item" href="#">账户设置</a>
-          </li>
-        </ul>
       </li>
     </ul>
   </div>
@@ -580,7 +500,7 @@
         <hr style="display:inline-block;width:682px;border:0;background-color:#dadada;height:1px;margin-left:-4px;"></h3>
       </div>
       <div class="m2-profitChart-tit">
-        <span class="m2-chartItemtit-mon m2-chart-sel">近30天的收益</span>
+        <span class="m2-chartItemtit-mon m2-chart-sel">月收益</span>
       </div>
       <div class="m2-chart-con" style="background-color:white;">
         <div class="m2-chartItemuser" id="m2-chartMonth">
@@ -1110,66 +1030,94 @@
       $("#Invest_Item").append(tbody);
     });
   </script>
+
   <script>
+      function growth(){
+      var active_id='0';
+      $.ajax({
+        type:"POST",
+        url: "getGrowth?userId="+document.getElementById("userId").value,
+        data: {active_id:active_id},
+        scriptCharset: 'utf-8',
+        success: function (data) {
+          var obj=JSON.parse(data);
+          var data = obj.data;
+          if(obj.resultcode==41001){
+            if(data.level==4 ||data.level==5){
+              $("#mydetail_num").attr("data",data.growthvalue);
+            }else{
+              $("#mydetail_num").attr("data",parseInt(data.growthvalue+data.integral));
+            }
+            $("#mydetail_num").text(data.growthvalue);
+            var scale=$("#mydetail_num").text()/$("#mydetail_num").attr("data")*100+"%";
+            $("#growth_scale .bg").animate({width:scale},900);
+            $('#integral').html(data.integral);
+            $('#vipname').html(data.name);
+            switch(data.level){
+              case 0:
+                $('.right .m2-userMsg-iconLv a').attr('class','m2-iconLevel-normal');
+                $('.right .m2-userMsg-iconLv a span').text('帮主');
+                break;
+              case 1:
+                $('.right .m2-userMsg-iconLv a').attr('class','m2-iconLevel-iron');
+                $('.right .m2-userMsg-iconLv a span').text('铁帮主');
+                break;
+              case 2:
+                $('.right .m2-userMsg-iconLv a').attr('class','m2-iconLevel-copper');
+                $('.right .m2-userMsg-iconLv a span').text('铜帮主');
+                break;
+              case 3:
+                $('.right .m2-userMsg-iconLv a').attr('class','m2-iconLevel-gold');
+                $('.right .m2-userMsg-iconLv a span').text('金帮主');
+                break;
+              case 4:
+                $('.right .m2-userMsg-iconLv a').attr('class','m2-iconLevel-paltinum');
+                $('.right .m2-userMsg-iconLv a span').text('白金帮主');
+                $('#desc').text('您已然是一人之下，万人之上，无比荣耀');
+                break;
+              case 5:
+                $('.right .m2-userMsg-iconLv a').attr('class','m2-iconLevel-svip');
+                $('.right .m2-userMsg-iconLv a span').text('特邀帮主');
+                $('#desc').text('爱钱帮最高等级，王者荣耀');
+                break;
+            }
+          }
+        }
+      });
+    }
     $(function(){
       var scale=$("#mydetail_num").text()/$("#mydetail_num").attr("data")*100+"%";
       $("#growth_scale .bg").animate({width:scale},900);
-      $('#sign').click(function(){
-        var active_id='0';
-        $.ajax({
-          type:"POST",
-          url: "sign_in_growth?userId="+document.getElementById("userId").value,
-          data: {active_id:active_id},
-          scriptCharset: 'utf-8',
-          success: function (data) {
-            var obj=JSON.parse(data);
-            var data = obj.data;
-            if(obj.resultcode==41001){
-              if(data.level==4 ||data.level==5){
-                $("#mydetail_num").attr("data",data.growthvalue);
-              }else{
-                $("#mydetail_num").attr("data",parseInt(data.growthvalue+data.integral));
-              }
-              $("#mydetail_num").text(data.growthvalue);
+      growth();
+      $.ajax({
+        type:"POST",
+        url: "sign_in?userId="+document.getElementById("userId").value,
+        //data: {active_id:active_id},
+        success: function (data) {
+          if("signed"===data) {
+            $("#sign").css("backgroundColor", "#b7b6b6");
+            $("#sign").text('已签到');
+            $("#sign").attr('disabled', true);
+          }
+        }
+      });
+    });
+      $(function () {
+        $('#sign').click(function(){
+          $.ajax({
+            type:"POST",
+            url: "sign_in?userId="+document.getElementById("userId").value,
+            //data: {active_id:active_id},
+            success: function (data) {
               $("#sign").css("backgroundColor","#b7b6b6");
               $("#sign").text('已签到');
-              var scale=$("#mydetail_num").text()/$("#mydetail_num").attr("data")*100+"%";
-              $("#growth_scale .bg").animate({width:scale},900);
-              $('#integral').html(data.integral);
-              $('#vipname').html(data.name);
-              switch(data.level){
-                case 0:
-                  $('.right .m2-userMsg-iconLv a').attr('class','m2-iconLevel-normal');
-                  $('.right .m2-userMsg-iconLv a span').text('帮主');
-                  break;
-                case 1:
-                  $('.right .m2-userMsg-iconLv a').attr('class','m2-iconLevel-iron');
-                  $('.right .m2-userMsg-iconLv a span').text('铁帮主');
-                  break;
-                case 2:
-                  $('.right .m2-userMsg-iconLv a').attr('class','m2-iconLevel-copper');
-                  $('.right .m2-userMsg-iconLv a span').text('铜帮主');
-                  break;
-                case 3:
-                  $('.right .m2-userMsg-iconLv a').attr('class','m2-iconLevel-gold');
-                  $('.right .m2-userMsg-iconLv a span').text('金帮主');
-                  break;
-                case 4:
-                  $('.right .m2-userMsg-iconLv a').attr('class','m2-iconLevel-paltinum');
-                  $('.right .m2-userMsg-iconLv a span').text('白金帮主');
-                  $('#desc').text('您已然是一人之下，万人之上，无比荣耀');
-                  break;
-                case 5:
-                  $('.right .m2-userMsg-iconLv a').attr('class','m2-iconLevel-svip');
-                  $('.right .m2-userMsg-iconLv a span').text('特邀帮主');
-                  $('#desc').text('爱钱帮最高等级，王者荣耀');
-                  break;
-              }
+              $("#sign").attr('disabled',true);
+              growth();
+              showInfoDialog(data);
             }
-          }
+          });
         });
-      })
-    });
+      });
     var oP=document.getElementById('allP');
     var oClose=document.getElementById('close');
     //oP.style.display='none';

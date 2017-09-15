@@ -1,9 +1,6 @@
 package org.p2p.dao;
 
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 import org.p2p.pojo.po.TbUser;
 import org.p2p.utlis.InvestItem;
@@ -47,4 +44,13 @@ public interface TbUserMapperCustom {
             @Result(column = "endtime",property = "endtime")
     })
     List<InvestItem> selectInvestItem(int userId);
+
+    @Select("select id from tb_sign where to_days(signtime) = to_days(now()) and uid=#{userId};")
+    Integer selectSignByuserId(int userId);
+
+    @Insert("insert into tb_sign (uid,signtime) values(#{userId},now())")
+    Integer sign_in(int userId);
+
+    @Update("update tb_user set growth=growth+2 where id=#{userId}")
+    Integer updateGrowth(int userId);
 }

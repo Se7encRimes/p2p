@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
@@ -109,7 +110,7 @@
   <div class="m2-commonTop">
     <div class="m2-commonTop-left">
       <div class="m2-commonTop-tel"><i></i>4006&nbsp;-&nbsp;777&nbsp;-&nbsp;518</div>
-      <div class="m2-commonTop-service"><i></i><span>客服：</span><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2522274059&amp;site=qq&amp;menu=yes" title="">2522274059</a></div>
+      <div class="m2-commonTop-service"><i></i><span>客服：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2522274059&amp;site=qq&amp;menu=yes" title="客服">2522274059</a></span></div>
       <div class="m2-commonEwm">
         <span class="m2-commonEwm-tit">关注我们：</span>
         <div class="m2-commonEwmwx">
@@ -127,22 +128,28 @@
       </div>
     </div>
     <div class="m2-commonTop-right">
-      <div class="m2-commonTop-link">
-        <ul>
-          <li class="m2-commonTop-btn" style="display: none" id="bbs"><a id="bbslogin" target="_blank">论坛</a></li>
-          <li class="m2-commonTop-loged">
-            <span class="m2-commonTop-userName"><a href="usercenter">您好，iqb13737301354</a></span>
-          </li>
-          <li class="m2-commonTop-btn"><a href="#" style="border-right:none;">退出</a></li>
-          <li class="m2-commonTop-btn"><a href="company_finance.html" id="cfpage" style="border-right:none;width: 50px;">企业理财</a></li>
-          </li>
-        </ul>
-      </div>
-      <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
-        <a href="" class="m2-commonTop-and"></a>
-        <a href="" class="m2-commonTop-ios"></a>
-        <span>app下载入口</span>
-      </div>
+      <c:choose>
+        <c:when test="${sessionScope.user==null}">
+          <div class="m2-commonTop-link">
+            <ul>
+              <li class="m2-commonTop-btn"><a href="register" target="_blank">注册</a></li>
+              <li class="m2-commonTop-btn"><a href="login" target="_blank" style="border-right:none;">登录</a></li>
+            </ul>
+          </div>
+        </c:when>
+        <c:otherwise>
+          <div class="m2-commonTop-right">
+            <div class="m2-commonTop-link">
+              <ul>
+                <li class="m2-commonTop-loged">
+                  <span class="m2-commonTop-userName"><a href="usercenter">您好,${sessionScope.user.phone}</a></span>
+                </li>
+                <li class="m2-commonTop-btn"><a href="UQuit" style="border-right:none;">退出</a></li>
+              </ul>
+            </div>
+          </div>
+        </c:otherwise>
+      </c:choose>
     </div>
   </div>
 </div>
@@ -232,21 +239,7 @@
         <a class="m2-aside-item" href="usercenter-growth-index"><i class="m2-asideIcon-vip"></i>成长值中心</a>
       </li>
       <li class="m2-asideListitem">
-        <a class="m2-aside-toggle m2-aside-cur" ><i class="m2-asideIcon2"></i>投资管理<b class="m2-asideIcon-new"></b></a>
-        <ul class="m2-aside-secItem" style="display:none">
-          <!--             取消自动投标-->
-          <!--                   <li>-->
-          <!--                        <a class="m2-aside-secLink-item" href="/usercenter-investcontrol-autoinvest"><b class="m2-asideIcon-new"></b>自动投标</a>-->
-          <!--                    </li>-->
-
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord">投资记录</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="touzi?pageNo=1" target="_blank">立即投资</a>
-          </li>
-
-        </ul>
+        <a class="m2-aside-item m2-aside-toggle" href="usercenter-investcontrol-investrecord"><i class="m2-asideIcon2"></i>投资记录</a>
       </li>
 
       <li class="m2-asideListitem">
@@ -258,40 +251,18 @@
       </li>
 
       <li class="m2-asideListitem">
-        <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon4"></i>奖励管理</a>
-        <ul class="m2-aside-secItem" style="display:none">
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-rewardrecord">奖励金流水</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-redpacket">我的红包</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-interestcoupon">我的加息券</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-mycoin">我的钱帮币</a>
-          </li>
-        </ul>
-      </li>
-      <li class="m2-asideListitem">
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon5"></i>消息管理 </a>
         <ul class="m2-aside-secItem" style="display:none">
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-sitemsg.html">站内消息</a>
+            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-sitemsg">站内消息</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-set_message.html">通知设置</a>
+            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-set_message">通知设置</a>
           </li>
         </ul>
       </li>
       <li class="m2-asideListitem">
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon6"></i>账户管理</a>
-        <ul class="m2-aside-secItem" style="display:none" id='aaa'>
-          <li>
-            <a class="m2-aside-secLink-item" href="#">账户设置</a>
-          </li>
-        </ul>
       </li>
     </ul>
   </div>
@@ -337,7 +308,7 @@
   <div style="width:100%; height:100%; position:fixed; z-index:100; top:0; display:none; left:0;" id="allP" >
     <div style="width:100%; height:100%; position:absolute; top:0; left:0; background:#000; opacity:0.5;"></div>
     <div style="width:404px; height:154px; background:#fff; position:absolute; top:50%; left:50%; margin-left:-252px; margin-top:-100px; border:2px solid #666;">
-      <p style="color: #666666;font-size: 16px;absolute;line-height:170px;text-align: center; font-family: Microsoft YaHei;;">该项目已还清，为保护企业隐私，不再公示项目信息</p>
+      <p style="color: #666666;font-size: 16px;position: absolute;line-height:170px;text-align: center; font-family: Microsoft YaHei;;">该项目已还清，为保护企业隐私，不再公示项目信息</p>
       <div style="width: 30px;height: 30px;position: absolute;top: 11px;right: 0px;color: #666;font-size: 20px;cursor: pointer;" id="close">X</div>
     </div>
 
@@ -354,8 +325,8 @@
           <li class="m2-manageSearchsel-link m2-manageSearchsel-link1"><span class="m2-manSealink-unsel" >最近7天</span></li>
           <li class="m2-manageSearchsel-link m2-manageSearchsel-link1"><span class="m2-manSealink-unsel" >一个月</span></li>
           <li class="m2-manageSearchsel-link m2-manageSearchsel-link1"><span class="m2-manSealink-unsel" >三个月</span></li>
-          <li>从<input id="m2-manSeadate-start" type="text"></li>
-          <li>到<input id="m2-manSeadate-end" type="text"></li>
+          <%--<li>从<input id="m2-manSeadate-start" type="text"></li>
+          <li>到<input id="m2-manSeadate-end" type="text"></li>--%>
         </ul>
         <ul class="m2-manageSearchsel-time m2-manageSearchsel-time2" style="margin-bottom:15px">
           <li>回款状态：</li>
@@ -364,15 +335,15 @@
           <li class="m2-manageSearchsel-link m2-manageSearchsel-link2"><span class="m2-manSealink-unsel" >已结清</span></li>
           <li class="m2-manageSearchsel-link m2-manageSearchsel-link2"><span class="m2-manSealink-unsel" >已转让</span></li>
         </ul>
-        <ul class="m2-manageSearchsel-time m2-manageSearchsel-time3" style="margin-bottom:15px">
+        <%--<ul class="m2-manageSearchsel-time m2-manageSearchsel-time3" style="margin-bottom:15px">
           <li>投资方式：</li>
           <li class="m2-manageSearchsel-link m2-manageSearchsel-link3"><span class="m2-manSealink-sel" >全部</span></li>
           <li class="m2-manageSearchsel-link m2-manageSearchsel-link3"><span class="m2-manSealink-unsel" >自动投标</span></li>
           <li class="m2-manageSearchsel-link m2-manageSearchsel-link3"><span class="m2-manSealink-unsel" >手动投标</span></li>
-        </ul>
+        </ul>--%>
         <table class="m2-userInvest-table"  cellpadding="0" cellspacing="0" >
           <tr class="m2-userInevst-head" >
-            <th style="width:140px;">项目名称</th>
+            <th style="width:140px;">项目ID</th>
             <th style="width:120px;">投资金额</th>
             <th style="width:60px;">收益率</th>
             <th style="width:120px;">计息日</th>

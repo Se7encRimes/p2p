@@ -111,7 +111,7 @@
   <div class="m2-commonTop">
     <div class="m2-commonTop-left">
       <div class="m2-commonTop-tel"><i></i>4006&nbsp;-&nbsp;777&nbsp;-&nbsp;518</div>
-      <div class="m2-commonTop-service"><i></i><span>客服：</span><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2522274059&amp;site=qq&amp;menu=yes" title="">2522274059</a></div>
+      <div class="m2-commonTop-service"><i></i><span>客服：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2522274059&amp;site=qq&amp;menu=yes" title="客服">2522274059</a></span></div>
       <div class="m2-commonEwm">
         <span class="m2-commonEwm-tit">关注我们：</span>
         <div class="m2-commonEwmwx">
@@ -241,21 +241,7 @@
         <a class="m2-aside-cur" href="usercenter-growth-index"><i class="m2-asideIcon-vip"></i>成长值中心</a>
       </li>
       <li class="m2-asideListitem">
-        <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon2"></i>投资管理<b class="m2-asideIcon-new"></b></a>
-        <ul class="m2-aside-secItem" style="display:none">
-          <!--             取消自动投标-->
-          <!--                   <li>-->
-          <!--                        <a class="m2-aside-secLink-item" href="/usercenter-investcontrol-autoinvest"><b class="m2-asideIcon-new"></b>自动投标</a>-->
-          <!--                    </li>-->
-
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord">投资记录</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="touzi?pageNo=1" target="_blank">立即投资</a>
-          </li>
-
-        </ul>
+        <a class="m2-aside-item m2-aside-toggle" href="usercenter-investcontrol-investrecord"><i class="m2-asideIcon2"></i>投资记录</a>
       </li>
 
       <li class="m2-asideListitem">
@@ -266,23 +252,6 @@
         </a>
       </li>
 
-      <li class="m2-asideListitem">
-        <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon4"></i>奖励管理</a>
-        <ul class="m2-aside-secItem" style="display:none">
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-rewardrecord">奖励金流水</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-redpacket">我的红包</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-interestcoupon">我的加息券</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-mycoin">我的钱帮币</a>
-          </li>
-        </ul>
-      </li>
       <li class="m2-asideListitem">
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon5"></i>消息管理 </a>
         <ul class="m2-aside-secItem" style="display:none">
@@ -296,11 +265,6 @@
       </li>
       <li class="m2-asideListitem">
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon6"></i>账户管理</a>
-        <ul class="m2-aside-secItem" style="display:none" id='aaa'>
-          <li>
-            <a class="m2-aside-secLink-item" href="#">账户设置</a>
-          </li>
-        </ul>
       </li>
     </ul>
   </div>

@@ -62,12 +62,12 @@
   </div>
   <style type="text/css">
     .myloginmask {position:fixed;top: 0;left: 0;right: 0;bottom: 0;background-color: black;display: none;opacity: 0.7;z-index: 800;filter:alpha(opacity=70)}
-    .mylogin {position:   fixed;top: 50%;left: 50%;margin-top: -346px;margin-left: -260px;width: 520px;height: 496px;background-image: url("images/login/login_info.png");background-repeat: no-repeat;z-index: 1000;display: none;}
+    .mylogin {position:   fixed;top: 50%;left: 50%;margin-top: -346px;margin-left: -260px;width: 520px;height: 496px;background-image: url("/images/login/login_info.png");background-repeat: no-repeat;z-index: 1000;display: none;}
     .mylogin .topcontent {font-weight:bold;text-align: center;color: #666666;font-size: 18px;padding-top: 284px;line-height: 36px;}
     .mylogin .topcontent span {color: #883535;}
     .mylogin .bottomcontent {font-weight:bold;font-size:20px;line-height: 30px;width:384px;margin: 50px auto;}
     .mylogin .bottomcontent a{color: #333333;text-decoration: none;}
-    .mylogin .closeimg {position: absolute;top: 220px;right: 14px;width: 43px;height: 43px;background-image: url("images/login/cha.png");}
+    .mylogin .closeimg {position: absolute;top: 220px;right: 14px;width: 43px;height: 43px;background-image: url("/images/login/cha.png");}
   </style>
   <div class="myloginmask"></div>
   <div class="mylogin">
@@ -89,13 +89,7 @@
       })
     })
   </script>
-  <script type="text/javascript">
-    $(function(){
-      $.post("2016年10月01日",{mytime:''},function(t){
-        $("#mytime").html(t);
-      });
-    });
-  </script>
+
   <script type="text/javascript">
     function infoDialogClose(){
       $('.m2-pwdConfirm-close').click(function(){
@@ -180,11 +174,10 @@
             <tr  class="verify_code_tr">
               <td><i class="m2-regist-passicon"></i>验证码</td>
               <td class="m2-regist-tdInput m2-regist-check">
-                <img src="authCode" onClick="chageCode()" id="reverifyCode" /><input style="margin-right:5px;width:170px;" type="text" maxlength="5" class="m2-regist-username m2-regist-code" id="vcode" placeholder="验证码"/><span class="m2-regist-errMsg"></span></td>
-               <td> <label><a onclick="chageCode()">看不清？换一张</a></label></td>
-              </td>
+                <img src="authCode" onclick="chageCode()" id="reverifyCode" />
+                <input style="margin-right:5px;width:170px;" type="text" maxlength="5" class="m2-regist-username m2-regist-code" id="vcode" placeholder="验证码"/>
+                <span class="m2-regist-errMsg"></span></td>
             </tr>
-
           </table>
           <div class="m2-regist-btn">
             <input type="checkbox" checked="checked" id="service" />我同意<b>《爱钱帮注册协议》</b> <a href="javascript:void(0)" onClick="register();">提交注册</a>
@@ -196,7 +189,7 @@
       <div class="m2-login-right">
         <h2>注册即送88元</h2>
         <img src="images/exper_v2.png" />
-        <p>首次浏览，<br/>了解更多细节请进<a href="guide.html" target="_blank">新手引导>></a></p>
+        <p>首次浏览，<br/>了解更多细节请进<a href="guide" target="_blank">新手引导>></a></p>
       </div>
     </div>
   </div>
@@ -273,7 +266,7 @@
         }
       });
 
-      $('.m2-logVoi-sur').click(function(){
+      /*$('.m2-logVoi-sur').click(function(){
         var p={};
         p['phone']=$('#phone').val();
         p['code']=$('#vcode').val();
@@ -297,7 +290,7 @@
 
         });
 
-      });
+      });*/
     });
   </script>
   <script type="text/javascript">
@@ -327,10 +320,6 @@
     function recheckpsw(){
       if($('#re_password').val()==''){
         $('#re_password').next('.m2-regist-errMsg').html('确认密码不能为空！');
-        return false;
-      }
-      if($('#password').val()!=$('#re_password').val()){
-        $('#re_password').next('.m2-regist-errMsg').html('两次输入的密码不一致！');
         return false;
       }
       $('#re_password').next('.m2-regist-errMsg').html('');
@@ -374,7 +363,7 @@
         cache:false,
         async:false,
         success: function(d){
-         // alert(d);
+          alert(d);
           result=""+d;
         }
       });
@@ -413,7 +402,7 @@
             window.location.href="tiaozhuan?phone="+ d.phone;
           },6000);//增加了跳转等待时间3000毫秒
         }else if(d.status==2){
-          //showInfoDialog(d.message,0);
+          showInfoDialog(d.message,0);
           $("#reverifyCode").click();
         }
       });

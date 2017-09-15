@@ -31,4 +31,6 @@ public interface TbUserService {
     List<UserEnerning> selectUserMonthEnerning(int userId);
 
     List<InvestItem> getInvestItem(int userId);
+
+    String signIn(int userId);
 }

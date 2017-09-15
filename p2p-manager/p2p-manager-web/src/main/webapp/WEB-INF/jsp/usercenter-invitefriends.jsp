@@ -239,21 +239,7 @@
         <a class="m2-aside-item" href="usercenter-growth-index"><i class="m2-asideIcon-vip"></i>成长值中心</a>
       </li>
       <li class="m2-asideListitem">
-        <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon2"></i>投资管理<b class="m2-asideIcon-new"></b></a>
-        <ul class="m2-aside-secItem" style="display:none">
-          <!--             取消自动投标-->
-          <!--                   <li>-->
-          <!--                        <a class="m2-aside-secLink-item" href="/usercenter-investcontrol-autoinvest"><b class="m2-asideIcon-new"></b>自动投标</a>-->
-          <!--                    </li>-->
-
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord">投资记录</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="touzi?pageNo=1" target="_blank">立即投资</a>
-          </li>
-
-        </ul>
+        <a class="m2-aside-item m2-aside-toggle" href="usercenter-investcontrol-investrecord"><i class="m2-asideIcon2"></i>投资记录</a>
       </li>
 
       <li class="m2-asideListitem">
@@ -265,40 +251,18 @@
       </li>
 
       <li class="m2-asideListitem">
-        <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon4"></i>奖励管理</a>
-        <ul class="m2-aside-secItem" style="display:none">
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-rewardrecord.html">奖励金流水</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-redpacket.html">我的红包</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-interestcoupon.html">我的加息券</a>
-          </li>
-          <li>
-            <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-mycoin.html">我的钱帮币</a>
-          </li>
-        </ul>
-      </li>
-      <li class="m2-asideListitem">
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon5"></i>消息管理 </a>
         <ul class="m2-aside-secItem" style="display:none">
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-sitemsg.html">站内消息</a>
+            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-sitemsg">站内消息</a>
           </li>
           <li>
-            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-set_message.html">通知设置</a>
+            <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-set_message">通知设置</a>
           </li>
         </ul>
       </li>
       <li class="m2-asideListitem">
         <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon6"></i>账户管理</a>
-        <ul class="m2-aside-secItem" style="display:none" id='aaa'>
-          <li>
-            <a class="m2-aside-secLink-item" href="#">账户设置</a>
-          </li>
-        </ul>
       </li>
     </ul>
   </div>
