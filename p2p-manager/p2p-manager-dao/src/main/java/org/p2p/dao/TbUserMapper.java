@@ -1,6 +1,8 @@
 package org.p2p.dao;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.p2p.pojo.po.TbUser;
 import org.p2p.pojo.po.TbUserExample;
 
@@ -29,5 +31,11 @@ public interface TbUserMapper {
 
     int updateByPrimaryKey(TbUser record);
 
+    //验证用户名和手机号是正确
+    @Select("select password from tb_user where username=#{arg0} and phone=#{arg1}")
+    String  selectMsg(String name,String cellPhone);
+
+    @Update("update tb_user set password=#{arg0} where id=#{arg1}")
+    int updateById(String password,int id);
 
 }

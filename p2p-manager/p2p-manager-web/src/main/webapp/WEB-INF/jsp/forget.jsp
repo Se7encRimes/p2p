@@ -175,7 +175,7 @@
           <div class="m2-pwdFrom-item" id="m2-pwdTab1-code" style="display: none;">
             <span><i></i>验证码</span>
             <input placeholder="请输入验证码" type="text" id='pcode'>
-            <img src="Index-VerifyCode.png" width="104" height="42" style="cursor: pointer" onClick="document.getElementById('reverifyCode').src='Index-VerifyCode.png?time='+Math.random();void(0);" id="reverifyCode" />
+            <img src="authCode"  onclick="chageCode()" width="104" height="42" style="cursor: pointer" onClick="document.getElementById('reverifyCode').src='Index-VerifyCode.png?time='+Math.random();void(0);" id="reverifyCode" />
             <u></u>
           </div>
           <div class="m2-pwdFrom-item" id="m2-pwdTab1-telCode">
@@ -214,6 +214,9 @@
       </div>
     </div>
     <script type="text/javascript">
+      function chageCode(){
+        $('#reverifyCode').attr('src','authCode?abc='+Math.random());//链接后添加Math.random，确保每次产生新的验证码，避免缓存问题。
+      }
       //tab 切换
       $(function(){
         $('.m2-pwdTab1').click(function(){
@@ -277,7 +280,7 @@
         $("#pcode").focus(function(){
           showMsg(this,"请输入图片验证码！");
         }).blur(function(){
-          if($(this).val().length!=5) showMsg(this,"请输入正确的图片验证码",'error');
+          if($(this).val().length!=4) showMsg(this,"请输入正确的图片验证码",'error');
           else  showMsg(this,"",'success');
         });
         //=========email
@@ -321,14 +324,14 @@
         p.cellphone = phone;
         p.user_name = user_name;
         p.pcode = pcode;
-        postData("Common-sendphone",p,function(d){
+        postData("sendphone",p,function(d){
           verifynum ++;
           if(d.status==1){
-            showInfoDialog(d.message,1);
+            showInfoDialog(d.comments,1);
             setLeftTime();
           }
           else{
-            showInfoDialog(d.message,0);
+            showInfoDialog(d.comments,0);
           }
         });
 
@@ -376,20 +379,21 @@
           return false;
         }
         if(verifynum >= 3){
-          if(pcode.length!=5){
+          if(pcode.length!=4){
             $("#pcode").parent().children('u').text("图片验证码不对");
             return false;
           }
         }
         var p={};
-        p.cellphone = phone;
+/*        p.cellphone = phone;
         p.user_name = user_name;
-        p.vcode = code;
-        postData("Common-verifyPhonenew",p,function(d){
-          showInfoDialog(d.message,d.status,function(){
-            if(d.referer){
+        p.vcode = code;*/
+        p.pcode=code;
+        postData("find",p,function(d){
+          showInfoDialog(d.comments,d.status,function(){
+            if(d.url!=null){
               setTimeout(function(){
-                window.location.href = d.referer;
+                window.location.href = d.url;
               },3000);
             }
           });

@@ -48,7 +48,7 @@ public class borrowController {
     @ResponseBody
     public String insert(@RequestParam(name="carimg1",required=false) CommonsMultipartFile[] files,@ModelAttribute(value="dir") File dir,TbBorrow borrow,HttpServletRequest request,HttpSession session) throws IOException {
         ulogin uLogin = new ulogin();
-        System.out.println("!!!!!!!!!!!!!!!");
+
         if(files.length>0){
         for(int i=0;i<files.length;i++) {
             String fileName =files[i].getOriginalFilename();
@@ -116,7 +116,7 @@ public class borrowController {
             return "borrow";
         }
         //不存在就进入开通存管页面
-        return "home-register-openbankid";
+        return "cunguan";
 
     }
 }
