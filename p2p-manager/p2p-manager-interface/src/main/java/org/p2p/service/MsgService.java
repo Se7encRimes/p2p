@@ -14,4 +14,8 @@ public interface MsgService {
     ulogin find(int pcode);
     //修改密码
     ulogin updateById(String password1,String password2,int id);
+
+    //邮箱修改密码
+    ulogin  selectEmil(String username,String emil);
+
 }

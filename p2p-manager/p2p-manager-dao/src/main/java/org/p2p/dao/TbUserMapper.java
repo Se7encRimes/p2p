@@ -38,4 +38,7 @@ public interface TbUserMapper {
     @Update("update tb_user set password=#{arg0} where id=#{arg1}")
     int updateById(String password,int id);
 
+    @Select("select phone from tb_user where username=#{name}")
+    String  selectEmil(String name);
+
 }

@@ -2,6 +2,7 @@ package org.p2p.service.impl;
 
 import org.p2p.dao.TbUserMapper;
 import org.p2p.service.MsgService;
+import org.p2p.utlis.EmailUtils;
 import org.p2p.utlis.MD5;
 import org.p2p.utlis.MsgUtils;
 
@@ -73,6 +74,22 @@ public class MsgServiceImpl implements MsgService{
             }
         }
 
+        return ulogin;
+    }
+
+
+    //邮箱找回密码
+    @Override
+    public ulogin selectEmil(String username,String emil) {
+
+        if(dao.selectEmil(username)!=null){
+            ulogin.setStatus(1);
+            ulogin.setComments("验证信息已经发送至您的邮箱，请查收");
+            EmailUtils.sendEmail(emil, "亲爱的"+username+"用户您好：", "点击下面链接可重置密码:http://10.31.152.19:8080/p2p/reforget");
+        }else{
+            ulogin.setComments("用户名或者邮箱不存在，请重新输入");
+
+        }
         return ulogin;
     }
 }

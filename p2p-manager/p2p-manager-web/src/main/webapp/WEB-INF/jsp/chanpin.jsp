@@ -481,7 +481,8 @@
   <div class="m2-detialsItembox">
     <h2>
       <span class="m2-detialsItembox-lef">${projectItem.carinfo}</span>
-      <span class="m2-detialsItembox-rig">项目编号：XX1003${projectItem.id}</span>
+      <span class="m2-detialsItembox-rig" >项目编号：XX1003${projectItem.id}</span>
+      <input type="hidden" value="${projectItem.id}" id="projectId"/>
     </h2>
   </div>
   <div class="m2-detialsItem">
@@ -1483,7 +1484,7 @@
     $.ajax({
       async:true,//使用同步的Ajax请求
       type: "POST",
-      url: "creatOrder?invest_money="+document.getElementById("invest_money").value+'&xid=15',
+      url: "creatOrder?invest_money="+document.getElementById("invest_money").value+'&xid='+document.getElementById("projectId").value,
       //data: ,
       success: function(d){
         if(window.confirm("亲爱的用户:点击确定将进入支付页面")){

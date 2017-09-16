@@ -2,7 +2,6 @@ package org.p2p.web;
 
 import org.p2p.pojo.po.TbUser;
 import org.p2p.service.MsgService;
-import org.p2p.utlis.EmailUtils;
 import org.p2p.utlis.ulogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by 张平清 on 2017/9/14/014.
@@ -31,15 +28,11 @@ public class MsgController {
      * @return
      * @throws Exception
      */
-    @RequestMapping(value="addEmail")
-    public String sendEmail(HttpServletRequest request)throws Exception{
-        Map<String,String> map = new HashMap<String,String>();
-        String msg = "ok";   //发送状态
-        String toEMAIL = request.getParameter("email");         //对方邮箱
-        String TITLE = request.getParameter("title");          //标题
-        String CONTENT = request.getParameter("content");        //内容
-        EmailUtils.sendEmail(toEMAIL, TITLE, CONTENT);
-        return "notice/notice";
+    @RequestMapping(value="sendEmail")
+    @ResponseBody
+    public ulogin sendEmail(HttpServletRequest request,String user_email,String user_name)throws Exception{
+
+        return msgService.selectEmil(user_name ,user_email);
     }
 
     //发送短信

@@ -415,14 +415,14 @@
 
         p.user_email = user_email;
         p.user_name = user_name;
-        postData("Common-sendemailnew",p,function(d){
+        postData("sendEmail",p,function(d){
           if(d.status==1){
-            showInfoDialog(d.message,'success');
+            showInfoDialog(d.comments,'success');
             $("#vcodetr").slideDown();
             $("#sendCode").remove();
           }
           else{
-            showInfoDialog(d.message,0);
+            showInfoDialog(d.comments,0);
           }
         });
       }
