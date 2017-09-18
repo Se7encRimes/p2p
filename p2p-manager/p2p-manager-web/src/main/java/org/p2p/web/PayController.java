@@ -31,7 +31,38 @@ import java.util.UUID;
 
 @Controller
 @Scope("prototype")
-public class PayController {
+public class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        PayController {
 
     //借钱的接口
     @Autowired

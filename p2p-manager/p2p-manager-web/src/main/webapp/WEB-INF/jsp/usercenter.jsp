@@ -334,7 +334,6 @@
         else {document.write("夜里好!")}
       </script>，${sessionScope.user.phone}，投资，是为了更好的自己！
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <span id="balance" style="color: #ff35c3 "><font style="font-size: large;">账户余额：${sessionScope.user.balance}元</font></span>
       </p>
       <div class="m2-wel-lef">
         <!--            <span style="position:absolute;top:85px;right:10px;font-size:15px;line-height:15px;">邀请码：<i style="font-style:normal;">xrejfr</i></span>-->
@@ -346,7 +345,7 @@
           <div class="m2-userMsg-iconLv" >
             <a href="usercenter-growth-index" class="m2-iconLevel-normal"><i></i><span>帮主</span></a>
           </div>
-          <div>成长值：<span id="mydetail_num" data="4000">${sessionScope.user.growth}</span><a href="usercenter-growth-index" style="color:#69b1d7;float:right;">如何加速？</a></div>
+          <div>成长值：<span id="mydetail_num" data="4000"></span><a href="usercenter-growth-index" style="color:#69b1d7;float:right;">如何加速？</a></div>
           <div id="desc" style="margin:10px 0;font-size:12px;">距离 <span id='vipname'>铁帮主</span> 还需要 <span id='integral'>3999</span> 成长值</div>
           <div id="growth_scale"><div class='bg'></div></div>
         </div>
@@ -442,11 +441,32 @@
         </li>
         <li class="m2-userIndnum-item">
           <p class="m2-detail-tit">账户余额:</p>
-          <span class="m2-detailNum-fal" id="accountBalance">${sessionScope.user.balance}</span>
+          <span class="m2-detailNum-fal" id="accountBalance">0.00</span>
+        </li>
+        <li class="m2-userIndnum-item">
+          <p class="m2-detail-tit">单位:</p>
+          <span class="m2-detailNum-fal" >（元）</span>
         </li>
       </ul>
     </div>
     <script language="javaScript">
+      $(function (){
+        //账户余额
+        var accountBalance = 0.00;
+        $.ajax({
+          async:false,//使用同步的Ajax请求
+          type: "POST",
+          url: "getAccountBalance?userId="+document.getElementById("userId").value,
+          //data: ,
+          success: function(data){
+            accountBalance=data;
+          }
+        });
+        document.getElementById("accountBalance").innerHTML=accountBalance+"";
+      });
+    </script>
+    <script language="javaScript">
+
       $(function (){
         //待收本金
         var investmentAmount = "";
@@ -1033,6 +1053,7 @@
   </script>
 
   <script>
+    //成长值
       function growth(){
       var active_id='0';
       $.ajax({

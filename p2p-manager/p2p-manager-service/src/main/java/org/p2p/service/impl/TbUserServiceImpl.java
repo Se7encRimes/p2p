@@ -22,7 +22,7 @@ public class TbUserServiceImpl implements TbUserService {
     private TbUserMapper tbUserMapper;
 
     //注册
-    public int save(TbUser user) {
+    public Integer save(TbUser user) {
         TbUser user1 = tbUserMapperCustom.selectByPhone(user.getPhone());
         if (user1 == null) {
             user.setCreatedate(new Date());
@@ -81,12 +81,17 @@ public class TbUserServiceImpl implements TbUserService {
     }
 
     @Override
-    public double selectMoney(int userId) {
+    public Double getAccountBalance(int userId) {
+        return tbUserMapperCustom.selectAccountBalance(userId);
+    }
+
+    @Override
+    public Double selectMoney(int userId) {
         return tbUserMapperCustom.selectMoneyByUserId(userId);
     }
 
     @Override
-    public double selectEarningTotal(int userId) {
+    public Double selectEarningTotal(int userId) {
         return tbUserMapperCustom.selectEarningTotalByUserId(userId);
     }
 

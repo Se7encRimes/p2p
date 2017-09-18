@@ -17,13 +17,13 @@ public interface TbUserMapperCustom {
     TbUser selectByPhone(String phone);
 
     @Update("update tb_user set username=#{username}, card=#{card}, bankcard=#{bankcard} where phone=#{phone}")
-    int updateByPhone(TbUser tbUser);
+    Integer updateByPhone(TbUser tbUser);
 
     @Select("select money from tb_invest where userid=#{userId}")
-    double selectMoneyByUserId(int userId);
+    Double selectMoneyByUserId(int userId);
 
     @Select("select earnings from tb_invest where userid=#{userId}")
-    double selectEarningTotalByUserId(int userId);
+    Double selectEarningTotalByUserId(int userId);
 
     @Select("select * from tb_user where id=#{userId}")
     TbUser selectTbuserByUserId(int userId);
@@ -35,7 +35,7 @@ public interface TbUserMapperCustom {
     })
     List<UserEnerning> selectUserMonthEnerning(int userId);
 
-    @Select("select em.money money,p.id id,p.rate rate ,DATE_FORMAT(p.createdate,'%Y-%m-%d %T') createdate,DATE_FORMAT(p.endtime,'%Y-%m-%d %T') endtime from tb_project p LEFT JOIN tb_item em ON p.id=em.projectid LEFT JOIN tb_invest st ON em.incestid=st.id WHERE st.userid=#{userId} ORDER BY p.createdate")
+    @Select("select em.money money,p.id id,p.rate rate ,DATE_FORMAT(em.createdate,'%Y-%m-%d %T') createdate,DATE_FORMAT(p.endtime,'%Y-%m-%d %T') endtime from tb_project p LEFT JOIN tb_item em ON p.id=em.projectid LEFT JOIN tb_invest st ON em.incestid=st.id WHERE st.userid=#{userId} ORDER BY em.createdate")
     @Results({
             @Result(column = "money",property = "money",jdbcType = JdbcType.DOUBLE),
             @Result(column = "id",property = "id",jdbcType = JdbcType.INTEGER),
@@ -53,4 +53,7 @@ public interface TbUserMapperCustom {
 
     @Update("update tb_user set growth=growth+2 where id=#{userId}")
     Integer updateGrowth(int userId);
+
+    @Select("select balance from tb_user where id=#{userId}")
+    Double selectAccountBalance(int userId);
 }

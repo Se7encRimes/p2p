@@ -11,7 +11,7 @@ import java.util.Map;
 
 public interface TbUserService {
     //注册
-    int save(TbUser user);
+    Integer save(TbUser user);
 
     //登录
     Map<String,Object> userlogin(TbUser user);
@@ -22,9 +22,9 @@ public interface TbUserService {
     //查询
     TbUser query(String phone);
 
-    double selectMoney(int userId);
+    Double selectMoney(int userId);
 
-    double selectEarningTotal(int userId);
+    Double selectEarningTotal(int userId);
 
     Sign_Growth getSign_Growth(int userId);
 
@@ -33,4 +33,6 @@ public interface TbUserService {
     List<InvestItem> getInvestItem(int userId);
 
     String signIn(int userId);
+
+    Double getAccountBalance(int userId);
 }

@@ -65,6 +65,14 @@ public class UserController {
         return json;
     }
 
+    //获取账户余额
+    @RequestMapping("getAccountBalance")
+    @ResponseBody
+    public double getAccountBalance(String userId){
+        Double accountBalance = userService.getAccountBalance(Integer.parseInt(userId));
+        return accountBalance;
+    }
+
     //获取成长值
     @RequestMapping(value="getGrowth",produces = "text/html;charset=UTF-8")
     @ResponseBody
@@ -81,7 +89,10 @@ public class UserController {
     @RequestMapping("getMoney")
     @ResponseBody
     public double getMoney(String userId){
-        double money = userService.selectMoney(Integer.parseInt(userId));
+        Double money = userService.selectMoney(Integer.parseInt(userId));
+        if (money==null){
+            money=0.0;
+        }
         return money;
     }
 
@@ -89,14 +100,20 @@ public class UserController {
     @RequestMapping("getEarningToday")
     @ResponseBody
     public double getEarningTaday(String userId){
-        double earning = userService.selectMoney(Integer.parseInt(userId))*0.0001;
+        Double earning = userService.selectMoney(Integer.parseInt(userId))*0.0001;
+        if (earning==null){
+            earning=0.0;
+        }
         return earning;
     }
     //获取累计收益
     @RequestMapping("getEarningTotal")
     @ResponseBody
     public double getEarningTotal(String userId){
-        double earnings = userService.selectEarningTotal(Integer.parseInt(userId));
+        Double earnings = userService.selectEarningTotal(Integer.parseInt(userId));
+        if (earnings==null){
+            earnings=0.0;
+        }
         return earnings;
     }
 
