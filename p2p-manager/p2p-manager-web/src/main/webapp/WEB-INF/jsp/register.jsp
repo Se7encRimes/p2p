@@ -230,6 +230,7 @@
         $("#newregister").hide();
       });
       //隐藏弹窗
+
       $(".m2-loginReg-boxClose").click(function(){
         $('.m2-loginBg').hide();
         $('.m2-loginReg-box').hide();
