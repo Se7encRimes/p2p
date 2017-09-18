@@ -180,7 +180,19 @@ function searchdata() {
         default:
             p['type'] = 0;
     }
-
+//    var invest_type=$('.m2-manageSearchsel-time3 .m2-manSealink-sel').parent().index() + 1;
+//    switch (invest_type) {
+//    case 3:
+//        p['invest_type'] = 1;
+//        break;
+//    case 4:
+//        p['invest_type'] = 2;
+//        break;
+//    default:
+//        p['invest_type'] = 0;
+//}
+//    p['start'] = $('#m2-manSeadate-start').val();
+//    p['end'] = $('#m2-manSeadate-end').val();
     return p;
 }
 function manageChartmot(data) {
