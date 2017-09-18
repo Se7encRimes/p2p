@@ -2,6 +2,7 @@ package org.p2p.service;
 
 import org.p2p.pojo.vo.ProjectVague;
 import org.p2p.pojo.vo.TouZiProject;
+import org.p2p.utlis.InvestItem;
 import org.p2p.utlis.Page;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface TouZiService {
     int getPageSize(ProjectVague projectVague);
 
     ProjectVague getProjectVague(String borrow_interest_rate,String borrow_money,String borrow_status);
+
+    List<InvestItem> touziRecord(int id,int seprate_time,int type);
 }

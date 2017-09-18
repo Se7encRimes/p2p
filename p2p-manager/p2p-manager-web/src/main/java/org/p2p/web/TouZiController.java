@@ -1,14 +1,17 @@
 package org.p2p.web;
 
+import org.p2p.pojo.po.TbUser;
 import org.p2p.pojo.vo.ProjectVague;
 import org.p2p.pojo.vo.TouZiProject;
 import org.p2p.service.TouZiService;
+import org.p2p.utlis.InvestItem;
 import org.p2p.utlis.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -50,5 +53,13 @@ public class TouZiController {
         ProjectVague projectVague = service.getProjectVague(borrow_interest_rate,borrow_money,borrow_status);
         int pageSize = service.getPageSize(projectVague);
         return pageSize%5==0?pageSize/5:pageSize/5+1;
+    }
+    //我的帐户查询投资记录
+    @RequestMapping("touziRecord")
+    @ResponseBody
+    public List<InvestItem> touziRecord(HttpSession session, int seprate_time,int type){
+        TbUser user = (TbUser)session.getAttribute("user");
+        int id = user.getId();
+        return service.touziRecord(id,seprate_time,type);
     }
 }
