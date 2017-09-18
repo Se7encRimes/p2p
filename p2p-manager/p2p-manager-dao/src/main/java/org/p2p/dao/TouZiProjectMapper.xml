@@ -54,4 +54,22 @@
         AND projectstate=1
         ORDER BY p.state
     </select>
+    <select id="touziRecord" resultType="org.p2p.utlis.InvestItem">
+      SELECT
+        p.id,p.rate,t.createdate,t.money,p.endtime
+      FROM
+        tb_item t
+       LEFT JOIN tb_project p ON p.id = t.projectid
+       LEFT JOIN tb_invest i ON i.id = t.incestid
+       WHERE
+        i.userid = #{id}
+        <if test="state > 0">
+          and p.state = #{state}
+        </if>
+        <if test="starttime !=null">
+          and t.createdate BETWEEN #{starttime} AND now()
+        </if>
+       ORDER BY
+        t.createdate DESC
+    </select>
 </mapper>
