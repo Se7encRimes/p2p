@@ -3,7 +3,9 @@ package org.p2p.web;
 import org.p2p.pojo.po.TbInvest;
 import org.p2p.pojo.po.TbItem;
 import org.p2p.pojo.po.TbUser;
+import org.p2p.pojo.vo.ProjectItem;
 import org.p2p.pojo.vo.TbUserRecoding;
+import org.p2p.service.ProjectItemService;
 import org.p2p.service.TbBorrowService;
 import org.p2p.service.TbInvestService;
 import org.p2p.service.TbItemService;
@@ -42,8 +44,14 @@ public class PayController {
     @Autowired
     private TbItemService  itemService;
     //判断是否开通存管
+
+    //信息展示
+    @Autowired
+    private ProjectItemService projectItemService;
+
+
     @RequestMapping("/chanpinaction")
-    public String chanpinaction(HttpServletRequest request,HttpSession session){
+    public String chanpinaction(HttpServletRequest request,HttpSession session,int id ,Model model){
 
         TbUser user=(TbUser)session.getAttribute("user");
         int uid = user.getId();
@@ -53,6 +61,8 @@ public class PayController {
                 session.setAttribute("balance",0);
             }
             else {
+                ProjectItem projectItem = projectItemService.getProjectItemById(id);
+                model.addAttribute("projectItem",projectItem);
                 session.setAttribute("balance",investService.selectBalance(uid));
             }
             //查询记录
@@ -75,6 +85,19 @@ public class PayController {
     @RequestMapping("creatOrder")
     @ResponseBody
     public String  creat(String invest_money,int xid,HttpSession session,Model model){
+
+        //比较投资金额更余额
+
+        String balance =(String)session.getAttribute("balance");
+        int balance1=Integer.parseInt(balance);
+        int money10=Integer.parseInt(invest_money);
+
+ /*       if(money10<=balance1){
+
+        return "chanpiin";
+        }else {
+
+        }*/
 
         TbUser user=(TbUser)session.getAttribute("user");
         int uid = user.getId();

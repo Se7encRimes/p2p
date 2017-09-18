@@ -328,7 +328,7 @@ function touZiBack(d,classpath){
             html1 += "<div class='m2-invItem-rig'><div class='m2-invItemrig-main'>";
             html1 += "<p class='m2-invItemrig-gua'><span class='m2-invItemrig-guaTit' style='color:#333;'>担保措施:</span>";
             html1 += "<span class='m2-invItemrig-guaDet' style='color:#ff9900;'>" + project[i].guarantee + "</span></p><div class='m2-invItemrig-link'>";
-            html1 += "<a href='chanpin?id=" + project[i].id + "' class='m2-invItemlink-inv' target='_blank' title='点击立即投资 " + project[i].carinfo + "'>立即投资</a>";
+            html1 += "<a href='chanpinaction?id=" + project[i].id + "' class='m2-invItemlink-inv' target='_blank' title='点击立即投资 " + project[i].carinfo + "'>立即投资</a>";
             html1 += "</div></div><p class='m2-invItem-det' style='text-indent:20px;'>投资万元预期收益：<span>" + project[i].rate * 10000 + "元</span></p>";
             html1 += "<p class='m2-invItem-det'>投资起点金额：<span style='color:#ff6666;'>100元</span></p></div></li>";
         }

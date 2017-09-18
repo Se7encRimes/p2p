@@ -152,7 +152,8 @@
   <div class="m2-commonTop">
     <div class="m2-commonTop-left">
       <div class="m2-commonTop-tel"><i></i>4006&nbsp;-&nbsp;777&nbsp;-&nbsp;518</div>
-      <div class="m2-commonTop-service"><i></i><span>客服：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2522274059&amp;site=qq&amp;menu=yes" title="客服">2522274059</a></span></div>
+      <div class="m2-commonTop-service"><i></i><span>客服：<a class="light-color" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODA1MzA4N180NzMzMTJfNDAwNjc3NzUxOF8yXw" target="_blank">在线客服</a>
+</span></div>
       <div class="m2-commonEwm">
         <span class="m2-commonEwm-tit">关注我们：</span>
         <div class="m2-commonEwmwx">
@@ -166,7 +167,10 @@
         </div>
         <div class="m2-commonEwmwb">
           <i class="m2-commonEwmicon" onclick='window.open("http://weibo.com/iqianbang")'></i>
+
         </div>
+
+
       </div>
     </div>
     <div class="m2-commonTop-right">
@@ -183,10 +187,13 @@
           <c:otherwise>
             <div class="m2-commonTop-link">
               <ul>
+
                 <li class="m2-commonTop-loged">
                   <span class="m2-commonTop-userName"><a href="usercenter">您好,${sessionScope.user.phone}</a></span>
                 </li>
+
                 <li class="m2-commonTop-btn"><a href="UQuit" style="border-right:none;">退出</a></li>
+                <li class="m2-commonTop-btn"><a href="app" target="_blank">手机App</a></li>
               </ul>
             </div>
         </c:otherwise>

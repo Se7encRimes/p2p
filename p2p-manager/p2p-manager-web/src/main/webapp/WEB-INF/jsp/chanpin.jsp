@@ -39,7 +39,8 @@
     <div class="m2-commonTop">
       <div class="m2-commonTop-left">
         <div class="m2-commonTop-tel"><i></i>4006&nbsp;-&nbsp;777&nbsp;-&nbsp;518</div>
-        <div class="m2-commonTop-service" style="padding-left:0;"><span style="float:left;">客服：</span>
+        <div class="m2-commonTop-service" style="padding-left:0;"><span style="float:left;">客服：<a class="light-color" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODA1MzA4N180NzMzMTJfNDAwNjc3NzUxOF8yXw" target="_blank">在线客服</a>
+</span>
           <div style="float:left;display:inline-block;width:92px;height:22px;padding:6px 0 13px 0;"></div>
         </div>
         <div class="m2-commonEwm">
@@ -480,7 +481,8 @@
   <div class="m2-detialsItembox">
     <h2>
       <span class="m2-detialsItembox-lef">${projectItem.carinfo}</span>
-      <span class="m2-detialsItembox-rig">项目编号：XX1003${projectItem.id}</span>
+      <span class="m2-detialsItembox-rig" >项目编号：XX1003${projectItem.id}</span>
+      <input type="hidden" value="${projectItem.id}" id="projectId"/>
     </h2>
   </div>
   <div class="m2-detialsItem">
@@ -1482,7 +1484,7 @@
     $.ajax({
       async:true,//使用同步的Ajax请求
       type: "POST",
-      url: "creatOrder?invest_money="+document.getElementById("invest_money").value+'&xid=15',
+      url: "creatOrder?invest_money="+document.getElementById("invest_money").value+'&xid='+document.getElementById("projectId").value,
       //data: ,
       success: function(d){
         if(window.confirm("亲爱的用户:点击确定将进入支付页面")){
