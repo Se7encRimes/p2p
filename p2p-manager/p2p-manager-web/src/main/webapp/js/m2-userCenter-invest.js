@@ -19,28 +19,46 @@ $(function () {
         }
         $('.nowpages').val(1);
         var seachdata = searchdata();
-        seachdata['nowpage'] = 0;
-        seachdata['pagesize'] = 10;
+        //seachdata['nowpage'] = 0;
+        //seachdata['pagesize'] = 10;
         $.ajax({
             type: "POST",
-            url: '/Usercenter-Investcontrol-investsearch',
+            url: 'touziRecord',
             dataType: 'json',
             data: seachdata,
             success: function (data) {
-                $('.m2-userInevst-pro,.m2-userTable-noData').remove();
-                $(data['html']).insertAfter('.m2-userInevst-head');
-                if (data.pages > 0 && data.pages == 10) {
-                    $(".m2-manageResult-sum span").addClass('m2-manageResult-more');
-                    $(".m2-manageResult-sum span").html('加载更多');
-                    $(".m2-manageResult-sum span").css('color', '#fff');
-                    $('.m2-manageResult-sum').show();
-                } else {
-                    $('.m2-manageResult-sum').hide();
-                }
-                fitBottom();
+                touziRecord(data);
+                //$(data['html']).insertAfter('.m2-userInevst-head');
+                //if (data.pages > 0 && data.pages == 10) {
+                //    $(".m2-manageResult-sum span").addClass('m2-manageResult-more');
+                //    $(".m2-manageResult-sum span").html('加载更多');
+                //    $(".m2-manageResult-sum span").css('color', '#fff');
+                //    $('.m2-manageResult-sum').show();
+                //} else {
+                //    $('.m2-manageResult-sum').hide();
+                //}
+                //fitBottom();
             }
         });
     });
+    //投资记录条件查询显示
+    function touziRecord(data){
+        var html1="<tr class='m2-userInevst-head' ><th style='width:140px;'>项目ID</th><th style='width:120px;'>投资金额</th> <th style='width:60px;'>收益率</th><th style='width:120px;'>计息日</th><th style='width:120px;'>还款日</th><th style='width:168px;'></th></tr>";
+        if(data.length==0){
+            html1+= "<tr class='m2-userTable-noData'><td>暂无数据</td> <td colspan='5'></td></tr>";
+        }else{
+            var item = eval(data);
+            for(var i in item) {
+                html1+="<tr><td>"+item[i].id+"</td>";
+                html1+="<td>"+item[i].money+"</td>";
+                html1+="<td>"+item[i].rate+"</td>";
+                html1+="<td>"+item[i].createdate+"</td>";
+                html1+="<td>"+item[i].endtime+"</td></tr>";
+            }
+        }
+        document.getElementById("touziRecord").innerHTML = html1;
+    }
+
 //新加过滤按钮
     $(".m2-manageSearchsel-link2 span").click(function () {
         $("#m2-manSeadate-start,#m2-manSeadate-end").val('');
@@ -54,25 +72,15 @@ $(function () {
         }
         $('.nowpages').val(1);
         var seachdata = searchdata();
-        seachdata['nowpage'] = 0;
-        seachdata['pagesize'] = 10;
+        //seachdata['nowpage'] = 0;
+        //seachdata['pagesize'] = 10;
         $.ajax({
             type: "POST",
-            url: '/Usercenter-Investcontrol-investsearch',
+            url: 'touziRecord',
             dataType: 'json',
             data: seachdata,
             success: function (data) {
-                $('.m2-userInevst-pro,.m2-userTable-noData').remove();
-                $(data['html']).insertAfter('.m2-userInevst-head');
-                if (data.pages > 0 && data.pages == 10) {
-                    $(".m2-manageResult-sum span").addClass('m2-manageResult-more');
-                    $(".m2-manageResult-sum span").html('加载更多');
-                    $(".m2-manageResult-sum span").css('color', '#fff');
-                    $('.m2-manageResult-sum').show();
-                } else {
-                    $('.m2-manageResult-sum').hide();
-                }
-                fitBottom();
+                touziRecord(data);
             }
         });
     });
@@ -93,7 +101,7 @@ $(function () {
         seachdata['pagesize'] = 10;
         $.ajax({
             type: "POST",
-            url: '/Usercenter-Investcontrol-investsearch',
+            url: 'touziRecord',
             dataType: 'json',
             data: seachdata,
             success: function (data) {
@@ -122,7 +130,7 @@ $(function () {
         $('.nowpages').val($nextpage);
         $.ajax({
             type: "POST",
-            url: '/Usercenter-Investcontrol-investsearch',
+            url: 'touziRecord',
             dataType: 'json',
             data: seachdata,
             success: function (data) {
@@ -172,19 +180,7 @@ function searchdata() {
         default:
             p['type'] = 0;
     }
-    var invest_type=$('.m2-manageSearchsel-time3 .m2-manSealink-sel').parent().index() + 1;
-    switch (invest_type) {
-    case 3:
-        p['invest_type'] = 1;
-        break;
-    case 4:
-        p['invest_type'] = 2;
-        break;
-    default:
-        p['invest_type'] = 0;
-}
-    p['start'] = $('#m2-manSeadate-start').val();
-    p['end'] = $('#m2-manSeadate-end').val();
+
     return p;
 }
 function manageChartmot(data) {
@@ -360,7 +356,7 @@ function startDatepicker() {
             seachdata['pagesize'] = 10;
             $.ajax({
                 type: "POST",
-                url: '/Usercenter-Investcontrol-investsearch',
+                url: 'touziRecord',
                 dataType: 'json',
                 data: seachdata,
                 success: function (data) {
@@ -396,7 +392,7 @@ function endDatepicker() {
             seachdata['pagesize'] = 10;
             $.ajax({
                 type: "POST",
-                url: '/Usercenter-Investcontrol-investsearch',
+                url: 'touziRecord',
                 dataType: 'json',
                 data: seachdata,
                 success: function (data) {

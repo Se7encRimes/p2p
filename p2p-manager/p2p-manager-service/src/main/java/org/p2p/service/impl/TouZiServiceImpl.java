@@ -5,6 +5,7 @@ import org.p2p.dao.TouZiProjectMapper;
 import org.p2p.pojo.vo.ProjectVague;
 import org.p2p.pojo.vo.TouZiProject;
 import org.p2p.service.TouZiService;
+import org.p2p.utlis.InvestItem;
 import org.p2p.utlis.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -113,6 +114,25 @@ public class TouZiServiceImpl implements TouZiService {
         }
         projectVague.setState(state);
         return projectVague;
+    }
+
+    /**
+     * 条件查询投资记录
+     * @param seprate_time
+     * @param type
+     * @return List<InvestItem>
+     */
+    @Override
+    public List<InvestItem> touziRecord(int id,int seprate_time, int type) {
+        if(seprate_time!=0){
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(calendar.getTime());
+            calendar.add(Calendar.DAY_OF_YEAR,-seprate_time);
+            Date calendarTime = calendar.getTime();
+            return mapper.touziRecord(id,calendarTime,type);
+        }else {
+            return mapper.touziRecord(id,null,type);
+        }
     }
 
     /**
