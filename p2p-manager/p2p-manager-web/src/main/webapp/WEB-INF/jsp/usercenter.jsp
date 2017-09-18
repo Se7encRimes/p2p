@@ -1113,7 +1113,7 @@
       growth();
       $.ajax({
         type:"POST",
-        url: "sign_in?userId="+document.getElementById("userId").value,
+        url: "sign_query?userId="+document.getElementById("userId").value,
         //data: {active_id:active_id},
         success: function (data) {
           if("signed"===data) {
@@ -1265,6 +1265,9 @@
         url: "getIncomeList?userId="+document.getElementById("userId").value,
         data: {},
         success: function (data) {
+          if(data===""){
+            document.getElementById("m2-chartMonth").innerHTML="暂无数据";
+          }
           $('.m2-chartLoading').hide();
           var obj = eval('(' + data + ')');
           monthData = getList(obj.monincomelist, 'income');

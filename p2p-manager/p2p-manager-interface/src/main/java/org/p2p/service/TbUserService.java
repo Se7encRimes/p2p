@@ -1,6 +1,7 @@
 package org.p2p.service;
 
 import org.p2p.pojo.po.TbUser;
+import org.p2p.pojo.vo.MyAccount;
 import org.p2p.utlis.InvestItem;
 import org.p2p.utlis.Sign_Growth;
 import org.p2p.utlis.UserEnerning;
@@ -35,4 +36,8 @@ public interface TbUserService {
     String signIn(int userId);
 
     Double getAccountBalance(int userId);
+
+    String signQuery(int userId);
+
+    MyAccount queryAccount(Integer userId);
 }
