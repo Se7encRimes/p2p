@@ -488,7 +488,7 @@
   <div class="m2-detialsItem">
     <div class="m2-detItemlef">
       <div class="m2-detItemlef-img">
-          <img  src="${pageContext.request.contextPath}/${projectItem.carimg}" alt="${projectItem.carinfo}" width='256' height="200">
+          <img  src="${pageContext.request.contextPath}/my_files/${projectItem.carimg}" alt="${projectItem.carinfo}" width='256' height="200">
 
 <%--
         <scrip&lt;%&ndash;       <p class="m2-detItemlef-imgSha" style="margin-top: 0">

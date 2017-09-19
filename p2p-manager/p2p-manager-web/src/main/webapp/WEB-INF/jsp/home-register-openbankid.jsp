@@ -271,7 +271,7 @@
             return false;
 
           if(ifUserName&&ifIdNo){
-            alert("asdsad");
+           // alert("asdsad");
             $.ajax({
               url: "openbankactive",
               data: p,

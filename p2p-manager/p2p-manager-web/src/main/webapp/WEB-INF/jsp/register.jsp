@@ -365,7 +365,7 @@
         cache:false,
         async:false,
         success: function(d){
-          alert(d);
+          //alert(d);
           result=""+d;
         }
       });

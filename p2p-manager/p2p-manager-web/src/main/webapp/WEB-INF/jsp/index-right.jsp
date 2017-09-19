@@ -49,7 +49,7 @@
         <div class="bottom">
           <img src="images/user-head.png" alt="我的账户">
           <div>
-            <p id ="right_name_info"></p>
+            <p id ="right_name_info">aqb${sessionScope.user.phone}</p>
             <button id="right_recharge">充值</button>
           </div>
         </div>
@@ -58,7 +58,7 @@
       <div class="summiddle">
         <ul>
           <li style="border-top-left-radius:10px;">
-            <p><span id="right_account_money"></span>元</p>
+            <p><span id="right_account_money"></span>${sessionScope.myAccount.balance}元</p>
             <span>可用资金</span>
           </li>
           <li style="border-top-right-radius:10px;">
@@ -67,17 +67,17 @@
           </li>
         </ul>
         <div class="content">
-          <p>待收本金：<span id="right_total_capital"></span>元</p>
-          <p>待收收益：<span id="right_total_wait_interest"></span>元</p>
+          <p>待收本金：<span id="right_total_capital">${sessionScope.myAccount.principal}</span>元</p>
+          <p>待收收益：<span id="right_total_wait_interest"></span>${sessionScope.myAccount.totalEarnings}元</p>
         </div>
-        <p class="lastcontent">资产总计：<span id="right_total_asset"></span>元</p>
+        <p class="lastcontent">资产总计：<span id="right_total_asset">${sessionScope.myAccount.totalAssets}</span>元</p>
         <ul style="margin-top:30px;">
           <li style="border-top-left-radius:10px;border-bottom-left-radius:10px;">
-            <p><span id="right_today_earn"></span>元</p>
+            <p><span id="right_today_earn">${sessionScope.myAccount.tadayEarnings}</span>元</p>
             <span>今日赚取</span>
           </li>
           <li style="border-top-right-radius:10px;border-bottom-right-radius:10px;">
-            <p><span id="right_total_reward_normal_interest"></span>元</p>
+            <p><span id="right_total_reward_normal_interest">${sessionScope.myAccount.totalEarnings}</span>元</p>
             <span>累计收益</span>
           </li>
         </ul>

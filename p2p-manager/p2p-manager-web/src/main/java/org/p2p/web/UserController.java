@@ -3,6 +3,7 @@ package org.p2p.web;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.p2p.pojo.po.TbUser;
+import org.p2p.pojo.vo.MyAccount;
 import org.p2p.service.TbUserService;
 import org.p2p.utlis.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +36,13 @@ public class UserController {
         String str = userService.signIn(Integer.parseInt(userId));
         return str;
     }
+    //签到查询
+    @RequestMapping("sign_query")
+    @ResponseBody
+    public String sign_query(String userId){
+        String str = userService.signQuery(Integer.parseInt(userId));
+        return str;
+    }
     //投资记录
     @RequestMapping("getInvestItem")
     @ResponseBody
@@ -48,6 +58,9 @@ public class UserController {
     @ResponseBody
     public String getIncomeList(String userId) throws JsonProcessingException {
         List<UserEnerning> list = userService.selectUserMonthEnerning(Integer.parseInt(userId));
+        if(list.size()==0){
+            return "";
+        }
         List<String> list1 = new ArrayList<>();
         List<String> list2 = new ArrayList<>();
         System.out.println("=====>"+list.get(0).getMonth());
@@ -65,7 +78,24 @@ public class UserController {
         return json;
     }
 
-    //获取成长值
+    //获取账户余额
+    @RequestMapping("getAccountBalance")
+    @ResponseBody
+    public double getAccountBalance(String userId){
+        Double accountBalance = userService.getAccountBalance(Integer.parseInt(userId));
+        return accountBalance;
+    }
+
+    @RequestMapping(value="getGrowthOnly",produces = "text/html;charset=UTF-8")
+    @ResponseBody
+    public String getGrowthOnly(String userId){
+        Integer growth = userService.getGrowthOnly(Integer.parseInt(userId));
+        System.err.println(growth);
+
+        return growth.toString();
+    }
+
+    //获取成长值和等级，差额
     @RequestMapping(value="getGrowth",produces = "text/html;charset=UTF-8")
     @ResponseBody
     public String getSign_Growth(String userId,int active_id) throws JsonProcessingException {
@@ -81,7 +111,10 @@ public class UserController {
     @RequestMapping("getMoney")
     @ResponseBody
     public double getMoney(String userId){
-        double money = userService.selectMoney(Integer.parseInt(userId));
+        Double money = userService.selectMoney(Integer.parseInt(userId));
+        if (money==null){
+            money=0.0;
+        }
         return money;
     }
 
@@ -89,14 +122,23 @@ public class UserController {
     @RequestMapping("getEarningToday")
     @ResponseBody
     public double getEarningTaday(String userId){
-        double earning = userService.selectMoney(Integer.parseInt(userId))*0.0001;
-        return earning;
+        Double earning = userService.selectMoney(Integer.parseInt(userId))*0.0001;
+        if (earning==null){
+            earning=0.0;
+        }
+        BigDecimal result1 = new BigDecimal(earning);
+        BigDecimal result2 = result1.setScale(2, RoundingMode.DOWN);
+        double earning1 = Double.parseDouble(String.valueOf(result2));
+        return earning1;
     }
     //获取累计收益
     @RequestMapping("getEarningTotal")
     @ResponseBody
     public double getEarningTotal(String userId){
-        double earnings = userService.selectEarningTotal(Integer.parseInt(userId));
+        Double earnings = userService.selectEarningTotal(Integer.parseInt(userId));
+        if (earnings==null){
+            earnings=0.0;
+        }
         return earnings;
     }
 
@@ -163,8 +205,11 @@ public class UserController {
         user.setPassword(md5.getMD5ofStr(user.getPassword()));
         Map<String,Object> map=userService.userlogin(user);
         ulogin loginx = (ulogin) map.get("ulogin");
+        MyAccount myAccount = new MyAccount();
         if(map.get("user")!=null){
+            myAccount = userService.queryAccount(((TbUser)map.get("user")).getId());
             session.setAttribute("user",map.get("user"));
+            session.setAttribute("myAccount",myAccount);
         }
       return loginx;
     }

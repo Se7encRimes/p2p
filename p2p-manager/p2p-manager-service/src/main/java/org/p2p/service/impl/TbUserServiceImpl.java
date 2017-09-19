@@ -3,11 +3,16 @@ package org.p2p.service.impl;
 import org.p2p.dao.TbUserMapper;
 import org.p2p.dao.TbUserMapperCustom;
 import org.p2p.pojo.po.TbUser;
+import org.p2p.pojo.vo.MyAccount;
 import org.p2p.service.TbUserService;
 import org.p2p.utlis.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +20,8 @@ import java.util.Map;
 
 
 @Service
+@Transactional
+@Scope("prototype")
 public class TbUserServiceImpl implements TbUserService {
     @Autowired
     private TbUserMapperCustom tbUserMapperCustom;
@@ -22,10 +29,13 @@ public class TbUserServiceImpl implements TbUserService {
     private TbUserMapper tbUserMapper;
 
     //注册
-    public int save(TbUser user) {
+    public Integer save(TbUser user) {
         TbUser user1 = tbUserMapperCustom.selectByPhone(user.getPhone());
         if (user1 == null) {
             user.setCreatedate(new Date());
+            user.setBalance(0.0);
+            user.setGrowth(0);
+            user.setJifen(0);
             return tbUserMapper.insert(user);
         } else {
             return -1;
@@ -81,12 +91,25 @@ public class TbUserServiceImpl implements TbUserService {
     }
 
     @Override
-    public double selectMoney(int userId) {
-        return tbUserMapperCustom.selectMoneyByUserId(userId);
+    public Double getAccountBalance(int userId) {
+        Double balance = tbUserMapperCustom.selectAccountBalance(userId);
+        if(balance==null){
+            balance=0.00;
+        }
+        return balance;
     }
 
     @Override
-    public double selectEarningTotal(int userId) {
+    public Double selectMoney(int userId) {
+        Double money = tbUserMapperCustom.selectMoneyByUserId(userId);
+        if(money==null){
+            money=0.00;
+        }
+        return money;
+    }
+
+    @Override
+    public Double selectEarningTotal(int userId) {
         return tbUserMapperCustom.selectEarningTotalByUserId(userId);
     }
 
@@ -100,6 +123,9 @@ public class TbUserServiceImpl implements TbUserService {
         TbUser tbUser = tbUserMapperCustom.selectTbuserByUserId(userId);
         Sign_Growth sign_growth = new Sign_Growth();
         Data data = new Data();
+        if(tbUser.getGrowth()==null){
+            tbUser.setGrowth(0);
+        }
         data.setGrowthvalue(tbUser.getGrowth());
         if(tbUser.getGrowth()<4000){
             data.setName("铁帮主");
@@ -139,6 +165,16 @@ public class TbUserServiceImpl implements TbUserService {
     }
 
     @Override
+    public String signQuery(int userId) {
+        Integer i=tbUserMapperCustom.selectSignByuserId(userId);
+        if(i==null){
+            return "notsign";
+        }else{
+            return "signed";
+        }
+    }
+
+    @Override
     public String signIn(int userId) {
         Integer i=tbUserMapperCustom.selectSignByuserId(userId);
         if(i==null){
@@ -152,5 +188,41 @@ public class TbUserServiceImpl implements TbUserService {
         }else{
             return "signed";
         }
+    }
+
+    @Override
+    public MyAccount queryAccount(Integer userId) {
+        MyAccount myAccount = new MyAccount();
+        Double balance = tbUserMapperCustom.selectAccountBalance(userId);
+        if(balance==null){
+            balance=0.00;
+        }
+        Double principal = tbUserMapperCustom.selectMoneyByUserId(userId);
+        if(principal==null){
+            principal=0.00;
+        }
+        Double totalEarnings = tbUserMapperCustom.selectEarningTotalByUserId(userId);
+        if(totalEarnings==null){
+            totalEarnings=0.00;
+        }
+        Double tadayEarnings1 = principal*0.0001;
+        BigDecimal tadayEarnings2 = new BigDecimal(tadayEarnings1);
+        BigDecimal tadayEarnings3 = tadayEarnings2.setScale(2, RoundingMode.DOWN);
+        Double tadayEarnings = Double.parseDouble(String.valueOf(tadayEarnings3));
+        myAccount.setBalance(balance);
+        myAccount.setPrincipal(principal);
+        myAccount.setTadayEarnings(tadayEarnings);
+        myAccount.setTotalEarnings(totalEarnings);
+        myAccount.setTotalAssets(balance+principal+tadayEarnings+totalEarnings);
+        return myAccount;
+    }
+
+    @Override
+    public Integer getGrowthOnly(int userId) {
+       Integer growth = tbUserMapperCustom.selectGrowth(userId);
+        if(growth==null){
+            growth=0;
+        }
+        return growth;
     }
 }

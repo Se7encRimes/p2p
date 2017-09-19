@@ -31,7 +31,38 @@ import java.util.UUID;
 
 @Controller
 @Scope("prototype")
-public class PayController {
+public class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        PayController {
 
     //借钱的接口
     @Autowired
@@ -54,6 +85,7 @@ public class PayController {
     public String chanpinaction(HttpServletRequest request,HttpSession session,int id ,Model model){
 
         TbUser user=(TbUser)session.getAttribute("user");
+        System.err.println(user.getPhone()+"发起请求");
         int uid = user.getId();
         //查询余额
         if (service.selectByUid(uid) != null) {

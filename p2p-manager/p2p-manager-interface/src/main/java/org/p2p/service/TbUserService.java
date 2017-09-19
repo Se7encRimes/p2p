@@ -1,6 +1,7 @@
 package org.p2p.service;
 
 import org.p2p.pojo.po.TbUser;
+import org.p2p.pojo.vo.MyAccount;
 import org.p2p.utlis.InvestItem;
 import org.p2p.utlis.Sign_Growth;
 import org.p2p.utlis.UserEnerning;
@@ -11,7 +12,7 @@ import java.util.Map;
 
 public interface TbUserService {
     //注册
-    int save(TbUser user);
+    Integer save(TbUser user);
 
     //登录
     Map<String,Object> userlogin(TbUser user);
@@ -22,9 +23,9 @@ public interface TbUserService {
     //查询
     TbUser query(String phone);
 
-    double selectMoney(int userId);
+    Double selectMoney(int userId);
 
-    double selectEarningTotal(int userId);
+    Double selectEarningTotal(int userId);
 
     Sign_Growth getSign_Growth(int userId);
 
@@ -34,6 +35,11 @@ public interface TbUserService {
 
     String signIn(int userId);
 
+    Double getAccountBalance(int userId);
 
+    String signQuery(int userId);
 
+    MyAccount queryAccount(Integer userId);
+
+    Integer getGrowthOnly(int userId);
 }
