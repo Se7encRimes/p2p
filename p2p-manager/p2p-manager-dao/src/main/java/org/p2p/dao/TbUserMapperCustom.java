@@ -56,4 +56,7 @@ public interface TbUserMapperCustom {
 
     @Select("select balance from tb_user where id=#{userId}")
     Double selectAccountBalance(int userId);
+
+    @Select("select growth from tb_user where id=#{userId}")
+    Integer selectGrowth(int userId);
 }

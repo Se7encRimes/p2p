@@ -33,6 +33,9 @@ public class TbUserServiceImpl implements TbUserService {
         TbUser user1 = tbUserMapperCustom.selectByPhone(user.getPhone());
         if (user1 == null) {
             user.setCreatedate(new Date());
+            user.setBalance(0.0);
+            user.setGrowth(0);
+            user.setJifen(0);
             return tbUserMapper.insert(user);
         } else {
             return -1;
@@ -190,18 +193,36 @@ public class TbUserServiceImpl implements TbUserService {
     @Override
     public MyAccount queryAccount(Integer userId) {
         MyAccount myAccount = new MyAccount();
-        double balance = tbUserMapperCustom.selectAccountBalance(userId);
-        double principal = tbUserMapperCustom.selectMoneyByUserId(userId);
-        double totalEarnings = tbUserMapperCustom.selectEarningTotalByUserId(userId);
-        double tadayEarnings1 = principal*0.0001;
+        Double balance = tbUserMapperCustom.selectAccountBalance(userId);
+        if(balance==null){
+            balance=0.00;
+        }
+        Double principal = tbUserMapperCustom.selectMoneyByUserId(userId);
+        if(principal==null){
+            principal=0.00;
+        }
+        Double totalEarnings = tbUserMapperCustom.selectEarningTotalByUserId(userId);
+        if(totalEarnings==null){
+            totalEarnings=0.00;
+        }
+        Double tadayEarnings1 = principal*0.0001;
         BigDecimal tadayEarnings2 = new BigDecimal(tadayEarnings1);
         BigDecimal tadayEarnings3 = tadayEarnings2.setScale(2, RoundingMode.DOWN);
-        double tadayEarnings = Double.parseDouble(String.valueOf(tadayEarnings3));
+        Double tadayEarnings = Double.parseDouble(String.valueOf(tadayEarnings3));
         myAccount.setBalance(balance);
         myAccount.setPrincipal(principal);
         myAccount.setTadayEarnings(tadayEarnings);
         myAccount.setTotalEarnings(totalEarnings);
         myAccount.setTotalAssets(balance+principal+tadayEarnings+totalEarnings);
         return myAccount;
+    }
+
+    @Override
+    public Integer getGrowthOnly(int userId) {
+       Integer growth = tbUserMapperCustom.selectGrowth(userId);
+        if(growth==null){
+            growth=0;
+        }
+        return growth;
     }
 }

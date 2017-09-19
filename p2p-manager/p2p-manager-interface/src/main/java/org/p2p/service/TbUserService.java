@@ -40,4 +40,6 @@ public interface TbUserService {
     String signQuery(int userId);
 
     MyAccount queryAccount(Integer userId);
+
+    Integer getGrowthOnly(int userId);
 }

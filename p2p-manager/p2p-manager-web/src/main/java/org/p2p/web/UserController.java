@@ -86,7 +86,16 @@ public class UserController {
         return accountBalance;
     }
 
-    //获取成长值
+    @RequestMapping(value="getGrowthOnly",produces = "text/html;charset=UTF-8")
+    @ResponseBody
+    public String getGrowthOnly(String userId){
+        Integer growth = userService.getGrowthOnly(Integer.parseInt(userId));
+        System.err.println(growth);
+
+        return growth.toString();
+    }
+
+    //获取成长值和等级，差额
     @RequestMapping(value="getGrowth",produces = "text/html;charset=UTF-8")
     @ResponseBody
     public String getSign_Growth(String userId,int active_id) throws JsonProcessingException {

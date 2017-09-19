@@ -359,10 +359,11 @@
             <span class="ringleader-sonr">特邀帮主</span>
           </div>
         </div>
+        <input type="hidden" id="userId" value="${sessionScope.user.id}"/>
         <div class="range-parents">
           <div class="range"><div style="width: 8%;" class="range-son"></div></div>
           <span class="progress" style="left:18px;margin-top:10px;">0</span>
-          <div class="myprogress" style="left:33px;"><span class="myprogress-son">${sessionScope.user.growth}</span></div>
+          <div class="myprogress" style="left:33px;"><span class="myprogress-son" id="growth"></span></div>
           <span class="progress" style="left:130px;margin-top:10px;">4000</span>
           <span class="progress" style="left:255px;margin-top:10px;">20000</span>
           <span class="progress" style="left:380px;margin-top:10px;">60000</span>
@@ -372,6 +373,21 @@
         <p class="p-se">“特邀帮主”目前采取邀请制，接到平台邀请开通的用户可享有。</p>
 
       </div>
+      <script>
+        $(function(){
+          var growth="";
+          $.ajax({
+            async:false,//使用同步的Ajax请求
+            type: "POST",
+            url: "getGrowthOnly?userId="+document.getElementById("userId").value,
+            success: function(data){
+             // alert(data);
+              growth+=JSON.parse(data);
+            }
+          });
+          $("#growth").html((Number)(growth));
+        });
+      </script>
 
 
       <div class="mygrow" style="height:450px;">
