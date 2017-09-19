@@ -1,6 +1,5 @@
 package org.p2p.web;
 
-import org.p2p.pojo.po.TbUser;
 import org.p2p.service.MsgService;
 import org.p2p.utlis.ulogin;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,12 +37,13 @@ public class MsgController {
     //发送短信
     @RequestMapping("sendphone")
     @ResponseBody
-    public ulogin sendmsg(HttpServletRequest request,HttpSession session,String cellphone,String user_name,String pcode) throws  IOException {
+    public ulogin sendmsg(HttpServletRequest request,HttpSession session,String cellphone,String pcode) throws  IOException {
        //随机生成6位数字
-        System.out.println("phone:"+cellphone+"==>name:"+user_name+"==>code:");
+        System.out.println("phone:"+cellphone);
         String code=(String )session.getAttribute("strCode");
+        session.setAttribute("phone",cellphone);
         if(code.equals(pcode)){
-           return msgService.msg(user_name,cellphone);
+           return msgService.msg(cellphone);
         }
         return null;
     }
@@ -63,10 +63,10 @@ public class MsgController {
     @RequestMapping("repass")
     @ResponseBody
     public ulogin repass(HttpSession session,String password1,String password2){
-        TbUser user=(TbUser)session.getAttribute("user");
-        int id=user.getId();
+        String phone=(String)session.getAttribute("phone");
+
         System.out.println(password1+"=====》"+password2+"=====》");
-        return msgService.updateById(password1,password2,id);
+        return msgService.updateById(password1,password2,phone);
     }
 
 }

@@ -32,13 +32,15 @@ public interface TbUserMapper {
     int updateByPrimaryKey(TbUser record);
 
     //验证用户名和手机号是正确
-    @Select("select password from tb_user where username=#{arg0} and phone=#{arg1}")
-    String  selectMsg(String name,String cellPhone);
+    @Select("select password from tb_user where  phone=#{cellPhone}")
+    String  selectMsg(String cellPhone);
 
-    @Update("update tb_user set password=#{arg0} where id=#{arg1}")
-    int updateById(String password,int id);
+    @Update("update tb_user set password=#{arg0} where phone=#{arg1}")
+    int updateById(String password,String phone);
 
     @Select("select phone from tb_user where username=#{name}")
     String  selectEmil(String name);
+
+
 
 }

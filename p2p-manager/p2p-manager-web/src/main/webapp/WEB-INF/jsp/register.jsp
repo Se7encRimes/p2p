@@ -225,6 +225,7 @@
         $('.m2-loginReg-box').show();
       });
 
+
       //隐藏弹窗(体验金弹框)
       $("#newregister-close").click(function(){
         $("#newregister").hide();

@@ -453,10 +453,10 @@
         </tr>
 
         <tr>
-          <td class="label"><h2 style="color:#0000FF">申请时间:</h2></td>
+<%--          <td class="label"><h2 style="color:#0000FF">申请时间:</h2></td>
           <td>
             <input  id="firstTime"  type= "text" class= "easyui-datebox" required ="required" style="width: 300px" name="firstTime" >
-          </td>
+          </td>--%>
         </tr>
 
         <tr>

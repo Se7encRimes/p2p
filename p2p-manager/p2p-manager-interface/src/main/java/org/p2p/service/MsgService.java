@@ -9,11 +9,11 @@ import java.io.IOException;
  */
 public interface MsgService {
 
-    ulogin msg(String user_name ,String cellphone) throws IOException;
+    ulogin msg(String cellphone) throws IOException;
 
-    ulogin find(int pcode);
+    ulogin find(int code);
     //修改密码
-    ulogin updateById(String password1,String password2,int id);
+    ulogin updateById(String password1,String password2,String id);
 
     //邮箱修改密码
     ulogin  selectEmil(String username,String emil);

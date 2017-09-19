@@ -6,6 +6,7 @@ import org.p2p.pojo.vo.TbUserRecoding;
 import org.p2p.service.TbInvestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * Created by Administrator on 2017/9/13/013.
  */
 @Service
+@Transactional
 class TbInvestServiceIpml implements TbInvestService {
 
     @Autowired
@@ -41,7 +43,7 @@ class TbInvestServiceIpml implements TbInvestService {
     }
 
     @Override
-    public String selectBalance(int id) {
+    public double selectBalance(int id) {
         return dao.selectBalance(id);
     }
 
@@ -53,6 +55,23 @@ class TbInvestServiceIpml implements TbInvestService {
     @Override
     public List<TbUserRecoding> selectRecode(int id) {
         return dao.selectRecode(id);
+    }
+
+    @Override
+    public int updateByBalance(double balance, int id) {
+        return dao.updateByBalance(balance,id);
+    }
+
+
+
+    @Override
+    public double selectByMid(int id) {
+        return dao.selectByMid(id);
+    }
+
+    @Override
+    public int updateByJin(double balance, int id) {
+        return dao.updateByJin(balance,id);
     }
 
 

@@ -161,12 +161,12 @@
           <div class="m2-pwdTab2">邮箱找回</div>
         </div>
         <form class="m2-pwdForm" id="m2-pwdTelform" action="">
-          <div class="m2-pwdFrom-item" id="m2-pwdTab1-user">
+  <%--        <div class="m2-pwdFrom-item" id="m2-pwdTab1-user">
             <span><i></i>用户名</span>
             <input placeholder="请输入用户名" type="text" id='user_name'>
             <b class="m2-pwdForget">忘记了？</b>
             <u></u>
-          </div>
+          </div>--%>
           <div class="m2-pwdFrom-item" id="m2-pwdTab1-tel">
             <span><i></i>手机号</span>
             <input placeholder="请输入手机号" type="text" maxlength="11" id='user_phone'>
@@ -181,7 +181,7 @@
           <div class="m2-pwdFrom-item" id="m2-pwdTab1-telCode">
             <span><i></i>短信验证码</span>
             <input placeholder="请输入验证码" type="text" id='vcode'>
-            <b id='sendCode'>获取验证码</b>
+            <b id='sendCode'>获取手机验证码</b>
             <u></u>
           </div>
 
@@ -300,21 +300,22 @@
         if(verifynum >= 3){
           $('#m2-pwdTab1-code').show();
         }
-      })
+      });
 
       function sendPhoneCode(){
+
         var p={};
         var phone = $("#user_phone").val();
-        var user_name = $("#user_name").val();
+      /*  var user_name = $("#user_name").val();*/
         var pcode = $("#pcode").val();
         if(!mbTest.test(phone)){
           $("#user_phone").parent().children('u').text("请输入正确的手机号码");
           return false;
         }
-        if(!user_name){
+/*        if(!user_name){
           $("#user_name").parent().children('u').text("用户名不能为空","warn",2);
           return false;
-        }
+        }*/
         if(verifynum >= 3){
           if(!pcode){
             $("#pcode").parent().children('u').text("图片验证码不能为空","warn",2);
@@ -322,7 +323,7 @@
           }
         }
         p.cellphone = phone;
-        p.user_name = user_name;
+     /*   p.user_name = user_name;*/
         p.pcode = pcode;
         postData("sendphone",p,function(d){
           verifynum ++;
@@ -363,17 +364,17 @@
 
       function getpassword(){
         var phone = $("#user_phone").val();
-        var user_name = $("#user_name").val();
+     /*   var user_name = $("#user_name").val();*/
         var code = $("#vcode").val();
         var pcode = $("#pcode").val();
         if(!mbTest.test(phone)){
           $("#user_phone").parent().children('u').text("请输入正确的手机号码");
           return false;
         }
-        if(!user_name){
+/*        if(!user_name){
           $("#user_name").parent().children('u').text("用户名不能为空");
           return false;
-        }
+        }*/
         if(code.length!=6){
           $("#vcode").parent().children('u').text("短信验证码不对");
           return false;
@@ -385,8 +386,8 @@
           }
         }
         var p={};
-/*        p.cellphone = phone;
-        p.user_name = user_name;
+        /*     p.cellphone = phone;
+            p.user_name = user_name;
         p.vcode = code;*/
         p.pcode=code;
         postData("find",p,function(d){

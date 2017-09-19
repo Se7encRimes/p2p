@@ -13,7 +13,7 @@
       	<table width="60%">
 			<tr>  
 				<td bgcolor="#F7FEFF" colspan="4">
-			 		订单号:<INPUT TYPE="text" NAME="orderid" value="${cardNo}">
+			 		<%--订单号:<INPUT TYPE="text" NAME="orderid" value="${cardNo}">--%>
 			 		支付金额:<INPUT TYPE="text" NAME="money" size="6" value="${money}">元
 			 	</td>
 			</tr>

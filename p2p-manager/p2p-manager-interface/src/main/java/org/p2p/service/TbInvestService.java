@@ -19,10 +19,16 @@ public interface TbInvestService {
 
 
     //查询余额
-    String selectBalance(int id);
+    double selectBalance(int id);
     //查询用户姓名
     String selectName(int id);
     //查询个人投资记录
     List<TbUserRecoding> selectRecode(int id);
 
+    int updateByBalance(double balance,int id);
+
+    //查询项目总金额
+    double selectByMid(int id);
+    //更新项目进度
+    int updateByJin(double balance,int id);
 }

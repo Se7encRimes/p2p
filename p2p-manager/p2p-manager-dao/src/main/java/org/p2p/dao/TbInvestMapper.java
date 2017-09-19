@@ -47,7 +47,7 @@ public interface TbInvestMapper {
 
     //查询余额
     @Select("select balance from tb_user where id=#{id}")
-    String selectBalance(int id);
+    double selectBalance(int id);
 
     //查询用户姓名
     @Select("select username from tb_user where id=#{id}")
@@ -58,4 +58,20 @@ public interface TbInvestMapper {
             "left join tb_item i on t.id=i.incestid  where u.id=#{id}")
     @ResultType(TbUserRecoding.class)
     List<TbUserRecoding> selectRecode(int id);
+
+    //更新用户余额
+    @Update("update tb_user set balance=#{arg0} where id=#{arg1}")
+    int updateByBalance(double balance,int id);
+
+    //查询项目总金额
+    @Select("select money from tb_project where id=#{id}")
+    double selectByMid(int id);
+
+    //更新项目进度
+    @Update("update tb_project set jindu=#{arg0} where id=#{arg1}")
+    int updateByJin(double balance,int id);
+
+    //更新用户余额
+
+
 }

@@ -57,17 +57,13 @@ public class PayController {
         int uid = user.getId();
         //查询余额
         if (service.selectByUid(uid) != null) {
-            if(investService.selectBalance(uid)==null){
-                session.setAttribute("balance",0);
-            }
-            else {
-                ProjectItem projectItem = projectItemService.getProjectItemById(id);
-                model.addAttribute("projectItem",projectItem);
-                session.setAttribute("balance",investService.selectBalance(uid));
-            }
+            ProjectItem projectItem = projectItemService.getProjectItemById(id);
+            model.addAttribute("projectItem",projectItem);
+            session.setAttribute("balance",investService.selectBalance(uid));
+
             //查询记录
             List<TbUserRecoding> tbUserRecodings=investService.selectRecode(uid);
-           // new SimpleDateFormat("yyyy-MM-hh:mm:ss").format(tbUserRecodings.get())
+            // new SimpleDateFormat("yyyy-MM-hh:mm:ss").format(tbUserRecodings.get())
             if(tbUserRecodings==null){
                 session.setAttribute("recode",null);
             }else {
@@ -84,63 +80,78 @@ public class PayController {
     //确认点击投资
     @RequestMapping("creatOrder")
     @ResponseBody
-    public String  creat(String invest_money,int xid,HttpSession session,Model model){
+    public String  creat(String invest_money,int xid,HttpSession session,Model model) {
 
-        //比较投资金额更余额
+        //比较投资金额和余额
 
-        String balance =(String)session.getAttribute("balance");
-        int balance1=Integer.parseInt(balance);
-        int money10=Integer.parseInt(invest_money);
-
- /*       if(money10<=balance1){
-
-        return "chanpiin";
-        }else {
-
-        }*/
-
-        TbUser user=(TbUser)session.getAttribute("user");
+        TbUser user = (TbUser) session.getAttribute("user");
         int uid = user.getId();
-        double money=Double.parseDouble(invest_money);
-        TbInvest tbInvest=new TbInvest();
-        TbItem tbItem=new TbItem();
+        //数据库余额
+        double balance1 = investService.selectBalance(uid);
+        //投资金额
+        double money = Double.parseDouble(invest_money);
+        //余额减去投资金额，更新数据库，然后跳转到本页面。
+        double balance2 = (balance1 - money);
+        if(balance2>0){
+
+            investService.updateByBalance(balance2,uid);
+        }else{
+            return "defail";
+        }
+
+        TbInvest tbInvest = new TbInvest();
+        TbItem tbItem = new TbItem();
         tbInvest.setUserid(uid);
         //添加数据
-        if(investService.selectByUid(uid)==null){
+        if (investService.selectByUid(uid) == null) {
 
             tbInvest.setMoney(money);
-            tbInvest.setEarnings(money*0.01);
+            tbInvest.setEarnings(money * 0.01);
             investService.insert(tbInvest);
-        }else {
-            TbInvest invest=investService.selectByUid(uid);
-            tbInvest.setMoney(money+invest.getMoney());
-            tbInvest.setEarnings(invest.getEarnings()+money*0.01);
+        } else {
+            TbInvest invest = investService.selectByUid(uid);
+            tbInvest.setMoney(money + invest.getMoney());
+            tbInvest.setEarnings(invest.getEarnings() + money * 0.01);
             investService.updateByUid(tbInvest);
         }
-        int id=investService.selectId(uid);
-        tbItem.setEarnings(money*0.01);
+        int id = investService.selectId(uid);
+        tbItem.setEarnings(money * 0.01);
         tbItem.setMoney(money);
         tbItem.setCreatedate(new Date());
         tbItem.setIncestid(id);
         tbItem.setProjectid(xid);
-        if(itemService.insert(tbItem)>0){
-            //随机生成订单号
-            String orderNo="";
-            UUID uuid = UUID.randomUUID();
-            String trandNo = String.valueOf((Math.random() * 9 + 1) * 1000000);
-            String sdf = new SimpleDateFormat("yyyyMMddHHMMSS").format(new Date());
-            orderNo = uuid.toString().substring(0, 8);
-            orderNo = orderNo + sdf ;
-            session.setAttribute("money", money);
-            session.setAttribute("cardNo", orderNo);
-            return "pay";
+
+        //更新项目进度
+        double money1=investService.selectByMid(xid);
+        if(money<money1){
+            investService.updateByJin(money,xid);
         }
-        return "error";
+        if (itemService.insert(tbItem) > 0) {
+
+            return "success";
+        } else {
+            return "defail";
+        }
+
     }
     //支付action
     @RequestMapping("payAction")
-    public String pay( HttpServletRequest request,String  money,String orderid){
-    // 获得 支付必须基本数据
+    public String pay( HttpServletRequest request,String  money,String orderid,HttpSession session){
+        // 获得 支付必须基本数据
+        TbUser user = (TbUser) session.getAttribute("user");
+        int uid = user.getId();
+        double balance = investService.selectBalance(uid);
+        investService.updateByBalance(balance+ Double.parseDouble(money),uid);
+        //随机生成订单号
+        String orderNo="";
+        UUID uuid = UUID.randomUUID();
+        String trandNo = String.valueOf((Math.random() * 9 + 1) * 1000000);
+        String sdf = new SimpleDateFormat("yyyyMMddHHMMSS").format(new Date());
+        orderNo = uuid.toString().substring(0, 8);
+        orderNo = orderNo + sdf ;
+        /*request.setAttribute("money", money);*/
+/*        request.setAttribute("cardNo", orderNo);*/
+
 
         // 银行
         String pd_FrpId = request.getParameter("pd_FrpId");
@@ -149,7 +160,7 @@ public class PayController {
         String p0_Cmd = "Buy";
         String p1_MerId = ResourceBundle.getBundle("merchantInfo").getString(
                 "p1_MerId");
-        String p2_Order = orderid;
+        String p2_Order = orderNo;
         String p3_Amt = money;
         String p4_Cur = "CNY";
         String p5_Pid = "";

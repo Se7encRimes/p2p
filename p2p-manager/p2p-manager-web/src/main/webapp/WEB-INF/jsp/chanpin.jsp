@@ -570,10 +570,11 @@
       <div class="m2-detRig-unlogin m2-detRig-select">
         <div class="m2-detRiglogin">
           <p class="mo2-proNewdet">可投金额：<span id='left_money'>${projectItem.residuemoney}                               元 </span></p>
-          <p>徽商账户余额：${balance}元<a style="color: #09c;float: right;margin-right: 30px;" href='#?chargereturnurl=/invest-borrownew-id-moxOeTwTZaOw8TY79g.shtml' target="_blank">充值</a>
+          <p>徽商账户余额：${balance}元<a style="color: #09c;float: right;margin-right: 30px;" href='pay' target="_blank">充值</a>
           </p>
         </div>
         <div class="m2-detRigipt">
+          <input type="hidden" id="balance" value="${balance}"/>
           <input placeholder="100元起投" type="text" id="invest_money"> <span  class='invest_all'><%--全投--%></span>
         </div>
        <%-- <div class="m2-detRigjust">
@@ -1481,17 +1482,28 @@
   //立即投资
 
   $('#invest_now').click(function () {
-    $.ajax({
-      async:true,//使用同步的Ajax请求
-      type: "POST",
-      url: "creatOrder?invest_money="+document.getElementById("invest_money").value+'&xid='+document.getElementById("projectId").value,
-      //data: ,
-      success: function(d){
-        if(window.confirm("亲爱的用户:点击确定将进入支付页面")){
-        window.location.href=d;
+
+    var tbalance=$("#invest_money").val();
+    var ybalance=$("#balance").val();
+    if(tbalance>ybalance){
+      alert("余额不足请充值！");
+    }else{
+
+      $.ajax({
+        async:true,//使用同步的Ajax请求
+        type: "POST",
+        url: "creatOrder?invest_money="+document.getElementById("invest_money").value+'&xid='+document.getElementById("projectId").value,
+        //data: ,
+        success: function(d){
+          /*if(window.confirm("亲爱的用户:点击确定将进入支付页面")){*/
+            window.location.href=d;
+          /*}*/
         }
-      }
-    });
+      });
+    }
+
+
+
     /*if(!uid){
       window.location.href = '/login';
       return;

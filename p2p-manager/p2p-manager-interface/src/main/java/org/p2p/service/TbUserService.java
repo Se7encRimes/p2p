@@ -33,4 +33,7 @@ public interface TbUserService {
     List<InvestItem> getInvestItem(int userId);
 
     String signIn(int userId);
+
+
+
 }
