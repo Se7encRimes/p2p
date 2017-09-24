@@ -106,11 +106,11 @@
     }
     function showLoginInfoDialog(text,status,func,callback){
       $('.m2-pwdConfirm-con').text(text);
-      if(status){
+
         $('#dialog-status').addClass('m2-pwdConfirm-ture');
-      }else{
+     /* }else{
         $('#dialog-status').addClass('m2-pwdConfirm-false');
-      }
+      }*/
       $('.m2-pwdBg').show();
       $('.m2-pwdConfirm').show();
       if(status){
