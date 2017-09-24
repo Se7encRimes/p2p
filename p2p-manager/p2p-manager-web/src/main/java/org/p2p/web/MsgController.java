@@ -64,7 +64,6 @@ public class MsgController {
     @ResponseBody
     public ulogin repass(HttpSession session,String password1,String password2){
         String phone=(String)session.getAttribute("phone");
-
         System.out.println(password1+"=====》"+password2+"=====》");
         return msgService.updateById(password1,password2,phone);
     }

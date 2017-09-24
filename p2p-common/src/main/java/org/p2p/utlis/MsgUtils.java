@@ -17,7 +17,7 @@ public class MsgUtils {
 	HttpClient client = new HttpClient();
 	PostMethod post = new PostMethod("http://gbk.api.smschinese.cn"); 
 	post.addRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=gbk");//在头文件中设置转码
-	NameValuePair[] data ={ new NameValuePair("Uid", "FaTiaoZhang"),new NameValuePair("Key", "4629b04a659c9a391bf3"),new NameValuePair("smsMob",title),new NameValuePair("smsText",content)};
+	NameValuePair[] data ={ new NameValuePair("Uid", "王强1234"),new NameValuePair("Key", "fc47d343e5cc55f3d138"),new NameValuePair("smsMob",title),new NameValuePair("smsText",content)};
 	post.setRequestBody(data);
 
 	client.executeMethod(post);

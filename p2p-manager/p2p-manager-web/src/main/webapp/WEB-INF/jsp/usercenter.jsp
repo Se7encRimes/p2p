@@ -414,8 +414,8 @@
           </script>
         </div>
         <div class="m2-wel-profitLink" style="padding-top:26px; margin-left:10px;">
-          <a class="m2-profit-cha" href="home-register-openbankid">徽商充值</a>
-          <a class="m2-profit-cha" href="home-register-openbankid" style="margin-left:54px;">徽商提现</a>
+          <a class="m2-profit-cha" href="pay">徽商充值</a>
+          <%--<a class="m2-profit-cha" href="home-register-openbankid" style="margin-left:54px;">徽商提现</a>--%>
         </div>
       </div>
     </div>

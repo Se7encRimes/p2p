@@ -43,7 +43,7 @@ public class MsgServiceImpl implements MsgService{
 
         System.out.println("pass======>"+dao.selectMsg(cellphone));
 
-       /* MsgUtils.SendMsg(cellphone, "亲爱的" + user_name + "用户,您找回密码的验证码是:" + num);*/
+        MsgUtils.SendMsg(cellphone, "亲爱的" + cellphone + "用户,您找回密码的验证码是:" + numb);
         System.out.println(cellphone+"<==>"+"<===>"+numb);
 
         return ulogin;

@@ -570,7 +570,7 @@
       <div class="m2-detRig-unlogin m2-detRig-select">
         <div class="m2-detRiglogin">
           <p class="mo2-proNewdet">可投金额：<span id='left_money'>${projectItem.residuemoney}                               元 </span></p>
-          <p>徽商账户余额：${balance}元<a style="color: #09c;float: right;margin-right: 30px;" href='pay' target="_blank">充值</a>
+          <p>徽商账户余额：${balance}元<a style="color: #09c;float: right;margin-right: 30px;" href='pay' target="_blank">徽商充值</a>
           </p>
         </div>
         <div class="m2-detRigipt">
